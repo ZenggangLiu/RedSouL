@@ -38,12 +38,13 @@
 
     #if defined(__APPLE__)
         // Apple
-        // NOTE: __EXCEPTIONS 定义为1，如果 C++ 或者 Objective-C 任何一方使用异常
-        #if (__EXCEPTIONS == 1)
+        // NOTE: __EXCEPTIONS 只有当 C++ 以及 Objective-C 的异常处理全部关掉时才不定义
+        //#if (__EXCEPTIONS == 1)
+        #if defined(__cpp_exceptions)
             #define USE_EXCEPTION 1
         #else
             #define USE_EXCEPTION 0
-        #endif
+        #endif // #if defined(__cpp_exceptions)
 
     #elif defined(_MSC_VER)
         // Microsoft
@@ -65,11 +66,12 @@
 #if !defined(USE_RTTI)
 
     #if defined(__APPLE__)
-        #if (__GXX_RTTI == 1)
+        //#if (__GXX_RTTI == 1)
+        #if defined(__cpp_rtti)
             #define USE_RTTI 1
         #else
             #define USE_RTTI 0
-        #endif // #if (__GXX_RTTI == 1)
+        #endif // #if defined(__cpp_rtti)
 
     #else
         #error TODO: No implementation

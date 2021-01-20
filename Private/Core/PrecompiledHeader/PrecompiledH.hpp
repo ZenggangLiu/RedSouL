@@ -112,7 +112,7 @@ STATIC_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 // 是否使用异常处理
 #if USE_EXCEPTION
     #if defined(__APPLE__)
-        #error Please set "Enabled C++ Exceptions" & "Enable Objective-C Exceptions" to "No"
+        #error Please set "Enabled C++ Exceptions" to "No"
     #else
         #error Please disable exceptions
     #endif // #if defined(__APPLE__)
