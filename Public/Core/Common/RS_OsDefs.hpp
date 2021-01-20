@@ -226,10 +226,10 @@
 // -x <language>           Treat subsequent input files as having type <language>
 // -dM                     Print macro definitions in -E mode instead of normal output
 // -E                      Only run the preprocessor
-// <ARCH>: arm64, x64, i386
+// ARCH 参数可以取如下数值: arm64, x86_64, i386
 //
 // /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
-// -x c++ -arch <ARCH> -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null
+// -x c++ -arch ARCH -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null
 // SEE: Doc/XCode/Predefined_Macros
 //
 // ------------ Apple Family ------------ //

@@ -1,7 +1,7 @@
 // Precompiled header
 #include "PrecompiledH.hpp"
 // System headers
-#if (OS_TYPE == OS_TYPE_MAC) || (OS_TYPE == OS_TYPE_IOS) || (OS_TYPE == OS_TYPE_TVOS)
+#if defined(__APPLE__)
 
 #if OS_TYPE != OS_TYPE_IOS
 #include <assert.h>
@@ -47,4 +47,4 @@ namespace Core
 } // namespace Core
 #endif // #if（BUILD_MODE == DEBUG_BUILD_MODE)
 
-#endif // #if (OS_TYPE == OS_TYPE_MAC) || (OS_TYPE == OS_TYPE_IOS) || (OS_TYPE == OS_TYPE_TVOS)
+#endif // #if defined(__APPLE__)

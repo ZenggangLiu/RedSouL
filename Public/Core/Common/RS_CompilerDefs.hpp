@@ -39,7 +39,7 @@
     #if defined(__APPLE__)
         // Apple
         // NOTE: __EXCEPTIONS 定义为1，如果 C++ 或者 Objective-C 任何一方使用异常
-        #if __EXCEPTIONS == 1
+        #if (__EXCEPTIONS == 1)
             #define USE_EXCEPTION 1
         #else
             #define USE_EXCEPTION 0
@@ -56,10 +56,26 @@
     #else
         // Linux
         #error TODO: No implementation
-
     #endif // #if defined(__APPLE__)
 
 #endif // #if !defined(USE_EXCEPTION)
+
+
+// RTTI 使用情况监测
+#if !defined(USE_RTTI)
+
+    #if defined(__APPLE__)
+        #if (__GXX_RTTI == 1)
+            #define USE_RTTI 1
+        #else
+            #define USE_RTTI 0
+        #endif // #if (__GXX_RTTI == 1)
+
+    #else
+        #error TODO: No implementation
+    #endif // #if defined(__APPLE__)
+
+#endif // #if !defined(USE_RTTI)
 
 
 // Build mode 检测

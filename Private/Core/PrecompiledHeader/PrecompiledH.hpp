@@ -95,7 +95,7 @@ STATIC_ASSERT(sizeof(Real64)            == 8);
 STATIC_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 #if (OS_TYPE == OS_TYPE_WIN)
     #pragma message("[Compile Env] Build mode: " BUILD_MODE_STR ", OS type: " OS_TYPE_STRING ", OS subtype: " OS_SUB_TYPE_STRING ", CPU type: " CPU_TYPE_STRING)
-#elif (OS_TYPE == OS_TYPE_MAC) || (OS_TYPE == OS_TYPE_IOS) || (OS_TYPE == OS_TYPE_TVOS)
+#elif defined(__APPLE__)
     #pragma message "[Compile Env] Build mode: " BUILD_MODE_STR ", OS type: " OS_TYPE_STRING ", OS subtype: " OS_SUB_TYPE_STRING ", CPU type: " CPU_TYPE_STRING
 #else
     #error "[Env Check]: No implementation"
@@ -111,12 +111,22 @@ STATIC_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 
 // 是否使用异常处理
 #if USE_EXCEPTION
-    #if (OS_TYPE == OS_TYPE_MAC) || (OS_TYPE == OS_TYPE_IOS) || (OS_TYPE == OS_TYPE_TVOS)
+    #if defined(__APPLE__)
         #error Please set "Enabled C++ Exceptions" & "Enable Objective-C Exceptions" to "No"
     #else
         #error Please disable exceptions
-    #endif // #if (OS_TYPE == OS_TYPE_MAC) || (OS_TYPE == OS_TYPE_IOS) || (OS_TYPE == OS_TYPE_TVOS)
+    #endif // #if defined(__APPLE__)
 #endif // #if USE_EXCEPTION
+
+
+// 是否使用 RTTI
+#if USE_RTTI
+    #if defined(__APPLE__)
+        #error Please set "Enabled C++ Runtime Types" to "No"
+    #else
+        #error Please disable RTTI
+    #endif // #if defined(__APPLE__)
+#endif // #if USE_RTTI
 
 
 // 是否定义编译配置
