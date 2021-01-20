@@ -11,7 +11,7 @@
         namespace Core
         {
 
-            // --- The implementation is in RS_RuntimeAssert_Imp.cpp --- //
+            // --- The implementation is in RS_RuntimeAssert_appl/wind/andr.??? --- //
             void
             RuntimeAssert (
                 const Bool        condition,

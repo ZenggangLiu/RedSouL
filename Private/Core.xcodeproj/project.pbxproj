@@ -13,9 +13,9 @@
 		E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858ED25B6DD1A0088515D /* RS_OsDefs.hpp */; };
 		E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EE25B6DD1A0088515D /* RS_CommonDefs.hpp */; };
 		E7A858F325B6DD290088515D /* PrecompiledH.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858F225B6DD290088515D /* PrecompiledH.hpp */; };
-		E7A858F525B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert.mm */; };
-		E7A858F625B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert.mm */; };
-		E7A858F725B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert.mm */; };
+		E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert_appl.mm */; };
+		E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert_appl.mm */; };
+		E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7A858F425B6DD3D0088515D /* RS_RuntimeAssert_appl.mm */; };
 		E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858FC25B78A680088515D /* RS_DataTypeDefs.hpp */; };
 		E7A858FF25B7CE250088515D /* TODO_Code.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858FE25B7CE250088515D /* TODO_Code.hpp */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,7 @@
 		E7A858ED25B6DD1A0088515D /* RS_OsDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_OsDefs.hpp; path = ../Public/Core/Common/RS_OsDefs.hpp; sourceTree = "<group>"; };
 		E7A858EE25B6DD1A0088515D /* RS_CommonDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_CommonDefs.hpp; path = ../Public/Core/Common/RS_CommonDefs.hpp; sourceTree = "<group>"; };
 		E7A858F225B6DD290088515D /* PrecompiledH.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PrecompiledH.hpp; path = Core/PrecompiledHeader/PrecompiledH.hpp; sourceTree = "<group>"; };
-		E7A858F425B6DD3D0088515D /* RS_RuntimeAssert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_RuntimeAssert.mm; path = Core/Assert/Apple/RS_RuntimeAssert.mm; sourceTree = "<group>"; };
+		E7A858F425B6DD3D0088515D /* RS_RuntimeAssert_appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_RuntimeAssert_appl.mm; path = Core/Assert/Apple/RS_RuntimeAssert_appl.mm; sourceTree = "<group>"; };
 		E7A858FC25B78A680088515D /* RS_DataTypeDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_DataTypeDefs.hpp; path = ../Public/Core/DataType/RS_DataTypeDefs.hpp; sourceTree = "<group>"; };
 		E7A858FE25B7CE250088515D /* TODO_Code.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TODO_Code.hpp; path = Core/TODO_Code.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +150,7 @@
 		E7A858DE25B590040088515D /* Assert */ = {
 			isa = PBXGroup;
 			children = (
-				E7A858F425B6DD3D0088515D /* RS_RuntimeAssert.mm */,
+				E7A858F425B6DD3D0088515D /* RS_RuntimeAssert_appl.mm */,
 			);
 			name = Assert;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */,
+				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */,
+				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert.mm in Sources */,
+				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
