@@ -1,0 +1,74 @@
+1. Xcode project settings:
+--- Build Products Path ---
+iOS:   $(PROJECT_DIR)/../Lib/iOS/ZGE
+ivOS:  $(PROJECT_DIR)/../Lib/tvOS/ZGE
+macOS: $(PROJECT_DIR)/../Lib/macOS/ZGE
+
+--- Intermediate Build Files Path ---
+iOS:   $(PROJECT_DIR)/../TrashBin/iOS/ZGE/$(CONFIGURATION)
+tvOS:  $(PROJECT_DIR)/../TrashBin/tvOS/ZGE/$(CONFIGURATION)
+macOS: $(PROJECT_DIR)/../TrashBin/macOS/ZGE/$(CONFIGURATION)
+
+--- Per-configuration Build Products Path ---
+iOS:   $(PROJECT_DIR)/../Lib/iOS/ZGE/$(CONFIGURATION)
+tvOS:  $(PROJECT_DIR)/../Lib/tvOS/ZGE/$(CONFIGURATION)
+macOS: $(PROJECT_DIR)/../Lib/macOS/ZGE/$(CONFIGURATION)
+
+--- Per-configuration Intermediate Build Files Path ---
+iOS:   $(PROJECT_DIR)/../TrashBin/iOS/ZGE/$(CONFIGURATION)
+tvOS:  $(PROJECT_DIR)/../TrashBin/tvOS/ZGE/$(CONFIGURATION)
+macOS: $(PROJECT_DIR)/../TrashBin/macOS/ZGE/$(CONFIGURATION)
+
+--- Precompiled Headers Cache Path ---
+iOS:   $(PROJECT_DIR)/../TrashBin/iOS/ZGE/$(CONFIGURATION)/PrecompiledHeaders
+tvOS:  $(PROJECT_DIR)/../TrashBin/tvOS/ZGE/$(CONFIGURATION)/PrecompiledHeaders
+macOS: $(PROJECT_DIR)/../TrashBin/macOS/ZGE/$(CONFIGURATION)/PrecompiledHeaders
+
+
+--- 添加如下User Defines ---
+CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../Library/$(SUPPORTED_PLATFORMS)/$(CONFIGURATION)";
+CONFIGURATION_TEMP_DIR = "$(PROJECT_DIR)/../TrashBin/$(SUPPORTED_PLATFORMS)/$(CONFIGURATION)";
+
+
+--- Deployment Target ---
+我们需要支持 Metal 2， 所以需要如下配置：
+- iOS Deployment Target: iOS 11
+- tvOS Deployment Target: tvOS 11
+- macOS Deployment Target: macOS High Sierra: macOS 10.13
+
+
+--- Use Header Maps ---
+YES
+
+--- Symbols Hidden by Default ---
+YES
+
+--- Other C++ Flags ---
+NOTE: this one is replaced by the above setting
+-fvisibility=hidden
+
+--- Prefix Header ---
+PrecompiledHeader/PrecompiledH.hpp
+
+--- C++ Language Dialect ---
+C++11 [-std=c+11]
+
+--- C++ Standard Library ---
+libc++(LLVM C++ standard library with C++11 support)
+
+--- Enablec C++ Exceptions ----
+NO
+
+--- Enable C++ Runtime Types ---
+NO
+
+
+2. to step into STL code:
+  - create a file called .lldbinit in your home directory(~)
+  - and put in that:
+    settings set target.process.thread.step-avoid-regexp """
+3. the header files in the "User Header Search Paths"
+will be given to -iquote command.
+These header files are used when searching the header files like: #include "xxx.h".
+NOTE: to search in the current folder: use '.' NOT './' 
+'./' will cause XCode generate -iquote "" for unknown reason

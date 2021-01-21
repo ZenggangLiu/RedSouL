@@ -230,8 +230,16 @@
 //
 // /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 // -x c++ -arch ARCH -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null
-// SEE: Doc/XCode/Predefined_Macros
 //
+// --- arm 64 ---
+// /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch arm64 -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null > predefined-macros_arm64.txt
+// --- x64 ---
+// /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null > predefined-macros_x64.txt
+// --- i386 --
+// /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -dM -E /dev/null > predefined-macros_i386.txt
+//
+// More details请参见: Documents/Compiler/XCode/Predefined_Macros
+
 // ------------ Apple Family ------------ //
 #if (OS_TYPE == OS_TYPE_UNKNOWN)
     // --- Checks OS_TYPE and OS_SUB_TYPE --- //
