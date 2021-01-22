@@ -8,7 +8,7 @@
 
 // 编译时的Assert
 #if !defined(STATIC_ASSERT)
-    // C++ 11
+    // C++ 11 up
     #if CXX_STANDARD_VER >= 2011
         #define STATIC_ASSERT(cond)                                                                \
         STATIC_ASSERT_MSG(cond, "condition: " #cond " failed!")

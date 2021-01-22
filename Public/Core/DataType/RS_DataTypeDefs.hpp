@@ -54,9 +54,9 @@ typedef double                          Real64;
 
 
 // nullptr
-#if CXX_STANDARD_VER == 98
+#if CXX_STANDARD_VER == 1998
     #define nullptr 0
-#endif // #if CXX_STANDARD_VER == 98
+#endif // #if CXX_STANDARD_VER == 1998
 
 
 // BYTE

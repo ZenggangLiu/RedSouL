@@ -10,22 +10,39 @@
         // 所以，从VS2015起，我们认为 C++11 完全支持：MSVC++ 14.0 _MSC_VER == 1900 (Visual Studio 2015)
         //we consider starting from vs 2015 a full support on c++ 11
         #define CXX_STANDARD_VER 2011
+        #define CXX_STANDARD_VER_STR "C++ 2011"
 
     #else
         // other compilers
         #if defined(__cplusplus)
+            // C++ 98标准
             #if __cplusplus == 199711L
                 #define CXX_STANDARD_VER 1998
-
+                #define CXX_STANDARD_VER_STR "C++ 1998"
+            // C++ 2011标准
             #elif __cplusplus == 201103L
                 #define CXX_STANDARD_VER 2011
+                #define CXX_STANDARD_VER_STR "C++ 2011"
+            // C++ 2014标准
+            #elif __cplusplus == 201402L
+                #define CXX_STANDARD_VER 2014
+                #define CXX_STANDARD_VER_STR "C++ 2014"
+            // C++ 2017标准
+            #elif __cplusplus == 201703L
+                #define CXX_STANDARD_VER 2017
+                #define CXX_STANDARD_VER_STR "C++ 2017"
+            // C++ 2020标准
+            #elif __cplusplus == 201707L
+                #define CXX_STANDARD_VER 2020
+                #define CXX_STANDARD_VER_STR "C++ 2020"
             #else
-                #error No logic to check c++ standard later than C++11
+                #error Unknown C++ standard
             #endif // #if __cplusplus == 199711L
 
         #else
-           // if the file is compiled by objc for instance, we just use old c++ 98
+           // 如果此文件使用Objective-C进行编译我们将使用C++1998标准
             #define CXX_STANDARD_VER 1998
+            #define CXX_STANDARD_VER_STR "C++ 1998"
         #endif // #if defined(__cplusplus)
 
     #endif // #if defined(_MSC_VER) && _MSC_VER >= 1900
