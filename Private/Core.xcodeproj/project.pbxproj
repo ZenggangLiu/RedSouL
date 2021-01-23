@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */; };
+		E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */; };
+		E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */; };
+		E785D15F25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */; };
+		E785D16625BC0E930042292E /* xxhash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16225BC0E930042292E /* xxhash.cpp */; };
+		E785D16725BC0E930042292E /* xxhash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16225BC0E930042292E /* xxhash.cpp */; };
+		E785D16825BC0E930042292E /* xxhash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16225BC0E930042292E /* xxhash.cpp */; };
+		E785D16925BC0E930042292E /* murmurhash3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16325BC0E930042292E /* murmurhash3.cpp */; };
+		E785D16A25BC0E930042292E /* murmurhash3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16325BC0E930042292E /* murmurhash3.cpp */; };
+		E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16325BC0E930042292E /* murmurhash3.cpp */; };
+		E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16425BC0E930042292E /* murmurhash3.hpp */; };
+		E785D16D25BC0E930042292E /* xxhash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16525BC0E930042292E /* xxhash.hpp */; };
 		E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */; };
 		E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */; };
 		E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */; };
@@ -44,6 +56,12 @@
 /* Begin PBXFileReference section */
 		E71884FE25B28C4800B8266B /* libCore-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E718851225B2911500B8266B /* libCore-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_RuntimeHash.hpp; path = ../Public/Core/Hash/RS_RuntimeHash.hpp; sourceTree = "<group>"; };
+		E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_RuntimeHash.cpp; path = Core/Hash/RS_RuntimeHash.cpp; sourceTree = "<group>"; };
+		E785D16225BC0E930042292E /* xxhash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xxhash.cpp; path = Core/External/Hash/xxhash.cpp; sourceTree = "<group>"; };
+		E785D16325BC0E930042292E /* murmurhash3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = murmurhash3.cpp; path = Core/External/Hash/murmurhash3.cpp; sourceTree = "<group>"; };
+		E785D16425BC0E930042292E /* murmurhash3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = murmurhash3.hpp; path = Core/External/Hash/murmurhash3.hpp; sourceTree = "<group>"; };
+		E785D16525BC0E930042292E /* xxhash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = xxhash.hpp; path = Core/External/Hash/xxhash.hpp; sourceTree = "<group>"; };
 		E7A858BE25B2E1680088515D /* libCore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_RuntimeAssert.hpp; path = ../Public/Core/Assert/RS_RuntimeAssert.hpp; sourceTree = "<group>"; };
 		E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticAssert.hpp; path = ../Public/Core/Assert/RS_StaticAssert.hpp; sourceTree = "<group>"; };
@@ -105,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				E7A858DE25B590040088515D /* Assert */,
+				E785D16025BC0E800042292E /* External */,
+				E785D15725BC09A90042292E /* Hash */,
 				E7A858E325B6D7E50088515D /* PrecompiledHeader */,
 			);
 			name = Private;
@@ -116,6 +136,7 @@
 				E7A858D225B57F840088515D /* Assert */,
 				E718850725B28CEF00B8266B /* Common */,
 				E7A858D525B57FD10088515D /* DataType */,
+				E785D15425BBDE2F0042292E /* Hash */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -128,6 +149,41 @@
 				E7A858ED25B6DD1A0088515D /* RS_OsDefs.hpp */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		E785D15425BBDE2F0042292E /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */,
+			);
+			name = Hash;
+			sourceTree = "<group>";
+		};
+		E785D15725BC09A90042292E /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */,
+			);
+			name = Hash;
+			sourceTree = "<group>";
+		};
+		E785D16025BC0E800042292E /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E785D16125BC0E870042292E /* Hash */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		E785D16125BC0E870042292E /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				E785D16425BC0E930042292E /* murmurhash3.hpp */,
+				E785D16325BC0E930042292E /* murmurhash3.cpp */,
+				E785D16525BC0E930042292E /* xxhash.hpp */,
+				E785D16225BC0E930042292E /* xxhash.cpp */,
+			);
+			name = Hash;
 			sourceTree = "<group>";
 		};
 		E7A858D225B57F840088515D /* Assert */ = {
@@ -170,13 +226,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E785D16D25BC0E930042292E /* xxhash.hpp in Headers */,
 				E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */,
 				E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */,
 				E7A858F325B6DD290088515D /* PrecompiledH.hpp in Headers */,
 				E7A858FF25B7CE250088515D /* TODO_Code.hpp in Headers */,
+				E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */,
 				E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */,
 				E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */,
 				E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */,
+				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,
 				E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
 				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D16A25BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D16725BC0E930042292E /* xxhash.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +350,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
 				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D16925BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D16625BC0E930042292E /* xxhash.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E785D15F25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
 				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D16825BC0E930042292E /* xxhash.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +432,10 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Public";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../Public",
+					"$(SRCROOT)/../Private",
+				);
 			};
 			name = Debug;
 		};
@@ -423,7 +494,10 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Public";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../Public",
+					"$(SRCROOT)/../Private",
+				);
 			};
 			name = Release;
 		};
