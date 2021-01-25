@@ -98,7 +98,7 @@ namespace Core
         const SampleStats _stats = stats_it.stats();
         printf("- %s: "
                "[#used]: %d, "
-               "[Total]: %.6f, [Avg Total]: %.6fs, [Self]: %.6f, [Avg Self]: %.6f\n",
+               "[Total]: %.4f, [Avg Total]: %.4fs, [Self]: %.4f, [Avg Self]: %.4f\n",
                _stats.name,
                _stats.used_num,
                _stats.total_time, _stats.avg_total_time, _stats.self_time, _stats.avg_self_time);
