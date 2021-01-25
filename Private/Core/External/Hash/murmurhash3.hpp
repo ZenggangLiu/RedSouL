@@ -9,6 +9,12 @@
 
 //-----------------------------------------------------------------------------
 
+UInt32
+MurmurHash3_x86_32 (
+    const UInt32       seed,
+    const UInt8 *const buffer,
+    const SInt32       buffer_len);
+
 void MurmurHash3_x86_128(
     const UInt32       seed,
     const UInt8 *const buffer,

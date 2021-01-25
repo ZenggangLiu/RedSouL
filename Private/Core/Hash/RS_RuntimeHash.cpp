@@ -46,11 +46,7 @@ namespace Core
         const UInt8 *const buffer,
         const SInt32       buffer_len)
     {
-#if (CPU_TYPE == CPU_TYPE_32)
-        return XXH32(buffer, buffer_len, seed);
-#else
-        return (UInt32)hash64(seed, buffer, buffer_len);
-#endif
+        return MurmurHash3_x86_32(seed, buffer, buffer_len);
     }
 
 
@@ -60,7 +56,7 @@ namespace Core
         const UInt8 *const buffer,
         const SInt32       buffer_len)
     {
-        return XXH64(buffer, buffer_len, seed);
+        return XXH64(seed, buffer, buffer_len);
     }
 
 

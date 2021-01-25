@@ -19,6 +19,7 @@
 		E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16325BC0E930042292E /* murmurhash3.cpp */; };
 		E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16425BC0E930042292E /* murmurhash3.hpp */; };
 		E785D16D25BC0E930042292E /* xxhash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16525BC0E930042292E /* xxhash.hpp */; };
+		E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16E25BC198A0042292E /* RS_StaticHash.hpp */; };
 		E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */; };
 		E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */; };
 		E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */; };
@@ -62,6 +63,7 @@
 		E785D16325BC0E930042292E /* murmurhash3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = murmurhash3.cpp; path = Core/External/Hash/murmurhash3.cpp; sourceTree = "<group>"; };
 		E785D16425BC0E930042292E /* murmurhash3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = murmurhash3.hpp; path = Core/External/Hash/murmurhash3.hpp; sourceTree = "<group>"; };
 		E785D16525BC0E930042292E /* xxhash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = xxhash.hpp; path = Core/External/Hash/xxhash.hpp; sourceTree = "<group>"; };
+		E785D16E25BC198A0042292E /* RS_StaticHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticHash.hpp; path = ../Public/Core/Hash/RS_StaticHash.hpp; sourceTree = "<group>"; };
 		E7A858BE25B2E1680088515D /* libCore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_RuntimeAssert.hpp; path = ../Public/Core/Assert/RS_RuntimeAssert.hpp; sourceTree = "<group>"; };
 		E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticAssert.hpp; path = ../Public/Core/Assert/RS_StaticAssert.hpp; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */,
+				E785D16E25BC198A0042292E /* RS_StaticHash.hpp */,
 			);
 			name = Hash;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				E7A858FF25B7CE250088515D /* TODO_Code.hpp in Headers */,
 				E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */,
 				E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */,
+				E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */,
 				E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */,
 				E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */,
 				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,

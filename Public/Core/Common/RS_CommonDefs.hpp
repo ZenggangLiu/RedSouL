@@ -9,7 +9,7 @@
 // NOTE：API_BUILD 必须定义为 0 或者 1
 #if !defined(API_FUNCTION)
     #if !defined(API_BUILD)
-        #error Please check if API_BUILD has been defined
+        #error Please define API_BUILD in the build setting("Preprocessor Macros")
     #endif // #if !defined(API_BUILD)
 
     #if defined(_MSC_VER)

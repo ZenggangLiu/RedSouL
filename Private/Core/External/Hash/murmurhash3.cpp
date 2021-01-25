@@ -6,6 +6,7 @@
 // algorithms are optimized for their respective platforms. You can still
 // compile and run any of them on any platform, but your performance with the
 // non-native version will be less than optimal.
+// Ref: https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp
 // Precompiled header
 #include "PrecompiledH.hpp"
 // System headers
@@ -95,15 +96,74 @@ FORCE_INLINE UInt64 fmix64 ( UInt64 k )
 
 //-----------------------------------------------------------------------------
 
-void MurmurHash3_x86_128 (
+UInt32
+MurmurHash3_x86_32 (
+    const UInt32       seed,
+    const UInt8 *const buffer,
+    const SInt32       buffer_len)
+{
+  const SInt32 nblocks = buffer_len / 4;
+
+  UInt32 h1 = seed;
+
+  const UInt32 c1 = 0xcc9e2d51;
+  const UInt32 c2 = 0x1b873593;
+
+  //----------
+  // body
+
+  const UInt32 *const  blocks = (const UInt32 *)(buffer + nblocks*4);
+
+  for(SInt32 i = -nblocks; i; i++)
+  {
+    UInt32 k1 = getblock32(blocks,i);
+
+    k1 *= c1;
+    k1 = ROTL32(k1,15);
+    k1 *= c2;
+
+    h1 ^= k1;
+    h1 = ROTL32(h1,13);
+    h1 = h1*5+0xe6546b64;
+  }
+
+  //----------
+  // tail
+
+  const UInt8 *const tail = (const UInt8*)(buffer + nblocks*4);
+
+  UInt32 k1 = 0;
+
+  switch(buffer_len & 3)
+  {
+  case 3: k1 ^= tail[2] << 16;
+  case 2: k1 ^= tail[1] << 8;
+  case 1: k1 ^= tail[0];
+          k1 *= c1; k1 = ROTL32(k1,15); k1 *= c2; h1 ^= k1;
+  };
+
+  //----------
+  // finalization
+
+  h1 ^= buffer_len;
+
+  h1 = fmix32(h1);
+
+  return h1;
+}
+
+
+//-----------------------------------------------------------------------------
+
+void
+MurmurHash3_x86_128 (
     const UInt32       seed,
     const UInt8 *const buffer,
     const SInt32       buffer_len,
     UInt64 &           low,
     UInt64 &           high)
 {
-  const UInt8 * data = (const UInt8*)buffer;
-  const int nblocks = buffer_len / 16;
+  const SInt32 nblocks = buffer_len / 16;
 
   UInt32 h1 = seed;
   UInt32 h2 = seed;
@@ -118,9 +178,9 @@ void MurmurHash3_x86_128 (
   //----------
   // body
 
-  const UInt32 * blocks = (const UInt32 *)(data + nblocks*16);
+  const UInt32 *const blocks = (const UInt32 *)(buffer + nblocks*16);
 
-  for(int i = -nblocks; i; i++)
+  for(SInt32 i = -nblocks; i; i++)
   {
     UInt32 k1 = getblock32(blocks,i*4+0);
     UInt32 k2 = getblock32(blocks,i*4+1);
@@ -147,7 +207,7 @@ void MurmurHash3_x86_128 (
   //----------
   // tail
 
-  const UInt8 * tail = (const UInt8*)(data + nblocks*16);
+  const UInt8 *const tail = (const UInt8*)(buffer + nblocks*16);
 
   UInt32 k1 = 0;
   UInt32 k2 = 0;
@@ -203,15 +263,15 @@ void MurmurHash3_x86_128 (
 
 //-----------------------------------------------------------------------------
 
-void MurmurHash3_x64_128 (
+void
+MurmurHash3_x64_128 (
     const UInt32       seed,
     const UInt8 *const buffer,
     const SInt32       buffer_len,
     UInt64 &           low,
     UInt64 &           high)
 {
-  const UInt8 * data = (const UInt8*)buffer;
-  const int nblocks = buffer_len / 16;
+  const SInt32 nblocks = buffer_len / 16;
 
   UInt64 h1 = seed;
   UInt64 h2 = seed;
@@ -222,9 +282,9 @@ void MurmurHash3_x64_128 (
   //----------
   // body
 
-  const UInt64 * blocks = (const UInt64 *)(data);
+  const UInt64 *const blocks = (const UInt64 *)(buffer);
 
-  for(int i = 0; i < nblocks; i++)
+  for(SInt32 i = 0; i < nblocks; i++)
   {
     UInt64 k1 = getblock64(blocks,i*2+0);
     UInt64 k2 = getblock64(blocks,i*2+1);
@@ -241,7 +301,7 @@ void MurmurHash3_x64_128 (
   //----------
   // tail
 
-  const UInt8 * tail = (const UInt8*)(data + nblocks*16);
+  const UInt8 *const tail = (const UInt8*)(buffer + nblocks*16);
 
   UInt64 k1 = 0;
   UInt64 k2 = 0;

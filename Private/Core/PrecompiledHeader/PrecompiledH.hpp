@@ -100,36 +100,3 @@ STATIC_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 #else
     #error "[Env Check]: No implementation"
 #endif // #if (OS_TYPE == OS_TYPE_WIN)
-
-
-// --- 编译器配置检测 --- //
-// C++11 support
-#if CXX_STANDARD_VER < 2011
-    #error We need C+11 compiler
-#endif // #if CXX_STANDARD_VER < 2011
-
-
-// 是否使用异常处理
-#if USE_EXCEPTION
-    #if defined(__APPLE__)
-        #error Please set "Enabled C++ Exceptions" to "No"
-    #else
-        #error Please disable exceptions
-    #endif // #if defined(__APPLE__)
-#endif // #if USE_EXCEPTION
-
-
-// 是否使用 RTTI
-#if USE_RTTI
-    #if defined(__APPLE__)
-        #error Please set "Enabled C++ Runtime Types" to "No"
-    #else
-        #error Please disable RTTI
-    #endif // #if defined(__APPLE__)
-#endif // #if USE_RTTI
-
-
-// 是否定义编译配置
-#if !defined(API_BUILD)
-    #error Please define API_BUILD in the build setting. For instance in "Preprocessor Macros"
-#endif // #if !defined(API_BUILD)
