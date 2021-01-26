@@ -65,7 +65,7 @@ namespace Core
 #endif // #if !defined(PROFILING_MODE)
 
 #if (PROFILING_MODE == 1)
-    // 期待一个name的Profile Sample
+    // 期待一个name的Profiling Sample
     // NOTE: name必须为静态字符串指针：PROFILING("Literal")
     #define PROFILING(name)                Core::Profiling TOKEN_COMBINE(_sample_, __LINE__)(name)
     // Dump所有的Sample

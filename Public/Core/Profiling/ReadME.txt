@@ -17,7 +17,7 @@ void Func_AB()
 void Func_Recur()
 {
     static UInt8 recur_count = 5;
-    // 使用PROFILING()宏来定义一个Profile Sample
+    // 使用PROFILING()宏来定义一个Profiling Sample
     // NOTE： 给定的名字必须时静态字符串
     PROFILING("Recursive Func(5 Times)");
 
