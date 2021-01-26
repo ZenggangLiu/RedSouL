@@ -20,22 +20,8 @@
 		E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16425BC0E930042292E /* murmurhash3.hpp */; };
 		E785D16D25BC0E930042292E /* xxhash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16525BC0E930042292E /* xxhash.hpp */; };
 		E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16E25BC198A0042292E /* RS_StaticHash.hpp */; };
-		E785D1A025BEB9430042292E /* RS_StatsIterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D19E25BEB9430042292E /* RS_StatsIterator.hpp */; };
-		E785D1A125BEB9430042292E /* RS_Profiling.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D19F25BEB9430042292E /* RS_Profiling.hpp */; };
 		E785D1A325BEB94F0042292E /* RS_Time.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1A225BEB94F0042292E /* RS_Time.hpp */; };
 		E785D1A525BEB9630042292E /* RS_Thread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1A425BEB9630042292E /* RS_Thread.hpp */; };
-		E785D1AF25BEB9B00042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1A925BEB9B00042292E /* RS_SampleMgr.cpp */; };
-		E785D1B025BEB9B00042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1A925BEB9B00042292E /* RS_SampleMgr.cpp */; };
-		E785D1B125BEB9B00042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1A925BEB9B00042292E /* RS_SampleMgr.cpp */; };
-		E785D1B225BEB9B00042292E /* RS_SampleMgr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1AA25BEB9B00042292E /* RS_SampleMgr.hpp */; };
-		E785D1B325BEB9B00042292E /* RS_StatsNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1AB25BEB9B00042292E /* RS_StatsNode.hpp */; };
-		E785D1B425BEB9B00042292E /* RS_SampleNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1AC25BEB9B00042292E /* RS_SampleNode.hpp */; };
-		E785D1B525BEB9B00042292E /* RS_Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AD25BEB9B00042292E /* RS_Profile.cpp */; };
-		E785D1B625BEB9B00042292E /* RS_Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AD25BEB9B00042292E /* RS_Profile.cpp */; };
-		E785D1B725BEB9B00042292E /* RS_Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AD25BEB9B00042292E /* RS_Profile.cpp */; };
-		E785D1B825BEB9B00042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AE25BEB9B00042292E /* RS_StatsIterator.cpp */; };
-		E785D1B925BEB9B00042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AE25BEB9B00042292E /* RS_StatsIterator.cpp */; };
-		E785D1BA25BEB9B00042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1AE25BEB9B00042292E /* RS_StatsIterator.cpp */; };
 		E785D1BC25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */; };
 		E785D1BD25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */; };
 		E785D1BE25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */; };
@@ -43,6 +29,20 @@
 		E785D1C125BEB9CA0042292E /* RS_Time_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BF25BEB9CA0042292E /* RS_Time_Appl.mm */; };
 		E785D1C225BEB9CA0042292E /* RS_Time_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BF25BEB9CA0042292E /* RS_Time_Appl.mm */; };
 		E785D1CB25BF95760042292E /* RS_Logging.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1CA25BF95760042292E /* RS_Logging.hpp */; };
+		E785D1D025BFA8540042292E /* RS_StatsIterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1CD25BFA8540042292E /* RS_StatsIterator.hpp */; };
+		E785D1D125BFA8540042292E /* RS_Profiling.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1CE25BFA8540042292E /* RS_Profiling.hpp */; };
+		E785D1D825BFA8770042292E /* RS_StatsNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1D225BFA8770042292E /* RS_StatsNode.hpp */; };
+		E785D1D925BFA8770042292E /* RS_SampleMgr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1D325BFA8770042292E /* RS_SampleMgr.hpp */; };
+		E785D1DA25BFA8770042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */; };
+		E785D1DB25BFA8770042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */; };
+		E785D1DC25BFA8770042292E /* RS_SampleMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */; };
+		E785D1E025BFA8770042292E /* RS_SampleNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1D625BFA8770042292E /* RS_SampleNode.hpp */; };
+		E785D1E125BFA8770042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */; };
+		E785D1E225BFA8770042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */; };
+		E785D1E325BFA8770042292E /* RS_StatsIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */; };
+		E785D1E525BFA89C0042292E /* RS_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1E425BFA89C0042292E /* RS_Profiling.cpp */; };
+		E785D1E625BFA89C0042292E /* RS_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1E425BFA89C0042292E /* RS_Profiling.cpp */; };
+		E785D1E725BFA89C0042292E /* RS_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1E425BFA89C0042292E /* RS_Profiling.cpp */; };
 		E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */; };
 		E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */; };
 		E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */; };
@@ -87,20 +87,20 @@
 		E785D16425BC0E930042292E /* murmurhash3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = murmurhash3.hpp; path = Core/External/Hash/murmurhash3.hpp; sourceTree = "<group>"; };
 		E785D16525BC0E930042292E /* xxhash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = xxhash.hpp; path = Core/External/Hash/xxhash.hpp; sourceTree = "<group>"; };
 		E785D16E25BC198A0042292E /* RS_StaticHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticHash.hpp; path = ../Public/Core/Hash/RS_StaticHash.hpp; sourceTree = "<group>"; };
-		E785D19E25BEB9430042292E /* RS_StatsIterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StatsIterator.hpp; path = ../Public/Core/Profile/RS_StatsIterator.hpp; sourceTree = "<group>"; };
-		E785D19F25BEB9430042292E /* RS_Profiling.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Profiling.hpp; path = ../Public/Core/Profile/RS_Profiling.hpp; sourceTree = "<group>"; };
 		E785D1A225BEB94F0042292E /* RS_Time.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Time.hpp; path = ../Public/Core/Time/RS_Time.hpp; sourceTree = "<group>"; };
 		E785D1A425BEB9630042292E /* RS_Thread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Thread.hpp; path = ../Public/Core/Thread/RS_Thread.hpp; sourceTree = "<group>"; };
-		E785D1A925BEB9B00042292E /* RS_SampleMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_SampleMgr.cpp; path = Core/Profile/RS_SampleMgr.cpp; sourceTree = "<group>"; };
-		E785D1AA25BEB9B00042292E /* RS_SampleMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_SampleMgr.hpp; path = Core/Profile/RS_SampleMgr.hpp; sourceTree = "<group>"; };
-		E785D1AB25BEB9B00042292E /* RS_StatsNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StatsNode.hpp; path = Core/Profile/RS_StatsNode.hpp; sourceTree = "<group>"; };
-		E785D1AC25BEB9B00042292E /* RS_SampleNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_SampleNode.hpp; path = Core/Profile/RS_SampleNode.hpp; sourceTree = "<group>"; };
-		E785D1AD25BEB9B00042292E /* RS_Profile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_Profile.cpp; path = Core/Profile/RS_Profile.cpp; sourceTree = "<group>"; };
-		E785D1AE25BEB9B00042292E /* RS_StatsIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_StatsIterator.cpp; path = Core/Profile/RS_StatsIterator.cpp; sourceTree = "<group>"; };
 		E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_Thread_Appl.mm; path = Core/Thread/Apple/RS_Thread_Appl.mm; sourceTree = "<group>"; };
 		E785D1BF25BEB9CA0042292E /* RS_Time_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_Time_Appl.mm; path = Core/Time/Apple/RS_Time_Appl.mm; sourceTree = "<group>"; };
 		E785D1CA25BF95760042292E /* RS_Logging.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_Logging.hpp; path = ../Public/Core/Logging/RS_Logging.hpp; sourceTree = "<group>"; };
-		E785D1CC25BFA6A00042292E /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ReadME.txt; path = ../Public/Core/Profile/ReadME.txt; sourceTree = "<group>"; };
+		E785D1CD25BFA8540042292E /* RS_StatsIterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StatsIterator.hpp; path = ../Public/Core/Profiling/RS_StatsIterator.hpp; sourceTree = "<group>"; };
+		E785D1CE25BFA8540042292E /* RS_Profiling.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Profiling.hpp; path = ../Public/Core/Profiling/RS_Profiling.hpp; sourceTree = "<group>"; };
+		E785D1CF25BFA8540042292E /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ReadME.txt; path = ../Public/Core/Profiling/ReadME.txt; sourceTree = "<group>"; };
+		E785D1D225BFA8770042292E /* RS_StatsNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StatsNode.hpp; path = Core/Profiling/RS_StatsNode.hpp; sourceTree = "<group>"; };
+		E785D1D325BFA8770042292E /* RS_SampleMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_SampleMgr.hpp; path = Core/Profiling/RS_SampleMgr.hpp; sourceTree = "<group>"; };
+		E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_SampleMgr.cpp; path = Core/Profiling/RS_SampleMgr.cpp; sourceTree = "<group>"; };
+		E785D1D625BFA8770042292E /* RS_SampleNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_SampleNode.hpp; path = Core/Profiling/RS_SampleNode.hpp; sourceTree = "<group>"; };
+		E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_StatsIterator.cpp; path = Core/Profiling/RS_StatsIterator.cpp; sourceTree = "<group>"; };
+		E785D1E425BFA89C0042292E /* RS_Profiling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_Profiling.cpp; path = Core/Profiling/RS_Profiling.cpp; sourceTree = "<group>"; };
 		E7A858BE25B2E1680088515D /* libCore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_RuntimeAssert.hpp; path = ../Public/Core/Assert/RS_RuntimeAssert.hpp; sourceTree = "<group>"; };
 		E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticAssert.hpp; path = ../Public/Core/Assert/RS_StaticAssert.hpp; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				E785D16025BC0E800042292E /* External */,
 				E785D15725BC09A90042292E /* Hash */,
 				E7A858E325B6D7E50088515D /* PrecompiledHeader */,
-				E785D1A625BEB9770042292E /* Profile */,
+				E785D1A625BEB9770042292E /* Profiling */,
 				E785D1A825BEB9850042292E /* Thread */,
 				E785D1A725BEB9800042292E /* Time */,
 			);
@@ -180,7 +180,7 @@
 				E7A858D525B57FD10088515D /* DataType */,
 				E785D15425BBDE2F0042292E /* Hash */,
 				E785D1C925BF929F0042292E /* Logging */,
-				E785D19D25BEB9260042292E /* Profile */,
+				E785D19D25BEB9260042292E /* Profiling */,
 				E785D19B25BEB9150042292E /* Thread */,
 				E785D19C25BEB9200042292E /* Time */,
 			);
@@ -249,27 +249,27 @@
 			name = Time;
 			sourceTree = "<group>";
 		};
-		E785D19D25BEB9260042292E /* Profile */ = {
+		E785D19D25BEB9260042292E /* Profiling */ = {
 			isa = PBXGroup;
 			children = (
-				E785D1CC25BFA6A00042292E /* ReadME.txt */,
-				E785D19F25BEB9430042292E /* RS_Profiling.hpp */,
-				E785D19E25BEB9430042292E /* RS_StatsIterator.hpp */,
+				E785D1CF25BFA8540042292E /* ReadME.txt */,
+				E785D1CE25BFA8540042292E /* RS_Profiling.hpp */,
+				E785D1CD25BFA8540042292E /* RS_StatsIterator.hpp */,
 			);
-			name = Profile;
+			name = Profiling;
 			sourceTree = "<group>";
 		};
-		E785D1A625BEB9770042292E /* Profile */ = {
+		E785D1A625BEB9770042292E /* Profiling */ = {
 			isa = PBXGroup;
 			children = (
-				E785D1AD25BEB9B00042292E /* RS_Profile.cpp */,
-				E785D1A925BEB9B00042292E /* RS_SampleMgr.cpp */,
-				E785D1AA25BEB9B00042292E /* RS_SampleMgr.hpp */,
-				E785D1AC25BEB9B00042292E /* RS_SampleNode.hpp */,
-				E785D1AE25BEB9B00042292E /* RS_StatsIterator.cpp */,
-				E785D1AB25BEB9B00042292E /* RS_StatsNode.hpp */,
+				E785D1E425BFA89C0042292E /* RS_Profiling.cpp */,
+				E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */,
+				E785D1D325BFA8770042292E /* RS_SampleMgr.hpp */,
+				E785D1D625BFA8770042292E /* RS_SampleNode.hpp */,
+				E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */,
+				E785D1D225BFA8770042292E /* RS_StatsNode.hpp */,
 			);
-			name = Profile;
+			name = Profiling;
 			sourceTree = "<group>";
 		};
 		E785D1A725BEB9800042292E /* Time */ = {
@@ -336,26 +336,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E785D1B225BEB9B00042292E /* RS_SampleMgr.hpp in Headers */,
 				E785D16D25BC0E930042292E /* xxhash.hpp in Headers */,
 				E785D1A325BEB94F0042292E /* RS_Time.hpp in Headers */,
 				E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */,
+				E785D1D125BFA8540042292E /* RS_Profiling.hpp in Headers */,
 				E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */,
 				E7A858F325B6DD290088515D /* PrecompiledH.hpp in Headers */,
 				E7A858FF25B7CE250088515D /* TODO.txt in Headers */,
+				E785D1E025BFA8770042292E /* RS_SampleNode.hpp in Headers */,
 				E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */,
-				E785D1A025BEB9430042292E /* RS_StatsIterator.hpp in Headers */,
-				E785D1B425BEB9B00042292E /* RS_SampleNode.hpp in Headers */,
 				E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */,
 				E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */,
+				E785D1D925BFA8770042292E /* RS_SampleMgr.hpp in Headers */,
 				E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */,
 				E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */,
-				E785D1A125BEB9430042292E /* RS_Profiling.hpp in Headers */,
 				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,
 				E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */,
 				E785D1A525BEB9630042292E /* RS_Thread.hpp in Headers */,
-				E785D1B325BEB9B00042292E /* RS_StatsNode.hpp in Headers */,
+				E785D1D025BFA8540042292E /* RS_StatsIterator.hpp in Headers */,
 				E785D1CB25BF95760042292E /* RS_Logging.hpp in Headers */,
+				E785D1D825BFA8770042292E /* RS_StatsNode.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,15 +458,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E785D1B625BEB9B00042292E /* RS_Profile.cpp in Sources */,
 				E785D1BD25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
 				E785D1C125BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
-				E785D1B025BEB9B00042292E /* RS_SampleMgr.cpp in Sources */,
 				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D1E225BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16A25BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D16725BC0E930042292E /* xxhash.cpp in Sources */,
-				E785D1B925BEB9B00042292E /* RS_StatsIterator.cpp in Sources */,
+				E785D1DB25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
+				E785D1E625BFA89C0042292E /* RS_Profiling.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,15 +474,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E785D1B525BEB9B00042292E /* RS_Profile.cpp in Sources */,
 				E785D1BC25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
 				E785D1C025BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
-				E785D1AF25BEB9B00042292E /* RS_SampleMgr.cpp in Sources */,
 				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D1E125BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16925BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D16625BC0E930042292E /* xxhash.cpp in Sources */,
-				E785D1B825BEB9B00042292E /* RS_StatsIterator.cpp in Sources */,
+				E785D1DA25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
+				E785D1E525BFA89C0042292E /* RS_Profiling.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,15 +490,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E785D1B725BEB9B00042292E /* RS_Profile.cpp in Sources */,
 				E785D1BE25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
 				E785D1C225BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E785D15F25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
-				E785D1B125BEB9B00042292E /* RS_SampleMgr.cpp in Sources */,
 				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_appl.mm in Sources */,
+				E785D1E325BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D16825BC0E930042292E /* xxhash.cpp in Sources */,
-				E785D1BA25BEB9B00042292E /* RS_StatsIterator.cpp in Sources */,
+				E785D1DC25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
+				E785D1E725BFA89C0042292E /* RS_Profiling.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

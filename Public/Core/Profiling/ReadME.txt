@@ -74,10 +74,10 @@ main (
     // 使用PROFILING_DUMP() 来得到Sample Tree的文字描述
     PROFILING_DUMP();
     /*
-     - Branch I: [#used]: 1, [Total]: 8.0280, [Avg Total]: 8.0280s, [Self]: 0.0001, [Avg Self]: 0.0001
-       - First Child: [#used]: 1, [Total]: 1.0045, [Avg Total]: 1.0045s, [Self]: 1.0045, [Avg Self]: 1.0045
-       - Second Child: [#used]: 1, [Total]: 2.0046, [Avg Total]: 2.0046s, [Self]: 2.0046, [Avg Self]: 2.0046
-       - Recursive Child: [#used]: 1, [Total]: 5.0188, [Avg Total]: 5.0188s, [Self]: 0.0000, [Avg Self]: 0.0000
-         - Recursive Func(5 Times): [#used]: 5, [Total]: 5.0187, [Avg Total]: 5.0187s, [Self]: 5.0187, [Avg Self]: 5.0187
-     - Branch II: [#used]: 1, [Total]: 3.0041, [Avg Total]: 3.0041s, [Self]: 3.0041, [Avg Self]: 3.0041 
+     - Branch I: [#used]: 1, [Total]: 8.0287, [Avg Total]: 8.0287s, [Self]: 0.0003, [Avg Self]: 0.0003
+       - First Child: [#used]: 1, [Total]: 1.0031, [Avg Total]: 1.0031s, [Self]: 1.0031, [Avg Self]: 1.0031
+       - Second Child: [#used]: 1, [Total]: 2.0043, [Avg Total]: 2.0043s, [Self]: 2.0043, [Avg Self]: 2.0043
+       - Recursive Child: [#used]: 1, [Total]: 5.0210, [Avg Total]: 5.0210s, [Self]: 0.0000, [Avg Self]: 0.0000
+         - Recursive Func(5 Times): [#used]: 5, [Total]: 5.0210, [Avg Total]: 5.0210s, [Self]: 5.0210, [Avg Self]: 5.0210
+     - Branch II: [#used]: 1, [Total]: 3.0047, [Avg Total]: 3.0047s, [Self]: 3.0047, [Avg Self]: 3.0047
      */
