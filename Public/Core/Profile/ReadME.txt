@@ -1,4 +1,4 @@
---- 如何使用Profile ---
+--- 如何使用CPU Profiling ---
 1. 定义 PROFILING_MODE=1
 2. 链接 QuartzCore framework(Apple)
 3. 可以定义一下子函数：
@@ -17,9 +17,9 @@ void Func_AB()
 void Func_Recur()
 {
     static UInt8 recur_count = 5;
-    // 使用PROFILE()宏来定义Profile Sample
+    // 使用PROFILING()宏来定义一个Profile Sample
     // NOTE： 给定的名字必须时静态字符串
-    PROFILE("Recursive Func(5 Times)");
+    PROFILING("Recursive Func(5 Times)");
 
     if (--recur_count)
     {
@@ -35,7 +35,7 @@ void Func_BA()
     Core::sleepCallingThread(3000);
 }
 
-// 定义Profile Sample 树的Root
+// 定义Profiling Sample树的Root
 int
 main (
     int               argc,
@@ -44,35 +44,35 @@ main (
     // 必须使用{ } 来进行区域分割
     {
         // total branch time: 1 sec + 2 sec + 5 sec = 8 sec
-        PROFILE("Branch I");
+        PROFILING("Branch I");
         {
             // 1 sec
-            PROFILE("First Child");
+            PROFILING("First Child");
             Func_AA();
         }
 
         {
             // 2 sec
-            PROFILE("Second Child");
+            PROFILING("Second Child");
             Func_AB();
         }
 
         {
             // 5 times and each time 1 sec
             // totally 5 sec
-            PROFILE("Recursive Child");
+            PROFILING("Recursive Child");
             Func_Recur();
         }
     }
 
     {
         // 3 sec
-        PROFILE("Branch II");
+        PROFILING("Branch II");
         Func_BA();
     }
 
-    // 使用PROFILE_DUMP() 来得到Sample Tree的文字描述
-    PROFILE_DUMP();
+    // 使用PROFILING_DUMP() 来得到Sample Tree的文字描述
+    PROFILING_DUMP();
     /*
      - Branch I: [#used]: 1, [Total]: 8.0280, [Avg Total]: 8.0280s, [Self]: 0.0001, [Avg Self]: 0.0001
        - First Child: [#used]: 1, [Total]: 1.0045, [Avg Total]: 1.0045s, [Self]: 1.0045, [Avg Self]: 1.0045

@@ -2,11 +2,11 @@
 #include "PrecompiledH.hpp"
 // System headers
 // Lib headers
-#include "Core/Profile/RS_Profile.hpp"               // DEFAULT_SAMPLE_COUNT
-#include "Core/Profile/RS_SampleNode.hpp"
-#include "Core/Profile/RS_StatsNode.hpp"
+#include "Core/Profiling/RS_Profiling.hpp"              // DEFAULT_SAMPLE_COUNT
+#include "Core/Profiling/RS_SampleNode.hpp"
+#include "Core/Profiling/RS_StatsNode.hpp"
 // Self
-#include "Core/Profile/RS_SampleMgr.hpp"
+#include "Core/Profiling/RS_SampleMgr.hpp"
 
 
 namespace Core

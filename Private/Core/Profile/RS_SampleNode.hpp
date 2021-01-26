@@ -5,7 +5,7 @@
 // Lib headers
 #include "Core/Assert/RS_StaticAssert.hpp"
 #include "Core/Common/RS_CommonDefs.hpp"
-#include "Core/Profile/RS_SampleMgr.hpp"
+#include "Core/Profiling/RS_SampleMgr.hpp"
 #include "Core/Time/RS_Time.hpp"
 
 

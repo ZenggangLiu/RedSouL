@@ -2,10 +2,10 @@
 #include "PrecompiledH.hpp"
 // System headers
 // Lib headers
-#include "Core/Profile/RS_SampleNode.hpp"
-#include "Core/Profile/RS_StatsNode.hpp"
+#include "Core/Profiling/RS_SampleNode.hpp"
+#include "Core/Profiling/RS_StatsNode.hpp"
 // Self
-#include "Core/Profile/RS_StatsIterator.hpp"
+#include "Core/Profiling/RS_StatsIterator.hpp"
 
 
 namespace Core

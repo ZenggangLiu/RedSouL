@@ -7,7 +7,7 @@
 namespace Core
 {
 
-    // The statistic of a profile sample
+    // The statistic of a profiling sample
     struct SampleStats
     {
         // Sample的名称

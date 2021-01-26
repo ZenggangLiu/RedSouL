@@ -2,17 +2,17 @@
 #include "PrecompiledH.hpp"
 // System headers
 // Lib headers
-#include "Core/Profile/RS_SampleMgr.hpp"
-#include "Core/Profile/RS_StatsIterator.hpp"
+#include "Core/Profiling/RS_SampleMgr.hpp"
+#include "Core/Profiling/RS_StatsIterator.hpp"
 // Self
-#include "Core/Profile/RS_Profile.hpp"
+#include "Core/Profiling/RS_Profiling.hpp"
 
 
 namespace Core
 {
 
     void
-    Profile::setTotalSampleCount (
+    Profiling::setTotalSampleCount (
         const UInt16 count)
     {
         SampleMgr::getRef().setTotalSampleCount(count);
@@ -20,7 +20,7 @@ namespace Core
 
 
     void
-    Profile::dumpStatsData ()
+    Profiling::dumpStatsData ()
     {
         // the default maximally supported number of children of a given sample
         static const SInt16 DEFAULT_MAX_CHILD_SAMPLE_NUM = 32;
@@ -69,7 +69,7 @@ namespace Core
     }
 
 
-    Profile::Profile (
+    Profiling::Profiling (
         const Char *const name)
     {
         // opens the named sample
@@ -77,7 +77,7 @@ namespace Core
     }
 
 
-    Profile::~Profile ()
+    Profiling::~Profiling ()
     {
         // closes the current sample
         SampleMgr::getRef().closeCurSample();
@@ -85,7 +85,7 @@ namespace Core
 
 
     void
-    Profile::dumpStatsData (
+    Profiling::dumpStatsData (
         StatsIterator& stats_it,
         const UInt16   indent)
     {

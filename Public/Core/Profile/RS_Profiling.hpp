@@ -14,7 +14,7 @@ namespace Core
 
 
     // CPU代码Profiling
-    class Profile
+    class Profiling
     {
     public:
         // 设置Sample的总数
@@ -24,16 +24,17 @@ namespace Core
         setTotalSampleCount (
             const UInt16 count);
 
-        // Dump出所有Sample的统计数据
+        // Dump所有Sample的统计数据
         static
         void
         dumpStatsData ();
 
-        // 创建一个名字为name的Profile
-        Profile (
+        // 开始Profiling：启动一个名字为name的Sample
+        Profiling (
             const Char *const name);
 
-        ~Profile ();
+        // 停止Profiling：暂停当前的Sample
+        ~Profiling ();
 
 
     private:
@@ -54,7 +55,7 @@ namespace Core
 
 
 // 缺省采样数目
-#define DEFAULT_SAMPLE_COUNT                1500
+#define DEFAULT_SAMPLE_COUNT                500
 // 最大可支持的采样数目
 #define MAX_SAMPLE_COUNT                    (1 << 15)
 
@@ -64,13 +65,16 @@ namespace Core
 #endif // #if !defined(PROFILING_MODE)
 
 #if (PROFILING_MODE == 1)
-    // NOTE: name必须为静态字符串指针：PROFILE("Literal")
-    #define PROFILE(name)                   Core::Profile TOKEN_COMBINE(_profile_, __LINE__)(name)
-    #define PROFILE_DUMP()                  Core::Profile::dumpStatsData()
-    #define PROFILE_SET_MAX_SAMPLES(count)  Core::Profile::setTotalSampleCount(count)
+    // 期待一个name的Profile Sample
+    // NOTE: name必须为静态字符串指针：PROFILING("Literal")
+    #define PROFILING(name)                Core::Profiling TOKEN_COMBINE(_sample_, __LINE__)(name)
+    // Dump所有的Sample
+    #define PROFILING_DUMP()               Core::Profiling::dumpStatsData()
+    // 设定最大的Sample数目
+    #define PROFILING_SET_MAX_SAMPLES(num) Core::Profiling::setTotalSampleCount(num)
 
 #else
-    #define PROFILE(name)
-    #define PROFILE_DUMP()
-    #define PROFILE_SET_MAX_SAMPLES(count)
+    #define PROFILING(name)
+    #define PROFILING_DUMP()
+    #define PROFILING_SET_MAX_SAMPLES(num)
 #endif // #if (PROFILING_MODE == 1)

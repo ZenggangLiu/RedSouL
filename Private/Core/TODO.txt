@@ -1,13 +1,4 @@
-//
-//  TODO_Code.hpp
-//  Core
-//
-//  Created by Zenggang Liu on 20/01/21.
-//  Copyright © 2021 Zenggang Liu. All rights reserved.
-//
-
-#ifndef TODO_Code_h
-#define TODO_Code_h
+1. 移植如下代码：
 
 // Checks if the given integer intVal has just ONE bit set: 0001000 NOT 1001000
 /// Returns TRUE when intVal just has ONE bit set
@@ -31,4 +22,6 @@
 #define ZGEALIGNUP(value, alignment) \
     ((value + alignment - 1) & (~(alignment - 1)))
 #endif // #ifndef ZGEALIGNUP
-#endif /* TODO_Code_h */
+
+
+2.Terminal应用如何自动连接QuartzCore Framework
