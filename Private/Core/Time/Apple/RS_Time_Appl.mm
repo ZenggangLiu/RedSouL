@@ -23,7 +23,7 @@ namespace Core
         //mach_timebase_info(&_time_scale);
 
         // gets the current ticks
-        //const uint64 _time_in_nano_second = (uint64)mach_absolute_time();
+        //const UInt64 _time_in_nano_second = (UInt64)mach_absolute_time();
 
         // calculates the convert scale from nano-second to second
         //const float64 NANOSECOND_TO_SECOND = 1.0 / 1000000000;

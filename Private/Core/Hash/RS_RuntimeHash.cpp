@@ -50,6 +50,15 @@ namespace Core
     }
 
 
+    UInt32
+    hash32 (
+        const UInt32      seed,
+        const Char *const text)
+    {
+        return hash32(seed, (const UInt8 *const)text, (SInt32)strlen(text));
+    }
+
+
     UInt64
     hash64 (
         const UInt32       seed,
@@ -57,6 +66,15 @@ namespace Core
         const SInt32       buffer_len)
     {
         return XXH64(seed, buffer, buffer_len);
+    }
+
+
+    UInt64
+    hash64 (
+        const UInt32      seed,
+        const Char *const text)
+    {
+        return hash64(seed, (const UInt8 *const)text, (SInt32)strlen(text));
     }
 
 
@@ -73,6 +91,17 @@ namespace Core
 #else
         return MurmurHash3_x64_128(seed, buffer, buffer_len, low, high);
 #endif
+    }
+
+
+    void
+    hash128 (
+        const UInt32      seed,
+        const Char *const text,
+        UInt64 &          low,
+        UInt64 &          high)
+    {
+        return hash128(seed, (const UInt8 *const)text, (SInt32)strlen(text), low, high);
     }
 
 } // namespace Core

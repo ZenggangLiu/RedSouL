@@ -86,7 +86,7 @@ namespace Core
         // resizes sample tree and stats array
         RUNTIME_ASSERT(count <= MAX_SAMPLE_COUNT,
                        "The given sample count is TOO large"
-                       "Currently we are using int16 to represent node index");
+                       "Currently we are using SInt16 to represent node index");
         m_sample_tree.resize(count);
         m_stats_tree.resize(count);
     }

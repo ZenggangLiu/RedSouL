@@ -30,7 +30,7 @@ namespace Core
         //                                                                                   =
         //
         // calculate the address of a node from index:
-        // Addr = this + int32(IDX - SELF)*sizeof(SampleNode)
+        // Addr = this + SInt32(IDX - SELF)*sizeof(SampleNode)
         // the index of the parent node: -1 means NO parent node
         SInt16            parent_idx;
         // the index of this node: -1 means Root node
@@ -306,7 +306,7 @@ namespace Core
             RUNTIME_ASSERT(sample_idx < SampleMgr::getRef().treeSize(),
                            "Sample index is out of range");
 
-            // Addr = (uint8*)this + (int32)(IDX - SELF)*(int32)sizeof(SampleNode)
+            // Addr = (UInt8*)this + (SInt32)(IDX - SELF)*(SInt32)sizeof(SampleNode)
             const SInt16 _node_bytesize = sizeof(SampleNode);
             const SInt32 _byte_offsets  = (SInt32)(sample_idx - self_idx)*_node_bytesize;
             return (const SampleNode*)((const UInt8*)this + _byte_offsets);

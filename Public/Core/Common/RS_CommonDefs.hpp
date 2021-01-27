@@ -3,9 +3,10 @@
 
 // Lib headers
 #include "Core/Common/RS_OsDefs.hpp"
+#include "Core/DataType/RS_DataTypeDefs.hpp"
 
 
-// API借口函数定义: API_FUNCTION void SomeFunc( int, int);
+// API借口函数定义: API_FUNCTION void SomeFunc( UInt32, SInt32);
 // NOTE：API_BUILD 必须定义为 0 或者 1
 #if !defined(API_FUNCTION)
     #if !defined(API_BUILD)
@@ -76,10 +77,10 @@
 // {
 // public:
 //     T() : iVal(0xC00DDEC0) {}
-//     int iVal;   // 4bytes
-//     char cVal;  // 4bytes: 1byte + 3bytes padding
-//     float fVal; // 4bytes
-//     char var;
+//     SInt32 iVal;   // 4bytes
+//     Char cVal;     // 4bytes: 1byte + 3bytes padding
+//     Real32 fVal;   // 4bytes
+//     Char var;
 // };
 //
 // MEMBER_OFFSET(T, var) retuns 12: the offset of member var
@@ -95,10 +96,10 @@
 // SO, we always using intrinsic, if the code is not being compiled using visual studio
     #if(OS_TYPE == OS_TYPE_WIN && defined(_MSC_VER))
         #define MEMBER_OFFSET(T, member)                                                           \
-        ((uint64)&(((T*)0)->member))
+        ((UInt64)&(((T*)0)->member))
     #else
         #define MEMBER_OFFSET(T, member)                                                           \
-        ((uint64)(__builtin_offsetof(T, member)))
+        ((UInt64)(__builtin_offsetof(T, member)))
     #endif // #if(OS_TYPE == OS_TYPE_WIN && defined(_MSC_VER))
 #endif // #if !defined(MEMBER_OFFSET)
 
@@ -110,7 +111,7 @@
 // 使用如下方法定义一个对char[N]参考：
 // - char(&reference) [N]: reference is a reference to char[N]
 // NOTE：if the array has overloaded operator[], it will change the expected behavior
-    template < typename T, int N >
+    template < typename T, UInt32 N >
     char(&_GetArrayItemCount(const T(&)[N]))[N];
 
 // 我们使用 sizeof 操作符来获得静态数组的成员个数
@@ -229,7 +230,7 @@
     );
 */
 #if !defined(MULTILINE_TEXT)
-// __VA_ARGS__ is defined in GCC and VC at the same time to indicate a variadic argument
+// 我们使用 __VA_ARGS__ 来表示变化的参数：variadic arguments
     #define MULTILINE_TEXT(...)                                                                    \
     #__VA_ARGS__
 #endif // #if !defined(MULTILINE_TEXT)
@@ -240,7 +241,7 @@
 // 如果讲次 FourCC 存入文件中， 我们将得到如下字符序列：C0 C1 C2 C3
 #if !defined(FOUR_CC)
     #define FOUR_CC(c0, c1, c2, c3)                                                                \
-    (((uint32)(c3) << 24 ) | ((uint32)(c2) << 16) | ((uint32)(c1) << 8) | ((uint32)(c0)))
+    (((UInt32)(c3) << 24 ) | ((UInt32)(c2) << 16) | ((UInt32)(c1) << 8) | ((UInt32)(c0)))
 #endif // #if !defined(FOUR_CC)
 
 

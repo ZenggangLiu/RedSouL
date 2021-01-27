@@ -4,7 +4,7 @@
 /// Returns TRUE when intVal just has ONE bit set
 #ifndef ZGESINGLEBITSET
 #define ZGESINGLEBITSET(intVal) \
-    !((uint32)intVal & ((uint32)intVal -1))
+    !((UInt32)intVal & ((UInt32)intVal -1))
 #endif // #ifndef ZGESINGLEBITSET
 
 

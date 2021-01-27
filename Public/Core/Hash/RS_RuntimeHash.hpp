@@ -20,18 +20,18 @@ namespace Core
         const UInt64 key);
 
     // --- Hash Function(on buffer and seed) checking Result --- //
-    // --- Hash Collision Check on 2^32 different uint32 Numbers --- //
+    // --- Hash Collision Check on 2^32 different UInt32 Numbers --- //
     // Collision rate:
     // - hash32: (xxHash64 --> cast to 32) has NO collisions
     // - xxHash64 or CityHash64:           has NO collision
-    // - std::hash<uint32>:                has 3 collisions
-    // - std::hash<uint64>:                has NO collision
+    // - std::hash<UInt32>:                has 3 collisions
+    // - std::hash<UInt64>:                has NO collision
     //
     // Performance:
     // xxHash64:                6.86 secs, 1.5 times slower than CityHash64
     // CityHash64:              4.67 secs
-    // std::hash<uint32>:       5.11 secs
-    // std::hash<uint64>:       10.30 secs, 1.5 times slower than xxHash64
+    // std::hash<UInt32>:       5.11 secs
+    // std::hash<UInt64>:       10.30 secs, 1.5 times slower than xxHash64
     //
     //
     // --- Hash Collision Check on 589660 files in Documents Folder --- //
@@ -67,6 +67,11 @@ namespace Core
         const UInt8 *const buffer,
         const SInt32       buffer_len);
 
+    // 计算一个字符串的32位Hash
+    UInt32
+    hash32 (
+        const UInt32      seed,
+        const Char *const text);
 
     // 计算一个Bufer的64位Hash
     //
@@ -86,6 +91,11 @@ namespace Core
         const UInt8 *const buffer,
         const SInt32       buffer_len);
 
+    // 计算一个字符串的64位Hash
+    UInt64
+    hash64 (
+        const UInt32      seed,
+        const Char *const text);
 
     // 计算一个Bufer的128位Hash
     //
@@ -108,5 +118,13 @@ namespace Core
         const SInt32       buffer_len,
         UInt64 &           low,
         UInt64 &           high);
+
+    // 计算一个字符串的128位Hash
+    void
+    hash128 (
+        const UInt32      seed,
+        const Char *const text,
+        UInt64 &          low,
+        UInt64 &          high);
 
 } // namespace Core

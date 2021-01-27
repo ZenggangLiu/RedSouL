@@ -56,12 +56,12 @@ inline UInt64 rotl64 ( UInt64 x, SInt8 r )
 // Block read - if your platform needs to do endian-swapping or can only
 // handle aligned reads, do the conversion here
 
-FORCE_INLINE UInt32 getblock32 ( const UInt32 * p, int i )
+FORCE_INLINE UInt32 getblock32 ( const UInt32 * p, SInt32 i )
 {
   return p[i];
 }
 
-FORCE_INLINE UInt64 getblock64 ( const UInt64 * p, int i )
+FORCE_INLINE UInt64 getblock64 ( const UInt64 * p, SInt32 i )
 {
   return p[i];
 }
