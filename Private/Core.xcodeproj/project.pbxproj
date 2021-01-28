@@ -19,7 +19,7 @@
 		E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D16325BC0E930042292E /* murmurhash3.cpp */; };
 		E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16425BC0E930042292E /* murmurhash3.hpp */; };
 		E785D16D25BC0E930042292E /* xxhash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16525BC0E930042292E /* xxhash.hpp */; };
-		E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16E25BC198A0042292E /* RS_StaticHash.hpp */; };
+		E785D16F25BC198A0042292E /* RS_CompiletimeHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D16E25BC198A0042292E /* RS_CompiletimeHash.hpp */; };
 		E785D1A325BEB94F0042292E /* RS_Time.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1A225BEB94F0042292E /* RS_Time.hpp */; };
 		E785D1A525BEB9630042292E /* RS_Thread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D1A425BEB9630042292E /* RS_Thread.hpp */; };
 		E785D1BC25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */; };
@@ -44,7 +44,7 @@
 		E785D1E625BFA89C0042292E /* RS_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1E425BFA89C0042292E /* RS_Profiling.cpp */; };
 		E785D1E725BFA89C0042292E /* RS_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D1E425BFA89C0042292E /* RS_Profiling.cpp */; };
 		E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */; };
-		E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */; };
+		E7A858E925B6DCA60088515D /* RS_CompiletimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_CompiletimeAssert.hpp */; };
 		E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */; };
 		E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858ED25B6DD1A0088515D /* RS_OsDefs.hpp */; };
 		E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EE25B6DD1A0088515D /* RS_CommonDefs.hpp */; };
@@ -86,7 +86,7 @@
 		E785D16325BC0E930042292E /* murmurhash3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = murmurhash3.cpp; path = Core/External/Hash/murmurhash3.cpp; sourceTree = "<group>"; };
 		E785D16425BC0E930042292E /* murmurhash3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = murmurhash3.hpp; path = Core/External/Hash/murmurhash3.hpp; sourceTree = "<group>"; };
 		E785D16525BC0E930042292E /* xxhash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = xxhash.hpp; path = Core/External/Hash/xxhash.hpp; sourceTree = "<group>"; };
-		E785D16E25BC198A0042292E /* RS_StaticHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticHash.hpp; path = ../Public/Core/Hash/RS_StaticHash.hpp; sourceTree = "<group>"; };
+		E785D16E25BC198A0042292E /* RS_CompiletimeHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_CompiletimeHash.hpp; path = ../Public/Core/Hash/RS_CompiletimeHash.hpp; sourceTree = "<group>"; };
 		E785D1A225BEB94F0042292E /* RS_Time.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Time.hpp; path = ../Public/Core/Time/RS_Time.hpp; sourceTree = "<group>"; };
 		E785D1A425BEB9630042292E /* RS_Thread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Thread.hpp; path = ../Public/Core/Thread/RS_Thread.hpp; sourceTree = "<group>"; };
 		E785D1BB25BEB9BD0042292E /* RS_Thread_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_Thread_Appl.mm; path = Core/Thread/Apple/RS_Thread_Appl.mm; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		E785D1E425BFA89C0042292E /* RS_Profiling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_Profiling.cpp; path = Core/Profiling/RS_Profiling.cpp; sourceTree = "<group>"; };
 		E7A858BE25B2E1680088515D /* libCore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_RuntimeAssert.hpp; path = ../Public/Core/Assert/RS_RuntimeAssert.hpp; sourceTree = "<group>"; };
-		E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StaticAssert.hpp; path = ../Public/Core/Assert/RS_StaticAssert.hpp; sourceTree = "<group>"; };
+		E7A858E725B6DCA60088515D /* RS_CompiletimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_CompiletimeAssert.hpp; path = ../Public/Core/Assert/RS_CompiletimeAssert.hpp; sourceTree = "<group>"; };
 		E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_CompilerDefs.hpp; path = ../Public/Core/Common/RS_CompilerDefs.hpp; sourceTree = "<group>"; };
 		E7A858ED25B6DD1A0088515D /* RS_OsDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_OsDefs.hpp; path = ../Public/Core/Common/RS_OsDefs.hpp; sourceTree = "<group>"; };
 		E7A858EE25B6DD1A0088515D /* RS_CommonDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_CommonDefs.hpp; path = ../Public/Core/Common/RS_CommonDefs.hpp; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		E785D15425BBDE2F0042292E /* Hash */ = {
 			isa = PBXGroup;
 			children = (
+				E785D16E25BC198A0042292E /* RS_CompiletimeHash.hpp */,
 				E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */,
-				E785D16E25BC198A0042292E /* RS_StaticHash.hpp */,
 			);
 			name = Hash;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				E785D1E425BFA89C0042292E /* RS_Profiling.cpp */,
-				E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */,
 				E785D1D325BFA8770042292E /* RS_SampleMgr.hpp */,
+				E785D1D425BFA8770042292E /* RS_SampleMgr.cpp */,
 				E785D1D625BFA8770042292E /* RS_SampleNode.hpp */,
 				E785D1D725BFA8770042292E /* RS_StatsIterator.cpp */,
 				E785D1D225BFA8770042292E /* RS_StatsNode.hpp */,
@@ -299,8 +299,8 @@
 		E7A858D225B57F840088515D /* Assert */ = {
 			isa = PBXGroup;
 			children = (
+				E7A858E725B6DCA60088515D /* RS_CompiletimeAssert.hpp */,
 				E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */,
-				E7A858E725B6DCA60088515D /* RS_StaticAssert.hpp */,
 			);
 			name = Assert;
 			sourceTree = "<group>";
@@ -346,10 +346,10 @@
 				E785D1E025BFA8770042292E /* RS_SampleNode.hpp in Headers */,
 				E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */,
 				E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */,
-				E785D16F25BC198A0042292E /* RS_StaticHash.hpp in Headers */,
+				E785D16F25BC198A0042292E /* RS_CompiletimeHash.hpp in Headers */,
 				E785D1D925BFA8770042292E /* RS_SampleMgr.hpp in Headers */,
 				E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */,
-				E7A858E925B6DCA60088515D /* RS_StaticAssert.hpp in Headers */,
+				E7A858E925B6DCA60088515D /* RS_CompiletimeAssert.hpp in Headers */,
 				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,
 				E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */,
 				E785D1A525BEB9630042292E /* RS_Thread.hpp in Headers */,
@@ -554,6 +554,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"API_BUILD=1",
 					"DEBUG=1",
+					"LOGGING_MODE=1",
 					"PROFILING_MODE=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -620,6 +621,7 @@
 				GCC_PREFIX_HEADER = Core/PrecompiledHeader/PrecompiledH.hpp;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"API_BUILD=1",
+					"LOGGING_MODE=1",
 					"PROFILING_MODE=0",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

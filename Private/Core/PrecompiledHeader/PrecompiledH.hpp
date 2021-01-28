@@ -4,7 +4,7 @@
 // System headers
 #include <cmath>                        // std::abs and other math functions in std::
 #include <cstring>                      // strlen, std::memcpy, std::memset
-#include <cstdio>                       // std::printf
+#include <cstdio>                       // std::printf, vsnsprintf
 #include <functional>                   // std::hash, std::equal_to
 #include <new>                          // placement new: new(...) type;
 #include <stdio.h>                      // sscanf, sscanf_s
@@ -14,16 +14,18 @@
 // Lib headers
 
 // Assert
+#include "Core/Assert/RS_CompiletimeAssert.hpp"
 #include "Core/Assert/RS_RuntimeAssert.hpp"
-#include "Core/Assert/RS_StaticAssert.hpp"
 // Common
 //#include "Common/ListDefs.hpp"
 #include "Core/Common/RS_CommonDefs.hpp"
 #include "Core/Common/RS_CompilerDefs.hpp"
 #include "Core/Common/RS_OsDefs.hpp"
-
 // DataTypes
 #include "Core/DataType/RS_DataTypeDefs.hpp"
+// Hash
+#include "Core/Hash/RS_CompiletimeHash.hpp"
+#include "Core/Hash/RS_RuntimeHash.hpp"
 /*
 // Core
 #include "Core/ZGEAssert.hpp"
@@ -78,21 +80,21 @@
 */
 
 // --- 基本数据类型(Primary data types)大小检测 --- //
-STATIC_ASSERT(sizeof(SInt8 )            == 1);
-STATIC_ASSERT(sizeof(UInt8 )            == 1);
-STATIC_ASSERT(sizeof(SInt16)            == 2);
-STATIC_ASSERT(sizeof(UInt16)            == 2);
-STATIC_ASSERT(sizeof(SInt32)            == 4);
-STATIC_ASSERT(sizeof(UInt32)            == 4);
-STATIC_ASSERT(sizeof(SInt64)            == 8);
-STATIC_ASSERT(sizeof(UInt64)            == 8);
-STATIC_ASSERT(sizeof(Real16)            == 2);
-STATIC_ASSERT(sizeof(Real32)            == 4);
-STATIC_ASSERT(sizeof(Real64)            == 8);
+COMPILE_TIME_ASSERT(sizeof(SInt8 ) == 1);
+COMPILE_TIME_ASSERT(sizeof(UInt8 ) == 1);
+COMPILE_TIME_ASSERT(sizeof(SInt16) == 2);
+COMPILE_TIME_ASSERT(sizeof(UInt16) == 2);
+COMPILE_TIME_ASSERT(sizeof(SInt32) == 4);
+COMPILE_TIME_ASSERT(sizeof(UInt32) == 4);
+COMPILE_TIME_ASSERT(sizeof(SInt64) == 8);
+COMPILE_TIME_ASSERT(sizeof(UInt64) == 8);
+COMPILE_TIME_ASSERT(sizeof(Real16) == 2);
+COMPILE_TIME_ASSERT(sizeof(Real32) == 4);
+COMPILE_TIME_ASSERT(sizeof(Real64) == 8);
 
 
 // --- 编译环境检测 --- //
-STATIC_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
+COMPILE_TIME_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 #if (OS_TYPE == OS_TYPE_WIN)
     #pragma message("[Compile Env] Build mode: " BUILD_MODE_STR ", OS type: " OS_TYPE_STRING ", OS subtype: " OS_SUB_TYPE_STRING ", CPU type: " CPU_TYPE_STRING)
 #elif defined(__APPLE__)

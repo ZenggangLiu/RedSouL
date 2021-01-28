@@ -8,7 +8,7 @@
     #define OS_SUB_TYPE_STR_UNKNOWN             "UNKNOWN"
     #define CPU_TYPE_UNKNOWN                    0xFFFF
     #define CPU_TYPE_STR_UNKNOWN                "UNKNOWN"
-#endif // #if !defined(STATIC_ASSERT)
+#endif // #if !defined(OS_TYPE_UNKNOWN)
 
 #if !defined(CPU_TYPE_32)
     #define CPU_TYPE_32                         32

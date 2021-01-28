@@ -3,7 +3,7 @@
 
 // System headers
 // Lib headers
-#include "Core/Assert/RS_StaticAssert.hpp"
+#include "Core/Assert/RS_CompiletimeAssert.hpp"
 #include "Core/Common/RS_CommonDefs.hpp"
 #include "Core/Profiling/RS_SampleMgr.hpp"
 #include "Core/Time/RS_Time.hpp"
@@ -408,6 +408,6 @@ namespace Core
 //                   self_idx, child_idx, sib_idx);
         }
     };
-    STATIC_ASSERT_MSG(sizeof(SampleNode) == 32, "Wrong sample node size");
+    COMPILE_TIME_ASSERT_MSG(sizeof(SampleNode) == 32, "Wrong sample node size");
 
 } // namespace Core

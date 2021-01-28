@@ -193,7 +193,7 @@ namespace Core
 // 所以为了迫使编译器计算Hash，我们定义如下一个变量：
 template < UInt32 Cal_Hash_Value >
 struct CalcHash32 { static constexpr UInt32 value = Cal_Hash_Value; };
-#if !defined(STATIC_HASH)
-    #define STATIC_HASH(seed, str)                                                                 \
+#if !defined(COMPILE_TIME_HASH)
+    #define COMPILE_TIME_HASH(seed, str)                                                           \
     CalcHash32<Core::static_murmurhash3_x86_32(seed, str, Core::static_string_length(str))>::value
-#endif // #if !defined(STATIC_HASH)
+#endif // #if !defined(COMPILE_TIME_HASH)
