@@ -7,6 +7,7 @@
 #include <cstdio>                       // std::printf, vsnsprintf
 #include <functional>                   // std::hash, std::equal_to
 #include <new>                          // placement new: new(...) type;
+#include <iostream>                     // std::cout, std::endl
 #include <stdio.h>                      // sscanf, sscanf_s
 #include <unordered_map>
 #include <utility>                      // std::move
@@ -26,6 +27,8 @@
 // Hash
 #include "Core/Hash/RS_CompiletimeHash.hpp"
 #include "Core/Hash/RS_RuntimeHash.hpp"
+// Logging
+#include "Core/Logging/RS_Logging.hpp"
 /*
 // Core
 #include "Core/ZGEAssert.hpp"
