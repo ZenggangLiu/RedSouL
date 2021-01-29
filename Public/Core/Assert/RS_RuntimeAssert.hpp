@@ -11,7 +11,9 @@
         namespace Core
         {
 
-            // --- The implementation is in RS_RuntimeAssert_Appl/Wind/Andr.??? --- //
+            // --- OS specific methods START --- //
+            // Implementations are in RS_RuntimeAssert_Appl/Wind/Andr.???
+
             void
             RuntimeAssert (
                 const Bool        condition,
@@ -19,6 +21,8 @@
                 const Char *const expression_str,
                 const Char *const file_name,
                 const UInt32      line_num);
+
+            // --- OS specific methods END --- //
 
         } // namespace Core
 
