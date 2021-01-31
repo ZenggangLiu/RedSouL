@@ -2,6 +2,7 @@
 #include "PrecompiledH.hpp"
 #if defined(__APPLE__)
 
+
 // System headers
 #include <unistd.h> // usleep()
 // Lib headers
@@ -42,5 +43,6 @@ namespace Core
     }
 
 } // namespace Core
+
 
 #endif // #if defined(__APPLE__)

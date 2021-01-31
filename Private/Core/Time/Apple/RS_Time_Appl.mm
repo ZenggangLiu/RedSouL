@@ -1,8 +1,9 @@
 // Precompiled header
 #include "PrecompiledH.hpp"
-// System headers
 #if defined(__APPLE__)
 
+
+// System headers
 #include <QuartzCore/CABase.h>      // CFTimeInterval, CACurrentMediaTime()
 // Self
 #include "Core/Time/RS_Time.hpp"
@@ -33,5 +34,6 @@ namespace Core
     }
 
 } // namespace Core
+
 
 #endif // #if defined(__APPLE__)
