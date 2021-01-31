@@ -10,8 +10,8 @@
 namespace Core
 {
 
-    // 由变化长度的输入参数生成Log字符串
-    #define PREPARE_LOG_STRING(buffer, buffer_size)                                                \
+    // 由变化长度的输入参数生成Log的文字
+    #define PREPARE_LOG_TEXT(buffer, buffer_size)                                                  \
     {                                                                                              \
         va_list _arg_list;                                                                         \
         va_start(_arg_list, format);                                                               \
@@ -32,7 +32,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logInfo(flag, _tmp_buffer);
@@ -46,7 +46,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logInfoAlways(_tmp_buffer);
@@ -61,7 +61,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logWarning(flag, _tmp_buffer);
@@ -75,7 +75,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logWarningAlways(_tmp_buffer);
@@ -90,7 +90,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logFailure(flag, _tmp_buffer);
@@ -104,7 +104,7 @@ namespace Core
     {
         // 创建Logging字符串
         Char _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_STRING(_tmp_buffer, BUFFER_SIZE);
+        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
         LoggingMgr::getRef().logFailureAlways(_tmp_buffer);

@@ -17,8 +17,8 @@
             void
             RuntimeAssert (
                 const Bool        condition,
-                const Char *const condition_str,
-                const Char *const expression_str,
+                const Char *const condition_text,
+                const Char *const expression_text,
                 const Char *const file_name,
                 const UInt32      line_num);
 

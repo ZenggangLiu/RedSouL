@@ -3,21 +3,21 @@
 
 #if !defined(OS_TYPE_UNKNOWN)
     #define OS_TYPE_UNKNOWN                     0xFFFF
-    #define OS_TYPE_STR_UNKNOWN                 "UNKNOWN"
+    #define OS_TYPE_TEXT_UNKNOWN                "UNKNOWN"
     #define OS_SUB_TYPE_UNKNOWN                 0xFFFF
-    #define OS_SUB_TYPE_STR_UNKNOWN             "UNKNOWN"
+    #define OS_SUB_TYPE_TEXT_UNKNOWN            "UNKNOWN"
     #define CPU_TYPE_UNKNOWN                    0xFFFF
-    #define CPU_TYPE_STR_UNKNOWN                "UNKNOWN"
+    #define CPU_TYPE_TEXT_UNKNOWN               "UNKNOWN"
 #endif // #if !defined(OS_TYPE_UNKNOWN)
 
 #if !defined(CPU_TYPE_32)
     #define CPU_TYPE_32                         32
-    #define CPU_TYPE_32_STR                     "32Bits"
+    #define CPU_TYPE_32_TEXT                    "32Bits"
 #endif // #if !defined(CPU_TYPE_32)
 
 #if !defined(CPU_TYPE_64)
     #define CPU_TYPE_64                         64
-    #define CPU_TYPE_64_STR                     "64Bits"
+    #define CPU_TYPE_64_TEXT                    "64Bits"
 #endif // #if !defined(CPU_TYPE_64)
 
 
@@ -29,25 +29,25 @@
 // Windows: 0x0xxx
 #if !defined(OS_TYPE_WIN)
     #define OS_TYPE_WIN                         0x0001
-    #define OS_TYPE_WIN_STR                     "Windows OS"
+    #define OS_TYPE_WIN_TEXT                    "Windows OS"
 #endif // #if !defined(OS_TYPE_WIN)
 
 // Windows PC application
 #if !defined(OS_SUB_TYPE_WIN10)
     #define OS_SUB_TYPE_WIN10                   0x0100
-    #define OS_SUB_TYPE_WIN10_STR               "Windows10 OS"
+    #define OS_SUB_TYPE_WIN10_TEXT              "Windows10 OS"
 #endif // #if !defined(OS_SUB_TYPE_WIN10)
 
 // Windows store application
 #if !defined(OS_SUB_TYPE_WIN10_STORE)
     #define OS_SUB_TYPE_WIN10_STORE             0x0101
-    #define OS_SUB_TYPE_WIN10_STORE_STR         "Windows Store App"
+    #define OS_SUB_TYPE_WIN10_STORE_TEXT        "Windows Store App"
 #endif // #if !defined(OS_SUB_TYPE_WIN10_STORE)
 
 // Windows phone application
 #if !defined(OS_SUB_TYPE_WIN_PHONE10)
     #define OS_SUB_TYPE_WIN_PHONE10             0x0102
-    #define OS_SUB_TYPE_WIN_PHONE10_STR         "Windows Phone App"
+    #define OS_SUB_TYPE_WIN_PHONE10_TEXT        "Windows Phone App"
 #endif // #if !defined(OS_SUB_TYPE_WIN_PHONE10)
 
 
@@ -60,42 +60,42 @@
 // Apple: 0x1xxx
 #if !defined(OS_TYPE_MAC)
     #define OS_TYPE_MAC                         0x1000
-    #define OS_TYPE_MAC_STR                     "Mac OS"
+    #define OS_TYPE_MAC_TEXT                    "Mac OS"
 #endif // #if !defined(OS_TYPE_MAC)
 
 #if !defined(OS_TYPE_IOS)
     #define OS_TYPE_IOS                         0x1A00
-    #define OS_TYPE_IOS_STR                     "iOS"
+    #define OS_TYPE_IOS_TEXT                    "iOS"
 #endif // #if !defined(OS_TYPE_IOS)
 
 #if !defined(OS_TYPE_TVOS)
     #define OS_TYPE_TVOS                        0x1B00
-    #define OS_TYPE_TVOS_STR                    "tvOS"
+    #define OS_TYPE_TVOS_TEXT                   "tvOS"
 #endif // #if !defined(OS_TYPE_TVOS)
 
 #if !defined(OS_SUB_TYPE_MAC_STORE)
     #define OS_SUB_TYPE_MAC_STORE               0xAE  // MAC STORE
-    #define OS_SUB_TYPE_MAC_STORE_STR           "MacOS Store App"
+    #define OS_SUB_TYPE_MAC_STORE_TEXT          "MacOS Store App"
 #endif // #if !defined(OS_SUB_TYPE_MAC_STORE)
 
 #if !defined(OS_SUB_TYPE_IOS_DEVICE)
     #define OS_SUB_TYPE_IOS_DEVICE              0x1ADE
-    #define OS_SUB_TYPE_IOS_DEVICE_STR          "iOS Device"
+    #define OS_SUB_TYPE_IOS_DEVICE_TEXT         "iOS Device"
 #endif // #if !defined(OS_SUB_TYPE_IOS_DEVICE)
 
 #if !defined(OS_SUB_TYPE_TVOS_DEVICE)
     #define OS_SUB_TYPE_TVOS_DEVICE             0x1BDE
-    #define OS_SUB_TYPE_TVOS_DEVICE_STR         "tvOS Device"
+    #define OS_SUB_TYPE_TVOS_DEVICE_TEXT        "tvOS Device"
 #endif // #if !defined(OS_SUB_TYPE_TVOS_DEVICE)
 
 #if !defined(OS_SUB_TYPE_IOS_SIMULATOR)
     #define OS_SUB_TYPE_IOS_SIMULATOR           0x1A21 // SI --> 2I --> 21
-    #define OS_SUB_TYPE_IOS_SIMULATOR_STR       "iOS Simulator"
+    #define OS_SUB_TYPE_IOS_SIMULATOR_TEXT      "iOS Simulator"
 #endif // #if !defined(OS_SUB_TYPE_IOS_SIMULATOR)
 
 #if !defined(OS_SUB_TYPE_TVOS_SIMULATOR)
     #define OS_SUB_TYPE_TVOS_SIMULATOR          0x1B21 // SI --> 2I --> 21
-    #define OS_SUB_TYPE_TVOS_SIMULATOR_STR      "tvOS Simulator"
+    #define OS_SUB_TYPE_TVOS_SIMULATOR_TEXT     "tvOS Simulator"
 #endif // #if !defined(OS_SUB_TYPE_TVOS_SIMULATOR)
 
 
@@ -108,7 +108,7 @@
 // Linux: 0x2xxx
 #if !defined(OS_TYPE_LINUX)
     #define OS_TYPE_LINUX                       0x2000
-    #define OS_TYPE_LINUX_STR                   "Linux OS"
+    #define OS_TYPE_LINUX_TEXT                  "Linux OS"
 #endif // #if !defined(OS_TYPE_LINUX)
 
 
@@ -121,7 +121,7 @@
 // Android: 0x3xxx
 #if !defined(OS_TYPE_ANDROID)
     #define OS_TYPE_ANDROID                     0x3000
-    #define OS_TYPE_ANDROID_STR                 "Andriod OS"
+    #define OS_TYPE_ANDROID_TEXT                "Andriod OS"
 #endif // #if !defined(OS_TYPE_ANDROID)
 
 
@@ -134,17 +134,17 @@
 // defines all defaults
 #if !defined(OS_TYPE)
     #undef  OS_TYPE
-    #define OS_TYPE OS_TYPE_UNKNOWN
-    #undef  OS_TYPE_STRING
-    #define OS_TYPE_STRING OS_TYPE_STR_UNKNOWN
+    #define OS_TYPE             OS_TYPE_UNKNOWN
+    #undef  OS_TYPE_TEXT
+    #define OS_TYPE_TEXT        OS_TYPE_TEXT_UNKNOWN
     #undef  OS_SUB_TYPE
-    #define OS_SUB_TYPE OS_SUB_TYPE_UNKNOWN
-    #undef  OS_SUB_TYPE_STRING
-    #define OS_SUB_TYPE_STRING OS_SUB_TYPE_STR_UNKNOWN
+    #define OS_SUB_TYPE         OS_SUB_TYPE_UNKNOWN
+    #undef  OS_SUB_TYPE_TEXT
+    #define OS_SUB_TYPE_TEXT    OS_SUB_TYPE_TEXT_UNKNOWN
     #undef  CPU_TYPE
-    #define CPU_TYPE CPU_TYPE_UNKNOWN
-    #undef  CPU_TYPE_STRING
-    #define CPU_TYPE_STRING CPU_TYPE_STR_UNKNOWN
+    #define CPU_TYPE            CPU_TYPE_UNKNOWN
+    #undef  CPU_TYPE_TEXT
+    #define CPU_TYPE_TEXT       CPU_TYPE_TEXT_UNKNOWN
 #endif // #if !defined(OS_TYPE)
 
 
@@ -161,8 +161,8 @@
     #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
         #undef  OS_TYPE
         #define OS_TYPE OS_TYPE_WIN
-        #undef  OS_TYPE_STRING
-        #define OS_TYPE_STRING OS_TYPE_WIN_STR
+        #undef  OS_TYPE_TEXT
+        #define OS_TYPE_TEXT OS_TYPE_WIN_TEXT
     #endif // defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
 #endif // #if (OS_TYPE == OS_TYPE_UNKNOWN)
 
@@ -173,8 +173,8 @@
     #if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)
         #undef  OS_SUB_TYPE
         #define OS_SUB_TYPE OS_SUB_TYPE_WIN10_STORE
-        #undef  OS_SUB_TYPE_STRING
-        #define OS_SUB_TYPE_STRING OS_SUB_TYPE_WIN10_STORE_STR
+        #undef  OS_SUB_TYPE_TEXT
+        #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_WIN10_STORE_TEXT
     #endif // #if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)
 #endif // #if (OS_SUB_TYPE == OS_TYPE_UNKNOWN)
 
@@ -182,8 +182,8 @@
     #if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
         #undef  OS_SUB_TYPE
         #define OS_SUB_TYPE OS_SUB_TYPE_WIN_PHONE10
-        #undef  OS_SUB_TYPE_STRING
-        #define OS_SUB_TYPE_STRING OS_SUB_TYPE_WIN_PHONE10_STR
+        #undef  OS_SUB_TYPE_TEXT
+        #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_WIN_PHONE10_TEXT
     #endif // #if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
 #endif // #if (OS_SUB_TYPE == OS_TYPE_UNKNOWN)
 
@@ -191,8 +191,8 @@
     #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
         #undef  OS_SUB_TYPE
         #define OS_SUB_TYPE OS_SUB_TYPE_WIN10
-        #undef  OS_SUB_TYPE_STRING
-        #define OS_SUB_TYPE_STRING OS_SUB_TYPE_WIN10_STR
+        #undef  OS_SUB_TYPE_TEXT
+        #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_WIN10_TEXT
     #endif // #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
 #endif // #if (OS_SUB_TYPE == OS_TYPE_UNKNOWN)
 
@@ -204,13 +204,13 @@
     #if defined(WIN64) || defined(_WIN64)
         #undef  CPU_TYPE
         #define CPU_TYPE CPU_TYPE_64
-        #undef  CPU_TYPE_STRING
-        #define CPU_TYPE_STRING CPU_TYPE_64_STR
+        #undef  CPU_TYPE_TEXT
+        #define CPU_TYPE_TEXT CPU_TYPE_64_TEXT
     #elif defined(WIN32) || defined(_WIN32)
         #undef  CPU_TYPE
         #define CPU_TYPE CPU_TYPE_32
-        #undef  CPU_TYPE_STRING
-        #define CPU_TYPE_STRING CPU_TYPE_32_STR
+        #undef  CPU_TYPE_TEXT
+        #define CPU_TYPE_TEXT CPU_TYPE_32_TEXT
     #endif // #if defined(WIN64) || defined(_WIN64)
 #endif // #if (CPU_TYPE ==  CPU_TYPE_UNKNOWN)
 
@@ -259,56 +259,56 @@
             // iOS 模拟器（Simulator）
             #undef  OS_TYPE
             #define OS_TYPE OS_TYPE_IOS
-            #undef  OS_TYPE_STRING
-            #define OS_TYPE_STRING OS_TYPE_IOS_STR
+            #undef  OS_TYPE_TEXT
+            #define OS_TYPE_TEXT OS_TYPE_IOS_TEXT
             #undef  OS_SUB_TYPE
             #define OS_SUB_TYPE OS_SUB_TYPE_IOS_SIMULATOR
-            #undef  OS_SUB_TYPE_STRING
-            #define OS_SUB_TYPE_STRING OS_SUB_TYPE_IOS_SIMULATOR_STR
+            #undef  OS_SUB_TYPE_TEXT
+            #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_IOS_SIMULATOR_TEXT
 
         #elif TARGET_OS_IOS
             // iOS 硬件设备（device）
             #undef  OS_TYPE
             #define OS_TYPE OS_TYPE_IOS
-            #undef  OS_TYPE_STRING
-            #define OS_TYPE_STRING OS_TYPE_IOS_STR
+            #undef  OS_TYPE_TEXT
+            #define OS_TYPE_TEXT OS_TYPE_IOS_TEXT
             #undef  OS_SUB_TYPE
             #define OS_SUB_TYPE OS_SUB_TYPE_IOS_DEVICE
-            #undef  OS_SUB_TYPE_STRING
-            #define OS_SUB_TYPE_STRING OS_SUB_TYPE_IOS_DEVICE_STR
+            #undef  OS_SUB_TYPE_TEXT
+            #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_IOS_DEVICE_TEXT
 
         #elif TARGET_OS_TV && TARGET_OS_SIMULATOR
             // tvOS 模拟器（Simulator）
             #undef  OS_TYPE
             #define OS_TYPE OS_TYPE_TVOS
-            #undef  OS_TYPE_STRING
-            #define OS_TYPE_STRING OS_TYPE_TVOS_STR
+            #undef  OS_TYPE_TEXT
+            #define OS_TYPE_TEXT OS_TYPE_TVOS_TEXT
             #undef  OS_SUB_TYPE
             #define OS_SUB_TYPE OS_SUB_TYPE_TVOS_SIMULATOR
-            #undef  OS_SUB_TYPE_STRING
-            #define OS_SUB_TYPE_STRING OS_SUB_TYPE_TVOS_SIMULATOR_STR
+            #undef  OS_SUB_TYPE_TEXT
+            #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_TVOS_SIMULATOR_TEXT
 
         #elif TARGET_OS_TV
             // tvOS 硬件设备（device）
             #undef  OS_TYPE
             #define OS_TYPE OS_TYPE_TVOS
-            #undef  OS_TYPE_STRING
-            #define OS_TYPE_STRING OS_TYPE_TVOS_STR
+            #undef  OS_TYPE_TEXT
+            #define OS_TYPE_TEXT OS_TYPE_TVOS_TEXT
             #undef  OS_SUB_TYPE
             #define OS_SUB_TYPE OS_SUB_TYPE_TVOS_DEVICE
-            #undef  OS_SUB_TYPE_STRING
-            #define OS_SUB_TYPE_STRING OS_SUB_TYPE_TVOS_DEVICE_STR
+            #undef  OS_SUB_TYPE_TEXT
+            #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_TVOS_DEVICE_TEXT
 
         #else
             // macOS
             #undef  OS_TYPE
             #define OS_TYPE OS_TYPE_MAC
-            #undef  OS_TYPE_STRING
-            #define OS_TYPE_STRING OS_TYPE_MAC_STR
+            #undef  OS_TYPE_TEXT
+            #define OS_TYPE_TEXT OS_TYPE_MAC_TEXT
             #undef  OS_SUB_TYPE
             #define OS_SUB_TYPE OS_SUB_TYPE_MAC_STORE
-            #undef  OS_SUB_TYPE_STRING
-            #define OS_SUB_TYPE_STRING OS_SUB_TYPE_MAC_STORE_STR
+            #undef  OS_SUB_TYPE_TEXT
+            #define OS_SUB_TYPE_TEXT OS_SUB_TYPE_MAC_STORE_TEXT
         #endif // #if TARGET_OS_IOS && TARGET_IPHONE_SIMULATOR
     #endif // #if __APPLE__
 
@@ -316,13 +316,13 @@
     #if defined(_LP64) || defined(__LP64__)
         #undef  CPU_TYPE
         #define CPU_TYPE CPU_TYPE_64
-        #undef  CPU_TYPE_STRING
-        #define CPU_TYPE_STRING CPU_TYPE_64_STR
+        #undef  CPU_TYPE_TEXT
+        #define CPU_TYPE_TEXT CPU_TYPE_64_TEXT
     #else
         #undef  CPU_TYPE
         #define CPU_TYPE CPU_TYPE_32
-        #undef  CPU_TYPE_STRING
-        #define CPU_TYPE_STRING CPU_TYPE_32_STR
+        #undef  CPU_TYPE_TEXT
+        #define CPU_TYPE_TEXT CPU_TYPE_32_TEXT
     #endif // #if defined(__x86_64) || defined(__x86_64__)
 #endif // #if (OS_TYPE == OS_TYPE_UNKNOWN)
 
@@ -350,7 +350,7 @@
     #if defined(PLATFORM_ANDROID)
         #undef  OS_TYPE
         #define OS_TYPE OS_TYPE_ANDROID
-        #undef  OS_TYPE_STRING
-        #define OS_TYPE_STRING OS_TYPE_ANDROID_STR
+        #undef  OS_TYPE_TEXT
+        #define OS_TYPE_TEXT OS_TYPE_ANDROID_TEXT
     #endif // #if defined(PLATFORM_ANDROID)
 #endif // #if (OS_TYPE == OS_TYPE_UNKNOWN)

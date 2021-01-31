@@ -88,11 +88,11 @@ namespace Core
 
     // 在编译时获取字符串的长度
     constexpr UInt32
-    static_string_length (
+    static_text_length (
         const Char *const data,
         const UInt32      idx = 0)
     {
-        return (data[idx] == '\0') ? idx : static_string_length(data, idx+1);
+        return (data[idx] == '\0') ? idx : static_text_length(data, idx+1);
     }
 
 
@@ -194,6 +194,6 @@ namespace Core
 template < UInt32 Cal_Hash_Value >
 struct CalcHash32 { static constexpr UInt32 value = Cal_Hash_Value; };
 #if !defined(COMPILE_TIME_HASH)
-    #define COMPILE_TIME_HASH(seed, str)                                                           \
-    CalcHash32<Core::static_murmurhash3_x86_32(seed, str, Core::static_string_length(str))>::value
+    #define COMPILE_TIME_HASH(seed, text)                                                          \
+    CalcHash32<Core::static_murmurhash3_x86_32(seed, text, Core::static_text_length(text))>::value
 #endif // #if !defined(COMPILE_TIME_HASH)

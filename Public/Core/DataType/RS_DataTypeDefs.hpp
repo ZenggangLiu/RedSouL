@@ -12,7 +12,7 @@
 typedef bool                            Bool;
 
 
-// string's character
+// single character
 typedef char                            Char;
 
 // signed integer numbers

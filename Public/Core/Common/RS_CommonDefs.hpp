@@ -306,8 +306,8 @@
     #define SERIALIZABLE_SHARED_HANDLE(...)
     // std::vector<Type>
     #define SERIALIZABLE_STD_VEC(...)
-    // ZGEString
-    #define SERIALIZABLE_STRING(...)
+    // RuntimeText
+    #define SERIALIZABLE_TEXT(...)
     // uint8
     #define SERIALIZABLE_UINT8(...)
     // uint16

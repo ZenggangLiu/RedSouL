@@ -20,8 +20,8 @@ namespace Core
     void
     RuntimeAssert (
         const Bool         condition,
-        const Char  *const condition_str,
-        const Char  *const expression_str,
+        const Char  *const condition_text,
+        const Char  *const expression_text,
         const Char  *const file_name,
         const UInt32       line_num)
     {
@@ -30,11 +30,11 @@ namespace Core
             return;
         }
 
-        std::printf("Assert raised: condition: %s, ", condition_str);
+        std::printf("Assert raised: condition: %s, ", condition_text);
 
-        if (expression_str != nullptr)
+        if (expression_text != nullptr)
         {
-            std::printf("%s, ", expression_str);
+            std::printf("%s, ", expression_text);
         }
 
         std::printf("in file: %s, at line: %d\n", file_name, line_num);

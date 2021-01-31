@@ -99,9 +99,9 @@ COMPILE_TIME_ASSERT(sizeof(Real64) == 8);
 // --- 编译环境检测 --- //
 COMPILE_TIME_ASSERT(OS_TYPE != OS_TYPE_UNKNOWN);
 #if (OS_TYPE == OS_TYPE_WIN)
-    #pragma message("[Compile Env] Build mode: " BUILD_MODE_STR ", OS type: " OS_TYPE_STRING ", OS subtype: " OS_SUB_TYPE_STRING ", CPU type: " CPU_TYPE_STRING)
+    #pragma message("[Compile Env] Build mode: " BUILD_MODE_TEXT ", OS type: " OS_TYPE_TEXT ", OS subtype: " OS_SUB_TYPE_TEXT ", CPU type: " CPU_TYPE_TEXT)
 #elif defined(__APPLE__)
-    #pragma message "[Compile Env] Build mode: " BUILD_MODE_STR ", OS type: " OS_TYPE_STRING ", OS subtype: " OS_SUB_TYPE_STRING ", CPU type: " CPU_TYPE_STRING
+    #pragma message "[Compile Env] Build mode: " BUILD_MODE_TEXT ", OS type: " OS_TYPE_TEXT ", OS subtype: " OS_SUB_TYPE_TEXT ", CPU type: " CPU_TYPE_TEXT
 #else
     #error "[Env Check]: No implementation"
 #endif // #if (OS_TYPE == OS_TYPE_WIN)
