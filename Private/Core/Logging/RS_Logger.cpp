@@ -30,7 +30,7 @@ namespace Core
         Char *const  buffer,
         const UInt32 buffer_size)
     {
-        // 获取当前时间戳: time since epoch
+        // 获得当前时间戳: time since epoch
         const std::time_t _cur_time_stamp = std::time(nullptr);
         // 使用Local Time Zone来分解当前时间
         // convert the current time stemp into calandar time using local time zone

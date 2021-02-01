@@ -86,7 +86,7 @@ namespace Core
     }
 
 
-    // 在编译时获取字符串的长度
+    // 在编译时获得字符串的长度
     constexpr UInt32
     static_text_length (
         const Char *const data,
