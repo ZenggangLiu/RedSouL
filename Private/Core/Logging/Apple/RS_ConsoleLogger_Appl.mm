@@ -23,7 +23,7 @@ namespace Core
 
     ConsoleLogger::ConsoleLogger ()
     :
-        SUPER(LoggerTypes::LOGGER_TYPES_CONSOLE)
+        SUPER(LOGGER_TYPES_CONSOLE)
     {
 
     }

@@ -10,7 +10,7 @@ namespace Core
 {
 
     // Logger的类型定义
-    enum class LoggerTypes
+    enum LoggerTypes
     {
 
         // Dumb logger: 此Logger将不输入任何信息

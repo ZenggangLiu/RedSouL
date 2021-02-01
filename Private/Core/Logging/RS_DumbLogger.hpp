@@ -15,7 +15,7 @@ namespace Core
     public:
         // Constructor
         INLINE_FUNCTION
-        DumbLogger () : Logger(LoggerTypes::LOGGER_TYPES_DUMB) {}
+        DumbLogger () : Logger(LOGGER_TYPES_DUMB) {}
 
         // Destructor
         INLINE_FUNCTION
