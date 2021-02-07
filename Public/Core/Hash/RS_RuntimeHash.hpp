@@ -71,7 +71,7 @@ namespace Core
     UInt32
     hash32 (
         const UInt32      seed,
-        const Char *const text);
+        const UTF8 *const text);
 
     // 计算一个Bufer的64位Hash
     //
@@ -95,7 +95,7 @@ namespace Core
     UInt64
     hash64 (
         const UInt32      seed,
-        const Char *const text);
+        const UTF8 *const text);
 
     // 计算一个Bufer的128位Hash
     //
@@ -123,7 +123,7 @@ namespace Core
     void
     hash128 (
         const UInt32      seed,
-        const Char *const text,
+        const UTF8 *const text,
         UInt64 &          low,
         UInt64 &          high);
 

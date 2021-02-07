@@ -27,7 +27,7 @@ namespace Core
 
     void
     Logger::getTimeTag (
-        Char *const  buffer,
+        UTF8 *const  buffer,
         const UInt32 buffer_size)
     {
         // 获得当前时间戳: time since epoch

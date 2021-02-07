@@ -2,9 +2,15 @@
 
 
 // System headers
-#include <stdint.h>                             // C++11 standard types
+#include <stdint.h>                     // C++11 standard types
 // Lib headers
 #include "Core/Common/RS_CompilerDefs.hpp"
+
+
+// 我们至少需要C++11的支持,由于char16_t, char32_t在C++11中才定义
+#if CXX_STANDARD_VER < 2011
+#error "We need C++11 compatible compiler"
+#endif // #if CXX_STANDARD_VER < 2011
 
 
 // --- Scalar types --- //
@@ -12,8 +18,14 @@
 typedef bool                            Bool;
 
 
-// single character
-typedef char                            Char;
+// characters
+// UTF8(ASCII) character
+typedef char                            UTF8;
+// UTF16 character
+typedef char16_t                        UTF16;
+// Unicode(UTF32) character
+typedef char32_t                        UTF32;
+
 
 // signed integer numbers
 typedef int8_t                          SInt8;

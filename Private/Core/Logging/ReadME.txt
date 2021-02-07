@@ -12,7 +12,7 @@ ENABLE_FAILURE_LOGGING 是否定义
 
 Logging的输出流程为：以INFO(FLAG, "SomeInt: %d", 123)为例
 INFO(FLAG, "SomeInt: %d", 123)
-  --> Core::LoggingHelper::logInfo (const UInt32, const Char *const, ...)
+  --> Core::LoggingHelper::logInfo (const UInt32, const UTF8 *const, ...)
   --> Core::LoggingHelper::logInfo(COMPILE_TIME_HASH(HASH_SEED_LOG, "FLAG"), "SomeInt: %d", 123)
     --> 从变化长度的参数：... 生产输出信息的字符串
       --> LoggingMgr::getRef().logInfo(0xHASH, "SomeInt:123");

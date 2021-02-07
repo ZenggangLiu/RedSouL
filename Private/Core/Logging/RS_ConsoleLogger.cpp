@@ -10,8 +10,8 @@ namespace Core
 {
 
     // 各种类型信息的Tag
-    const Char ConsoleLogger::FAIL_TYPE_TAG[] = "[FAIL]: ";
-    const Char ConsoleLogger::WARN_TYPE_TAG[] = "[WARN]: ";
-    const Char ConsoleLogger::INFO_TYPE_TAG[] = "[INFO]: ";
+    const UTF8 ConsoleLogger::FAIL_TYPE_TAG[] = "[FAIL]: ";
+    const UTF8 ConsoleLogger::WARN_TYPE_TAG[] = "[WARN]: ";
+    const UTF8 ConsoleLogger::INFO_TYPE_TAG[] = "[INFO]: ";
 
 } // namespace Core

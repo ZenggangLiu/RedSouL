@@ -70,7 +70,7 @@ namespace Core
 
 
     Profiling::Profiling (
-        const Char *const name)
+        const UTF8 *const name)
     {
         // opens the named sample
         SampleMgr::getRef().openNamedSample(name);

@@ -53,7 +53,7 @@ namespace Core
     UInt32
     hash32 (
         const UInt32      seed,
-        const Char *const text)
+        const UTF8 *const text)
     {
         return hash32(seed, (const UInt8 *const)text, (SInt32)strlen(text));
     }
@@ -72,7 +72,7 @@ namespace Core
     UInt64
     hash64 (
         const UInt32      seed,
-        const Char *const text)
+        const UTF8 *const text)
     {
         return hash64(seed, (const UInt8 *const)text, (SInt32)strlen(text));
     }
@@ -97,7 +97,7 @@ namespace Core
     void
     hash128 (
         const UInt32      seed,
-        const Char *const text,
+        const UTF8 *const text,
         UInt64 &          low,
         UInt64 &          high)
     {

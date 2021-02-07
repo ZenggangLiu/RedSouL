@@ -63,7 +63,7 @@ namespace Core
         // makes it the current sample, if it was not
         void
         openNamedSample (
-            const Char *const name);
+            const UTF8 *const name);
 
         // Closes the current sample and
         // returns to the parent sample if we can

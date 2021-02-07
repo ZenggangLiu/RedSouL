@@ -18,13 +18,13 @@ namespace Core
         void
         logInfo (
             const UInt32      flag,
-            const Char *const format,
+            const UTF8 *const format,
             ...);
 
         static
         void
         logInfoAlways (
-            const Char *const format,
+            const UTF8 *const format,
             ...);
 
         // 显示Warnning log
@@ -32,13 +32,13 @@ namespace Core
         void
         logWarning (
             const UInt32      flag,
-            const Char *const format,
+            const UTF8 *const format,
             ...);
 
         static
         void
         logWarningAlways (
-            const Char *const format,
+            const UTF8 *const format,
             ...);
 
         // 显示Failure log
@@ -46,13 +46,13 @@ namespace Core
         void
         logFailure (
             const UInt32      flag,
-            const Char *const format,
+            const UTF8 *const format,
             ...);
 
         static
         void
         logFailureAlways (
-            const Char *const format,
+            const UTF8 *const format,
             ...);
     };
 

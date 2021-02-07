@@ -22,7 +22,7 @@ namespace Core
     void
     LoggingMgr::logInfo (
         const UInt32      flag,
-        const Char *const text)
+        const UTF8 *const text)
     {
         if (isFlagEnabled(flag))
         {
@@ -33,7 +33,7 @@ namespace Core
 
     void
     LoggingMgr::logInfoAlways (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 使用当前的Logger输出Info信息
         Logger *const _logger = (Logger*)m_logger;
@@ -44,7 +44,7 @@ namespace Core
     void
     LoggingMgr::logWarning (
         const UInt32      flag,
-        const Char *const text)
+        const UTF8 *const text)
     {
         if (isFlagEnabled(flag))
         {
@@ -55,7 +55,7 @@ namespace Core
 
     void
     LoggingMgr::logWarningAlways (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 使用当前的Logger输出Warning信息
         Logger *const _logger = (Logger*)m_logger;
@@ -66,7 +66,7 @@ namespace Core
     void
     LoggingMgr::logFailure (
     const UInt32      flag,
-    const Char *const text)
+    const UTF8 *const text)
     {
         if (isFlagEnabled(flag))
         {
@@ -77,7 +77,7 @@ namespace Core
 
     void
     LoggingMgr::logFailureAlways (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 使用当前的Logger输出Failure信息
         Logger *const _logger = (Logger*)m_logger;
@@ -120,6 +120,7 @@ namespace Core
         UInt8 _cur_idx = 0;
         m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "TestFlag");
         m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "TODO");
+        m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "RuntimeText");
     }
 
 

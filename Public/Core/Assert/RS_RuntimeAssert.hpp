@@ -3,7 +3,7 @@
 
 // Lib headers
 #include "Core/Common/RS_CompilerDefs.hpp"          // BUILD_MODE
-#include "Core/DataType/RS_DataTypeDefs.hpp"        // Bool, Char, UInt32
+#include "Core/DataType/RS_DataTypeDefs.hpp"        // Bool, UTF8, UInt32
 
 
 #if !defined(RUNTIME_ASSERT)
@@ -17,9 +17,9 @@
             void
             RuntimeAssert (
                 const Bool        condition,
-                const Char *const condition_text,
-                const Char *const expression_text,
-                const Char *const file_name,
+                const UTF8 *const condition_text,
+                const UTF8 *const expression_text,
+                const UTF8 *const file_name,
                 const UInt32      line_num);
 
             // --- OS specific methods END --- //

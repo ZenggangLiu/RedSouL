@@ -28,11 +28,11 @@ namespace Core
         void
         logInfo (
             const UInt32      flag,
-            const Char *const text);
+            const UTF8 *const text);
 
         void
         logInfoAlways (
-            const Char *const text);
+            const UTF8 *const text);
 
         // Logging Warnning
         //
@@ -43,11 +43,11 @@ namespace Core
         void
         logWarning (
             const UInt32      flag,
-            const Char *const text);
+            const UTF8 *const text);
 
         void
         logWarningAlways (
-            const Char *const text);
+            const UTF8 *const text);
 
         // Logging Failure
         //
@@ -58,11 +58,11 @@ namespace Core
         void
         logFailure (
             const UInt32      flag,
-            const Char *const text);
+            const UTF8 *const text);
 
         void
         logFailureAlways (
-            const Char *const text);
+            const UTF8 *const text);
 
 
     private:

@@ -31,7 +31,7 @@ namespace Core
 
         // 开始Profiling：启动一个名字为name的Sample
         Profiling (
-            const Char *const name);
+            const UTF8 *const name);
 
         // 停止Profiling：暂停当前的Sample
         ~Profiling ();

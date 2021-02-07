@@ -17,7 +17,7 @@ namespace Core
     {
         // --- Unique Data --- //
         /// the name of this sample
-        const Char *const name;
+        const UTF8 *const name;
 
         // --- Tree Hierarchy --- //
         // +-----+-------+     +-------+     +-------+            +-------+
@@ -80,7 +80,7 @@ namespace Core
         //      the index of this sample in the sample tree
         INLINE_FUNCTION
         SampleNode(
-            const Char *const sample_name,
+            const UTF8 *const sample_name,
             const SInt16      parent_sample_idx,
             const SInt16      self_sample_idx)
         :
@@ -230,7 +230,7 @@ namespace Core
         INLINE_FUNCTION
         SampleNode*
         child (
-            const Char *const name)
+            const UTF8 *const name)
         {
             // if the current sample has sub-samples
             if (child_idx >= 0)

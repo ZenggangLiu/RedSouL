@@ -27,11 +27,11 @@ namespace Core
     void
     LoggingHelper::logInfo (
         const UInt32      flag,
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
@@ -41,11 +41,11 @@ namespace Core
 
     void
     LoggingHelper::logInfoAlways (
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
@@ -56,11 +56,11 @@ namespace Core
     void
     LoggingHelper::logWarning (
         const UInt32      flag,
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
@@ -70,11 +70,11 @@ namespace Core
 
     void
     LoggingHelper::logWarningAlways (
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
@@ -85,11 +85,11 @@ namespace Core
     void
     LoggingHelper::logFailure (
         const UInt32      flag,
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息
@@ -99,11 +99,11 @@ namespace Core
 
     void
     LoggingHelper::logFailureAlways (
-        const Char *const format,
+        const UTF8 *const format,
         ...)
     {
         // 创建Logging字符串
-        Char _tmp_buffer[BUFFER_SIZE];
+        UTF8 _tmp_buffer[BUFFER_SIZE];
         PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
         // 调用Logging管理器输入信息

@@ -20,9 +20,9 @@ namespace Core
     void
     RuntimeAssert (
         const Bool         condition,
-        const Char  *const condition_text,
-        const Char  *const expression_text,
-        const Char  *const file_name,
+        const UTF8  *const condition_text,
+        const UTF8  *const expression_text,
+        const UTF8  *const file_name,
         const UInt32       line_num)
     {
         if (condition == true)

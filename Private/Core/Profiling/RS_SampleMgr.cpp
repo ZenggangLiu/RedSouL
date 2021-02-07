@@ -94,7 +94,7 @@ namespace Core
 
     void
     SampleMgr::openNamedSample (
-        const Char *const name)
+        const UTF8 *const name)
     {
         // checks if we are going to start a new sample
         if (m_cur_node->name != name)

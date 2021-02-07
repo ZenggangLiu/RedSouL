@@ -27,19 +27,19 @@ namespace Core
         virtual
         void
         logInfoText (
-            const Char *const text) override;
+            const UTF8 *const text) override;
 
         // Log指定的Warning文字
         virtual
         void
         logWarningText (
-            const Char *const text) override;
+            const UTF8 *const text) override;
 
         // Log指定的Failure文字
         virtual
         void
         logFailureText (
-            const Char *const text) override;
+            const UTF8 *const text) override;
 
         // --- OS specific methods END --- //
 
@@ -47,9 +47,9 @@ namespace Core
         typedef Logger SUPER;
 
         // 各种类型信息的Tag
-        static const Char FAIL_TYPE_TAG[];
-        static const Char WARN_TYPE_TAG[];
-        static const Char INFO_TYPE_TAG[];
+        static const UTF8 FAIL_TYPE_TAG[];
+        static const UTF8 WARN_TYPE_TAG[];
+        static const UTF8 INFO_TYPE_TAG[];
     };
 
 } // namespace Core

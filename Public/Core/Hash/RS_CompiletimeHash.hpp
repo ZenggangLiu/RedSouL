@@ -24,7 +24,7 @@ namespace Core
 
     constexpr UInt32
     murmur3_getblock32 (
-        const Char *const buffer,
+        const UTF8 *const buffer,
         const SInt32      i)
     {
         return UInt32(buffer[i*4+0])        |
@@ -89,7 +89,7 @@ namespace Core
     // 在编译时获得字符串的长度
     constexpr UInt32
     static_text_length (
-        const Char *const data,
+        const UTF8 *const data,
         const UInt32      idx = 0)
     {
         return (data[idx] == '\0') ? idx : static_text_length(data, idx+1);
@@ -122,7 +122,7 @@ namespace Core
     constexpr UInt32
     murmur3_body_rec (
         const UInt32      k1,
-        const Char *const blocks,
+        const UTF8 *const blocks,
         const SInt32      i)
     {
         return ((i < 0) ?
@@ -133,7 +133,7 @@ namespace Core
     constexpr UInt32
     murmur3_tail1 (
          const UInt32      k1,
-         const Char *const tail)
+         const UTF8 *const tail)
     {
         return murmur3_mult(murmur3_rotl32(murmur3_mult(murmur3_xor(k1, tail[0]),
                                    MURMUR3_C1),
@@ -145,7 +145,7 @@ namespace Core
     constexpr UInt32
     murmur3_tail (
         const UInt32      k1,
-        const Char *const tail,
+        const UTF8 *const tail,
         const SInt32      buffer_len)
     {
         return ((buffer_len & 3) == 3) ?    // case 3:
@@ -173,7 +173,7 @@ namespace Core
     constexpr UInt32
     static_murmurhash3_x86_32 (
         const UInt32      seed,
-        const Char *const buffer,
+        const UTF8 *const buffer,
         const SInt32      buffer_len)
     {
         return murmur3_final(murmur3_tail(murmur3_body_rec(seed,

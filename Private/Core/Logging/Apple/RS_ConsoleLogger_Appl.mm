@@ -36,10 +36,10 @@ namespace Core
 
     void
     ConsoleLogger::logInfoText (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 创建时间Tag
-        Char _time_tag[32];
+        UTF8 _time_tag[32];
         getTimeTag(_time_tag, sizeof(_time_tag));
         // 输出信息
         std::cout << _time_tag << [INFO_COLOR_TAG UTF8String] << INFO_TYPE_TAG << text << std::endl;
@@ -49,10 +49,10 @@ namespace Core
 
     void
     ConsoleLogger::logWarningText (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 创建时间Tag
-        Char _time_tag[32];
+        UTF8 _time_tag[32];
         getTimeTag(_time_tag, sizeof(_time_tag));
         // 输出信息
         std::cout << _time_tag << [WARN_COLOR_TAG UTF8String] << WARN_TYPE_TAG << text << std::endl;
@@ -61,10 +61,10 @@ namespace Core
 
     void
     ConsoleLogger::logFailureText (
-        const Char *const text)
+        const UTF8 *const text)
     {
         // 创建时间Tag
-        Char _time_tag[32];
+        UTF8 _time_tag[32];
         getTimeTag(_time_tag, sizeof(_time_tag));
         // 输出信息
         std::cout << _time_tag << [FAIL_COLOR_TAG UTF8String] << FAIL_TYPE_TAG << text << std::endl;

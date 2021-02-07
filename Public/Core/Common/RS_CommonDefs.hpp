@@ -78,9 +78,9 @@
 // public:
 //     T() : iVal(0xC00DDEC0) {}
 //     SInt32 iVal;   // 4bytes
-//     Char cVal;     // 4bytes: 1byte + 3bytes padding
+//     UTF8 cVal;     // 4bytes: 1byte + 3bytes padding
 //     Real32 fVal;   // 4bytes
-//     Char var;
+//     UTF8 var;
 // };
 //
 // MEMBER_OFFSET(T, var) retuns 12: the offset of member var

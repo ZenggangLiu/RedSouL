@@ -11,7 +11,7 @@ namespace Core
     struct SampleStats
     {
         // Sample的名称
-        const Char* name;
+        const UTF8* name;
 
         // --- Data in the last Fram --- //
         // 使用次数

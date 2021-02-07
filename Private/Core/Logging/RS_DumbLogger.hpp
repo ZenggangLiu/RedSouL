@@ -27,21 +27,21 @@ namespace Core
         virtual
         void
         logInfoText (
-            const Char *const text) override {}
+            const UTF8 *const text) override {}
 
         // Log指定的Warning文字
         INLINE_FUNCTION
         virtual
         void
         logWarningText (
-            const Char *const text) override {}
+            const UTF8 *const text) override {}
 
         // Log指定的Failure文字
         INLINE_FUNCTION
         virtual
         void
         logFailureText (
-            const Char *const text) override {}
+            const UTF8 *const text) override {}
     };
 
 } // namespace Core

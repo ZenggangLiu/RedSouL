@@ -45,25 +45,25 @@ namespace Core
         virtual
         void
         logInfoText (
-            const Char *const text) = 0;
+            const UTF8 *const text) = 0;
 
         // Log指定的Warning文字
         virtual
         void
         logWarningText (
-            const Char *const text) = 0;
+            const UTF8 *const text) = 0;
 
         // Log指定的Failure文字
         virtual
         void
         logFailureText (
-            const Char *const text) = 0;
+            const UTF8 *const text) = 0;
 
     protected:
         // 创建当前的时间Tag：[Jan-29 15:35:20]
         void
         getTimeTag (
-            Char *const  buffer,
+            UTF8 *const  buffer,
             const UInt32 buffer_size);
 
     protected:
