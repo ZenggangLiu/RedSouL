@@ -26,8 +26,13 @@
 
         } // namespace Core
 
+        //RUNTIME_ASSERT(const Bool, const char *const)
         #define RUNTIME_ASSERT(condition, expression)                                              \
-        Core::RuntimeAssert(condition, #condition, expression, __FILE__, __LINE__)
+        Core::RuntimeAssert(condition,                                                             \
+                            (const UTF8*)#condition,                                               \
+                            (const UTF8*)expression,                                               \
+                            (const UTF8*)__FILE__,                                                 \
+                            (UInt32)     __LINE__)
 
     #else
         #define RUNTIME_ASSERT(condition, expression)

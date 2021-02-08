@@ -53,9 +53,18 @@ namespace Core
     UInt32
     hash32 (
         const UInt32      seed,
+        const char *const text)
+    {
+        return hash32(seed, (const UTF8*)text);
+    }
+
+
+    UInt32
+    hash32 (
+        const UInt32      seed,
         const UTF8 *const text)
     {
-        return hash32(seed, (const UInt8 *const)text, (SInt32)strlen(text));
+        return hash32(seed, (const UInt8 *const)text, (SInt32)strlen((const char*)text));
     }
 
 
@@ -74,7 +83,7 @@ namespace Core
         const UInt32      seed,
         const UTF8 *const text)
     {
-        return hash64(seed, (const UInt8 *const)text, (SInt32)strlen(text));
+        return hash64(seed, (const UInt8 *const)text, (SInt32)strlen((const char*)text));
     }
 
 
@@ -101,7 +110,9 @@ namespace Core
         UInt64 &          low,
         UInt64 &          high)
     {
-        return hash128(seed, (const UInt8 *const)text, (SInt32)strlen(text), low, high);
+        return hash128(seed,
+                       (const UInt8 *const)text, (SInt32)strlen((const char*)text),
+                       low, high);
     }
 
 } // namespace Core

@@ -15,7 +15,7 @@ namespace Core
     {                                                                                              \
         va_list _arg_list;                                                                         \
         va_start(_arg_list, format);                                                               \
-        std::vsnprintf(buffer, buffer_size, format, _arg_list);                                    \
+        std::vsnprintf((char*)buffer, buffer_size, (const char*)format, _arg_list);                \
         va_end(_arg_list);                                                                         \
     }
 

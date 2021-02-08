@@ -67,7 +67,13 @@ namespace Core
         const UInt8 *const buffer,
         const SInt32       buffer_len);
 
-    // 计算一个字符串的32位Hash
+    // 计算一个ASCII字符串的32位Hash
+    UInt32
+    hash32 (
+        const UInt32      seed,
+        const char *const text);
+
+    // 计算一个UTF8字符串的32位Hash
     UInt32
     hash32 (
         const UInt32      seed,

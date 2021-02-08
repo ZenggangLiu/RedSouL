@@ -9,6 +9,11 @@ namespace Core
     // 在constexpr定义中只可以使用如下操作:
     // - conditional operator: cond ? A : B
     // - 递归函数
+    // - 不能使用CAST。所以所有函数都使用const char *const
+    //   由于UTF8定义为unsigned char. 但是text literal的类型为const char[].
+    //   如果使用cast，我们将得到如下错误：
+    //   cast that performs the conversions of a reinterpret_cast is not allowed
+    //   in a constant expression
 
     constexpr UInt32 MURMUR3_C1 = 0xcc9e2d51;
     constexpr UInt32 MURMUR3_C2 = 0x1b873593;
@@ -24,7 +29,7 @@ namespace Core
 
     constexpr UInt32
     murmur3_getblock32 (
-        const UTF8 *const buffer,
+        const char *const buffer,
         const SInt32      i)
     {
         return UInt32(buffer[i*4+0])        |
@@ -89,7 +94,7 @@ namespace Core
     // 在编译时获得字符串的长度
     constexpr UInt32
     static_text_length (
-        const UTF8 *const data,
+        const char *const data,
         const UInt32      idx = 0)
     {
         return (data[idx] == '\0') ? idx : static_text_length(data, idx+1);
@@ -122,7 +127,7 @@ namespace Core
     constexpr UInt32
     murmur3_body_rec (
         const UInt32      k1,
-        const UTF8 *const blocks,
+        const char *const blocks,
         const SInt32      i)
     {
         return ((i < 0) ?
@@ -133,7 +138,7 @@ namespace Core
     constexpr UInt32
     murmur3_tail1 (
          const UInt32      k1,
-         const UTF8 *const tail)
+         const char *const tail)
     {
         return murmur3_mult(murmur3_rotl32(murmur3_mult(murmur3_xor(k1, tail[0]),
                                    MURMUR3_C1),
@@ -145,7 +150,7 @@ namespace Core
     constexpr UInt32
     murmur3_tail (
         const UInt32      k1,
-        const UTF8 *const tail,
+        const char *const tail,
         const SInt32      buffer_len)
     {
         return ((buffer_len & 3) == 3) ?    // case 3:
@@ -173,7 +178,7 @@ namespace Core
     constexpr UInt32
     static_murmurhash3_x86_32 (
         const UInt32      seed,
-        const UTF8 *const buffer,
+        const char *const buffer,
         const SInt32      buffer_len)
     {
         return murmur3_final(murmur3_tail(murmur3_body_rec(seed,

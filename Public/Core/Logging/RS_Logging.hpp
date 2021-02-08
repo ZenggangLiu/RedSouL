@@ -101,10 +101,10 @@ namespace Core
     #if defined(ENABLE_INFO_LOGGING)
         #define INFO(flag, format, ...)                                                            \
         Core::LoggingHelper::logInfo(COMPILE_TIME_HASH(HASH_SEED_LOG, TOKEN_QUOTE(flag)),          \
-                                     format,                                                       \
+                                     (const UTF8*)format,                                          \
                                      ##__VA_ARGS__)
         #define INFO_ALWAYS(format, ...)                                                           \
-        Core::LoggingHelper::logInfoAlways(format, ##__VA_ARGS__)
+        Core::LoggingHelper::logInfoAlways((const UTF8*)format, ##__VA_ARGS__)
         #define TODO(text)                                                                         \
         INFO(TODO, "[TODO]- %s", text)
     // 禁止INFO()
@@ -119,10 +119,10 @@ namespace Core
     #if defined(ENABLE_WARNING_LOGGING)
         #define WARNING(flag, format, ...)                                                         \
         Core::LoggingHelper::logWarning(COMPILE_TIME_HASH(HASH_SEED_LOG, TOKEN_QUOTE(flag)),       \
-                                        format,                                                    \
+                                        (const UTF8*)format,                                       \
                                         ##__VA_ARGS__)
         #define WARNING_ALWAYS(format, ...)                                                        \
-        Core::LoggingHelper::logWarningAlways(format, ##__VA_ARGS__)
+        Core::LoggingHelper::logWarningAlways((const UTF8*)format, ##__VA_ARGS__)
     // 禁止WARNING()
     #else
         #define WARNING(flag, format, ...)
@@ -133,10 +133,10 @@ namespace Core
     #if defined(ENABLE_FAILURE_LOGGING)
         #define FAILURE(flag, format, ...)                                                         \
         Core::LoggingHelper::logFailure(COMPILE_TIME_HASH(HASH_SEED_LOG, TOKEN_QUOTE(flag)),       \
-                                        format,                                                    \
+                                        (const UTF8*)format,                                       \
                                         ##__VA_ARGS__)
         #define FAILURE_ALWAYS(format, ...)                                                        \
-        Core::LoggingHelper::logFailureAlways(format, ##__VA_ARGS__)
+        Core::LoggingHelper::logFailureAlways((const UTF8*)format, ##__VA_ARGS__)
     // 禁止FAILURE()
     #else
         #define FAILURE(flag, format, ...)

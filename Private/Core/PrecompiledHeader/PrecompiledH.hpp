@@ -3,8 +3,9 @@
 
 // System headers
 #include <cmath>                        // std::abs and other math functions in std::
+#include <cstdarg>                      // va_arg, va_end, va_list, va_start
 #include <cstring>                      // strlen, std::memcpy, std::memset
-#include <cstdio>                       // std::printf, vsnsprintf
+#include <cstdio>                       // std::printf, std::vsnprintf
 #include <functional>                   // std::hash, std::equal_to
 #include <new>                          // placement new: new(...) type;
 #include <iostream>                     // std::cout, std::endl
