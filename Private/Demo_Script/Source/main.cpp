@@ -1,4 +1,6 @@
-#include "Core/Assert/RS_RuntimeAssert.hpp"
+#define RED_SOUL_CHECKING       1
+#include "RS_Checksuite.cpp"
+#undef RED_SOUL_CHECKING
 
 
 int
@@ -6,6 +8,8 @@ main (
     int               argc,
     const char *const argv[])
 {
-    RUNTIME_ASSERT(false, "False Codition check");
+    Check();
+
     return 0;
 }
+
