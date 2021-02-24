@@ -457,16 +457,16 @@ namespace Core
 
     UInt32
     TextHelper::sprintfSafe (
-        UTF8 *const       buffer,
-        const UInt32      size,
-        const UTF8 *const format,
+        UTF8 *const        buffer,
+        const UInt32       size,
+        const ASCII *const format,
         ...)
     {
         va_list _arg_list;
         va_start(_arg_list, format);
         // 输出字符串并且获得输出的字符个数。负值表示失败
         const SInt32 _out_count = (SInt32)std::vsnprintf((char*)buffer, size,
-                                                         (const char*)format,
+                                                         format,
                                                          _arg_list);
         va_end(_arg_list);
         return _out_count > 0 ? (UInt32)_out_count : 0;
