@@ -18,8 +18,10 @@
 typedef bool                            Bool;
 
 
-// characters: UNSIGNED data
-// UTF8(ASCII) character
+// characters
+// ASCII character
+typedef char                            ASCII;
+// UTF8 character
 typedef unsigned char                   UTF8;
 // UTF16 character
 typedef char16_t                        UTF16;

@@ -102,7 +102,7 @@ namespace Core
             // the expecting sample ALWAYS be the child sample
 
             // stores the parent sample index
-            SampleNode*const _parent_node = m_cur_node;
+            SampleNode *const _parent_node = m_cur_node;
             m_cur_node = m_cur_node->child(name);
             if (m_cur_node == nullptr)
             {
@@ -112,7 +112,7 @@ namespace Core
                 // gets the index of the sub-sample
                 const SInt16 _node_idx = m_free_slot++;
                 // initializes the sub-sample
-                SampleNode*const _child_node = m_sample_tree.data() + _node_idx;
+                SampleNode *const _child_node = m_sample_tree.data() + _node_idx;
                 m_cur_node = new(_child_node) SampleNode(name, _parent_node->self_idx, _node_idx);
 
                 // makes the new sub-sample the first child of its parent:
@@ -217,7 +217,7 @@ namespace Core
 
     void
     SampleMgr::reset (
-        SampleNode*const sample)
+        SampleNode *const sample)
     {
         // resets the current sample
         sample->reset();
@@ -237,7 +237,7 @@ namespace Core
 
     void
     SampleMgr::updateStats (
-        const SampleNode*const sample)
+        const SampleNode *const sample)
     {
         StatsNode& _stats = m_stats_tree[sample->self_idx];
 

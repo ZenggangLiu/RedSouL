@@ -9,7 +9,7 @@ namespace Core
     // 在constexpr定义中只可以使用如下操作:
     // - conditional operator: cond ? A : B
     // - 递归函数
-    // - 不能使用CAST。所以所有函数都使用const char *const
+    // - 不能使用CAST。所以所有函数都使用const ASCII *const
     //   由于UTF8定义为unsigned char. 但是text literal的类型为const char[].
     //   如果使用cast，我们将得到如下错误：
     //   cast that performs the conversions of a reinterpret_cast is not allowed

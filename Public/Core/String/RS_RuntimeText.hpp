@@ -41,15 +41,15 @@ namespace Core
         // @param[in]  size
         //      Buffer的大小
         // @param[in]  format
-        //      输出格式：参考printf()
+        //      ASCII字符串定义输出格式：参考printf()
         // @return
         //      返回输出的字符个数
         static
         UInt32
         sprintfSafe (
-            UTF8 *const       buffer,
-            const UInt32      size,
-            const UTF8 *const format,
+            UTF8 *const        buffer,
+            const UInt32       size,
+            const ASCII *const format,
             ...);
 
         // 获得一个字节十六进制(Hexadecimal)ASCII表示

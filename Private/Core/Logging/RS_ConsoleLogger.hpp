@@ -15,7 +15,6 @@ namespace Core
     public:
         // --- OS specific methods START --- //
         // Implementations are in RS_ConsoleLogger_Appl/Wind/Andr.???
-
         // Constructor
         ConsoleLogger ();
 
@@ -40,7 +39,6 @@ namespace Core
         void
         logFailureText (
             const UTF8 *const text) override;
-
         // --- OS specific methods END --- //
 
     private:

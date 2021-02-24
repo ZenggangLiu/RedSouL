@@ -13,7 +13,6 @@
 
             // --- OS specific methods START --- //
             // Implementations are in RS_RuntimeAssert_Appl/Wind/Andr.???
-
             void
             RuntimeAssert (
                 const Bool        condition,
@@ -21,12 +20,11 @@
                 const UTF8 *const expression_text,
                 const UTF8 *const file_name,
                 const UInt32      line_num);
-
             // --- OS specific methods END --- //
 
         } // namespace Core
 
-        //RUNTIME_ASSERT(const Bool, const char *const)
+        //RUNTIME_ASSERT(const Bool, const ASCII *const)
         #define RUNTIME_ASSERT(condition, expression)                                              \
         Core::RuntimeAssert(condition,                                                             \
                             (const UTF8*)#condition,                                               \

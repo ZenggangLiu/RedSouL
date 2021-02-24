@@ -250,7 +250,7 @@
 #if !defined(DECLARE_SERIALIZABLE_TYPE)
     // forwards declare the archiver class
     namespace Core { class Archiver; class UnArchiver; }
-    typedef bool(*DeSerializeFunc)(Core::UnArchiver&, const UInt8, void*const);
+    typedef bool(*DeSerializeFunc)(Core::UnArchiver&, const UInt8, void *const);
     #define DECLARE_SERIALIZABLE_TYPE(type)                                                        \
     public:                                                                                        \
         /* Gets the type's hash code */                                                            \
@@ -276,7 +276,7 @@
         _deserialize (                                                                             \
             UnArchiver& io,                                                                        \
             const UInt8 member_count,                                                              \
-            void*const  mem_ptr);                                                                  \
+            void *const mem_ptr);                                                                  \
 
 #endif // #if !defined(DECLARE_SERIALIZABLE_TYPE)
 
