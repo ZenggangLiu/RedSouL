@@ -355,11 +355,7 @@ public:                                                                         
     {                                                                                              \
         if (ascii_text != nullptr && ascii_text[0] != '\0')                                        \
         {                                                                                          \
-            RUNTIME_ASSERT(strlen(ascii_text) < (UInt16)(~0), "ASCII text is too long");           \
-            const UInt16 _text_length = (UInt16)strlen(ascii_text);                                \
-            /* 输出字符串的长度：UInt16 */                                                            \
-            write((const UInt8*)&_text_length, sizeof(UInt16), 0, sizeof(UInt16));                 \
-            /* 输出字符串的内容 */                                                                    \
+            const UInt32 _text_length = (UInt32)strlen(ascii_text);                                \
             write((const UInt8*)ascii_text, _text_length, 0, _text_length);                        \
         }                                                                                          \
         return SELF();                                                                             \
@@ -372,11 +368,7 @@ public:                                                                         
     {                                                                                              \
         if (!utf8_text.empty())                                                                    \
         {                                                                                          \
-            RUNTIME_ASSERT(utf8_text.size() < (UInt16)(~0), "UTF8 text is too long");              \
-            const UInt16 _text_length = (UInt16)utf8_text.size();                                  \
-            /* 输出字符串的长度：UInt16 */                                                            \
-            write((const UInt8*)&_text_length, sizeof(UInt16), 0, sizeof(UInt16));                 \
-            /* 输出字符串的内容 */                                                                    \
+            const UInt32 _text_length = (UInt32)utf8_text.size();                                  \
             write((const UInt8*)utf8_text.c_str(), _text_length, 0, _text_length);                 \
         }                                                                                          \
         return SELF();                                                                             \
