@@ -1,20 +1,34 @@
 # if (RED_SOUL_CHECKING == 1)
 
+#define HASH_CHECKING                   0
+#define UTF8_CHECKING                   0
+#define LOGGING_CHECKING                0
+#define NATIVE_FILE_SYSTEM_CHECKING     1
+
 
 #include "Core/Assert/RS_RuntimeAssert.hpp"
 #include "Core/Common/RS_CommonDefs.hpp"
+
+#if (HASH_CHECKING == 1)
 #include "Core/Hash/RS_RuntimeHash.hpp"
+#endif
+
+# if (LOGGING_CHECKING == 1)
 #include "Core/Logging/RS_Logging.hpp"
+#endif
+
+# if (NATIVE_FILE_SYSTEM_CHECKING == 1)
+#include "Core/FileSystem/RS_FileStream.hpp"
+#include "Core/FileSystem/RS_FileReadStream.hpp"
+#include "Core/FileSystem/RS_FileWriteStream.hpp"
 #include "Core/FileSystem/RS_NativeFileSystem.hpp"
+#endif
+
+# if (UTF8_CHECKING == 1)
 #include "Core/String/RS_RuntimeText.hpp"
+#endif
 
 
-#define HASH_CHECKING       0
-#define UTF8_CHECKING       1
-#define LOGGING_CHECKING    0
-
-
-using namespace Core;
 
 void Check()
 {
@@ -22,8 +36,8 @@ void Check()
 #if (HASH_CHECKING == 1)
     {
         const UInt32 seed = FOUR_CC('S', 'e', 'e', 'D');
-        const UInt32 compiletime_hash = COMPILE_TIME_HASH(seed, "INFO(TestFlag, \"WDR: %s\", Core::NativeFileSystem::getCurrentWorkingDir());");
-        const UInt32 runtime_kash     = Core::hash32(seed, "INFO(TestFlag, \"WDR: %s\", Core::NativeFileSystem::getCurrentWorkingDir());");
+        const UInt32 compiletime_hash = COMPILE_TIME_HASH(seed, "INFO(TestFlag, \"WDR: %s\", Core::NativeFileSystem::getWorkingDir());");
+        const UInt32 runtime_kash     = Core::hash32(seed, "INFO(TestFlag, \"WDR: %s\", Core::NativeFileSystem::getWorkingDir());");
         RUNTIME_ASSERT(compiletime_hash == runtime_kash, "No matching");
     }
 #endif
@@ -144,10 +158,77 @@ void Check()
     // Check Logging
 #if (LOGGING_CHECKING == 1)
     {
-        INFO(TestFlag, "WDR: %s", Core::NativeFileSystem::getCurrentWorkingDir());
-        WARNING(TestFlag, "Checking logging of Warning");
-        FAILURE(TestFlag, "Checking logging of Failure: %s", "this is a failure");
-        TODO("We have to do this");
+        INFO(TestFlag,
+             "[Checking Info]: Working directory: %s",
+             Core::NativeFileSystem::getWorkingDir());
+        WARNING(TestFlag,
+                "[Checking Warning]: Checking logging of Warning");
+        FAILURE(TestFlag,
+                "[Checking Failure]: Checking logging of Failure: %s",
+                "this is a failure");
+        TODO("[Checking]: We have to do this");
+    }
+#endif
+
+#if (NATIVE_FILE_SYSTEM_CHECKING == 1)
+    {
+        // 输出各种类型数据
+        const SInt8  si8data = -127;
+        const UInt8  ui8data = 127;
+        const SInt16 si16data = -640;
+        const UInt16 ui16data = 640;
+        const SInt32 si32data = -1640;
+        const UInt32 ui32data = 1640;
+        const SInt64 si64data = -2640;
+        const UInt64 ui64data = 2640;
+        const Real32 r32data = 2.34;
+        const Real64 r64data = 4.56;
+        const ASCII *const text = "Test Text";
+        Core::FileWriteStream _write_io;
+        Core::NativeFileSystem::openFileWrite((const UTF8*)"test.dat", Core::NativeFileSystem::SEARCH_PATH_TEMPORARY_FOLDER, _write_io);
+        _write_io << si8data << ui8data;
+        _write_io << si16data << ui16data;
+        _write_io << si32data << ui32data;
+        _write_io << si64data << ui64data;
+        _write_io << r32data << r64data;
+        _write_io << text;
+        _write_io.close();
+
+        // 输入各种类型数据
+        SInt8  _si8data;
+        UInt8  _ui8data;
+        SInt16 _si16data;
+        UInt16 _ui16data;
+        SInt32 _si32data;
+        UInt32 _ui32data;
+        SInt64 _si64data;
+        UInt64 _ui64data;
+        Real32 _r32data;
+        Real64 _r64data;
+        Core::FileReadStream  _read_io;
+        Core::NativeFileSystem::openFileRead((const UTF8*)"test.dat", Core::NativeFileSystem::SEARCH_PATH_TEMPORARY_FOLDER, _read_io);
+        _read_io >> _si8data;
+        _read_io >> _ui8data;
+        _read_io >> _si16data;
+        _read_io >> _ui16data;
+        _read_io >> _si32data;
+        _read_io >> _ui32data;
+        _read_io >> _si64data;
+        _read_io >> _ui64data;
+        _read_io >> _r32data;
+        _read_io >> _r64data;
+
+        // 检查数据
+        RUNTIME_ASSERT(si8data  == _si8data,  "Wrong Data");
+        RUNTIME_ASSERT(ui8data  == _ui8data,  "Wrong Data");
+        RUNTIME_ASSERT(si16data == _si16data, "Wrong Data");
+        RUNTIME_ASSERT(ui16data == _ui16data, "Wrong Data");
+        RUNTIME_ASSERT(si32data == _si32data, "Wrong Data");
+        RUNTIME_ASSERT(ui32data == _ui32data, "Wrong Data");
+        RUNTIME_ASSERT(si64data == _si64data, "Wrong Data");
+        RUNTIME_ASSERT(ui64data == _ui64data, "Wrong Data");
+        RUNTIME_ASSERT(r32data  == _r32data,  "Wrong Data");
+        RUNTIME_ASSERT(r64data  == _r64data,  "Wrong Data");
     }
 #endif
 }
