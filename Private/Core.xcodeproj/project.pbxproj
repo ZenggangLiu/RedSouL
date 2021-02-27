@@ -62,6 +62,36 @@
 		E785D20E25C270D00042292E /* RS_Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D20C25C270D00042292E /* RS_Logger.cpp */; };
 		E785D20F25C270D00042292E /* RS_Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D20C25C270D00042292E /* RS_Logger.cpp */; };
 		E785D21725C4C2710042292E /* RS_DumbLogger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D21325C4C2710042292E /* RS_DumbLogger.hpp */; };
+		E785D22225C611F00042292E /* RS_NativeFileSystem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D22125C611F00042292E /* RS_NativeFileSystem.hpp */; };
+		E785D22425C6120F0042292E /* RS_PakFileSystem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D22325C6120F0042292E /* RS_PakFileSystem.hpp */; };
+		E785D22625C650D00042292E /* RS_NativeFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D22525C650D00042292E /* RS_NativeFileSystem.cpp */; };
+		E785D22725C650D00042292E /* RS_NativeFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D22525C650D00042292E /* RS_NativeFileSystem.cpp */; };
+		E785D22825C650D00042292E /* RS_NativeFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D22525C650D00042292E /* RS_NativeFileSystem.cpp */; };
+		E785D22B25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */; };
+		E785D22C25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */; };
+		E785D22D25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */; };
+		E785D23225C93FAB0042292E /* RS_RuntimeText.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D23125C93FAB0042292E /* RS_RuntimeText.hpp */; };
+		E785D23525C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
+		E785D23625C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
+		E785D23725C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
+		E79544C725DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
+		E79544C825DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
+		E79544C925DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
+		E79544CB25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */; };
+		E79544CD25DF07C8005D3B41 /* RS_FileStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */; };
+		E79544D325DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544D225DF0953005D3B41 /* RS_FileStream_Appl.mm */; };
+		E79544D425DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544D225DF0953005D3B41 /* RS_FileStream_Appl.mm */; };
+		E79544D525DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544D225DF0953005D3B41 /* RS_FileStream_Appl.mm */; };
+		E79544D725DFAE3B005D3B41 /* RS_FileReadStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544D625DFAE3B005D3B41 /* RS_FileReadStream.hpp */; };
+		E79544D925DFAE5A005D3B41 /* RS_FileWriteStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544D825DFAE5A005D3B41 /* RS_FileWriteStream.hpp */; };
+		E79544DB25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544DA25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp */; };
+		E79544DD25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544DC25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm */; };
+		E79544DE25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544DC25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm */; };
+		E79544DF25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544DC25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm */; };
+		E79544E125E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544E025E4F157005D3B41 /* RS_FileWriteStream_Appl.mm */; };
+		E79544E225E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544E025E4F157005D3B41 /* RS_FileWriteStream_Appl.mm */; };
+		E79544E325E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544E025E4F157005D3B41 /* RS_FileWriteStream_Appl.mm */; };
+		E79544E525E5ADF8005D3B41 /* RS_FileStreamHelper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E79544E425E5ADF8005D3B41 /* RS_FileStreamHelper.hpp */; };
 		E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */; };
 		E7A858E925B6DCA60088515D /* RS_CompiletimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858E725B6DCA60088515D /* RS_CompiletimeAssert.hpp */; };
 		E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7A858EC25B6DD1A0088515D /* RS_CompilerDefs.hpp */; };
@@ -130,6 +160,23 @@
 		E785D20825C2693E0042292E /* RS_ConsoleLogger_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_ConsoleLogger_Appl.mm; path = Core/Logging/Apple/RS_ConsoleLogger_Appl.mm; sourceTree = "<group>"; };
 		E785D20C25C270D00042292E /* RS_Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_Logger.cpp; path = Core/Logging/RS_Logger.cpp; sourceTree = "<group>"; };
 		E785D21325C4C2710042292E /* RS_DumbLogger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_DumbLogger.hpp; path = Core/Logging/RS_DumbLogger.hpp; sourceTree = "<group>"; };
+		E785D21F25C611C00042292E /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = ReadME.txt; path = Core/FileSystem/ReadME.txt; sourceTree = "<group>"; };
+		E785D22125C611F00042292E /* RS_NativeFileSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_NativeFileSystem.hpp; path = ../Public/Core/FileSystem/RS_NativeFileSystem.hpp; sourceTree = "<group>"; };
+		E785D22325C6120F0042292E /* RS_PakFileSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_PakFileSystem.hpp; path = ../Public/Core/FileSystem/RS_PakFileSystem.hpp; sourceTree = "<group>"; };
+		E785D22525C650D00042292E /* RS_NativeFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_NativeFileSystem.cpp; path = Core/FileSystem/RS_NativeFileSystem.cpp; sourceTree = "<group>"; };
+		E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFileSystem_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFileSystem_Appl.mm; sourceTree = "<group>"; };
+		E785D23125C93FAB0042292E /* RS_RuntimeText.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeText.hpp; path = ../Public/Core/String/RS_RuntimeText.hpp; sourceTree = "<group>"; };
+		E785D23425C940BD0042292E /* RS_RuntimeText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RS_RuntimeText.cpp; path = Core/String/RS_RuntimeText.cpp; sourceTree = "<group>"; };
+		E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFile_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFile_Appl.mm; sourceTree = "<group>"; };
+		E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_NativeFile_Appl.hpp; path = Core/FileSystem/Apple/RS_NativeFile_Appl.hpp; sourceTree = "<group>"; };
+		E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStream.hpp; path = ../Public/Core/FileSystem/RS_FileStream.hpp; sourceTree = "<group>"; };
+		E79544D225DF0953005D3B41 /* RS_FileStream_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_FileStream_Appl.mm; path = Core/FileSystem/Apple/RS_FileStream_Appl.mm; sourceTree = "<group>"; };
+		E79544D625DFAE3B005D3B41 /* RS_FileReadStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileReadStream.hpp; path = ../Public/Core/FileSystem/RS_FileReadStream.hpp; sourceTree = "<group>"; };
+		E79544D825DFAE5A005D3B41 /* RS_FileWriteStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileWriteStream.hpp; path = ../Public/Core/FileSystem/RS_FileWriteStream.hpp; sourceTree = "<group>"; };
+		E79544DA25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStreamHelper_Appl.hpp; path = Core/FileSystem/Apple/RS_FileStreamHelper_Appl.hpp; sourceTree = "<group>"; };
+		E79544DC25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_FileReadStream_Appl.mm; path = Core/FileSystem/Apple/RS_FileReadStream_Appl.mm; sourceTree = "<group>"; };
+		E79544E025E4F157005D3B41 /* RS_FileWriteStream_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_FileWriteStream_Appl.mm; path = Core/FileSystem/Apple/RS_FileWriteStream_Appl.mm; sourceTree = "<group>"; };
+		E79544E425E5ADF8005D3B41 /* RS_FileStreamHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStreamHelper.hpp; path = ../Public/Core/FileSystem/RS_FileStreamHelper.hpp; sourceTree = "<group>"; };
 		E7A858BE25B2E1680088515D /* libCore-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCore-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A858E625B6DCA60088515D /* RS_RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeAssert.hpp; path = ../Public/Core/Assert/RS_RuntimeAssert.hpp; sourceTree = "<group>"; };
 		E7A858E725B6DCA60088515D /* RS_CompiletimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_CompiletimeAssert.hpp; path = ../Public/Core/Assert/RS_CompiletimeAssert.hpp; sourceTree = "<group>"; };
@@ -192,10 +239,12 @@
 			children = (
 				E7A858DE25B590040088515D /* Assert */,
 				E785D16025BC0E800042292E /* External */,
+				E785D21E25C6116B0042292E /* FileSystem */,
 				E785D15725BC09A90042292E /* Hash */,
 				E785D1F425C257FE0042292E /* Logging */,
 				E7A858E325B6D7E50088515D /* PrecompiledHeader */,
 				E785D1A625BEB9770042292E /* Profiling */,
+				E785D23325C940950042292E /* String */,
 				E785D1A825BEB9850042292E /* Thread */,
 				E785D1A725BEB9800042292E /* Time */,
 			);
@@ -208,9 +257,11 @@
 				E7A858D225B57F840088515D /* Assert */,
 				E718850725B28CEF00B8266B /* Common */,
 				E7A858D525B57FD10088515D /* DataType */,
+				E785D22025C611C50042292E /* FileSystem */,
 				E785D15425BBDE2F0042292E /* Hash */,
 				E785D1C925BF929F0042292E /* Logging */,
 				E785D19D25BEB9260042292E /* Profiling */,
+				E785D23025C93F480042292E /* String */,
 				E785D19B25BEB9150042292E /* Thread */,
 				E785D19C25BEB9200042292E /* Time */,
 			);
@@ -343,6 +394,51 @@
 			name = Logging;
 			sourceTree = "<group>";
 		};
+		E785D21E25C6116B0042292E /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E785D21F25C611C00042292E /* ReadME.txt */,
+				E79544DC25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm */,
+				E79544D225DF0953005D3B41 /* RS_FileStream_Appl.mm */,
+				E79544DA25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp */,
+				E79544E025E4F157005D3B41 /* RS_FileWriteStream_Appl.mm */,
+				E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */,
+				E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */,
+				E785D22525C650D00042292E /* RS_NativeFileSystem.cpp */,
+				E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */,
+			);
+			name = FileSystem;
+			sourceTree = "<group>";
+		};
+		E785D22025C611C50042292E /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */,
+				E79544E425E5ADF8005D3B41 /* RS_FileStreamHelper.hpp */,
+				E79544D625DFAE3B005D3B41 /* RS_FileReadStream.hpp */,
+				E79544D825DFAE5A005D3B41 /* RS_FileWriteStream.hpp */,
+				E785D22125C611F00042292E /* RS_NativeFileSystem.hpp */,
+				E785D22325C6120F0042292E /* RS_PakFileSystem.hpp */,
+			);
+			name = FileSystem;
+			sourceTree = "<group>";
+		};
+		E785D23025C93F480042292E /* String */ = {
+			isa = PBXGroup;
+			children = (
+				E785D23125C93FAB0042292E /* RS_RuntimeText.hpp */,
+			);
+			name = String;
+			sourceTree = "<group>";
+		};
+		E785D23325C940950042292E /* String */ = {
+			isa = PBXGroup;
+			children = (
+				E785D23425C940BD0042292E /* RS_RuntimeText.cpp */,
+			);
+			name = String;
+			sourceTree = "<group>";
+		};
 		E7A858D225B57F840088515D /* Assert */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,13 +479,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E785D22425C6120F0042292E /* RS_PakFileSystem.hpp in Headers */,
+				E79544D925DFAE5A005D3B41 /* RS_FileWriteStream.hpp in Headers */,
 				E785D16D25BC0E930042292E /* xxhash.hpp in Headers */,
 				E785D1A325BEB94F0042292E /* RS_Time.hpp in Headers */,
 				E7A858E825B6DCA60088515D /* RS_RuntimeAssert.hpp in Headers */,
 				E785D1D125BFA8540042292E /* RS_Profiling.hpp in Headers */,
 				E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */,
+				E785D23225C93FAB0042292E /* RS_RuntimeText.hpp in Headers */,
 				E7A858F325B6DD290088515D /* PrecompiledH.hpp in Headers */,
 				E7A858FF25B7CE250088515D /* TODO.txt in Headers */,
+				E79544E525E5ADF8005D3B41 /* RS_FileStreamHelper.hpp in Headers */,
 				E785D1E025BFA8770042292E /* RS_SampleNode.hpp in Headers */,
 				E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */,
 				E785D1FC25C258110042292E /* RS_LoggingMgr.hpp in Headers */,
@@ -399,14 +499,19 @@
 				E785D16F25BC198A0042292E /* RS_CompiletimeHash.hpp in Headers */,
 				E785D20725C25FDF0042292E /* RS_ConsoleLogger.hpp in Headers */,
 				E785D1D925BFA8770042292E /* RS_SampleMgr.hpp in Headers */,
+				E79544CB25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp in Headers */,
 				E7A858F025B6DD1A0088515D /* RS_OsDefs.hpp in Headers */,
 				E7A858E925B6DCA60088515D /* RS_CompiletimeAssert.hpp in Headers */,
 				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,
 				E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */,
 				E785D1A525BEB9630042292E /* RS_Thread.hpp in Headers */,
+				E79544DB25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp in Headers */,
 				E785D1D025BFA8540042292E /* RS_StatsIterator.hpp in Headers */,
 				E785D1CB25BF95760042292E /* RS_Logging.hpp in Headers */,
 				E785D1D825BFA8770042292E /* RS_StatsNode.hpp in Headers */,
+				E785D22225C611F00042292E /* RS_NativeFileSystem.hpp in Headers */,
+				E79544CD25DF07C8005D3B41 /* RS_FileStream.hpp in Headers */,
+				E79544D725DFAE3B005D3B41 /* RS_FileReadStream.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,14 +616,21 @@
 			files = (
 				E785D20525C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BD25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
+				E79544E225E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E785D1C125BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
+				E79544DE25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
+				E785D23625C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E785D22725C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E785D1FA25C258110042292E /* RS_Logging.cpp in Sources */,
 				E785D1E225BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16A25BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D22C25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
 				E785D16725BC0E930042292E /* xxhash.cpp in Sources */,
 				E785D1FE25C258110042292E /* RS_LoggingMgr.cpp in Sources */,
+				E79544C825DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */,
+				E79544D425DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */,
 				E785D20A25C2693E0042292E /* RS_ConsoleLogger_Appl.mm in Sources */,
 				E785D1DB25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
 				E785D20E25C270D00042292E /* RS_Logger.cpp in Sources */,
@@ -532,14 +644,21 @@
 			files = (
 				E785D20425C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BC25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
+				E79544E125E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E785D1C025BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
+				E79544DD25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
+				E785D23525C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E785D22625C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E785D1F925C258110042292E /* RS_Logging.cpp in Sources */,
 				E785D1E125BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16925BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D22B25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
 				E785D16625BC0E930042292E /* xxhash.cpp in Sources */,
 				E785D1FD25C258110042292E /* RS_LoggingMgr.cpp in Sources */,
+				E79544C725DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */,
+				E79544D325DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */,
 				E785D20925C2693E0042292E /* RS_ConsoleLogger_Appl.mm in Sources */,
 				E785D1DA25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
 				E785D20D25C270D00042292E /* RS_Logger.cpp in Sources */,
@@ -553,14 +672,21 @@
 			files = (
 				E785D20625C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BE25BEB9BD0042292E /* RS_Thread_Appl.mm in Sources */,
+				E79544E325E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E785D1C225BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
+				E79544DF25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
+				E785D23725C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15F25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E785D22825C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E785D1FB25C258110042292E /* RS_Logging.cpp in Sources */,
 				E785D1E325BFA8770042292E /* RS_StatsIterator.cpp in Sources */,
 				E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */,
+				E785D22D25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
 				E785D16825BC0E930042292E /* xxhash.cpp in Sources */,
 				E785D1FF25C258110042292E /* RS_LoggingMgr.cpp in Sources */,
+				E79544C925DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */,
+				E79544D525DF0953005D3B41 /* RS_FileStream_Appl.mm in Sources */,
 				E785D20B25C2693E0042292E /* RS_ConsoleLogger_Appl.mm in Sources */,
 				E785D1DC25BFA8770042292E /* RS_SampleMgr.cpp in Sources */,
 				E785D20F25C270D00042292E /* RS_Logger.cpp in Sources */,

@@ -30,6 +30,8 @@
 #include "Core/Hash/RS_RuntimeHash.hpp"
 // Logging
 #include "Core/Logging/RS_Logging.hpp"
+// Runtime text
+#include "Core/String/RS_RuntimeText.hpp"
 /*
 // Core
 #include "Core/ZGEAssert.hpp"
