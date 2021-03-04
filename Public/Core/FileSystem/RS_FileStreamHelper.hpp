@@ -29,6 +29,10 @@ public:                                                                         
     /* 关闭一个文件流 */                                                                              \
     ~TYPE ();                                                                                      \
                                                                                                    \
+    /* 检查文件流是否有效 */                                                                          \
+    Bool                                                                                           \
+    isValid () const;                                                                              \
+                                                                                                   \
     /* 获得文件流的长度 */                                                                            \
     UInt32                                                                                         \
     getLength () const;                                                                            \

@@ -21,6 +21,12 @@
         close();                                                                                   \
     }                                                                                              \
                                                                                                    \
+    Bool                                                                                           \
+    TYPE::isValid () const                                                                         \
+    {                                                                                              \
+        return ((NativeFile*)m_file_instance)->is_opened;                                          \
+    }                                                                                              \
+                                                                                                   \
     UInt32                                                                                         \
     TYPE::getLength () const                                                                       \
     {                                                                                              \

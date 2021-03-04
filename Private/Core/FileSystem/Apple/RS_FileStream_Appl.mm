@@ -16,8 +16,8 @@ namespace Core
 
 #if (USE_MACRO_API_DEFINES == 1)
     IMPLEMENT_COMMON_STREAM_API(FileStream);
-    IMPLEMENT_READ_STREAM_API(FileStream);
-    IMPLEMENT_WRITE_STREAM_API(FileStream);
+    IMPLEMENT_READ_STREAM_API  (FileStream);
+    IMPLEMENT_WRITE_STREAM_API (FileStream);
 #else
     TYPE::TYPE ()
     :
@@ -31,6 +31,12 @@ namespace Core
     TYPE::~TYPE ()
     {
         close();
+    }
+
+    Bool
+    TYPE::isValid () const
+    {
+        return ((NativeFile*)m_file_instance)->is_opened;
     }
 
     UInt32
