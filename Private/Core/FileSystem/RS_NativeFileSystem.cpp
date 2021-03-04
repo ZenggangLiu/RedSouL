@@ -2,6 +2,7 @@
 #include "PrecompiledH.hpp"
 // System headers
 // Lib headers
+#include "Core/String/RS_TextHelper.hpp"
 // Self
 #include "Core/FileSystem/RS_NativeFileSystem.hpp"
 
@@ -129,6 +130,7 @@ namespace Core
     {
         // 使用绝对路径来检查文件是否存在
         const RuntimeText _abs_path = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Check file existance]: %s", _abs_path.c_str());
         return existsFileAbs(_abs_path);
     }
 
