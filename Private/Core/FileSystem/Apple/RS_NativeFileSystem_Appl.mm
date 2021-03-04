@@ -38,6 +38,8 @@ namespace Core
     {
         // gets the full pathname of the receiver’s bundle directory
         NSString *const _bundle_dir = [[NSBundle mainBundle] bundlePath];
+        INFO(NativeFileSystem, "[Bundle folder]: %s",
+             [_bundle_dir cStringUsingEncoding: NSUTF8StringEncoding]);
         return [_bundle_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -57,6 +59,8 @@ namespace Core
         id _cache_dir = [_cache_dir_list objectAtIndex: 0];
         RUNTIME_ASSERT([_cache_dir isKindOfClass: [NSString class]] == YES, "Wrong return type");
 
+        INFO(NativeFileSystem, "[Cache folder]: %s",
+             [(NSString*)_cache_dir cStringUsingEncoding: NSUTF8StringEncoding]);
         return [(NSString*)_cache_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -76,6 +80,8 @@ namespace Core
         id _doc_dir = [_doc_dir_list objectAtIndex: 0];
         RUNTIME_ASSERT([_doc_dir isKindOfClass: [NSString class]] == YES, "Wrong return type");
 
+        INFO(NativeFileSystem, "[Document folder]: %s",
+             [(NSString*)_doc_dir cStringUsingEncoding: NSUTF8StringEncoding]);
         return [(NSString*)_doc_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -86,6 +92,8 @@ namespace Core
     RuntimeText
     initTemporaryDir ()
     {
+        INFO(NativeFileSystem, "[Temparary folder]: %s",
+             [NSTemporaryDirectory() cStringUsingEncoding: NSUTF8StringEncoding]);
         return [NSTemporaryDirectory() cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -110,6 +118,8 @@ namespace Core
             _cwd = [[NSBundle mainBundle] bundlePath];
         }
 
+        INFO(NativeFileSystem, "[Working folder]: %s",
+             [_cwd cStringUsingEncoding: NSUTF8StringEncoding]);
         return [_cwd cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -315,6 +325,7 @@ namespace Core
 
         // 使用绝对路径来创建文件
         const RuntimeText _abs_path_name = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Create file]: %s", _abs_path_name.c_str());
         NSString *const _abs_path = [NSString stringWithCString:(const char*)_abs_path_name.c_str()
                                                        encoding:NSUTF8StringEncoding];
         if (createFileAbs(_abs_path))
@@ -348,6 +359,7 @@ namespace Core
 
         // 创建文件的绝对路径
         const RuntimeText _abs_path_name = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Read file]: %s", _abs_path_name.c_str());
         NSString *const _abs_path = [NSString stringWithCString:(const char*)_abs_path_name.c_str()
                                                        encoding:NSUTF8StringEncoding];
 
@@ -375,6 +387,7 @@ namespace Core
 
         // 创建文件的绝对路径
         const RuntimeText _abs_path_name = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Write file]: %s", _abs_path_name.c_str());
         NSString *const _abs_path = [NSString stringWithCString:(const char*)_abs_path_name.c_str()
                                                        encoding:NSUTF8StringEncoding];
 
@@ -411,6 +424,7 @@ namespace Core
 
         // 创建文件的绝对路径
         const RuntimeText _abs_path_name = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Open file]: %s", _abs_path_name.c_str());
         NSString *const _abs_path = [NSString stringWithCString:(const char*)_abs_path_name.c_str()
                                                        encoding:NSUTF8StringEncoding];
 

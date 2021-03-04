@@ -120,6 +120,7 @@ namespace Core
         UInt8 _cur_idx = 0;
         m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "TestFlag");
         m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "TODO");
+        m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "NativeFileSystem");
         m_flag_list[_cur_idx++] = hash32(HASH_SEED_LOG, "RuntimeText");
     }
 
