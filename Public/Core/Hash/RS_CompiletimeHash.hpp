@@ -32,10 +32,10 @@ namespace Core
         const char *const buffer,
         const SInt32      i)
     {
-        return UInt32(buffer[i*4+0])        |
-               UInt32(buffer[i*4+1]) << 8   |
-               UInt32(buffer[i*4+2]) << 16  |
-               UInt32(buffer[i*4+3]) << 24;
+        return (UInt32(buffer[i*4+0])      )  |
+               (UInt32(buffer[i*4+1]) << 8 )  |
+               (UInt32(buffer[i*4+2]) << 16)  |
+               (UInt32(buffer[i*4+3]) << 24);
     }
 
 

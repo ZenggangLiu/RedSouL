@@ -23,7 +23,9 @@ typedef bool                            Bool;
 typedef char                            ASCII;
 // UTF8 character
 typedef unsigned char                   UTF8;
-// UTF16 character
+// UTF16 character: 16bits长
+// NOTE: 我们无法使用 UTF16 _utf16_code = u'🀀';
+//       因为此字符u'🀀'需要两个UTF16编码
 typedef char16_t                        UTF16;
 // Unicode(UTF32) character
 typedef char32_t                        UTF32;
