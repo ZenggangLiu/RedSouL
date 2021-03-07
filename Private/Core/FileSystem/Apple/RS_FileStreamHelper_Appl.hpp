@@ -36,6 +36,8 @@
     UInt32                                                                                         \
     TYPE::getCursorPostion () const                                                                \
     {                                                                                              \
+        RUNTIME_ASSERT(m_cursor_position == ((NativeFile*)m_file_instance)->getCursorPosition(),   \
+                       "NO matching cursor position");                                             \
         return m_cursor_position;                                                                  \
     }                                                                                              \
                                                                                                    \

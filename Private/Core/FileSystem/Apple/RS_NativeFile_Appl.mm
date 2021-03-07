@@ -53,7 +53,7 @@ namespace Core
     {
         // 保存文件Cursor的位置
         const UInt32 _cursor_pos  = getCursorPosition();
-        // 将Cursor移动到文件尾，来获得文件的大小
+        // seekToEndOfFile函数返回文件的长度
         const UInt32 _file_length = (UInt32)[file_handle seekToEndOfFile];
         // 在退出前，将Cursor设置回原来的位置
         [file_handle seekToFileOffset: _cursor_pos];
@@ -103,42 +103,55 @@ namespace Core
         const SInt32                      cursor_pos,
         const NativeFileSystem::SeekModes seek_mode)
     {
-        // 检查我们是否需要更新读写头的位置
-        if ((cursor_pos == 0) && (seek_mode == NativeFileSystem::SEEK_MODES_CURRENT_CURSOR))
-        {
-            return (SInt32)getCursorPosition();
-        }
-
-        // 计算相对于文件头的偏移
-        SInt32 _offset_from_file_head;
         switch (seek_mode)
         {
+            // 相对于文件头部
             case NativeFileSystem::SEEK_MODES_FILE_BEGIN:
             {
-                // 无法将读写头放置在文件头之前
+                // 无法将读写头设置到文件头之前
                 if (cursor_pos < 0)
                 {
                     return -1;
                 }
-                _offset_from_file_head = cursor_pos;
-                break;
+                else
+                {
+                    // 移动读写头
+                    [file_handle seekToFileOffset: cursor_pos];
+                    return cursor_pos;
+                }
             }
 
+            // 相对于当前位置
             case NativeFileSystem::SEEK_MODES_CURRENT_CURSOR:
             {
-                _offset_from_file_head = (SInt32)getCursorPosition() + cursor_pos;
-                break;
+                // 无需移动读写头
+                if (cursor_pos == 0)
+                {
+                    return (SInt32)getCursorPosition();
+                }
+                else
+                {
+                    // 计算相对于文件头部的偏移
+                    const SInt32 _offset_from_head = (SInt32)getCursorPosition() + cursor_pos;
+                    // 移动读写头
+                    [file_handle seekToFileOffset: _offset_from_head];
+                    return _offset_from_head;
+                }
             }
 
+            // 相对于文件尾
             case NativeFileSystem::SEEK_MODES_FILE_END:
             {
-                // 无法将读写头放置在文件尾之后
+                // 无法将读写头设置到文件尾之后
                 if (cursor_pos > 0)
                 {
                     return -1;
                 }
-                _offset_from_file_head = (SInt32)getLength() + cursor_pos;
-                break;
+                else
+                {
+                    // seekToEndOfFile函数返回文件的长度
+                    return (SInt32)[file_handle seekToEndOfFile];
+                }
             }
 
             default:
@@ -147,10 +160,6 @@ namespace Core
                 return -1;
             }
         }
-
-        // 相对于文件头移动读写头
-        [file_handle seekToFileOffset: _offset_from_file_head];
-        return _offset_from_file_head;
     }
 
 

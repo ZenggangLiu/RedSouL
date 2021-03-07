@@ -10,6 +10,15 @@
 namespace Core
 {
 
+    // File: 文件长度为N
+    //  文件头          最后字节   文件尾
+    // +----+----+-----+----+-----------+
+    // | AA | BB | ... | EE | EndOfFile |
+    // +----+----+-----+----+-----------+
+    //   0    1    ...   N-1
+    //        ^
+    //        |
+    //        +-- 读写头位置
     struct NativeFile
     {
         // 文件句柄
@@ -30,7 +39,7 @@ namespace Core
         Bool
         isOpened () const;
 
-        // 获得文件当前Cursor(读写头)的位置
+        // 获得文件当前Cursor(读写头)的位置: [0， 文件长度]
         UInt32
         getCursorPosition () const;
 
@@ -58,7 +67,7 @@ namespace Core
             const UInt32 count,
             UInt8 *const buffer);
 
-        // 移动文件读写头的位置
+        // 移动文件读写头的位置, 并且返回当前位置: [0， 文件长度]
         //
         // @param[in] cursor_pos
         //      相对于SeekMode的读写头的偏移量
