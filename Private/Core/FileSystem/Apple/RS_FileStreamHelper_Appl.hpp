@@ -13,7 +13,7 @@
         m_cursor_position(0)                                                                       \
     {                                                                                              \
         /* 清除NativeFile的实例 */                                                                   \
-        memset(m_file_instance, 0, sizeof(m_file_instance));                                       \
+        std::memset(m_file_instance, 0, sizeof(m_file_instance));                                  \
     }                                                                                              \
                                                                                                    \
     TYPE::~TYPE ()                                                                                 \

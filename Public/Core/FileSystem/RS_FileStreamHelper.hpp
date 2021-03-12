@@ -359,7 +359,7 @@ public:                                                                         
     {                                                                                              \
         if (ascii_text != nullptr && ascii_text[0] != '\0')                                        \
         {                                                                                          \
-            const UInt32 _text_length = (UInt32)strlen(ascii_text);                                \
+            const UInt32 _text_length = (UInt32)std::strlen(ascii_text);                           \
             write((const UInt8*)ascii_text, _text_length, 0, _text_length);                        \
         }                                                                                          \
         return SELF();                                                                             \

@@ -4,7 +4,7 @@
 // System headers
 #include <cmath>                        // std::abs and other math functions in std::
 #include <cstdarg>                      // va_arg, va_end, va_list, va_start
-#include <cstring>                      // strlen, std::memcpy, std::memset
+#include <cstring>                      // std::strlen, std::memcpy, std::memset
 #include <cstdio>                       // std::printf, std::vsnprintf
 #include <functional>                   // std::hash, std::equal_to
 #include <new>                          // placement new: new(...) type;
@@ -32,6 +32,7 @@
 #include "Core/Logging/RS_Logging.hpp"
 // Runtime text
 #include "Core/String/RS_RuntimeText.hpp"
+#include "Core/String/RS_UTF16Text.hpp"
 /*
 // Core
 #include "Core/ZGEAssert.hpp"
