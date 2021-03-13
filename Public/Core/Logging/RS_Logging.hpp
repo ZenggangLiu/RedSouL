@@ -72,14 +72,16 @@ namespace Core
 // 2. 定义相应的宏来开启INFO(), WARNING()以及FAILURE()的宏：
 //    ENABLE_INFO_LOGGING, ENABLE_WARNING_LOGGING, ENABLE_FAILURE_LOGGING
 // 3. 在Document目录下产生一个配置文件：Logging.cfg
+//    请参见：Public/Logging/Logging.cfg
 // 它的格式为
-//  a) Logger开关:
+//  a) 以#开头的行为Comments
+//  b) Logger开关:
 //     - ConsoleLogger                               <-- 表示使用ConsoleLogger
 //     - FileLogger = Folder_Name/Logging_output.txt <-- 表示使用FileLogger
 //       输出文件Folder_Name/Logging_output.txt相对于Document目录
 //     - NetworkLogger = 8866                        <-- 表示使用LoggingServer
 //       8866位LoggingServer的Port
-//   b) Flag Enable开关:
+//  c) Flag Enable开关:
 //     - SomeFlag
 //     - OtherFlag
 //     NOTE: Flag为当前Flag的名称。他们不带任何引号(此规则适用于配置文件和C++代码)

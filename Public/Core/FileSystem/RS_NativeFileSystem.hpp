@@ -184,6 +184,18 @@ namespace Core
         extension (
             const RuntimeText & rel_file);
 
+        // 获得文件的绝对路径
+        //
+        // @param[in] rel_path
+        //      相对路径
+        // @param[in] search_dir
+        //      定义相对哪个目录进行操作
+        static
+        RuntimeText
+        getAbsPath (
+            const UTF8 *const rel_path,
+            const SearchPaths search_dir);
+
         // 检测给定的文件是否存在
         //
         // @param[in] rel_path
@@ -292,14 +304,6 @@ namespace Core
 
 
     private:
-        // 获得绝对路径
-        static
-        RuntimeText
-        getAbsPath (
-            const UTF8 *const rel_path,
-            const SearchPaths search_dir);
-
-
         // --- OS specific methods START --- //
         // Implementations are in RS_NativeFileSystem_Appl/Wind/Andr.???
         // 检测绝对路径所指定的文件是否存在

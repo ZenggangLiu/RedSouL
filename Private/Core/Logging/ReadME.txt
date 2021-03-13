@@ -20,7 +20,7 @@ INFO(FLAG, "SomeInt: %d", 123)
          --> Logger::logInfoText("SomeInt:123")
            --> ConsoleLogger::logInfoText("SomeInt:123")
              --> 产生时间Tag并使用std::cout进行输出：
-              Apple：[Jan-29 15:35:20] 💚 [INFO]: SomeInt:123
+              Apple：[04/March 15:35:20] 💚 [INFO]: SomeInt:123
               Microsoft: 绿色信息：[Jan-29 15:35:20] [INFO]: SomeInt:123
 
 3): 我们对Logging.cfg中定义的Flag使用murmur 32bit hash。 这个hash与我们在C++代码中定义Flag时候使用的

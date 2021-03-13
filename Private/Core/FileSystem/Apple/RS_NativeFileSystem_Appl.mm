@@ -38,8 +38,11 @@ namespace Core
     {
         // gets the full pathname of the receiver’s bundle directory
         NSString *const _bundle_dir = [[NSBundle mainBundle] bundlePath];
-        INFO(NativeFileSystem, "[Bundle folder]: %s",
-             [_bundle_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        // 无法使用Logging，由于LoggingMgr的初始化要使用文件系统
+        std::printf("[Bundle folder]: %s\n",
+                    [_bundle_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#endif
         return [_bundle_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -59,8 +62,11 @@ namespace Core
         id _cache_dir = [_cache_dir_list objectAtIndex: 0];
         RUNTIME_ASSERT([_cache_dir isKindOfClass: [NSString class]] == YES, "Wrong return type");
 
-        INFO(NativeFileSystem, "[Cache folder]: %s",
-             [(NSString*)_cache_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        // 无法使用Logging，由于LoggingMgr的初始化要使用文件系统
+        std::printf("[Cache folder]: %s\n",
+                    [(NSString*)_cache_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#endif
         return [(NSString*)_cache_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -80,8 +86,11 @@ namespace Core
         id _doc_dir = [_doc_dir_list objectAtIndex: 0];
         RUNTIME_ASSERT([_doc_dir isKindOfClass: [NSString class]] == YES, "Wrong return type");
 
-        INFO(NativeFileSystem, "[Document folder]: %s",
-             [(NSString*)_doc_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        // 无法使用Logging，由于LoggingMgr的初始化要使用文件系统
+        std::printf("[Document folder]: %s\n",
+                    [(NSString*)_doc_dir cStringUsingEncoding: NSUTF8StringEncoding]);
+#endif
         return [(NSString*)_doc_dir cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -92,8 +101,12 @@ namespace Core
     RuntimeText
     initTemporaryDir ()
     {
-        INFO(NativeFileSystem, "[Temparary folder]: %s",
-             [NSTemporaryDirectory() cStringUsingEncoding: NSUTF8StringEncoding]);
+
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        // 无法使用Logging，由于LoggingMgr的初始化要使用文件系统
+        std::printf("[Temparary folder]: %s\n",
+                    [NSTemporaryDirectory() cStringUsingEncoding: NSUTF8StringEncoding]);
+#endif
         return [NSTemporaryDirectory() cStringUsingEncoding: NSUTF8StringEncoding];
     }
 
@@ -118,8 +131,11 @@ namespace Core
             _cwd = [[NSBundle mainBundle] bundlePath];
         }
 
-        INFO(NativeFileSystem, "[Working folder]: %s",
-             [_cwd cStringUsingEncoding: NSUTF8StringEncoding]);
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        // 无法使用Logging，由于LoggingMgr的初始化要使用文件系统
+        std::printf("[Working folder]: %s\n",
+                    [_cwd cStringUsingEncoding: NSUTF8StringEncoding]);
+#endif
         return [_cwd cStringUsingEncoding: NSUTF8StringEncoding];
     }
 

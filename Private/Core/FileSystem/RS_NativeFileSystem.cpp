@@ -123,41 +123,6 @@ namespace Core
     }
 
 
-    Bool
-    NativeFileSystem::existsFile (
-        const UTF8 *const rel_path,
-        const SearchPaths search_dir)
-    {
-        // 使用绝对路径来检查文件是否存在
-        const RuntimeText _abs_path = getAbsPath(rel_path, search_dir);
-        INFO(NativeFileSystem, "[Check file existance]: %s", _abs_path.c_str());
-        return existsFileAbs(_abs_path);
-    }
-
-
-    Bool
-    NativeFileSystem::deleteFile (
-        const UTF8 *const rel_path,
-        const SearchPaths search_dir)
-    {
-        // 无法删除Bundle目录下的文件
-        if (search_dir == SEARCH_PATH_BUNDLE_FOLDER)
-        {
-            return false;
-        }
-
-        // 使用绝对路径来删除文件
-        const RuntimeText _abs_path = getAbsPath(rel_path, search_dir);
-        return deleteFileAbs(_abs_path);
-    }
-
-
-
-    //----------------------------------------------------------------------------------------------
-    // PRIVATE
-    //----------------------------------------------------------------------------------------------
-    // MARK: - Private函数
-
     RuntimeText
     NativeFileSystem::getAbsPath (
         const UTF8 *const rel_path,
@@ -210,6 +175,35 @@ namespace Core
                                 search_dir_name, rel_path);
 
         return RuntimeText(_abs_path);
+    }
+
+
+    Bool
+    NativeFileSystem::existsFile (
+        const UTF8 *const rel_path,
+        const SearchPaths search_dir)
+    {
+        // 使用绝对路径来检查文件是否存在
+        const RuntimeText _abs_path = getAbsPath(rel_path, search_dir);
+        INFO(NativeFileSystem, "[Check file existance]: %s", _abs_path.c_str());
+        return existsFileAbs(_abs_path);
+    }
+
+
+    Bool
+    NativeFileSystem::deleteFile (
+        const UTF8 *const rel_path,
+        const SearchPaths search_dir)
+    {
+        // 无法删除Bundle目录下的文件
+        if (search_dir == SEARCH_PATH_BUNDLE_FOLDER)
+        {
+            return false;
+        }
+
+        // 使用绝对路径来删除文件
+        const RuntimeText _abs_path = getAbsPath(rel_path, search_dir);
+        return deleteFileAbs(_abs_path);
     }
 
 } // namespace Core

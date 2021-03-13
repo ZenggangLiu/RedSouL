@@ -2,8 +2,8 @@
 
 #define FILE_READ_WRITE_STREAM_CHECKING     0
 #define HASH_CHECKING                       0
-#define LOGGING_CHECKING                    0
-#define TEXT_FILE_READ_WRITE_CHECKING       1
+#define LOGGING_CHECKING                    1
+#define TEXT_FILE_READ_WRITE_CHECKING       0
 #define UTF8_CHECKING                       0
 
 
@@ -60,6 +60,8 @@ void Check()
     // Checking FileReadStream & FileWriteStream
 #if (FILE_READ_WRITE_STREAM_CHECKING == 1)
     {
+        std::printf("[FILE_READ_WRITE_STREAM_CHECKING] START...\n");
+
         // 输出各种类型数据
         const SInt8  si8data = -127;
         const UInt8  ui8data = 127;
@@ -119,6 +121,8 @@ void Check()
         RUNTIME_ASSERT(ui64data == _ui64data, "Wrong Data");
         RUNTIME_ASSERT(r32data  == _r32data,  "Wrong Data");
         RUNTIME_ASSERT(r64data  == _r64data,  "Wrong Data");
+
+        std::printf("[FILE_READ_WRITE_STREAM_CHECKING] OK\n\n");
     }
 #endif
 
@@ -126,12 +130,16 @@ void Check()
     // Check Hash
 #if (HASH_CHECKING == 1)
     {
+        std::printf("[HASH_CHECKING] START...\n");
+
         const UInt32 seed = FOUR_CC('S', 'e', 'e', 'D');
         const UInt32 compiletime_hash = COMPILE_TIME_HASH(
             seed, "INFO(TestFlag, \"WDR: %s\", NativeFileSystem::getWorkingDir());");
         const UInt32 runtime_kash     = hash32(
             seed, "INFO(TestFlag, \"WDR: %s\", NativeFileSystem::getWorkingDir());");
         RUNTIME_ASSERT(compiletime_hash == runtime_kash, "No matching");
+
+        std::printf("[HASH_CHECKING] OK\n\n");
     }
 #endif
 
@@ -139,21 +147,26 @@ void Check()
     // Check Logging
 #if (LOGGING_CHECKING == 1)
     {
+        std::printf("[LOGGING_CHECKING] START...\n");
+
         INFO(TestFlag,
-             "[Checking Info]: Working directory: %s",
-             NativeFileSystem::getWorkingDir());
+             "[Checking Info]: Checking logging of Info");
         WARNING(TestFlag,
                 "[Checking Warning]: Checking logging of Warning");
         FAILURE(TestFlag,
                 "[Checking Failure]: Checking logging of Failure: %s",
                 "this is a failure");
         TODO("[Checking]: We have to do this");
+
+        std::printf("[LOGGING_CHECKING] OK\n\n");
     }
 #endif
 
 
     // Checking text file reader/writer
 #if (TEXT_FILE_READ_WRITE_CHECKING == 1)
+    std::printf("[TEXT_FILE_READ_WRITE_CHECKING] START...\n");
+
     // a, B, 1
     // 編: U+7DE8 : UTF8: E7 B7 A8     UTF16: 7D E8
     // 碼: U+78BC : UTF8: E7 A2 BC     UTF16: 78 BC
@@ -390,12 +403,15 @@ void Check()
             }
         }
     }
-    INFO_ALWAYS("TextFileReader CHECKING OK");
+
+    std::printf("[TEXT_FILE_READ_WRITE_CHECKING] OK\n\n");
 #endif
 
 
     // UTF8编码测试
 #if (UTF8_CHECKING == 1)
+    std::printf("[UTF8_CHECKING] START...\n");
+
     {
         //      編: U+7DE8 : UTF8: E7 B7 A8     UTF16: 0x7DE8
         //      碼: U+78BC : UTF8: E7 A2 BC     UTF16: 0x78BC
@@ -451,37 +467,37 @@ void Check()
                        _fa_utf8[2] == 0x80 && _fa_utf8[3] == 0x85,
                        "Wrong UTF8 encoding for Fa");
 
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_bian_utf8) == 1,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_bian_utf8) == 1,
                        "Wrong UTF16 code length for Bian");
         UTF16 _bian_utf16 = 0;
         TextHelper::convertUTF8ToUTF16(_bian_utf8, &_bian_utf16);
         RUNTIME_ASSERT(_bian_utf16 == 0x7DE8,
                        "Wrong UTF16 encoding for Bian");
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_ma_utf8) == 1,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_ma_utf8) == 1,
                        "Wrong UTF16 code length for Ma");
         UTF16 _ma_utf16 = 0;
         TextHelper::convertUTF8ToUTF16(_ma_utf8, &_ma_utf16);
         RUNTIME_ASSERT(_ma_utf16 == 0x78BC,
                        "Wrong UTF16 encoding for Ma");
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_ce_utf8) == 1,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_ce_utf8) == 1,
                        "Wrong UTF16 code length for Ce");
         UTF16 _ce_utf16 = 0;
         TextHelper::convertUTF8ToUTF16(_ce_utf8, &_ce_utf16);
         RUNTIME_ASSERT(_ce_utf16 == 0x6D4B,
                        "Wrong UTF16 encoding for Ce");
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_shi_utf8) == 1,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_shi_utf8) == 1,
                        "Wrong UTF16 code length for Shi");
         UTF16 _shi_utf16 = 0;
         TextHelper::convertUTF8ToUTF16(_shi_utf8, &_shi_utf16);
         RUNTIME_ASSERT(_shi_utf16 == 0x8BD5,
                        "Wrong UTF16 encoding for Shi");
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_eastwind_utf8) == 2,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_eastwind_utf8) == 2,
                        "Wrong UTF16 code length for EastWind");
         UTF16 _eastwind_utf16[2] = {0};
         TextHelper::convertUTF8ToUTF16(_eastwind_utf8, _eastwind_utf16);
         RUNTIME_ASSERT(_eastwind_utf16[0] == 0xD83C && _eastwind_utf16[1] == 0xDC00,
                        "Wrong UTF16 encoding for EastWind");
-        RUNTIME_ASSERT(TextHelper::getUTF16TextLen(_fa_utf8) == 2,
+        RUNTIME_ASSERT(TextHelper::getUTF16TextLength(_fa_utf8) == 2,
                        "Wrong UTF16 code length for Fa");
         UTF16 _fa_utf16[2] = {0};
         TextHelper::convertUTF8ToUTF16(_fa_utf8, _fa_utf16);
@@ -497,7 +513,8 @@ void Check()
                 RUNTIME_ASSERT(false, "Wrong UTF8 encoding for All");
             }
         }
-//        INFO_ALWAYS("UTF8 CHECKING OK");
+
+        std::printf("[UTF8_CHECKING] OK\n\n");
     }
 #endif
 

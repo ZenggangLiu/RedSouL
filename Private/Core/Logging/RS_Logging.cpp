@@ -30,12 +30,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logInfo(flag, _tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logInfo(flag, _tmp_buffer);
+        }
     }
 
 
@@ -44,12 +48,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logInfoAlways(_tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logInfoAlways(_tmp_buffer);
+        }
     }
 
 
@@ -59,12 +67,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logWarning(flag, _tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logWarning(flag, _tmp_buffer);
+        }
     }
 
 
@@ -73,12 +85,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logWarningAlways(_tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logWarningAlways(_tmp_buffer);
+        }
     }
 
 
@@ -88,12 +104,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logFailure(flag, _tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logFailure(flag, _tmp_buffer);
+        }
     }
 
 
@@ -102,12 +122,16 @@ namespace Core
         const UTF8 *const format,
         ...)
     {
-        // 创建Logging字符串
-        UTF8 _tmp_buffer[BUFFER_SIZE];
-        PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
+        // LoggingMgr初始化的过程中无法使用Logging
+        if (!LoggingMgr::isInitializing())
+        {
+            // 创建Logging字符串
+            UTF8 _tmp_buffer[BUFFER_SIZE];
+            PREPARE_LOG_TEXT(_tmp_buffer, BUFFER_SIZE);
 
-        // 调用Logging管理器输入信息
-        LoggingMgr::getRef().logFailureAlways(_tmp_buffer);
+            // 调用Logging管理器输入信息
+            LoggingMgr::getRef().logFailureAlways(_tmp_buffer);
+        }
     }
 
 } // namespace Core

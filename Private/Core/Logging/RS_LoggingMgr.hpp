@@ -14,6 +14,11 @@ namespace Core
     class LoggingMgr
     {
     public:
+        // 检查LoggingMgr是否正在进行初始化
+        static
+        Bool
+        isInitializing ();
+
         // 获得LoggingMgr的参考
         static
         LoggingMgr&
@@ -66,7 +71,7 @@ namespace Core
 
 
     private:
-        // Constructs the manager
+        // 构建LoggingMgr
         LoggingMgr ();
 
         // 检查是否给定的Flag启用
