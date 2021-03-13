@@ -7,7 +7,7 @@
 #define UTF8_CHECKING                       0
 
 
-
+#include <cstdio>                               // std::printf, std::vsnprintf
 #include "Core/Assert/RS_RuntimeAssert.hpp"
 #include "Core/Common/RS_CommonDefs.hpp"
 #include "Core/Logging/RS_Logging.hpp"
@@ -36,7 +36,6 @@
 #include "Core/FileSystem/RS_FileWriteStream.hpp"
 #include "Core/FileSystem/RS_NativeFileSystem.hpp"
 #include "Core/FileSystem/RS_TextFileReader.hpp"
-#include "Core/FileSystem/RS_TextFileWriter.hpp"
 #include "Core/String/RS_UTF16Text.hpp"
 #endif
 

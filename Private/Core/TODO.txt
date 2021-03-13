@@ -24,4 +24,24 @@
 #endif // #ifndef ZGEALIGNUP
 
 
-2.Terminal应用如何自动连接QuartzCore Framework
+2.问题汇总：
+- Terminal应用如何自动连接
+  + QuartzCore Framework(CoreFoundation 好像包含QuartzCore): _CACurrentMediaTime
+  + CoreFoundation Framework: ___CFConstantStringClassReference
+  + Foundation Framwork: _OBJC_CLASS_$_NSFileManager, _OBJC_CLASS_$_NSString
+
+
+3.ToD0 Tasks：
+- FileSystem: Native: DONE
+- Logger使用Logging.cfg配置文件生成: DONE
+  Logging.cfg
+
+- Memory managment: RAM & VRAM两种不同的MEM allocator实现
+- Compute API, Render API
+- FileSystem: Pak, PakViewer macOS App
+- RuntimeText & CompiletimeText的实现
+  + RuntimeText：可以使用static UTF8* 来创建，或者使用resize（）然后拷贝字符串。不提供append功能
+    .c_str()返回const UTF8*
+- 将Core改名为RedSoULCore，并且把Lib的类型从StaticLib改到Framework
+- 使用配置文件来配置Profile中SampleMgr的sample数目SampleMgr::setTotalSampleCount()。
+  而不是始终使用DEFAULT_SAMPLE_COUNT
