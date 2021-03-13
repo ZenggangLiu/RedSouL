@@ -84,18 +84,23 @@ namespace Core
             return false;
         }
 
+        // 清除返回编码缓存
+        std::memset(*utf8_code, 0, 4);
+
         // 根据文件使用的Encoding来进行不同的处理
         switch (m_encoding)
         {
             case TEXT_ENCODINGS_UTF8:
             {
                 // 判断当前UTF8编码使用字节数
-                m_io >> (*utf8_code)[0];
+                if (m_io.read(sizeof(UTF8), 0, sizeof(UTF8), (*utf8_code)) != sizeof(UTF8))
+                {
+                    return false;
+                }
                 const UInt8 utf8_code_len = TextHelper::getUTF8CodeLength((*utf8_code)[0]);
                 // 我们只支持Basic Multilingual Plane上面的Unicode
                 if (utf8_code_len == 4 || utf8_code_len == 0)
                 {
-                    (*utf8_code)[0] = 0;
                     return false;
                 }
                 // 读入所有编码字节
@@ -103,20 +108,20 @@ namespace Core
                 {
                     if (m_io.read(3, 1, utf8_code_len - 1, *utf8_code) != utf8_code_len - 1)
                     {
-                        (*utf8_code)[0] = 0;
                         return false;
                     }
                 }
-
-                (*utf8_code)[utf8_code_len] = 0;
                 break;
             }
 
             case TEXT_ENCODINGS_UTF16_BE:
             {
-                std::memset(*utf8_code, 0, 4);
+                // ZERO结尾的UTF16字符串: convertUTF16ToUTF8()需要一个字符串
                 UInt16 _utf16_code[2] = {0};
-                m_io >> _utf16_code[0];
+                if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)_utf16_code) != sizeof(UTF16))
+                {
+                    return false;
+                }
                 // 如果当前机器使用Little Endianness，交换高低8位
                 if (!EndianHelper::isBigEndian())
                 {
@@ -129,9 +134,12 @@ namespace Core
 
             case TEXT_ENCODINGS_UTF16_LE:
             {
-                std::memset(*utf8_code, 0, 4);
+                // ZERO结尾的UTF16字符串: convertUTF16ToUTF8()需要一个字符串
                 UInt16 _utf16_code[2] = {0};
-                m_io >> _utf16_code[0];
+                if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)_utf16_code) != sizeof(UTF16))
+                {
+                    return false;
+                }
                 // 如果当前机器使用Big Endianness，交换高低8位
                 if (EndianHelper::isBigEndian())
                 {
@@ -170,7 +178,10 @@ namespace Core
             {
                 // 判断当前UTF8编码使用字节数
                 UInt8 _utf8_code[4] = {0};
-                m_io >> _utf8_code[0];
+                if (m_io.read(sizeof(UTF8), 0, sizeof(UTF8), _utf8_code) != sizeof(UTF8))
+                {
+                    return false;
+                }
                 const UInt8 utf8_code_len = TextHelper::getUTF8CodeLength(_utf8_code[0]);
                 // 我们只支持Basic Multilingual Plane上面的Unicode
                 if (utf8_code_len == 4 || utf8_code_len == 0)
@@ -194,7 +205,10 @@ namespace Core
             {
                 // 读入两个字节
                 UInt16 _utf16_be;
-                m_io >> _utf16_be;
+                if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)&_utf16_be) != sizeof(UTF16))
+                {
+                    return false;
+                }
                 // 如果当前机器使用Little Endianness，交换高低8位
                 if (!EndianHelper::isBigEndian())
                 {
@@ -211,7 +225,10 @@ namespace Core
             {
                 // 直接读入返回
                 UInt16 _utf16_le;
-                m_io >> _utf16_le;
+                if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)&_utf16_le) != sizeof(UTF16))
+                {
+                    return false;
+                }
                 // 如果当前机器使用Big Endianness，交换高低8位
                 if (EndianHelper::isBigEndian())
                 {
@@ -247,14 +264,30 @@ namespace Core
         utf8_text.clear();
 
         UTF8 _next_char[4];
-        // 没有到达文件流的尾部或则没有遇见回车
-        while (readNextChar(&_next_char) &&
-               _next_char[3] == 0        &&
-               !TextHelper::isLineFeedChar((ASCII)_next_char[0]))
+        // 持续读入下一个字符
+        while (readNextChar(&_next_char))
         {
-            for (UInt8 _idx = 0;_next_char[_idx] != 0; ++_idx)
+            // Basic Multilingual Plane上的Unicode: [U+0000, U+FFFF]
+            if (_next_char[3] == 0)
             {
-                utf8_text.push_back(_next_char[_idx]);
+                // 不是回车字符
+                if (!TextHelper::isLineFeedChar((ASCII)_next_char[0]))
+                {
+                    // 保存UTF8编码串
+                    for (UInt8 _idx = 0;_next_char[_idx] != 0; ++_idx)
+                    {
+                        utf8_text.push_back(_next_char[_idx]);
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            // 不支持的Unicode plane
+            else
+            {
+                break;
             }
         }
 

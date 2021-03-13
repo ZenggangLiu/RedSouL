@@ -89,7 +89,7 @@ namespace Core
         readNextChar (
             UTF16 & utf16_char);
 
-        // 读入文件流中的一行，并且返回它的UTF8编码的字符串
+        // 读入文件流中的一行，并且返回它的UTF8编码的字符串(不包括回车字符)
         //
         // @param[out] utf8_text
         //      读入的一行UTF8编码的字符串
@@ -100,7 +100,7 @@ namespace Core
         readLine (
             RuntimeText & utf8_text);
 
-        // 读入文件流中的一行，并且返回它的UTF16编码的字符串
+        // 读入文件流中的一行，并且返回它的UTF16编码的字符串(不包括回车字符)
         //
         // @param[out] utf16_text
         //      读入的一行UTF16编码的字符串
