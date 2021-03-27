@@ -31,8 +31,8 @@ namespace Core
     // 由于这些函数名与类中定义的函数冲突
 
     // 获得Bundle目录
-    static
     INLINE_FUNCTION
+    static
     RuntimeText
     initBundleDir ()
     {
@@ -48,8 +48,8 @@ namespace Core
 
 
     // 获得Cache目录
-    static
     INLINE_FUNCTION
+    static
     RuntimeText
     initCacheDir ()
     {
@@ -72,8 +72,8 @@ namespace Core
 
 
     // 获得Document目录
-    static
     INLINE_FUNCTION
+    static
     RuntimeText
     initDocumentDir ()
     {
@@ -96,8 +96,8 @@ namespace Core
 
 
     // 获得Temporary目录
-    static
     INLINE_FUNCTION
+    static
     RuntimeText
     initTemporaryDir ()
     {
@@ -112,8 +112,8 @@ namespace Core
 
 
     // 获得当前工作目录
-    static
     INLINE_FUNCTION
+    static
     RuntimeText
     initWorkingDir ()
     {
