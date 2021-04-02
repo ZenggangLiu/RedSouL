@@ -3,6 +3,7 @@
 // System headers
 // Lib headers
 #include "Core/Assert/RS_RuntimeAssert.hpp"
+#include "Core/Common/RS_CommonDefs.hpp"
 #include "Core/DataType/RS_DataTypeDefs.hpp"
 #include "Core/FileSystem/RS_NativeFileSystem.hpp"
 
