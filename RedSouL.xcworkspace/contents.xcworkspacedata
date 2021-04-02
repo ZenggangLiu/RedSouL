@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Private/Demo_Script.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Private/Unit_Test.xcodeproj">
+   </FileRef>
 </Workspace>
