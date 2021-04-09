@@ -42,6 +42,9 @@ namespace Core
     Bool
     TextFileReader::isEndOfStream () const
     {
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         return m_io.getCursorPostion() == m_io.getLength();
     }
 
@@ -50,6 +53,9 @@ namespace Core
     TextFileReader::peekNextChar (
         UTF8 (*utf8_code)[4])
     {
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         // 保存当前流的位置
         const UInt32 _cur_pos  = m_io.getCursorPostion();
         // 读入下一个字符
@@ -64,6 +70,9 @@ namespace Core
     TextFileReader::peekNextChar (
         UTF16 & utf16_char)
     {
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         // 保存当前流的位置
         const UInt32 _cur_pos  = m_io.getCursorPostion();
         // 读入下一个字符
@@ -91,22 +100,23 @@ namespace Core
         switch (m_encoding)
         {
             case TEXT_ENCODINGS_UTF8:
+            case TEXT_ENCODINGS_UTF8_BOM:
             {
                 // 判断当前UTF8编码使用字节数
                 if (m_io.read(sizeof(UTF8), 0, sizeof(UTF8), (*utf8_code)) != sizeof(UTF8))
                 {
                     return false;
                 }
-                const UInt8 utf8_code_len = TextHelper::getUTF8CodeLength((*utf8_code)[0]);
+                const UInt8 _utf8_code_len = TextHelper::getUTF8CodeLength((*utf8_code)[0]);
                 // 我们只支持Basic Multilingual Plane上面的Unicode
-                if (utf8_code_len == 4 || utf8_code_len == 0)
+                if (_utf8_code_len == 4 || _utf8_code_len == 0)
                 {
                     return false;
                 }
                 // 读入所有编码字节
-                if (utf8_code_len > 1)
+                if (_utf8_code_len > 1)
                 {
-                    if (m_io.read(3, 1, utf8_code_len - 1, *utf8_code) != utf8_code_len - 1)
+                    if (m_io.read(3, 1, _utf8_code_len - 1, *utf8_code) != _utf8_code_len - 1)
                     {
                         return false;
                     }
@@ -117,7 +127,7 @@ namespace Core
             case TEXT_ENCODINGS_UTF16_BE:
             {
                 // ZERO结尾的UTF16字符串: convertUTF16ToUTF8()需要一个字符串
-                UInt16 _utf16_code[2] = {0};
+                UTF16 _utf16_code[2] = {0};
                 if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)_utf16_code) != sizeof(UTF16))
                 {
                     return false;
@@ -128,14 +138,14 @@ namespace Core
                     _utf16_code[0] = EndianHelper::swapEndian(_utf16_code[0]);
                 }
                 // 转换为UTF8
-                TextHelper::convertUTF16ToUTF8((const UTF16*)_utf16_code, *utf8_code);
+                TextHelper::convertUTF16ToUTF8(_utf16_code, *utf8_code);
                 break;
             }
 
             case TEXT_ENCODINGS_UTF16_LE:
             {
                 // ZERO结尾的UTF16字符串: convertUTF16ToUTF8()需要一个字符串
-                UInt16 _utf16_code[2] = {0};
+                UTF16 _utf16_code[2] = {0};
                 if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)_utf16_code) != sizeof(UTF16))
                 {
                     return false;
@@ -146,7 +156,7 @@ namespace Core
                     _utf16_code[0] = EndianHelper::swapEndian(_utf16_code[0]);
                 }
                 // 转换为UTF8
-                TextHelper::convertUTF16ToUTF8((const UTF16*)_utf16_code, *utf8_code);
+                TextHelper::convertUTF16ToUTF8(_utf16_code, *utf8_code);
                 break;
             }
 
@@ -175,23 +185,24 @@ namespace Core
         switch (m_encoding)
         {
             case TEXT_ENCODINGS_UTF8:
+            case TEXT_ENCODINGS_UTF8_BOM:
             {
                 // 判断当前UTF8编码使用字节数
-                UInt8 _utf8_code[4] = {0};
+                UTF8 _utf8_code[4] = {0};
                 if (m_io.read(sizeof(UTF8), 0, sizeof(UTF8), _utf8_code) != sizeof(UTF8))
                 {
                     return false;
                 }
-                const UInt8 utf8_code_len = TextHelper::getUTF8CodeLength(_utf8_code[0]);
+                const UInt8 _utf8_code_len = TextHelper::getUTF8CodeLength(_utf8_code[0]);
                 // 我们只支持Basic Multilingual Plane上面的Unicode
-                if (utf8_code_len == 4 || utf8_code_len == 0)
+                if (_utf8_code_len == 4 || _utf8_code_len == 0)
                 {
                     return false;
                 }
                 // 读入所有编码字节
-                if (utf8_code_len > 1)
+                if (_utf8_code_len > 1)
                 {
-                    if (m_io.read(2, 0, utf8_code_len-1, _utf8_code+1) != utf8_code_len - 1)
+                    if (m_io.read(2, 0, _utf8_code_len-1, _utf8_code+1) != _utf8_code_len - 1)
                     {
                         return false;
                     }
@@ -204,7 +215,7 @@ namespace Core
             case TEXT_ENCODINGS_UTF16_BE:
             {
                 // 读入两个字节
-                UInt16 _utf16_be;
+                UTF16 _utf16_be;
                 if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)&_utf16_be) != sizeof(UTF16))
                 {
                     return false;
@@ -224,7 +235,7 @@ namespace Core
             case TEXT_ENCODINGS_UTF16_LE:
             {
                 // 直接读入返回
-                UInt16 _utf16_le;
+                UTF16 _utf16_le;
                 if (m_io.read(sizeof(UTF16), 0, sizeof(UTF16), (UTF8*)&_utf16_le) != sizeof(UTF16))
                 {
                     return false;
@@ -259,6 +270,9 @@ namespace Core
     {
         const UInt32 DEFAULT_LINE_LENGHT = 256;
 
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         // 申请使用空间
         utf8_text.reserve(DEFAULT_LINE_LENGHT);
         utf8_text.clear();
@@ -301,6 +315,9 @@ namespace Core
     {
         const UInt32 DEFAULT_LINE_LENGHT = 256;
 
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         // 申请使用空间
         utf16_text.reserve(DEFAULT_LINE_LENGHT);
         utf16_text.clear();
@@ -319,6 +336,9 @@ namespace Core
     void
     TextFileReader::rewind ()
     {
+        RUNTIME_ASSERT(isValid(),
+                       "File stream is invalid."
+                       "Please check its validity with isValid() before calling this function");
         m_io.seek(0, NativeFileSystem::SEEK_MODES_FILE_BEGIN);
     }
 
@@ -334,9 +354,15 @@ namespace Core
     TextFileReader::detectEncoding ()
     {
         // 假设缺省编码方式为UTF8
+        m_encoding = TEXT_ENCODINGS_UTF8;
 
         // 读入文件开头三个字节，比较它是否为BOM的UTF16或者UTF8的编码
         // BOM：U+FEFF, UTF16: 0xFF 0xFE(LE), 0xFE 0xFF(BE), UTF8: 0xEF 0xBB 0xBF
+        //
+        // UTF8编码字符串带有BOM(U+FEFF): 编码为UTF8为 EF BB BF
+        // +----+----+----+-----+-------...--------+
+        // | EF | BB | BF | ... | UTF8 Encoding... |
+        // +----+----+----+-----+-------...--------+
         //
         // UTF16 Little Endianess(LE):
         // +----+----+-----+---------...---------+
@@ -348,11 +374,6 @@ namespace Core
         // | FE | FF | ... |  UTF16 Encoding...  |
         // +----+----+-----+---------...---------+
         //
-        // UTF8编码字符串带有BOM(U+FEFF): 编码为UTF8为 EF BB BF
-        // +----+----+----+-----+-------...--------+
-        // | EF | BB | BF | ... | UTF8 Encoding... |
-        // +----+----+----+-----+-------...--------+
-
         UInt8 _first_byte, _second_byte;
         // 检查是否文件存储BOM：U+FEFF, UTF16: 0xFF 0xFE(LE), 0xFE 0xFF(BE), UTF8: 0xEF 0xBB 0xBF
         if (m_io.getLength() > 3)
@@ -376,8 +397,12 @@ namespace Core
                 // 读入第三个字节
                 UInt8 _third_byte;
                 m_io >> _third_byte;
-                // 不是UTF8编码的BOM
-                if (_third_byte != 0xBF)
+                // 带有BOM的UTF8编码
+                if (_third_byte == 0xBF)
+                {
+                    m_encoding = TEXT_ENCODINGS_UTF8_BOM;
+                }
+                else
                 {
                     // 复位读写头
                     m_io.seek(0, NativeFileSystem::SEEK_MODES_FILE_BEGIN);

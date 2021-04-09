@@ -12,11 +12,10 @@
 namespace Core
 {
 
-    class Filetream;
     class UTF16Text;
 
 
-    // 字符文件读入器
+    // 字符文件读入器：提供UTF8/16编码的字符串文件的输入
     // NOTE: 我们只支持Basic Multilingual Plane上的Unicode: [U+0000, U+FFFF]，
     //       因为他们对应单整数UTF16编码
     class TextFileReader

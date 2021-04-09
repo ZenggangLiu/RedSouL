@@ -137,6 +137,14 @@ public:                                                                         
     INLINE_FUNCTION                                                                                \
     TYPE&                                                                                          \
     operator >> (                                                                                  \
+        ASCII & data)                                                                              \
+    {                                                                                              \
+        return (SELF()) >> (UInt8&)data;                                                           \
+    }                                                                                              \
+                                                                                                   \
+    INLINE_FUNCTION                                                                                \
+    TYPE&                                                                                          \
+    operator >> (                                                                                  \
         SInt8 & data)                                                                              \
     {                                                                                              \
         return (SELF()) >> (UInt8&)data;                                                           \
@@ -267,6 +275,14 @@ public:                                                                         
        const UInt32       count);                                                                  \
                                                                                                    \
     /* 输出操作符 */                                                                                 \
+    INLINE_FUNCTION                                                                                \
+    TYPE&                                                                                          \
+    operator << (                                                                                  \
+        const ASCII data)                                                                          \
+    {                                                                                              \
+        return (SELF()) << (UInt8)data;                                                            \
+    }                                                                                              \
+                                                                                                   \
     INLINE_FUNCTION                                                                                \
     TYPE&                                                                                          \
     operator << (                                                                                  \

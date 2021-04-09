@@ -17,6 +17,8 @@ namespace Core
     {
         // UTF8编码
         TEXT_ENCODINGS_UTF8,
+        // 带有BOM的UTF8编码
+        TEXT_ENCODINGS_UTF8_BOM,
         // UTF16 Big Endianess编码
         TEXT_ENCODINGS_UTF16_BE,
         // UTF16 Little Endianess编码
@@ -29,6 +31,12 @@ namespace Core
     // 字符串处理辅助函数
     struct TextHelper
     {
+        // BOM(U+FEFF)的UTF8编码：EF BB BF
+        static const UTF8 BOM_UTF8[3];
+
+        // BOM(U+FEFF)的UTF16编码
+        static const UTF16 BOM_UTF16;
+
         // 检测给定ASCII编码是否控制符编码：不可见字符
         static
         Bool
@@ -125,7 +133,7 @@ namespace Core
         static
         UInt8
         getUTF8CodeLength (
-            const UInt8 first_byte);
+            const UTF8 first_byte);
 
         // 获得UTF8编码串的长度：不包括结尾的‘\0'
         //

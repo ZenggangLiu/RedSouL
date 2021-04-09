@@ -414,6 +414,13 @@ namespace Core
     //----------------------------------------------------------------------------------------------
     // MARK: - Texthelper结构中定义的函数
 
+    const UTF8 TextHelper::BOM_UTF8[3]  =
+    {
+        0xEF, 0xBB, 0xBF
+    };
+    const UTF16 TextHelper::BOM_UTF16   = 0xFEFF;
+
+
     Bool
     TextHelper::isCtlChar (
         const ASCII ascii_code)
@@ -616,7 +623,7 @@ namespace Core
 
     UInt8
     TextHelper::getUTF8CodeLength (
-        const UInt8 first_byte)
+        const UTF8 first_byte)
     {
         // [0， 0x7F]
         if (first_byte <= ONE_UTF8_CODE_END_CODE)
