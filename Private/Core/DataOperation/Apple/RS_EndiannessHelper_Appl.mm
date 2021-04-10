@@ -14,7 +14,7 @@ namespace Core
 {
 
     UInt16
-    EndianHelper::swapEndian (
+    EndianHelper::swapEndian16 (
         const UInt16 data)
     {
         return OSSwapInt16(data);
@@ -22,7 +22,7 @@ namespace Core
 
 
     UInt32
-    EndianHelper::swapEndian (
+    EndianHelper::swapEndian32 (
         const UInt32 data)
     {
         return OSSwapInt32(data);
@@ -30,7 +30,7 @@ namespace Core
 
 
     UInt64
-    EndianHelper::swapEndian (
+    EndianHelper::swapEndian64 (
         const UInt64 data)
     {
         return OSSwapInt64(data);

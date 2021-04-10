@@ -26,28 +26,4 @@ namespace Core
         return (ENDIANESS_CHECKING_DATA.ui8Data[0] == 0x04);
     }
 
-
-    SInt16
-    EndianHelper::swapEndian (
-        const SInt16 data)
-    {
-        return (SInt16)swapEndian((const UInt16)data);
-    }
-
-
-    SInt32
-    EndianHelper::swapEndian (
-        const SInt32 data)
-    {
-        return (SInt32)swapEndian((const UInt32)data);
-    }
-
-
-    SInt64
-    EndianHelper::swapEndian (
-        const SInt64 data)
-    {
-        return (SInt64)swapEndian((const UInt64)data);
-    }
-
 } // namespace Core

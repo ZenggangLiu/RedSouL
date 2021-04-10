@@ -135,7 +135,7 @@ namespace Core
                 // 如果当前机器使用Little Endianness，交换高低8位
                 if (!EndianHelper::isBigEndian())
                 {
-                    _utf16_code[0] = EndianHelper::swapEndian(_utf16_code[0]);
+                    _utf16_code[0] = EndianHelper::swapEndian16(_utf16_code[0]);
                 }
                 // 转换为UTF8
                 TextHelper::convertUTF16ToUTF8(_utf16_code, *utf8_code);
@@ -153,7 +153,7 @@ namespace Core
                 // 如果当前机器使用Big Endianness，交换高低8位
                 if (EndianHelper::isBigEndian())
                 {
-                    _utf16_code[0] = EndianHelper::swapEndian(_utf16_code[0]);
+                    _utf16_code[0] = EndianHelper::swapEndian16(_utf16_code[0]);
                 }
                 // 转换为UTF8
                 TextHelper::convertUTF16ToUTF8(_utf16_code, *utf8_code);
@@ -223,7 +223,7 @@ namespace Core
                 // 如果当前机器使用Little Endianness，交换高低8位
                 if (!EndianHelper::isBigEndian())
                 {
-                    utf16_char = EndianHelper::swapEndian(_utf16_be);
+                    utf16_char = EndianHelper::swapEndian16(_utf16_be);
                 }
                 else
                 {
@@ -243,7 +243,7 @@ namespace Core
                 // 如果当前机器使用Big Endianness，交换高低8位
                 if (EndianHelper::isBigEndian())
                 {
-                    utf16_char = EndianHelper::swapEndian(_utf16_le);
+                    utf16_char = EndianHelper::swapEndian16(_utf16_le);
                 }
                 else
                 {
