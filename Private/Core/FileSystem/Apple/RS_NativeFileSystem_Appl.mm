@@ -416,10 +416,11 @@ namespace Core
             }
         }
 
-        // 打开此文件进行写入操作
+        // 打开此文件进行写入操作, 并将流的长度设置为0
         NativeFile _file_opened(openFileAbsForHandle(_abs_path, ACCESS_MODES_WRITE_ONLY));
         if (_file_opened.isOpened())
         {
+            _file_opened.setLength(0);
             file_stream.initWithFile(_file_opened);
             return true;
         }
