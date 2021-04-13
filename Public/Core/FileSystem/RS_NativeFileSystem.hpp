@@ -265,7 +265,7 @@ namespace Core
             const SearchPaths search_dir,
             FileReadStream &  file_stream);
 
-        // 打开一个现有文件/创建一个新文件来进行写入
+        // 打开一个现有文件(长度设置为0)/创建一个新文件来进行写入
         //
         // @param[in]  rel_path
         //      相对路径

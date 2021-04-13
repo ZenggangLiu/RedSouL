@@ -135,14 +135,6 @@ namespace Core
             INLINE_FUNCTION
             TYPE&
             operator >> (
-                ASCII & data)
-            {
-                return (SELF()) >> (UInt8&)data;
-            }
-
-            INLINE_FUNCTION
-            TYPE&
-            operator >> (
                 SInt8 & data)
             {
                 return (SELF()) >> (UInt8&)data;
@@ -156,6 +148,16 @@ namespace Core
                 read(sizeof(UInt8), 0, sizeof(UInt8), &data);
                 return SELF();
             }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator >> (
+                ASCII & data)
+            {
+                return (SELF()) >> (UInt8&)data;
+            }
+
+            // NOTE: no operator >> defined for UTF8, because UTF8 is SAME as UInt8
 
             INLINE_FUNCTION
             TYPE&
@@ -177,6 +179,14 @@ namespace Core
             INLINE_FUNCTION
             TYPE&
             operator >> (
+                UTF16 & data)
+            {
+                return (SELF()) >> (UInt16&)data;
+            }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator >> (
                 SInt32 & data)
             {
                 return (SELF()) >> (UInt32&)data;
@@ -189,6 +199,14 @@ namespace Core
             {
                 read(sizeof(UInt32), 0, sizeof(UInt32), (UInt8*)&data);
                 return SELF();
+            }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator >> (
+                UTF32 & data)
+            {
+                return (SELF()) >> (UInt32&)data;
             }
 
             INLINE_FUNCTION
@@ -273,14 +291,6 @@ namespace Core
             INLINE_FUNCTION
             TYPE&
             operator << (
-                const ASCII data)
-            {
-                return (SELF()) << (UInt8)data;
-            }
-
-            INLINE_FUNCTION
-            TYPE&
-            operator << (
                 const SInt8 data)
             {
                 return (SELF()) << (UInt8)data;
@@ -294,6 +304,16 @@ namespace Core
                 write(&data, sizeof(UInt8), 0, sizeof(UInt8));
                 return SELF();
             }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator << (
+                const ASCII data)
+            {
+                return (SELF()) << (UInt8)data;
+            }
+
+            // NOTE: no operator << defined for UTF8, because UTF8 is SAME as UInt8
 
             INLINE_FUNCTION
             TYPE&
@@ -315,6 +335,14 @@ namespace Core
             INLINE_FUNCTION
             TYPE&
             operator << (
+                const UTF16 data)
+            {
+                return (SELF()) << (UInt16)data;
+            }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator << (
                 const SInt32 data)
             {
                 return (SELF()) << (UInt32)data;
@@ -327,6 +355,14 @@ namespace Core
             {
                 write((const UInt8*)&data, sizeof(UInt32), 0, sizeof(UInt32));
                 return SELF();
+            }
+
+            INLINE_FUNCTION
+            TYPE&
+            operator << (
+                const UTF32 data)
+            {
+                return (SELF()) << (UInt32)data;
             }
 
             INLINE_FUNCTION
