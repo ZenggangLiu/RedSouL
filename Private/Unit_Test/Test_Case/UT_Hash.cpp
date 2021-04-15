@@ -21,11 +21,15 @@ TEST_CASE("Checking Compiletime/Runtime Murmur3 Hash", "[Murmur3 Hash]")
 
     SECTION("Checking Hash:")
     {
+        std::printf("--- Checking Murmur3 Hash...\n");
+
         const UInt32 compiletime_hash = COMPILE_TIME_HASH(
             seed, "INFO(TestFlag, \"WDR: %s\", NativeFileSystem::getWorkingDir());");
         const UInt32 runtime_hash     = hash32(
             seed, "INFO(TestFlag, \"WDR: %s\", NativeFileSystem::getWorkingDir());");
         REQUIRE(compiletime_hash == runtime_hash);
+
+        std::printf("--- Checking Murmur3 Hash: OK!\n");
     }
 } // TEST_CASE("Checking Compile/Runtime Murmur3 Hash", "[Murmur3 Hash]")
 
