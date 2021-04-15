@@ -11,7 +11,7 @@
 		E785D15325BBC3230042292E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15225BBC3230042292E /* main.cpp */; };
 		E785D21125C2731C0042292E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E785D21025C2731C0042292E /* CoreFoundation.framework */; };
 		E785D22F25C6AAB40042292E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E785D22E25C6AAB40042292E /* Foundation.framework */; };
-		E79544BF25DA67E9005D3B41 /* RS_Checksuite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E79544BE25DA67E9005D3B41 /* RS_Checksuite.cpp */; };
+		E7B32F4B260EFA3800B8583B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B32F4A260EFA3800B8583B /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +33,7 @@
 		E785D1C725BECE490042292E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E785D21025C2731C0042292E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E785D22E25C6AAB40042292E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E79544BE25DA67E9005D3B41 /* RS_Checksuite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RS_Checksuite.cpp; path = Demo_Script/Source/RS_Checksuite.cpp; sourceTree = "<group>"; };
+		E7B32F4A260EFA3800B8583B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B32F4B260EFA3800B8583B /* Quartz.framework in Frameworks */,
 				E785D22F25C6AAB40042292E /* Foundation.framework in Frameworks */,
 				E785D21125C2731C0042292E /* CoreFoundation.framework in Frameworks */,
 				E785D14F25BBC2500042292E /* libCore-macOS.a in Frameworks */,
@@ -71,6 +72,7 @@
 		E785D14D25BBC2500042292E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7B32F4A260EFA3800B8583B /* Quartz.framework */,
 				E785D22E25C6AAB40042292E /* Foundation.framework */,
 				E785D21025C2731C0042292E /* CoreFoundation.framework */,
 				E785D1C725BECE490042292E /* QuartzCore.framework */,
@@ -83,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				E785D15225BBC3230042292E /* main.cpp */,
-				E79544BE25DA67E9005D3B41 /* RS_Checksuite.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,7 +153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E79544BF25DA67E9005D3B41 /* RS_Checksuite.cpp in Sources */,
 				E785D15325BBC3230042292E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +275,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"API_BUILD=0",
 					"LOGGING_MODE=0",
-					"PROFILING_MODE=0",
+					"PROFILING_MODE=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
