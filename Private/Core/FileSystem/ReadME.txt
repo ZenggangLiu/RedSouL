@@ -16,3 +16,5 @@
     + NetFileSystemServer：服务文件请求方：他将使用PrimFileStemstem来实现文件目录的操作。例如程序的App
 3. FileStream/FileReadStream/FileWriteStream
   - 提供对于文件(NativeFile, PakFile)提过简单的流的操作支持
+4. TextFileReader/TextFileWriter
+  - 对文件的内容提供UTF8/16的编码支持，相当于认为文件的内容为UTF8/16编码的字符串

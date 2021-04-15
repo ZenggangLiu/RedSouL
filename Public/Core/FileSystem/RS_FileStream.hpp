@@ -403,32 +403,6 @@ namespace Core
             INLINE_FUNCTION
             TYPE&
             operator << (
-                const ASCII *const ascii_text)
-            {
-                if (ascii_text != nullptr && ascii_text[0] != '\0')
-                {
-                    const UInt32 _text_length = (UInt32)std::strlen(ascii_text);
-                    write((const UInt8*)ascii_text, _text_length, 0, _text_length);
-                }
-                return SELF();
-            }
-
-            INLINE_FUNCTION
-            TYPE&
-            operator << (
-                const RuntimeText & utf8_text)
-            {
-                if (!utf8_text.empty())
-                {
-                    const UInt32 _text_length = (UInt32)utf8_text.size();
-                    write((const UInt8*)utf8_text.c_str(), _text_length, 0, _text_length);
-                }
-                return SELF();
-            }
-
-            INLINE_FUNCTION
-            TYPE&
-            operator << (
                 const LineFeed &)
             {
                 return (SELF()) << (UInt8)'\n';
