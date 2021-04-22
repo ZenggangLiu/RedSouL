@@ -37,8 +37,9 @@ TEST_CASE("Checking FileRead/WriteStream", "[FileRead/WriteStream]")
         std::printf("--- Checking Write Stream...\n");
 
         FileWriteStream _write_io;
-        NativeFileSystem::openFileWrite((const UTF8*)"File_read_write_test.dat",
+        NativeFileSystem::openFileWrite((const UTF8*)"Unit_Test_FileRead_WriteStream.dat",
                                         NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                                        NativeFileSystem::WRITE_MODES_OVERWRITE,
                                         _write_io);
         _write_io << si8data  << ui8data  << asciidata;
         _write_io << si16data << ui16data << utf16data;
@@ -47,7 +48,7 @@ TEST_CASE("Checking FileRead/WriteStream", "[FileRead/WriteStream]")
         _write_io << r32data  << r64data;
         _write_io << LINE_FEED;
         _write_io.close();
-        REQUIRE(NativeFileSystem::existsFile((const UTF8*)"File_read_write_test.dat",
+        REQUIRE(NativeFileSystem::existsFile((const UTF8*)"Unit_Test_FileRead_WriteStream.dat",
                                              NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER));
 
         std::printf("--- Checking Write Stream: OK!\n");
@@ -72,7 +73,7 @@ TEST_CASE("Checking FileRead/WriteStream", "[FileRead/WriteStream]")
         Real32 _r32data;
         Real64 _r64data;
         FileReadStream  _read_io;
-        NativeFileSystem::openFileRead((const UTF8*)"File_read_write_test.dat",
+        NativeFileSystem::openFileRead((const UTF8*)"Unit_Test_FileRead_WriteStream.dat",
                                        NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                                        _read_io);
         _read_io >> _si8data;

@@ -57,26 +57,29 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
     const UInt32     _utf16_text_byte_size = (UInt32)_utf16_text.size() * sizeof(UTF16);
 
 
-    SECTION("Checking Writing Text_file_ASCII.txt:")
+    SECTION("Checking Writing Unit_Test_TextFileRead_WriteStream_ASCII.txt:")
     {
         std::printf("--- Checking Writing ASCII string using UTF8 encoding...\n");
 
         {
-            // 输出ASCII字符串: Text_file_ASCII
-            TextFileWriter _writer((const UTF8*)"Text_file_ASCII.txt",
+            // 输出ASCII字符串: Unit_Test_TextFileRead_WriteStream_ASCII
+            TextFileWriter _writer((const UTF8*)"Unit_Test_TextFileRead_WriteStream_ASCII.txt",
                                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                   TextEncodings::TEXT_ENCODINGS_UTF8);
+                                   TextEncodings::TEXT_ENCODINGS_UTF8,
+                                   NativeFileSystem::WRITE_MODES_OVERWRITE);
             const Bool _write_op = _writer.writeText(_ascii_text);
-            RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_ASCII.txt");
+            RUNTIME_ASSERT(_write_op,
+                           "Can NOT write in Unit_Test_TextFileRead_WriteStream_ASCII.txt");
             _writer.close();
 
             // 读入文件内容
             FileReadStream _file_io;
             const Bool _file_op = NativeFileSystem::openFileRead(
-                (const UTF8*)"Text_file_ASCII.txt",
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_ASCII.txt",
                 NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                 _file_io);
-            RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_ASCII.txt");
+            RUNTIME_ASSERT(_file_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_ASCII.txt");
             ASCII _buffer[sizeof(_ascii_text)] = {0};
             _file_io.read(sizeof(_buffer), 0, _file_io.getLength(), (UInt8*)_buffer);
             _file_io.close();
@@ -95,52 +98,68 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
 
         {
             // --- 输出UTF8字符串 --- //
-            // UTF8字符串使用UTF8编码输出: Text_file_UTF8_UTF8
+            // UTF8字符串使用UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF8_UTF8.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF8);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF8,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf8_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF8_UTF8.txt");
+                RUNTIME_ASSERT(_write_op,
+                               "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt");
                 _writer.close();
             }
-            // UTF8字符串使用BOM UTF8编码输出: Text_file_UTF8_UTF8_BOM
+            // UTF8字符串使用BOM UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF8_UTF8_BOM.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF8_BOM);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF8_BOM,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf8_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF8_UTF8_BOM.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt");
                 _writer.close();
             }
-            // UTF8字符串使用UTF16LE编码输出: Text_file_UTF8_UTF16_LE
+            // UTF8字符串使用UTF16LE编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF8_UTF16_LE.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF16_LE);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF16_LE,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf8_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF8_UTF16_LE.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt");
                 _writer.close();
             }
-            // UTF8字符串使用UTF16BE编码输出: Text_file_UTF8_UTF16_BE
+            // UTF8字符串使用UTF16BE编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF8_UTF16_BE.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF16_BE);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF16_BE,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf8_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF8_UTF16_BE.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt");
                 _writer.close();
             }
 
             // --- 读入文件检查内容 --- //
-            // UTF8编码文件: Text_file_UTF8_UTF8
+            // UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF8_UTF8.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF8_UTF8.txt");
+                RUNTIME_ASSERT(_file_op,
+                               "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == (UInt32)_utf8_text.size());
@@ -154,14 +173,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf8_text[_idx]);
                 }
             }
-            // BOM UTF8编码文件: Text_file_UTF8_UTF8_BOM
+            // BOM UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF8_UTF8_BOM.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF8_UTF8_BOM.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == (UInt32)_utf8_text.size() + sizeof(TextHelper::BOM_UTF8));
@@ -180,14 +201,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf8_text[_idx - sizeof(TextHelper::BOM_UTF8)]);
                 }
             }
-            // UTF16LE编码文件: Text_file_UTF8_UTF16_LE
+            // UTF16LE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF8_UTF16_LE.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF8_UTF16_LE.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == _utf16_text_byte_size + sizeof(TextHelper::BOM_UTF16));
@@ -204,14 +227,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf16_text[_idx - 1]);
                 }
             }
-            // UTF16BE编码文件: Text_file_UTF8_UTF16_BE
+            // UTF16BE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF8_UTF16_BE.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF8_UTF16_BE.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == _utf16_text_byte_size + sizeof(TextHelper::BOM_UTF16));
@@ -238,52 +263,68 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
 
         {
             // --- 输出UTF16字符串 --- //
-            // UTF16字符串使用UTF8编码输出: Text_file_UTF16_UTF8
+            // UTF16字符串使用UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF16_UTF8
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF16_UTF8.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF8);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF8.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF8,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf16_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF16_UTF8.txt");
+                RUNTIME_ASSERT(_write_op,
+                               "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF16_UTF8.txt");
                 _writer.close();
             }
-            // UTF16字符串使用BOM UTF8编码输出: Text_file_UTF16_UTF8_BOM
+            // UTF16字符串使用BOM UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF16_UTF8_BOM.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF8_BOM);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF8_BOM,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf16_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF16_UTF8_BOM.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM.txt");
                 _writer.close();
             }
-            // UTF16字符串使用UTF16LE编码输出: Text_file_UTF16_UTF16_LE
+            // UTF16字符串使用UTF16LE编码输出: Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF16_UTF16_LE.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF16_LE);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF16_LE,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf16_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF16_UTF16_LE.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE.txt");
                 _writer.close();
             }
-            // UTF16字符串使用UTF16BE编码输出: Text_file_UTF16_UTF16_BE
+            // UTF16字符串使用UTF16BE编码输出: Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE
             {
-                TextFileWriter _writer((const UTF8*)"Text_file_UTF16_UTF16_BE.txt",
-                                       NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                                       TextEncodings::TEXT_ENCODINGS_UTF16_BE);
+                TextFileWriter _writer(
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE.txt",
+                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
+                    TextEncodings::TEXT_ENCODINGS_UTF16_BE,
+                    NativeFileSystem::WRITE_MODES_OVERWRITE);
                 const Bool _write_op = _writer.writeText(_utf16_text);
-                RUNTIME_ASSERT(_write_op, "Can NOT write in Text_file_UTF16_UTF16_BE.txt");
+                RUNTIME_ASSERT(
+                    _write_op,
+                    "Can NOT write in Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE.txt");
                 _writer.close();
             }
 
             // --- 读入文件检查内容 --- //
-            // UTF8编码文件: Text_file_UTF16_UTF8
+            // UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF16_UTF8
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF16_UTF8.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF8.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF16_UTF8.txt");
+                RUNTIME_ASSERT(_file_op,
+                               "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF16_UTF8.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == (UInt32)_utf8_text.size());
@@ -297,14 +338,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf8_text[_idx]);
                 }
             }
-            // BOM UTF8编码文件: Text_file_UTF16_UTF8_BOM
+            // BOM UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF16_UTF8_BOM.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF16_UTF8_BOM.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF16_UTF8_BOM.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == (UInt32)_utf8_text.size() + sizeof(TextHelper::BOM_UTF8));
@@ -323,14 +366,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf8_text[_idx - sizeof(TextHelper::BOM_UTF8)]);
                 }
             }
-            // UTF16LE编码文件: Text_file_UTF16_UTF16_LE
+            // UTF16LE编码文件: Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF16_UTF16_LE.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF16_UTF16_LE.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_LE.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == _utf16_text_byte_size + sizeof(TextHelper::BOM_UTF16));
@@ -347,14 +392,16 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
                     REQUIRE(_buffer[_idx] == _utf16_text[_idx - 1]);
                 }
             }
-            // UTF16BE编码文件: Text_file_UTF16_UTF16_BE
+            // UTF16BE编码文件: Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE
             {
                 FileReadStream _file_io;
                 const Bool _file_op = NativeFileSystem::openFileRead(
-                    (const UTF8*)"Text_file_UTF16_UTF16_BE.txt",
+                    (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE.txt",
                     NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
                     _file_io);
-                RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_UTF16_UTF16_BE.txt");
+                RUNTIME_ASSERT(
+                    _file_op,
+                    "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF16_UTF16_BE.txt");
                 // 比较文件长度
                 const UInt32 _file_len = _file_io.getLength();
                 REQUIRE(_file_len == _utf16_text_byte_size + sizeof(TextHelper::BOM_UTF16));
@@ -379,52 +426,59 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
     {
         std::printf("--- Checking Reading UTF8 text...\n");
 
-        // UTF8字符串使用UTF8编码输出: Text_file_UTF8_UTF8
+        // UTF8字符串使用UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF8.txt",
+            TextFileReader _reader((const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt",
                                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             RuntimeText _utf8_content;
             const Bool _read_op = _reader.readLine(_utf8_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF8.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf8_content.size(); ++_idx)
             {
                 REQUIRE(_utf8_content[_idx] == _utf8_text[_idx]);
             }
         }
-        // BOM UTF8编码文件: Text_file_UTF8_UTF8_BOM
+        // BOM UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF8_BOM.txt",
-                                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             RuntimeText _utf8_content;
             const Bool _read_op = _reader.readLine(_utf8_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF8_BOM.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf8_content.size(); ++_idx)
             {
                 REQUIRE(_utf8_content[_idx] == _utf8_text[_idx]);
             }
         }
-        // UTF16LE编码文件: Text_file_UTF8_UTF16_LE
+        // UTF16LE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF16_LE.txt",
-                                   NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             RuntimeText _utf8_content;
             const Bool _read_op = _reader.readLine(_utf8_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF16_LE.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf8_content.size(); ++_idx)
             {
                 REQUIRE(_utf8_content[_idx] == _utf8_text[_idx]);
             }
         }
-        // UTF16BE编码文件: Text_file_UTF8_UTF16_BE
+        // UTF16BE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF16_BE.txt",
-                                   NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             RuntimeText _utf8_content;
             const Bool _read_op = _reader.readLine(_utf8_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF16_BE.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf8_content.size(); ++_idx)
             {
@@ -439,54 +493,61 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
     {
         std::printf("--- Checking Reading UTF16 text...\n");
 
-        // UTF8字符串使用UTF8编码输出: Text_file_UTF8_UTF8
+        // UTF8字符串使用UTF8编码输出: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF8.txt",
+            TextFileReader _reader((const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt",
                                    NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             UTF16Text _utf16_content;
             const Bool _read_op = _reader.readLine(_utf16_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF8.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf16_content.size(); ++_idx)
             {
                 REQUIRE(_utf16_content[_idx] == _utf16_text[_idx]);
             }
         }
-        // BOM UTF8编码文件: Text_file_UTF8_UTF8_BOM
+        // BOM UTF8编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF8_BOM.txt",
-                                   NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
             UTF16Text _utf16_content;
             const Bool _read_op = _reader.readLine(_utf16_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF8_BOM.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF8_BOM.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf16_content.size(); ++_idx)
             {
                 REQUIRE(_utf16_content[_idx] == _utf16_text[_idx]);
             }
         }
-        // UTF16LE编码文件: Text_file_UTF8_UTF16_LE
+        // UTF16LE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF16_LE.txt",
-                                   NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
 
             UTF16Text _utf16_content;
             const Bool _read_op = _reader.readLine(_utf16_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF16_LE.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_LE.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf16_content.size(); ++_idx)
             {
                 REQUIRE(_utf16_content[_idx] == _utf16_text[_idx]);
             }
         }
-        // UTF16BE编码文件: Text_file_UTF8_UTF16_BE
+        // UTF16BE编码文件: Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE
         {
-            TextFileReader _reader((const UTF8*)"Text_file_UTF8_UTF16_BE.txt",
-                                   NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
+            TextFileReader _reader(
+                (const UTF8*)"Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt",
+                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER);
 
             UTF16Text _utf16_content;
             const Bool _read_op = _reader.readLine(_utf16_content);
-            RUNTIME_ASSERT(_read_op, "Can NOT read in Text_file_UTF8_UTF16_BE.txt");
+            RUNTIME_ASSERT(_read_op,
+                           "Can NOT read in Unit_Test_TextFileRead_WriteStream_UTF8_UTF16_BE.txt");
             _reader.close();
             for (UInt32 _idx = 0; _idx < (UInt32)_utf16_content.size(); ++_idx)
             {
@@ -502,9 +563,10 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
     {
         std::printf("--- Checking Writing operator:...\n");
 
-        TextFileWriter _writer((const UTF8*)"Text_file_operators.txt",
+        TextFileWriter _writer((const UTF8*)"Unit_Test_TextFileWriteStream_Operators.txt",
                                NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
-                               TextEncodings::TEXT_ENCODINGS_UTF8);
+                               TextEncodings::TEXT_ENCODINGS_UTF8,
+                               NativeFileSystem::WRITE_MODES_OVERWRITE);
         // 输出Primitive数据
         _writer << _pos8   << _space << _neg8   << _space << _uint8  << _feed;
         _writer << _pos16  << _space << _neg16  << _space << _uint16 << _feed;
@@ -518,10 +580,10 @@ TEST_CASE("Checking TextFileRead/WriteStream", "[TextFileRead/WriteStream]")
         // 读入文件内容
         FileReadStream _file_io;
         const Bool _file_op = NativeFileSystem::openFileRead(
-            (const UTF8*)"Text_file_operators.txt",
+            (const UTF8*)"Unit_Test_TextFileWriteStream_Operators.txt",
             NativeFileSystem::SEARCH_PATH_DOCUMENT_FOLDER,
             _file_io);
-        RUNTIME_ASSERT(_file_op, "Can NOT read in Text_file_operators.txt");
+        RUNTIME_ASSERT(_file_op, "Can NOT read in Unit_Test_TextFileWriteStream_Operators.txt");
         UInt32 _file_len = _file_io.getLength();
         std::vector<UInt8> _buffer;
         _buffer.resize(_file_len);

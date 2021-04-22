@@ -29,10 +29,13 @@ namespace Core
         //      定义相对哪个目录进行操作
         // @param[in] encoding
         //      定义文件使用的编码方法
+        // @param[in]  write_mode
+        //      定义如何写入新的内容
         TextFileWriter (
             const UTF8 *const                   rel_path,
             const NativeFileSystem::SearchPaths search_dir,
-            const TextEncodings                 encoding);
+            const TextEncodings                 encoding,
+            const NativeFileSystem::WriteModes  write_mode);
 
         // 释放一个字符文件输出器
         ~TextFileWriter ();

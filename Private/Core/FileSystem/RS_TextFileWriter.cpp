@@ -13,12 +13,13 @@ namespace Core
     TextFileWriter::TextFileWriter (
         const UTF8 *const                   rel_path,
         const NativeFileSystem::SearchPaths search_dir,
-        const TextEncodings                 encoding)
+        const TextEncodings                 encoding,
+        const NativeFileSystem::WriteModes  write_mode)
     :
         m_encoding(encoding)
     {
         // 创建WriteOnly文件流
-        if (NativeFileSystem::openFileWrite(rel_path, search_dir, m_io))
+        if (NativeFileSystem::openFileWrite(rel_path, search_dir, write_mode, m_io))
         {
             // 输出BOM
             if (encoding != TEXT_ENCODINGS_UTF8) writeBOM();

@@ -160,6 +160,15 @@ namespace Core
             SEEK_MODES_FILE_END,
         };
 
+        // 定义如何对文件进行写入操作
+        enum WriteModes
+        {
+            // 写入的内容附加在文件现有内容的后面
+            WRITE_MODES_APPEND,
+            // 覆盖文件中的现有内容(设置文件的长度为0，然后写入内容)
+            WRITE_MODES_OVERWRITE,
+        };
+
         // 获得文件的Base name
         // 文件名格式为：BaseName.Extension
         //
@@ -271,6 +280,8 @@ namespace Core
         //      相对路径
         // @param[in]  search_dir
         //      定义相对哪个目录进行操作
+        // @param[in]  write_mode
+        //      定义如何写入新的内容
         // @param[out] file_stream
         //      WriteOnly文件流
         // @return
@@ -281,6 +292,7 @@ namespace Core
         openFileWrite (
             const UTF8 *const rel_path,
             const SearchPaths search_dir,
+            const WriteModes  write_mode,
             FileWriteStream & file_stream);
 
         // 打开一个现有文件/创建一个新文件来进行读写

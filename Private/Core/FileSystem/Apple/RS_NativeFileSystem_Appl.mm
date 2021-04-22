@@ -397,6 +397,7 @@ namespace Core
     NativeFileSystem::openFileWrite (
         const UTF8 *const rel_path,
         const SearchPaths search_dir,
+        const WriteModes  write_mode,
         FileWriteStream & file_stream)
     {
         // --- 打开/创建一个文件进行写入 --- //
@@ -420,7 +421,30 @@ namespace Core
         NativeFile _file_opened(openFileAbsForHandle(_abs_path, ACCESS_MODES_WRITE_ONLY));
         if (_file_opened.isOpened())
         {
-            _file_opened.setLength(0);
+            switch (write_mode)
+            {
+                case WRITE_MODES_OVERWRITE:
+                {
+                    // 将文件的长度设置为0
+                    _file_opened.setLength(0);
+                    break;
+                }
+
+                case WRITE_MODES_APPEND:
+                {
+                    // 将文件读写头设置在文件尾
+                    _file_opened.seek(0, SEEK_MODES_FILE_END);
+                    break;
+                }
+
+                default:
+                {
+                    RUNTIME_ASSERT(false, "Unknown write mode");
+                    break;
+                }
+            }
+
+            // 初始化文件流
             file_stream.initWithFile(_file_opened);
             return true;
         }
