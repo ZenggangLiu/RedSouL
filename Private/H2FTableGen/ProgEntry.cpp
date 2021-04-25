@@ -1111,7 +1111,6 @@ checkF32ToH16 ()
     {
         const Real16 half_calc  = calcH16FromF32((UInt32)i);
         const Real16 half_table = getH16FromF32 ((UInt32)i);
-//        if (((i >> 28) & 0x000F) == current_row)
         if (!(i % 0x8000000))
         {
             cout << ".";
