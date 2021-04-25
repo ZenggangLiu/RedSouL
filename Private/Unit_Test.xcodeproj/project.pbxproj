@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		E7B32F6A2615C1AF00B8583B /* UnitTestMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F692615C1AF00B8583B /* UnitTestMain.cpp */; };
 		E7B32F6C2616B92A00B8583B /* UT_Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F6B2616B92A00B8583B /* UT_Hash.cpp */; };
+		E7B32F6E2616BDEC00B8583B /* UT_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F6D2616BDEB00B8583B /* UT_Profiling.cpp */; };
+		E7B32F702617084900B8583B /* UT_XXTEA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F6F2617084900B8583B /* UT_XXTEA.cpp */; };
+		E7B32F722617097300B8583B /* UT_FileRead_WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F712617097300B8583B /* UT_FileRead_WriteStream.cpp */; };
+		E7B32F7426172DD400B8583B /* UT_UNICODE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F7326172DD400B8583B /* UT_UNICODE.cpp */; };
+		E7B32F7626181CA100B8583B /* UT_TextFileRead_WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F7526181CA100B8583B /* UT_TextFileRead_WriteStream.cpp */; };
+		E7B32F782618215A00B8583B /* UT_MatheFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F772618215A00B8583B /* UT_MatheFuncs.cpp */; };
+		E7B32F7A261822A600B8583B /* UT_FloatPointFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F79261822A600B8583B /* UT_FloatPointFuncs.cpp */; };
+		E7B32FB9262A526C00B8583B /* UT_BitOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32FB8262A526C00B8583B /* UT_BitOperation.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +37,14 @@
 		E7B32F6826107AE800B8583B /* UT_Config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = UT_Config.hpp; path = Unit_Test/Test_Case/UT_Config.hpp; sourceTree = "<group>"; };
 		E7B32F692615C1AF00B8583B /* UnitTestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UnitTestMain.cpp; path = Unit_Test/UnitTestMain.cpp; sourceTree = "<group>"; };
 		E7B32F6B2616B92A00B8583B /* UT_Hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_Hash.cpp; path = Unit_Test/Test_Case/UT_Hash.cpp; sourceTree = "<group>"; };
+		E7B32F6D2616BDEB00B8583B /* UT_Profiling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_Profiling.cpp; path = Unit_Test/Test_Case/UT_Profiling.cpp; sourceTree = "<group>"; };
+		E7B32F6F2617084900B8583B /* UT_XXTEA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_XXTEA.cpp; path = Unit_Test/Test_Case/UT_XXTEA.cpp; sourceTree = "<group>"; };
+		E7B32F712617097300B8583B /* UT_FileRead_WriteStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_FileRead_WriteStream.cpp; path = Unit_Test/Test_Case/UT_FileRead_WriteStream.cpp; sourceTree = "<group>"; };
+		E7B32F7326172DD400B8583B /* UT_UNICODE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_UNICODE.cpp; path = Unit_Test/Test_Case/UT_UNICODE.cpp; sourceTree = "<group>"; };
+		E7B32F7526181CA100B8583B /* UT_TextFileRead_WriteStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_TextFileRead_WriteStream.cpp; path = Unit_Test/Test_Case/UT_TextFileRead_WriteStream.cpp; sourceTree = "<group>"; };
+		E7B32F772618215A00B8583B /* UT_MatheFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_MatheFuncs.cpp; path = Unit_Test/Test_Case/UT_MatheFuncs.cpp; sourceTree = "<group>"; };
+		E7B32F79261822A600B8583B /* UT_FloatPointFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_FloatPointFuncs.cpp; path = Unit_Test/Test_Case/UT_FloatPointFuncs.cpp; sourceTree = "<group>"; };
+		E7B32FB8262A526C00B8583B /* UT_BitOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_BitOperation.cpp; path = Unit_Test/Test_Case/UT_BitOperation.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +96,15 @@
 			isa = PBXGroup;
 			children = (
 				E7B32F6826107AE800B8583B /* UT_Config.hpp */,
+				E7B32FB8262A526C00B8583B /* UT_BitOperation.cpp */,
+				E7B32F712617097300B8583B /* UT_FileRead_WriteStream.cpp */,
+				E7B32F79261822A600B8583B /* UT_FloatPointFuncs.cpp */,
 				E7B32F6B2616B92A00B8583B /* UT_Hash.cpp */,
+				E7B32F772618215A00B8583B /* UT_MatheFuncs.cpp */,
+				E7B32F6D2616BDEB00B8583B /* UT_Profiling.cpp */,
+				E7B32F7526181CA100B8583B /* UT_TextFileRead_WriteStream.cpp */,
+				E7B32F6F2617084900B8583B /* UT_XXTEA.cpp */,
+				E7B32F7326172DD400B8583B /* UT_UNICODE.cpp */,
 			);
 			name = Test_Case;
 			sourceTree = "<group>";
@@ -142,8 +166,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B32F782618215A00B8583B /* UT_MatheFuncs.cpp in Sources */,
+				E7B32F722617097300B8583B /* UT_FileRead_WriteStream.cpp in Sources */,
+				E7B32FB9262A526C00B8583B /* UT_BitOperation.cpp in Sources */,
 				E7B32F6C2616B92A00B8583B /* UT_Hash.cpp in Sources */,
 				E7B32F6A2615C1AF00B8583B /* UnitTestMain.cpp in Sources */,
+				E7B32F6E2616BDEC00B8583B /* UT_Profiling.cpp in Sources */,
+				E7B32F7626181CA100B8583B /* UT_TextFileRead_WriteStream.cpp in Sources */,
+				E7B32F7426172DD400B8583B /* UT_UNICODE.cpp in Sources */,
+				E7B32F702617084900B8583B /* UT_XXTEA.cpp in Sources */,
+				E7B32F7A261822A600B8583B /* UT_FloatPointFuncs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +247,13 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lCore-$(SUPPORTED_PLATFORMS)";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-lCore-$(SUPPORTED_PLATFORMS)",
+				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../Public",
@@ -280,7 +318,13 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = "-lCore-$(SUPPORTED_PLATFORMS)";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-lCore-$(SUPPORTED_PLATFORMS)",
+				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../Public",

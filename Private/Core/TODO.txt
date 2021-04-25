@@ -24,6 +24,158 @@
 #endif // #ifndef ZGEALIGNUP
 
 
+/// Sign extends the given value
+#ifndef SIGN_EXTEND
+        /// @param[in] val
+        /// the given value to be sign extended
+        /// @param[in] bits
+        ///  the bits used to represent val
+#define SIGN_EXTEND(val, bits) ((((signed(val))&(1<<((bits)-1)))?((~0)<<(bits)):0)|(signed(val)))
+#endif // #ifndef SIGN_EXTEND
+
+In FloatPointFuncs.hpp/cpp
+// 检测A是否大于B，如果存在Wrap Around
+static
+Bool
+isGreaterWrap (
+    const UInt32 a,
+    const UInt32 b,
+    const UInt32 max_val);
+
+Bool
+FloatPoint::isGreaterWrap (
+    const UInt32 a,
+    const UInt32 b,
+    const UInt32 max_val)
+{
+    // 进行两种情况的检测checks two conditions:
+    // 1. 如果A > B(例如：A为256，B为255): A与B的差：(A-B) 小于最大值的一半
+    // 2. 如果A < B(例如：A为0，B为65535): B与A的差：(B-A) 大于等于最大值的一半
+    //
+    const UInt32 HALF_MAX_SEQUENCE_NUMBER = max_val >> 1;
+
+    return (a > b && (a - b) <  HALF_MAX_SEQUENCE_NUMBER) ||
+           (a < b && (b - a) >= HALF_MAX_SEQUENCE_NUMBER);
+}
+
+
+In MatheFuncs.hpp/cpp
+// 将Cartesian坐标(x, y, z)变换为球面坐标(phi, theta)
+// NOTE: 水平面上的夹角phi <= [0, 2PI]
+//       垂直面上的夹角theta <= [0, PI]
+// SEE: Document/TekDocs/Spherical coordinate to Cartesian system.png for more details
+//
+// @param[in] x
+//     the x coordinate in Cartesian system
+// @param[in] y
+//     the y coordinate in Cartesian system
+// @param[in] z
+//     the z coordinate in Cartesian system
+// @param[out] phi
+//     the angle formed with Y axis
+// @param[out] theta
+//     the angle formed with X axis
+INLINE_FUNCTION
+void
+cartesianToSphericSystem (
+    const Real32 x,
+    const Real32 y,
+    const Real32 z,
+    Real32 &     phi,
+    Real32 &     theta);
+
+void
+Mathe::cartesianToSphericSystem (
+    const Real32 x,
+    const Real32 y,
+    const Real32 z,
+    Real32 &     phi,
+    Real32 &     theta)
+{
+    // normalizes the given vector: (x, y, z), because it will be mapped to an unit sphere
+    ZGE::ZGEVec3F _cart_vec(x, y, z);
+    !_cart_vec;
+
+    // the relationship between spherical/Cartesian system:
+    // X = sin(theta)*cos(phi)
+    // Y = cos(theta)
+    // Z = sin(theta)*sin(phi)
+
+    // calculates theta: [0, PI]
+    theta = arccosine(clamp(y, (Real32)0, (Real32)1));
+    // calculates phi: [-PI, PI]
+    phi   = std::atan2(z, x);
+    // makes sure phi: [0, 2PI]
+    if (phi < 0)
+    {
+        // + 2PI
+        phi += (Real32)TWO_PI;
+    }
+}
+
+
+/// Converts the spherical coordinates (phi, theta) into Cartesian coordinates (x, y, z)
+/// NOTE: phi <= [0, 2PI]  is the angle on the horizontal plane
+///       theta <= [0, PI] is the angle on the vertical plane
+/// SEE: Doc/TekDocs/Spherical coordinate to Cartesian system.png for more details
+///
+/// @param[in] phi
+///     the angle formed with Y axis
+/// @param[in] theta
+///     the angle formed with X axis
+/// @param[out] x
+///     the x coordinate in Cartesian system
+/// @param[out] y
+///     the y coordinate in Cartesian system
+/// @param[out] z
+///     the z coordinate in Cartesian system
+INLINE_FUNCTION
+void
+sphericToCartesianSystem (
+    const Real32 phi,
+    const Real32 theta,
+    Real32 &     x,
+    Real32 &     y,
+    Real32 &     z);
+
+void
+Mathe::sphericToCartesianSystem (
+    const Real32 phi,
+    const Real32 theta,
+    Real32 &     x,
+    Real32 &     y,
+    Real32 &     z)
+{
+    // makes sure PHI is in the right range: [0, 2PI)
+    // calculates the multiple of 2PI
+    const SInt32 _mult_2PI = (SInt32)(0.5f * phi * (Real32)RECIPROCAL_PI);
+    // makes PHI: (-2PI, +2PI)
+    Real32 _phi_used     = phi -_mult_2PI * (Real32)TWO_PI;
+    // makes PHI: [0, 2PI)
+    if (_phi_used < 0)
+    {
+        _phi_used += (Real32)TWO_PI;
+    }
+
+    // makes sure THETA is in the right range: [0, PI]
+    Real32 _theta_used = clamp(theta, (Real32)0, (Real32)ONE_PI);
+
+    // calculates x, y and z
+    // X = sin(theta)*cos(phi)
+    // Y = cos(theta)
+    // Z = sin(theta)*sin(phi)
+
+    const Real32 _sin_phi   = sine(_phi_used);
+    const Real32 _cos_phi   = cosine(_phi_used);
+    const Real32 _sin_theta = sine(_theta_used);
+    const Real32 _cos_theta = cosine(_theta_used);
+    x = _sin_theta * _cos_phi;
+    y = _cos_theta;
+    z = _sin_theta * _sin_phi;
+}
+
+
+
 2.问题汇总：
 - Terminal应用如何自动连接
   + QuartzCore Framework(CoreFoundation 好像包含QuartzCore): _CACurrentMediaTime
@@ -36,6 +188,7 @@
 - Logger使用Logging.cfg配置文件生成: DONE
   Logging.cfg
 
+- FileStream/FileReadStream/FileWriteStream 添加对Real16类型的输入输出
 - Memory managment: RAM & VRAM两种不同的MEM allocator实现
 - Compute API, Render API
 - FileSystem: Pak, PakViewer macOS App

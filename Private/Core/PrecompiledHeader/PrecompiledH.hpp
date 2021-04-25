@@ -2,7 +2,6 @@
 
 
 // System headers
-#include <cmath>                        // std::abs and other math functions in std::
 #include <cstdarg>                      // va_arg, va_end, va_list, va_start
 #include <cstring>                      // std::strlen, std::memcpy, std::memset
 #include <cstdio>                       // std::printf, std::vsnprintf
@@ -30,6 +29,8 @@
 #include "Core/Hash/RS_RuntimeHash.hpp"
 // Logging
 #include "Core/Logging/RS_Logging.hpp"
+// Memory managment
+#include "Core/Memory/RS_StlMemAllocator.hpp"
 // Runtime text
 #include "Core/String/RS_RuntimeText.hpp"
 #include "Core/String/RS_UTF16Text.hpp"
@@ -64,7 +65,6 @@
 #include "Intersection/ZGESphereIntersection.hpp"
 #include "Intersection/ZGETriangleIntersection.hpp"
 // Mathe
-#include "Mathe/ConstDefs.hpp"
 #include "Mathe/ZGEMat4x4.hpp"
 #include "Mathe/ZGEVec2.hpp"
 #include "Mathe/ZGEVec3.hpp"
