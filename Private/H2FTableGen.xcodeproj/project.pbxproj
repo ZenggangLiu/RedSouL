@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		E7B32FDA262C2ACA00B8583B /* H2FTableGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = H2FTableGen; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B32FE5262C2F1300B8583B /* ProgEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = ProgEntry.cpp; path = H2FTableGen/ProgEntry.cpp; sourceTree = "<group>"; };
+		E7B32FEE2634E5B000B8583B /* H2FConversionTable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = H2FConversionTable.hpp; path = H2FTableGen/H2FConversionTable.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		E7B32FD1262C2ACA00B8583B = {
 			isa = PBXGroup;
 			children = (
+				E7B32FEE2634E5B000B8583B /* H2FConversionTable.hpp */,
 				E7B32FE4262C2F0400B8583B /* Source */,
 				E7B32FDB262C2ACA00B8583B /* Products */,
 			);
