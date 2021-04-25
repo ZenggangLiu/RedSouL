@@ -30,7 +30,7 @@
 // Logging
 #include "Core/Logging/RS_Logging.hpp"
 // Memory managment
-#include "Core/Memory/RS_StlMemAllocator.hpp"
+//#include "Core/Memory/RS_StlMemAllocator.hpp"
 // Runtime text
 #include "Core/String/RS_RuntimeText.hpp"
 #include "Core/String/RS_UTF16Text.hpp"
