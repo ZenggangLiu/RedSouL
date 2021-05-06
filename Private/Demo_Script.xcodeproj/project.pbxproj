@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E785D14F25BBC2500042292E /* libCore-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E785D14E25BBC2500042292E /* libCore-macOS.a */; };
 		E785D15325BBC3230042292E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15225BBC3230042292E /* main.cpp */; };
-		E785D21125C2731C0042292E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E785D21025C2731C0042292E /* CoreFoundation.framework */; };
-		E785D22F25C6AAB40042292E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E785D22E25C6AAB40042292E /* Foundation.framework */; };
-		E7B32F4B260EFA3800B8583B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B32F4A260EFA3800B8583B /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,10 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7B32F4B260EFA3800B8583B /* Quartz.framework in Frameworks */,
-				E785D22F25C6AAB40042292E /* Foundation.framework in Frameworks */,
-				E785D21125C2731C0042292E /* CoreFoundation.framework in Frameworks */,
-				E785D14F25BBC2500042292E /* libCore-macOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +217,13 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-lCore-$(SUPPORTED_PLATFORMS)",
+				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Public";
 			};
@@ -287,6 +286,13 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-lCore-$(SUPPORTED_PLATFORMS)",
+				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Public";
 			};
