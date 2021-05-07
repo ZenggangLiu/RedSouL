@@ -1,5 +1,8 @@
 // Precompiled header
 #include "PrecompiledH.hpp"
+#if defined(__APPLE__)
+
+
 // System headers
 #include <mach/mach_init.h>
 #include <mach/task.h>
@@ -39,3 +42,5 @@ namespace Core
 
 
 } // namespace Core
+
+#endif // #if defined(__APPLE__)
