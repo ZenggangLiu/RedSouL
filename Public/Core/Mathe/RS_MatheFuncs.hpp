@@ -92,7 +92,7 @@ namespace Core
             const UInt32 total_samples);
 
         // Clamps给定的数值到给定的区间: [min, max]
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         T
@@ -119,7 +119,7 @@ namespace Core
             const Real64 angle_in_rads);
 
         // 求a/b的商的Round Up
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         T
@@ -139,7 +139,7 @@ namespace Core
             const Real64 val);
 
         // 求A，B数值中的最大值
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         T
@@ -148,7 +148,7 @@ namespace Core
            const T b);
 
         // 求A，B数值中的最大值和最小值
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         void
@@ -159,7 +159,7 @@ namespace Core
             T &     max);*/
 
         // 求A，B数值中的最小值
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         T
@@ -169,7 +169,7 @@ namespace Core
 
         /* 此次的函数没有进行测试
         // 使用B的倍数来表示A: RoundUp(a/b) * b
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         T
@@ -224,7 +224,7 @@ namespace Core
             const Real64 val);
 
         // 交换A与B
-        template< typename T >
+        template < typename T >
         INLINE_FUNCTION
         static
         void
@@ -241,7 +241,7 @@ namespace Core
 {
 
     /* 此次的函数没有进行测试
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     T
     Mathe::clamp (
@@ -254,7 +254,7 @@ namespace Core
 
 
     // SInt8/16/32/64, UInt8/16/32/64
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     T
     Mathe::divideUp (
@@ -267,7 +267,7 @@ namespace Core
 
 
     // Real32
-    template<>
+    template <>
     INLINE_FUNCTION
     Real32
     Mathe::divideUp (
@@ -278,7 +278,7 @@ namespace Core
     }
 
 
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     T
     Mathe::maximum (
@@ -289,7 +289,7 @@ namespace Core
     }
 
 
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     void
     Mathe::maxMinimum (
@@ -302,7 +302,7 @@ namespace Core
     }*/
 
 
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     T
     Mathe::minimum (
@@ -314,7 +314,7 @@ namespace Core
 
 
     /* 此次的函数没有进行测试
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     T
     Mathe::multipleUp (
@@ -325,7 +325,7 @@ namespace Core
     }
 
 
-    template< typename T >
+    template < typename T >
     INLINE_FUNCTION
     void
     Mathe::swap (
