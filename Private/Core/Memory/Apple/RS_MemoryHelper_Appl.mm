@@ -25,9 +25,9 @@ namespace Core
         physical_mem_Mb = virtual_mem_Mb = 0;
 
         mach_task_basic_info _task_info;
-        mach_msg_type_number_t _info_num = MACH_TASK_BASIC_INFO_COUNT;
+        mach_msg_type_number_t _info_size = MACH_TASK_BASIC_INFO_COUNT;
         const kern_return_t _result = task_info(
-            mach_task_self(), MACH_TASK_BASIC_INFO, (task_info_t)&_task_info, &_info_num);
+            mach_task_self(), MACH_TASK_BASIC_INFO, (task_info_t)&_task_info, &_info_size);
         if (_result!= KERN_SUCCESS)
         {
             return false;
