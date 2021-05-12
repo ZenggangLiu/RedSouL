@@ -83,6 +83,7 @@
 #if !defined(USE_RTTI)
 
     #if defined(__APPLE__)
+        // Apple
         //#if (__GXX_RTTI == 1)
         #if defined(__cpp_rtti)
             #define USE_RTTI 1
@@ -90,7 +91,16 @@
             #define USE_RTTI 0
         #endif // #if defined(__cpp_rtti)
 
+    #elif defined(_MSC_VER)
+        // Microsoft
+        #if defined(_CPPRTTI) && (_CPPRTTI == 1)
+            #define USE_RTTI 1
+        #else
+            #define USE_RTTI 0
+        #endif
+
     #else
+        // Linux
         #error TODO: No implementation
     #endif // #if defined(__APPLE__)
 
