@@ -17,12 +17,10 @@ namespace Core
 
     Bool
     MemoryHelper::getMemoryUsage (
-        Real32 & physical_mem_Mb,
-        Real32 & virtual_mem_Mb)
+        UInt64 & physical_mem,
+        UInt64 & virtual_mem)
     {
-        static const Real32 SCALE_FACTOR = 1.0 / 1024 / 1024;
-
-        physical_mem_Mb = virtual_mem_Mb = 0;
+        physical_mem = virtual_mem = 0;
 
         mach_task_basic_info _task_info;
         mach_msg_type_number_t _info_size = MACH_TASK_BASIC_INFO_COUNT;
@@ -34,8 +32,8 @@ namespace Core
         }
         else
         {
-            physical_mem_Mb = _task_info.resident_size * SCALE_FACTOR;
-            virtual_mem_Mb  = _task_info.virtual_size  * SCALE_FACTOR;
+            physical_mem = (UInt64)_task_info.resident_size;
+            virtual_mem  = (UInt64)_task_info.virtual_size;
             return true;
         }
     }
