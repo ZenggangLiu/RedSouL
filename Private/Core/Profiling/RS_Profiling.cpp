@@ -4,6 +4,7 @@
 // Lib headers
 #include "Core/Profiling/RS_SampleMgr.hpp"
 #include "Core/Profiling/RS_StatsIterator.hpp"
+#include "Core/String/RS_TextHelper.hpp"
 // Self
 #include "Core/Profiling/RS_Profiling.hpp"
 
@@ -22,11 +23,11 @@ namespace Core
     void
     Profiling::dumpStatsData ()
     {
-        // the default maximally supported number of children of a given sample
-        static const SInt16 DEFAULT_MAX_CHILD_SAMPLE_NUM = 32;
+        // 任意一个Sample最大支持的子Sample的个数
+        static const SInt16 DEFAULT_MAX_CHILD_SAMPLES_NUMBER = 32;
 
         // Profiling workflow:
-        // Frame Start                                                 Frame End
+        // 一帧的开始                                               一帧的结尾
         // |                                                                |
         // v                                                                v
         // +-----------------+       +--------------+       +---------------+
@@ -36,7 +37,7 @@ namespace Core
         //          |                                                            |
         //          +------------------------------------------------------------+
         //
-        // checks if the all samples are closed
+        // 检查是否所有Sample都已经闭合
         if (!SampleMgr::getRef().allClosed())
         {
             printf("[dumpStatsData] called with some UNCLOSED nodes\n");
@@ -52,10 +53,10 @@ namespace Core
         SampleMgr::getRef().reset();
 
         // --- Dumps Stats --- //
-        // creates the iterator for the ROOT node
-        StatsIterator _stats_it(DEFAULT_MAX_CHILD_SAMPLE_NUM);
+        // 为根节点创建iterator
+        StatsIterator _stats_it(DEFAULT_MAX_CHILD_SAMPLES_NUMBER);
 
-        // dump all children under to ROOT node
+        // dump根节点下的所有子节点
         const UInt16 _child_count = _stats_it.count();
         for (UInt16 c = 0; c < _child_count; ++c)
         {
@@ -64,7 +65,7 @@ namespace Core
             _stats_it.stepOut();
         }
 
-        // ends the sample collection of this frame
+        // 标记当前帧Sample采集结束
         SampleMgr::getRef().endFrame();
     }
 
@@ -86,8 +87,8 @@ namespace Core
 
     void
     Profiling::dumpStatsData (
-        StatsIterator& stats_it,
-        const UInt16   indent)
+        StatsIterator & stats_it,
+        const UInt16    indent)
     {
         // dumps itself
         for (UInt16 c = 0; c < indent; ++c)
@@ -95,10 +96,15 @@ namespace Core
             printf("  ");
         }
 
+        UTF8 _buffer[256];
+        TextHelper::sprintfSafe(_buffer, sizeof(_buffer),
+                                "- %%-%ds: "
+                                "[#used]: %%4d, "
+                                "[T]: %%6.3fs, [S]: %%6.3fs, [AT]: %%6.3fs, [AS]: %%6.3fs\n",
+                                32 - (SInt16)indent * 2);
+        // 获得当前Iterator所保存的统计数据
         const SampleStats _stats = stats_it.stats();
-        printf("- %s: "
-               "[#used]: %d, "
-               "[Total]: %.4f, [Avg Total]: %.4fs, [Self]: %.4f, [Avg Self]: %.4f\n",
+        printf((const char*)_buffer,
                _stats.name,
                _stats.used_num,
                _stats.total_time, _stats.avg_total_time, _stats.self_time, _stats.avg_self_time);

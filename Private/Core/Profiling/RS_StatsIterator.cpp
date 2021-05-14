@@ -90,12 +90,12 @@ namespace Core
         // checks if the given index is valid
         RUNTIME_ASSERT(subbranch_idx < count(), "Sub-branch index is out of range");
 
-        // because the children are stored in this order
+        // 由于内部的子Sample是按如下方式存储的：
         // +-------+-------+-------+     +-------+
         // | nth C | n-1 C | n-2 C | ... | 1st C |
         // +-------+-------+-------+     +-------+
         //
-        // BUT the user want to access in this order
+        // 但是用户希望得到如下的排序方式：
         // +-------+-------+-------+     +-------+
         // | 1st C | 2nd C | 3rd C | ... | nth C |
         // +-------+-------+-------+     +-------+

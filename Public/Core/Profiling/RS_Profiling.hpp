@@ -47,8 +47,8 @@ namespace Core
         static
         void
         dumpStatsData (
-            StatsIterator& stats_it,
-            const UInt16   indent);
+            StatsIterator & stats_it,
+            const UInt16    indent);
     };
 
 } // namespace Core

@@ -13,12 +13,13 @@ namespace Core
         // Sample的名称
         const UTF8* name;
 
-        // --- Data in the last Fram --- //
-        // 使用次数
+        // --- 最后一个帧的Sample数据 --- //
+        // 此Sample使用次数
         UInt32      used_num;
-        // the self time in the last frame
+        // --- 时间 --- //
+        // 此Sample所包含代码占用的时间(秒): 不包括所有子Samples占用的时间
         Real32      self_time;
-        // the total time in the last frame
+        // 当Sample总共占用的时间(秒): 所包含代码+所有子节点包含的代码总共占用的时间
         Real32      total_time;
 
         // --- Data over Frames --- //
