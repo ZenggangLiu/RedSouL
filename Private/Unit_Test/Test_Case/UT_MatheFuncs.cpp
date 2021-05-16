@@ -16,13 +16,18 @@ TEST_CASE("Checking MatheFuncs", "[MatheFunc]")
 {
 
 
-    SECTION("Checking MatheFuncw:")
+    SECTION("Checking MatheFunc:")
     {
-        std::printf("--- Checking Murmur3 Hash...\n");
+        std::printf("--- Checking MatheFunc...\n");
 
+        const UInt32 _mini = 123;
+        const UInt32 _maxi = 567;
+        const Real32 _minr = 2.777f;
+        const Real32 _maxr = 3.1425f;
+        REQUIRE(Mathe::minimum(_mini, _maxi) == _mini);
+        REQUIRE(Mathe::minimum(_minr, _maxr) == _minr);
 
-
-        std::printf("--- Checking Murmur3 Hash: OK!\n");
+        std::printf("--- Checking MatheFunc: OK!\n");
     }
 } // TEST_CASE("Checking MatheFuncs", "[MatheFunc]")
 

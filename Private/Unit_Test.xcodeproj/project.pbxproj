@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E72E74AD265116DC00F4EC96 /* UT_StlAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E72E74AC265116DC00F4EC96 /* UT_StlAllocator.cpp */; };
 		E7B32F6A2615C1AF00B8583B /* UnitTestMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F692615C1AF00B8583B /* UnitTestMain.cpp */; };
 		E7B32F6C2616B92A00B8583B /* UT_Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F6B2616B92A00B8583B /* UT_Hash.cpp */; };
 		E7B32F6E2616BDEC00B8583B /* UT_Profiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7B32F6D2616BDEB00B8583B /* UT_Profiling.cpp */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E72E74AC265116DC00F4EC96 /* UT_StlAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UT_StlAllocator.cpp; path = Unit_Test/Test_Case/UT_StlAllocator.cpp; sourceTree = "<group>"; };
 		E7B32F552610793300B8583B /* Unit_Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Unit_Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B32F6226107A2C00B8583B /* catch_v2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = catch_v2.hpp; path = Unit_Test/External/Catch/catch_v2.hpp; sourceTree = "<group>"; };
 		E7B32F6826107AE800B8583B /* UT_Config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = UT_Config.hpp; path = Unit_Test/Test_Case/UT_Config.hpp; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				E7B32F6B2616B92A00B8583B /* UT_Hash.cpp */,
 				E7B32F772618215A00B8583B /* UT_MatheFuncs.cpp */,
 				E7B32F6D2616BDEB00B8583B /* UT_Profiling.cpp */,
+				E72E74AC265116DC00F4EC96 /* UT_StlAllocator.cpp */,
 				E7B32F7526181CA100B8583B /* UT_TextFileRead_WriteStream.cpp */,
 				E7B32F6F2617084900B8583B /* UT_XXTEA.cpp */,
 				E7B32F7326172DD400B8583B /* UT_UNICODE.cpp */,
@@ -171,6 +174,7 @@
 				E7B32FB9262A526C00B8583B /* UT_BitOperation.cpp in Sources */,
 				E7B32F6C2616B92A00B8583B /* UT_Hash.cpp in Sources */,
 				E7B32F6A2615C1AF00B8583B /* UnitTestMain.cpp in Sources */,
+				E72E74AD265116DC00F4EC96 /* UT_StlAllocator.cpp in Sources */,
 				E7B32F6E2616BDEC00B8583B /* UT_Profiling.cpp in Sources */,
 				E7B32F7626181CA100B8583B /* UT_TextFileRead_WriteStream.cpp in Sources */,
 				E7B32F7426172DD400B8583B /* UT_UNICODE.cpp in Sources */,
