@@ -17,12 +17,12 @@ TEST_CASE("Checking StlAllocator", "[StlAllocator]")
 
     struct CheckDataType
     {
-        UInt16 value[2];
+        UInt32 value;
     };
 
-    const UInt8 ALLOCATE_MAGIC_NUMBER[]  = { 0xA0, 0x0B };
-    const UInt8 CONSTRUCT_MAGIC_NUMBER[] = { 0xC0, 0x0B };
-
+    const UInt32 ALLOCATE_MAGIC_NUMBER  = FOUR_CC('A', 'L', 'O', 'C');
+    const UInt32 CONSTRUCT_MAGIC_NUMBER = FOUR_CC('C', 'O', 'S', 'T');
+    const UInt32 DESTRUCT_MAGIC_NUMBER  = FOUR_CC('D', 'E', 'S', 'T');
 
     SECTION("Checking StlAllocator:")
     {
@@ -30,18 +30,17 @@ TEST_CASE("Checking StlAllocator", "[StlAllocator]")
 
         std::vector<CheckDataType, Core::StlAllocator<CheckDataType>> _array;
         _array.resize(1);
-        REQUIRE((((const UInt8*)_array[0].value)[0] == CONSTRUCT_MAGIC_NUMBER[0] &&
-                 ((const UInt8*)_array[0].value)[1] == CONSTRUCT_MAGIC_NUMBER[1]));
+        REQUIRE((_array[0].value == CONSTRUCT_MAGIC_NUMBER));
 
         Core::StlAllocator<CheckDataType> _allocator;
         CheckDataType * _instance = _allocator.allocate(1);
-        REQUIRE((((const UInt8*)_instance->value)[0] == ALLOCATE_MAGIC_NUMBER[0] &&
-                 ((const UInt8*)_instance->value)[1] == ALLOCATE_MAGIC_NUMBER[1]));
+        REQUIRE((_instance->value == ALLOCATE_MAGIC_NUMBER));
 
         _allocator.construct(_instance);
-        REQUIRE((((const UInt8*)_instance->value)[0] == CONSTRUCT_MAGIC_NUMBER[0] &&
-                 ((const UInt8*)_instance->value)[1] == CONSTRUCT_MAGIC_NUMBER[1]));
+        REQUIRE((_instance->value == CONSTRUCT_MAGIC_NUMBER));
+
         _allocator.destroy(_instance);
+        REQUIRE((_instance->value == DESTRUCT_MAGIC_NUMBER));
 
         std::printf("--- Checking StlAllocator: OK!\n");
     }

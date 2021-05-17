@@ -11,6 +11,7 @@
 		E72E744B2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E72E744A2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm */; };
 		E72E744C2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E72E744A2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm */; };
 		E72E744D2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E72E744A2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm */; };
+		E72E744F264928E900F4EC96 /* RS_StlAllocator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E72E744E264928E900F4EC96 /* RS_StlAllocator.hpp */; };
 		E785D15625BBDE470042292E /* RS_RuntimeHash.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */; };
 		E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */; };
 		E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */; };
@@ -180,6 +181,7 @@
 		E72E7380263AB55000F4EC96 /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = ReadME.txt; path = Core/Memory/ReadME.txt; sourceTree = "<group>"; };
 		E72E74442643E2E800F4EC96 /* RS_MemoryHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_MemoryHelper.hpp; path = ../Public/Core/Memory/RS_MemoryHelper.hpp; sourceTree = "<group>"; };
 		E72E744A2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_MemoryHelper_Appl.mm; path = Core/Memory/Apple/RS_MemoryHelper_Appl.mm; sourceTree = "<group>"; };
+		E72E744E264928E900F4EC96 /* RS_StlAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StlAllocator.hpp; path = ../Public/Core/Memory/RS_StlAllocator.hpp; sourceTree = "<group>"; };
 		E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeHash.hpp; path = ../Public/Core/Hash/RS_RuntimeHash.hpp; sourceTree = "<group>"; };
 		E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_RuntimeHash.cpp; path = Core/Hash/RS_RuntimeHash.cpp; sourceTree = "<group>"; };
 		E785D16225BC0E930042292E /* xxhash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = xxhash.cpp; path = Core/External/Hash/xxhash.cpp; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				E72E74442643E2E800F4EC96 /* RS_MemoryHelper.hpp */,
+				E72E744E264928E900F4EC96 /* RS_StlAllocator.hpp */,
 			);
 			name = Memory;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				E785D22225C611F00042292E /* RS_NativeFileSystem.hpp in Headers */,
 				E79544CD25DF07C8005D3B41 /* RS_FileStream.hpp in Headers */,
 				E79544D725DFAE3B005D3B41 /* RS_FileReadStream.hpp in Headers */,
+				E72E744F264928E900F4EC96 /* RS_StlAllocator.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

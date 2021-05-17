@@ -7,23 +7,6 @@
     !((UInt32)intVal & ((UInt32)intVal -1))
 #endif // #ifndef ZGESINGLEBITSET
 
-
-/// Gets value aligned according to the expecting alignment
-///
-/// ZGEALIGNUP(1, 4)         --> 4
-/// ZGEALIGNUP(4, 4)         --> 4
-/// ZGEALIGNUP(5, 4)         --> 8
-/// ZGEALIGNUP(0xFFFF001, 4) --> 0xFFFF0004
-/// ZGEALIGNUP(0xFFFF002, 4) --> 0xFFFF0004
-/// ZGEALIGNUP(0xFFFF003, 4) --> 0xFFFF0004
-/// ZGEALIGNUP(0xFFFF004, 4) --> 0xFFFF0004
-/// ZGEALIGNUP(0xFFFF005, 4) --> 0xFFFF0008
-#ifndef ZGEALIGNUP
-#define ZGEALIGNUP(value, alignment) \
-    ((value + alignment - 1) & (~(alignment - 1)))
-#endif // #ifndef ZGEALIGNUP
-
-
 /// Sign extends the given value
 #ifndef SIGN_EXTEND
         /// @param[in] val

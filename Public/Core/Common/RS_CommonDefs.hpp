@@ -245,6 +245,22 @@
 #endif // #if !defined(FOUR_CC)
 
 
+// 将给定的数值调整到给定的Alignment的倍数
+//
+// ALIGN_UP(1, 4)         --> 4
+// ALIGN_UP(4, 4)         --> 4
+// ALIGN_UP(5, 4)         --> 8
+// ALIGN_UP(0xFFFF001, 4) --> 0xFFFF0004
+// ALIGN_UP(0xFFFF002, 4) --> 0xFFFF0004
+// ALIGN_UP(0xFFFF003, 4) --> 0xFFFF0004
+// ALIGN_UP(0xFFFF004, 4) --> 0xFFFF0004
+// ALIGN_UP(0xFFFF005, 4) --> 0xFFFF0008
+#ifndef ALIGN_UP
+#define ALIGN_UP(value, alignment)                                                                 \
+    ((value + alignment - 1) & (~(alignment - 1)))
+#endif // #ifndef ALIGN_UP
+
+
 // MARK: - TO BE CHANGED
 // 声明 Serialization 使用的所有函数
 #if !defined(DECLARE_SERIALIZABLE_TYPE)

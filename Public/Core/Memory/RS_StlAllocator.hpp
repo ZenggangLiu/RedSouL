@@ -10,7 +10,10 @@
 #include <new>                              // std::bad_alloc
 #endif // #if (USE_EXCEPTION == 1)
 // Lib headers
-#include "Core/Common/RS_CommonDefs.hpp"    // INLINE_FUNCTION
+#include "Core/Common/RS_CommonDefs.hpp"    // INLINE_FUNCTION, FOUR_CC
+#if defined(CATCH_PLATFORM_MAC) || defined(CATCH_PLATFORM_WINDOWS) || defined(CATCH_PLATFORM_LINUX)
+#include "Core/Assert/RS_CompiletimeAssert.hpp"
+#endif // #if defined(CATCH_PLATFORM_MAC) || ...
 
 
 // 定义使用哪个底层内存管理
@@ -27,7 +30,7 @@
         #undef USE_CUSTOMIZED_CONSTRUCT
         #define USE_CUSTOMIZED_CONSTRUCT        1
     #endif // #if (USE_CUSTOMIZED_CONSTRUCT == 0)
-#endif // #if defined(CATCH_PLATFORM_MAC) ||...
+#endif // #if defined(CATCH_PLATFORM_MAC) || ...
 
 #if !defined(MEMORY_ALLOCATE)
     #if (USE_STD_ALLOCATOR == 1)
@@ -177,9 +180,10 @@ namespace Core
 
 #if defined(CATCH_PLATFORM_MAC) || defined(CATCH_PLATFORM_WINDOWS) || defined(CATCH_PLATFORM_LINUX)
             // 测试逻辑
-            const UInt8 MAGIC_NUMBER[] = { 0xA0, 0x0B };
-            std::memcpy(_alloc_addr, MAGIC_NUMBER,
-                        sizeof(T) < sizeof(MAGIC_NUMBER) ? sizeof(T) : sizeof(MAGIC_NUMBER));
+            COMPILE_TIME_ASSERT_MSG(sizeof(T) >= sizeof(UInt32),
+                                    "The type used for Unit test must be at least 4 bytes");
+            const UInt32 MAGIC_NUMBER = FOUR_CC('A', 'L','O', 'C');
+            std::memcpy(_alloc_addr, &MAGIC_NUMBER, sizeof(MAGIC_NUMBER));
 #endif
             return _alloc_addr;
         }
@@ -287,10 +291,11 @@ namespace Core
             ::new(reinterpret_cast<void*>(alloc_addr)) value_type(std::forward<Args>(args)...);
 #if defined(CATCH_PLATFORM_MAC) || defined(CATCH_PLATFORM_WINDOWS) || defined(CATCH_PLATFORM_LINUX)
             // 测试逻辑
-            const UInt8 MAGIC_NUMBER[] = { 0xC0, 0x0B };
-            std::memcpy(alloc_addr, MAGIC_NUMBER,
-                        sizeof(T) < sizeof(MAGIC_NUMBER) ? sizeof(T) : sizeof(MAGIC_NUMBER));
-#endif
+            COMPILE_TIME_ASSERT_MSG(sizeof(T) >= sizeof(UInt32),
+                                    "The type used for Unit test must be at least 4 bytes");
+            const UInt32 MAGIC_NUMBER = FOUR_CC('C', 'O', 'S', 'T');
+            std::memcpy(alloc_addr, &MAGIC_NUMBER, sizeof(MAGIC_NUMBER));
+#endif // #if defined(CATCH_PLATFORM_MAC) || ...
         }
 
 
@@ -306,6 +311,13 @@ namespace Core
         {
             // 调用析构器
             (object_ptr)->~value_type();
+#if defined(CATCH_PLATFORM_MAC) || defined(CATCH_PLATFORM_WINDOWS) || defined(CATCH_PLATFORM_LINUX)
+            // 测试逻辑
+            COMPILE_TIME_ASSERT_MSG(sizeof(T) >= sizeof(UInt32),
+                                    "The type used for Unit test must be at least 4 bytes");
+            const UInt32 MAGIC_NUMBER = FOUR_CC('D', 'E', 'S', 'T');
+            std::memcpy(object_ptr, &MAGIC_NUMBER, sizeof(MAGIC_NUMBER));
+#endif // #if defined(CATCH_PLATFORM_MAC) || ...
         }
 #endif // #if (USE_CUSTOMIZED_CONSTRUCT == 1)
     };
