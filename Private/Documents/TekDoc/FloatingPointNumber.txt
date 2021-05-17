@@ -9,9 +9,9 @@ v v   v v        v
 X XXXXX abcdefghij
 |1| 5 | |<--10-->|
  s  e        m
-s: 符号位(sign bit)       : 一位
-e: 指数位(exponential bit): 五位: 真正的指数为：存储的数值 - 15。可表示范围为：[-15, +16]
-m: 尾数位(significand bit): 十位
+s: 符号位(sign bit)       :  1位
+e: 指数位(exponential bit):  5位: 真正的指数为：存储的数值 - 15。可表示范围为：[-15, +16]
+m: 尾数位(significand bit): 10位: 数值范围[0.5, 0.999023]
 Normalized浮点数二进制表示形式为1.0010010011
 十进制计算方法：S * 2^(e-15) * (1 + a*2^-1 + b*2^-2 + ... + j*2^-10)
 De-Normalized浮点数二进制表示形式为0.0010010011
@@ -59,9 +59,9 @@ v v      v v                     v
 X XXXXXXXX abcdefghijklmnopqrstuvw
 |1| <-8->| |<--       23      -->|
  s    e               m
-s: 符号位(sign bit)       : 1bit
-e: 指数位(exponential bit): 8bits: the real exponential = e - 127: [-127, +128]
-m: 尾数位(significand bit): 23bits
+s: 符号位(sign bit)       :  1位
+e: 指数位(exponential bit):  8位: the real exponential = e - 127: [-127, +128]
+m: 尾数位(significand bit): 23位：数值范围[0.5, 1.000000]
 Normalized浮点数二进制表示形式为1.0010010011
 十进制计算方法：S * 2^(e-127) * (1 + a*2^-1 + b*2^-2 + ... + w*2^-23)
 De-Normalized浮点数二进制表示形式为0.0010010011
@@ -106,9 +106,9 @@ De-Normalized浮点数二进制表示形式为0.0010010011
 X XXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 |1| <--11-->| |             <--       52      -->                |
  s    e               m
-s: 符号位(sign bit)       : 1位
+s: 符号位(sign bit)       :  1位
 e: 指数位(exponential bit): 11位: the real exponential = e - 1023: [-1023, +1024]
-m: 尾数位(significand bit): 52位
+m: 尾数位(significand bit): 52位：数值范围[0.5, 1.000000]
 special patterns:
 1. e = 0: 2^(-1023) just used to identify ZERO or de-normalized number
 - ZERO: 2^(-1023) * (0*2^0 + 0)
