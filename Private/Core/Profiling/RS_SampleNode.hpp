@@ -44,11 +44,13 @@ namespace Core
         // the number of the frame in which the data was collected
         UInt32            frame_num;
         // #used: the number of usages of this sample
-        UInt16            used_num;
+        UInt32            used_num;
+
         // #opened: the number of opened(recursive calls)
-        UInt16            opened_num;
+        UInt32            opened_num;
         // the start time related to the application's begin
         Real32            start_time;
+
         // the totally spent time(including time in this sample and all children samples)
         Real32            total_time;
 
@@ -408,6 +410,6 @@ namespace Core
 //                   self_idx, child_idx, sib_idx);
         }
     };
-    COMPILE_TIME_ASSERT_MSG(sizeof(SampleNode) == 32, "Wrong sample node size");
+    COMPILE_TIME_ASSERT_MSG(sizeof(SampleNode) == 40, "Wrong sample node size");
 
 } // namespace Core

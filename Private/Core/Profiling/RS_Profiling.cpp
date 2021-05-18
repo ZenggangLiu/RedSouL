@@ -99,7 +99,7 @@ namespace Core
         UTF8 _buffer[256];
         TextHelper::sprintfSafe(_buffer, sizeof(_buffer),
                                 "- %%-%ds: "
-                                "[#used]: %%4d, "
+                                "[#used]: %%6d, "
                                 "[T]: %%6.3fs, [S]: %%6.3fs, [AT]: %%6.3fs, [AS]: %%6.3fs\n",
                                 32 - (SInt16)indent * 2);
         // 获得当前Iterator所保存的统计数据
