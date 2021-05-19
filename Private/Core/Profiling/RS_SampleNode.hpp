@@ -20,6 +20,9 @@ namespace Core
         const UTF8 *const name;
 
         // --- Tree Hierarchy --- //
+        //           子树索引        子树的第一个Sibling             子树的最后一个Sibling
+        //           |               |                              |
+        //           v               v                              v
         // +-----+-------+     +-------+     +-------+            +-------+
         // |  N  | CHILD | --> | N | S | --> | N | S | ...... --> | N | S | --+
         // |  O  | IDX   |     +-------+     +-------+            +-------+   |
@@ -27,7 +30,9 @@ namespace Core
         // |  E  | SIB   |     +-------+     +-------+     +-------+             +-------+
         // |     | IDX   | --> | N | S | --> | N | S | --> | N | S | ....... --> | N | S | --+
         // +-----+-------+     +-------+     +-------+     +-------+             +-------+   |
-        //                                                                                   =
+        //           ^                                                                       =
+        //           |
+        //           Sibling索引
         //
         // calculate the address of a node from index:
         // Addr = this + SInt32(IDX - SELF)*sizeof(SampleNode)
@@ -41,17 +46,18 @@ namespace Core
         SInt16            sib_idx;
 
         // --- Frame Data --- //
-        // the number of the frame in which the data was collected
-        UInt32            frame_num;
-        // #used: the number of usages of this sample
+        // 此Sample总共使用的次数
         UInt32            used_num;
+        // 此Sample采样时的帧号
+        // NOTE: 24位可以存储19小时内任意的Sample数据
+        UInt32            frame_num     : 22;
+        // 在一次函数调用中，此Sample使用的次数(通常表示recursive call)
+        // NOTE: 10位可以支持1024次递归调用
+        UInt32            opened_num    : 10;
 
-        // #opened: the number of opened(recursive calls)
-        UInt32            opened_num;
-        // the start time related to the application's begin
+        // 此Sample第一次开启时候的时间戳(秒)： 相对于程序开始时的时间间隔
         Real32            start_time;
-
-        // the totally spent time(including time in this sample and all children samples)
+        // 此Sample总共占用的时间(秒): 所包含代码+所有子节点包含的代码总共占用的时间
         Real32            total_time;
 
         // Constructs an invalid node
@@ -333,13 +339,14 @@ namespace Core
             // increments the #used
             ++used_num;
 
-            // on FIRST use
+            // FIRST use
+            RUNTIME_ASSERT(opened_num <= 1023, "Too many recursive calls");
             if (opened_num++ == 0)
             {
-                // stores the frame number
+                // 存储当前帧号
                 frame_num = SampleMgr::getRef().frameNum();
 
-                // stores the start time
+                // 存储起始时间戳
                 const Real64 _app_start_time = SampleMgr::getRef().appStartTime();
                 start_time = Real32(Core::getCurTimeSec() - _app_start_time);
             }
@@ -359,7 +366,7 @@ namespace Core
             // on LAST occurrence
             if (--opened_num == 0)
             {
-                // calculates the delta/elapsed time
+                // 计算时间间隔
                 const Real64 _cur_time       = Core::getCurTimeSec();
                 const Real64 _app_start_time = SampleMgr::getRef().appStartTime();
                 const Real32 _end_time       = Real32(_cur_time - _app_start_time);
@@ -410,6 +417,6 @@ namespace Core
 //                   self_idx, child_idx, sib_idx);
         }
     };
-    COMPILE_TIME_ASSERT_MSG(sizeof(SampleNode) == 40, "Wrong sample node size");
+    COMPILE_TIME_ASSERT_MSG(sizeof(SampleNode) == 32, "Wrong sample node size");
 
 } // namespace Core

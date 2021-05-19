@@ -96,31 +96,29 @@ namespace Core
     SampleMgr::openNamedSample (
         const UTF8 *const name)
     {
-        // checks if we are going to start a new sample
+        // 检查是否我们正在开启一个新的Sample: 是否与当前Sample的名字匹配
         if (m_cur_node->name != name)
         {
-            // the expecting sample ALWAYS be the child sample
+            // --- NOTE：此处开启的Sample始终被视为当前Sample的子节点 ---
 
-            // stores the parent sample index
+            // 使用给定名称在当前Sample中查找子节点
             SampleNode *const _parent_node = m_cur_node;
             m_cur_node = m_cur_node->child(name);
+            // 全新的子节点
             if (m_cur_node == nullptr)
             {
-                // creates a new sub-sample
-
                 RUNTIME_ASSERT(m_free_slot <= MAX_SAMPLE_COUNT - 1, "No place to store more samples");
-                // gets the index of the sub-sample
+                // 使用空余Slot的Index为此子节点的索引
                 const SInt16 _node_idx = m_free_slot++;
-                // initializes the sub-sample
+                // 初始化此子节点
                 SampleNode *const _child_node = m_sample_tree.data() + _node_idx;
                 m_cur_node = new(_child_node) SampleNode(name, _parent_node->self_idx, _node_idx);
 
-                // makes the new sub-sample the first child of its parent:
-                // +-----------+     +---------+     +-----------+            +-------------+
-                // | new child | --> | child n | --> | child n-1 | ...... --> | first child | --+
-                // +-----------+     +---------+     +-----------+            +-------------+   |
-                //                                                                              =
-                //
+                // 将新的子节点视为当前父节点的第一个子节点
+                // +-------------+     +---------+     +-----------+            +---------+
+                // | 新创建的节点 | --> | child n | --> | child n-1 | ...... --> | child 0 |--+
+                // +-------------+     +---------+     +-----------+            +---------+  |
+                //                                                                           =
                 m_cur_node->sib_idx     = _parent_node->child_idx;
                 _parent_node->child_idx = _node_idx;
             }

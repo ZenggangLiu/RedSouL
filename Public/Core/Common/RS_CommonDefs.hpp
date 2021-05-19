@@ -174,9 +174,9 @@
         // In GLSL, UN-Used Attribute will be striped away,
         // in this case we can NOT find the location of that attribute any more
 
-        uniform	mat4 mat_world;
-        uniform	mat4 mat_world_view_projection;
-        uniform	mat4 mat_world_inverse_transpose;
+        uniform mat4 mat_world;
+        uniform mat4 mat_world_view_projection;
+        uniform mat4 mat_world_inverse_transpose;
 
         // all positions/vectors are in world space
         uniform vec4 light1_position_world_space;
@@ -188,7 +188,7 @@
         attribute vec4 Normal;                 // Vertex Normal  : NORMAL
         attribute vec4 Tangent;                // Vertex Tangent : TANGENT
         //attribute vec4 DiffuseColor;         //                : COLOR0
-        attribute vec2 UV0;	                   // Vertex UV0     : TEXCOORD0
+        attribute vec2 UV0;                    // Vertex UV0     : TEXCOORD0
 
         // Vertex Shader To Pixel Shader: Varying
         varying vec4 v2f_diffuse_color;            // COLOR0

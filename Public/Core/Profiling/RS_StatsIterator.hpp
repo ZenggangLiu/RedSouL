@@ -87,16 +87,17 @@ namespace Core
         // the number of data members used for bookkeeping
         static const UInt8 BOOKKEEPING_DATA_NUM;
 
-        // the data stored in this iterator
-        //     branch index
-        //     |
-        //     v    int16   int16
+        // 节点列表： 数据以如下方式存储
+        //
+        //     Branch索引：                             第一个子树
+        //     |                                      |
+        //     v      SInt16  SInt16                  v
         // +--------+-------+-------+-------+     +-------+
         // | Branch | nth C | n-1 C | n-2 C | ... | 1st C |
         // +--------+-------+-------+-------+     +-------+
-        // int16        ^
+        //   SInt16     ^
         //              |
-        //              the last sub-branch/child
+        //              最后一个子树
         //
         std::vector<SInt16> m_data;
     };

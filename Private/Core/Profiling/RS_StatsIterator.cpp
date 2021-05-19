@@ -128,27 +128,28 @@ namespace Core
     StatsIterator::setup (
         const UInt16 branch_idx)
     {
-        // clears up the old data table
+        // 清除现有节点列表
         m_data.clear();
 
-        // stores the index(in the sample tree) of the branch node
+        // 存储Branch索引
         m_data.push_back(branch_idx);
 
-        // creates the child list
+        // 创建子树列表
         const SampleNode & _branch = SampleMgr::getRef().node(branch_idx);
         if (_branch.hasChild())
         {
-            // collects the indices of all used children
             const UInt32 _cur_frame_num = SampleMgr::getRef().frameNum();
             const SampleNode* _child = _branch.child();
+            // 收集所有子树索引
             while (_child)
             {
+                // 判断此子树是否属于为当前帧
                 if (_child->frame_num == _cur_frame_num)
                 {
                     m_data.push_back(_child->self_idx);
                 }
 
-                // goes to the next child
+                // 获得下一个子树的索引：
                 // +---+---+     +---+---+     +---+---+            +---+---+
                 // | N | C | --> | N | S | --> | N | S | ...... --> | N | S | --+
                 // +---+---+     +---+---+     +---+---+            +---+---+   |
