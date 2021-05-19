@@ -5,6 +5,9 @@
       location = "group:Private/Core.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Private/Demo_Render.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Private/Demo_Script.xcodeproj">
    </FileRef>
    <FileRef
