@@ -25,14 +25,11 @@
 		E72E743226429B5C00F4EC96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E742B26429B5C00F4EC96 /* GameViewController.m */; };
 		E72E743526429B5C00F4EC96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E742C26429B5C00F4EC96 /* main.m */; };
 		E72E743826429B5C00F4EC96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E742D26429B5C00F4EC96 /* AppDelegate.m */; };
-		E72E74B12655084300F4EC96 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E72E74B02655084300F4EC96 /* Info.plist */; };
 		E72E74B4265508CB00F4EC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74B2265508CB00F4EC96 /* Main.storyboard */; };
-		E72E74B82655093400F4EC96 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E72E74B72655093300F4EC96 /* Info.plist */; };
-		E72E74BD2655094500F4EC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74B92655094500F4EC96 /* Main.storyboard */; };
-		E72E74BE2655094500F4EC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74BB2655094500F4EC96 /* LaunchScreen.storyboard */; };
-		E72E74C02655096800F4EC96 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E72E74BF2655096800F4EC96 /* Info.plist */; };
 		E72E74C52655097500F4EC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74C12655097500F4EC96 /* LaunchScreen.storyboard */; };
 		E72E74C62655097500F4EC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74C32655097500F4EC96 /* Main.storyboard */; };
+		E72E74C826550E1B00F4EC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74BB2655094500F4EC96 /* LaunchScreen.storyboard */; };
+		E72E74C926550E1B00F4EC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72E74B92655094500F4EC96 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,10 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72E74B82655093400F4EC96 /* Info.plist in Resources */,
-				E72E74BE2655094500F4EC96 /* LaunchScreen.storyboard in Resources */,
-				E72E74BD2655094500F4EC96 /* Main.storyboard in Resources */,
 				E72E73EE26429A7D00F4EC96 /* Assets.xcassets in Resources */,
+				E72E74C826550E1B00F4EC96 /* LaunchScreen.storyboard in Resources */,
+				E72E74C926550E1B00F4EC96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,9 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72E74C52655097500F4EC96 /* LaunchScreen.storyboard in Resources */,
-				E72E74C02655096800F4EC96 /* Info.plist in Resources */,
 				E72E73EF26429A7D00F4EC96 /* Assets.xcassets in Resources */,
+				E72E74C52655097500F4EC96 /* LaunchScreen.storyboard in Resources */,
 				E72E74C62655097500F4EC96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,9 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72E74B4265508CB00F4EC96 /* Main.storyboard in Resources */,
 				E72E73F026429A7D00F4EC96 /* Assets.xcassets in Resources */,
-				E72E74B12655084300F4EC96 /* Info.plist in Resources */,
+				E72E74B4265508CB00F4EC96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
