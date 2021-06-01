@@ -49,5 +49,4 @@ namespace Core
 } // namespace Core
 #endif // #if（BUILD_MODE == DEBUG_BUILD_MODE)
 
-
 #endif // #if defined(__APPLE__)

@@ -35,5 +35,4 @@ namespace Core
 
 } // namespace Core
 
-
 #endif // #if defined(__APPLE__)
