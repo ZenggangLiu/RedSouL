@@ -5,6 +5,8 @@
 //
 // 检查BitOperation
 #define BIT_OPERATION_CHECKING              1
+// 检查DevThread
+#define DEV_THREAD_CHECKING                 1
 // 检查FileRead/WriteStream
 #define FILE_READ_WRITE_STREAM_CHECKING     1
 // 检查所以在RS_FloatPointFunc文件中定义的函数

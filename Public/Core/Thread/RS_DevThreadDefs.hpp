@@ -12,11 +12,17 @@ namespace Core
 
         // 创建但未运转
         DEV_THREAD_STATE_CREATED,
+        // 启动当未运行
+        DEV_THREAD_STATE_STARTED,
         // 运转中
         DEV_THREAD_STATE_RUNNING,
+        // 等待Event
+        DEV_THREAD_STATE_WAITING_EVENT,
         // 暂停中
         DEV_THREAD_STATE_SUSPENDED,
-        // 销毁
+        // 销毁中
+        DEV_THREAD_STATE_TERMINATING,
+        // 销毁完毕
         DEV_THREAD_STATE_TERMINATED,
     };
 
@@ -49,6 +55,13 @@ namespace Core
         // - iOS： 512k
         // - Win：   1M：可以通过使用GetCurrentThreadStackLimits()来获得
         DEV_THREAD_STACK_SIZE_DEFAULT           = -1
+    };
+
+    // 线程的句柄
+    struct DevThreadHandle
+    {
+        // OS的线程句柄
+        UInt64 os_handle = (UInt64)-1;
     };
 
 } // namespace Core
