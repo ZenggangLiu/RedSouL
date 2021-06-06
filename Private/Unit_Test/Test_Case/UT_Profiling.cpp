@@ -5,7 +5,7 @@
 
 #if (PROFILING_CHECKING == 1)
 #include "Core/Profiling/RS_Profiling.hpp"
-#include "Core/Thread/RS_Thread.hpp"
+#include "Core/Thread/RS_ThreadHelper.hpp"
 
 
 using namespace Core;
@@ -25,13 +25,13 @@ TEST_CASE("Checking Profiling", "[Profiling]")
             {
                 // waiting 0.1 second
                 PROFILING("First Child");
-                Core::sleepCallingThread(100);
+                Core::ThreadHelper::sleep(100);
             }
 
             {
                 // waiting 0.2 seconds
                 PROFILING("Second Child");
-                Core::sleepCallingThread(200);
+                Core::ThreadHelper::sleep(200);
             }
 
             {
@@ -46,7 +46,7 @@ TEST_CASE("Checking Profiling", "[Profiling]")
                         PROFILING("Recursion(5 Times)");
 
                         // waiting 1 second
-                        Core::sleepCallingThread(100);
+                        Core::ThreadHelper::sleep(100);
                     }
                 }
             }
@@ -55,7 +55,7 @@ TEST_CASE("Checking Profiling", "[Profiling]")
         {
             // waiting 0.3 second
             PROFILING("Branch II");
-            Core::sleepCallingThread(300);
+            Core::ThreadHelper::sleep(300);
         }
 
         // 使用PROFILING_DUMP() 来得到Sample Tree的文字描述
