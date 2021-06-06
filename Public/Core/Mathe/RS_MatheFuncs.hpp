@@ -5,6 +5,7 @@
 // std::abs(),  std::sqrt(), std::sin(),   std::cos()
 // std::asin(), std::acos(), std::atan2(), std::floor()
 #include <cmath>
+#include <tuple>
 // Lib headers
 #include "Core/Common/RS_CommonDefs.hpp"
 #include "Core/DataType/RS_DataTypeDefs.hpp"
@@ -90,7 +91,7 @@ namespace Core
             const Real64 curent_avg,
             const Real64 new_sample,
             const UInt32 total_samples);
-
+         */
         // Clamps给定的数值到给定的区间: [min, max]
         template < typename T >
         INLINE_FUNCTION
@@ -100,7 +101,7 @@ namespace Core
            const T val,
            const T min,
            const T max);
-
+        /*
         // 求给定弧度的Cosine值
         //
         // uses sine() to do the calculation:
@@ -137,7 +138,7 @@ namespace Core
         Real64
         fraction (
             const Real64 val);
-
+         */
         // 求A，B数值中的最大值
         template < typename T >
         INLINE_FUNCTION
@@ -148,15 +149,16 @@ namespace Core
            const T b);
 
         // 求A，B数值中的最大值和最小值
+        //
+        // @return
+        //      (min, max)
         template < typename T >
         INLINE_FUNCTION
         static
-        void
+        std::tuple<T, T>
         maxMinimum (
             const T a,
-            const T b,
-            T &     min,
-            T &     max);*/
+            const T b);
 
         // 求A，B数值中的最小值
         template < typename T >
@@ -240,7 +242,6 @@ namespace Core
 namespace Core
 {
 
-    /* 此次的函数没有进行测试
     template < typename T >
     INLINE_FUNCTION
     T
@@ -252,7 +253,7 @@ namespace Core
         return minimum(maximum(val, min), max);
     }
 
-
+    /* 此次的函数没有进行测试
     // SInt8/16/32/64, UInt8/16/32/64
     template < typename T >
     INLINE_FUNCTION
@@ -275,7 +276,7 @@ namespace Core
         const Real32 b)
     {
         return (Real32)divideUp((UInt32)a, (UInt32)b);
-    }
+    }*/
 
 
     template < typename T >
@@ -291,15 +292,13 @@ namespace Core
 
     template < typename T >
     INLINE_FUNCTION
-    void
+    std::tuple<T, T>
     Mathe::maxMinimum (
         const T a,
-        const T b,
-        T &     min,
-        T &     max)
+        const T b)
     {
-        a > b ? (min = b, max = a) : (min = a, max = b);
-    }*/
+        return a < b ? std::make_tuple(a, b) : std::make_tuple(b, a);
+    }
 
 
     template < typename T >
