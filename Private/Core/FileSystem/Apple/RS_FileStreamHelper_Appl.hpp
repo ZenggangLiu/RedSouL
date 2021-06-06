@@ -12,6 +12,8 @@
         m_stream_length(0),                                                                        \
         m_cursor_position(0)                                                                       \
     {                                                                                              \
+        COMPILE_TIME_ASSERT_MSG(sizeof(NativeFile) <= sizeof(m_file_instance),                     \
+                                "NativeFile is too large");                                        \
         /* 清除NativeFile的实例 */                                                                   \
         std::memset(m_file_instance, 0, sizeof(m_file_instance));                                  \
     }                                                                                              \

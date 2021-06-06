@@ -8,8 +8,13 @@
   - PakFileSystem：表示一个Pak压缩文件。Pak文件是对一个目录进行的压缩。
     因此PakFileSystem将提供基本的目录查询和文件操作（目前不支持文件写入操作）
     关系图：
-                  使用                   操作         使用
-    PakFileSystem ---> NativeFileStream ---> PakFile ---> Read/Write OS file
+                   PUBLIC API                |          PRIVATE API
+                                             |
+                  使用                   操作 |        使用
+    PakFileSystem ---> NativeFileStream ---> | PakFile ---> Read/Write OS file
+                                             |
+                                             |
+  - 我们使用FileStream中的m_file_instance来隐藏具体OS上的文件操作。它是在调用initWithFile()的时候初始化的。
   - NetFileSytem表述了一个通过Server-Client的形式进行目录文件操作的系统。
     他由两部分构成：
     + NetFileSystemClient：发送文件请求方。例如场景编辑器
