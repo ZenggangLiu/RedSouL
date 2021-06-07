@@ -17,6 +17,8 @@
 #define LOGGING_CHECKING                    1
 // 检查所以在RS_MatheFunc文件中定义的函数
 #define MATHE_FUNCS_CHECKING                1
+// 检查所以在RS_MemoryHelper文件中定义的函数
+#define MEMORY_HELPER_CHECKING              1
 // 检查Profiling
 #define PROFILING_CHECKING                  1
 // 检查StlAllocator
