@@ -157,6 +157,40 @@ Mathe::sphericToCartesianSystem (
     z = _sin_theta * _sin_phi;
 }
 
+// --- Memory Fence --- //
+///////// Memory Fence ////////////
+// put an acquire memory fence in the calling location: finish loading before going on
+void Thread::acquireMemoryFence()
+{
+#if (OS_TYPE == OS_TYPE_WIN)
+  fullMemoryFence();
+
+#else
+  fullMemoryFence();
+#endif // #if (OS_TYPE == OS_TYPE_WIN)
+}
+
+// put a  release memory fence in the calling location: finish storing before going on
+void Thread::releaseMemoryFence()
+{
+#if (OS_TYPE == OS_TYPE_WIN)
+  fullMemoryFence();
+
+#else
+  fullMemoryFence();
+#endif // #if (OS_TYPE == OS_TYPE_WIN)
+}
+
+// put a full memory fence in the calling location: finish loading and storing before going on
+void Thread::fullMemoryFence()
+{
+#if (OS_TYPE == OS_TYPE_WIN)
+  MemoryBarrier();
+
+#else
+  __asm volatile("" ::: "memory");
+#endif // #if (OS_TYPE == OS_TYPE_WIN)
+}
 
 
 2.问题汇总：
@@ -172,7 +206,10 @@ Mathe::sphericToCartesianSystem (
   Logging.cfg
 
 - FileStream/FileReadStream/FileWriteStream 添加对Real16类型的输入输出
-- Memory managment: RAM & VRAM两种不同的MEM allocator实现
+- RingBuffer: 作为RenderClient与RenderServer中间的数据交换缓存
+- Memory managment:
+  + PageAllocator: 提供n个Page的allocate申请，通过commit()，decommit()来将指定Page组Map/Unmap到物理内存
+  + RAM & VRAM两种不同的MEM allocator实现
 - Compute API, Render API
 - FileSystem: Pak, PakViewer macOS App
 - RuntimeText & CompiletimeText的实现

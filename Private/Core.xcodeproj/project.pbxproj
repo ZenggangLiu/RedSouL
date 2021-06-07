@@ -200,6 +200,7 @@
 		E72E74DF26677EE000F4EC96 /* RS_DevThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_DevThread.hpp; path = ../Public/Core/Thread/RS_DevThread.hpp; sourceTree = "<group>"; };
 		E72E74E12668D4C600F4EC96 /* RS_MainDevThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_MainDevThread.hpp; path = ../Public/Core/Thread/RS_MainDevThread.hpp; sourceTree = "<group>"; };
 		E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_MainDevThread.cpp; path = Core/Thread/RS_MainDevThread.cpp; sourceTree = "<group>"; };
+		E72E74ED266CC50600F4EC96 /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = ReadME.txt; path = Core/Thread/ReadME.txt; sourceTree = "<group>"; };
 		E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeHash.hpp; path = ../Public/Core/Hash/RS_RuntimeHash.hpp; sourceTree = "<group>"; };
 		E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_RuntimeHash.cpp; path = Core/Hash/RS_RuntimeHash.cpp; sourceTree = "<group>"; };
 		E785D16225BC0E930042292E /* xxhash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = xxhash.cpp; path = Core/External/Hash/xxhash.cpp; sourceTree = "<group>"; };
@@ -491,6 +492,7 @@
 		E785D1A825BEB9850042292E /* Thread */ = {
 			isa = PBXGroup;
 			children = (
+				E72E74ED266CC50600F4EC96 /* ReadME.txt */,
 				E72E74D92666352A00F4EC96 /* RS_DevThread_Appl.mm */,
 				E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */,
 				E785D1BB25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm */,
