@@ -5,13 +5,13 @@
 void Func_AA()
 {
     // waiting 1 second
-    Core::sleepCallingThread(1000);
+    Core::sleep(1000);
 }
 
 void Func_AB()
 {
     // waiting 2 seconds
-    Core::sleepCallingThread(2000);
+    Core::sleep(2000);
 }
 
 void Func_Recur()
@@ -26,13 +26,13 @@ void Func_Recur()
         Func_Recur();
     }
     // waiting 1 second
-    Core::sleepCallingThread(1000);
+    Core::sleep(1000);
 }
 
 void Func_BA()
 {
     // waiting 3 second
-    Core::sleepCallingThread(3000);
+    Core::sleep(3000);
 }
 
 // 定义Profiling Sample树的Root
