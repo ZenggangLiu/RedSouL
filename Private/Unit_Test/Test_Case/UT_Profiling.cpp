@@ -25,13 +25,13 @@ TEST_CASE("Checking Profiling", "[Profiling]")
             {
                 // waiting 0.1 second
                 PROFILING("First Child");
-                Core::ThreadHelper::sleep(100);
+                ThreadHelper::sleep(100);
             }
 
             {
                 // waiting 0.2 seconds
                 PROFILING("Second Child");
-                Core::ThreadHelper::sleep(200);
+                ThreadHelper::sleep(200);
             }
 
             {
@@ -46,7 +46,7 @@ TEST_CASE("Checking Profiling", "[Profiling]")
                         PROFILING("Recursion(5 Times)");
 
                         // waiting 1 second
-                        Core::ThreadHelper::sleep(100);
+                        ThreadHelper::sleep(100);
                     }
                 }
             }
@@ -55,7 +55,7 @@ TEST_CASE("Checking Profiling", "[Profiling]")
         {
             // waiting 0.3 second
             PROFILING("Branch II");
-            Core::ThreadHelper::sleep(300);
+            ThreadHelper::sleep(300);
         }
 
         // 使用PROFILING_DUMP() 来得到Sample Tree的文字描述

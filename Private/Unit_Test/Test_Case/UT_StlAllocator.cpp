@@ -28,11 +28,11 @@ TEST_CASE("Checking StlAllocator", "[StlAllocator]")
     {
         std::printf("--- Checking StlAllocator...\n");
 
-        std::vector<CheckDataType, Core::StlAllocator<CheckDataType>> _array;
+        std::vector<CheckDataType, StlAllocator<CheckDataType>> _array;
         _array.resize(1);
         REQUIRE((_array[0].value == CONSTRUCT_MAGIC_NUMBER));
 
-        Core::StlAllocator<CheckDataType> _allocator;
+        StlAllocator<CheckDataType> _allocator;
         CheckDataType * _instance = _allocator.allocate(1);
         REQUIRE((_instance->value == ALLOCATE_MAGIC_NUMBER));
 

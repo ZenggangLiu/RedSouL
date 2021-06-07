@@ -348,7 +348,7 @@ namespace Core
 
                 // 存储起始时间戳
                 const Real64 _app_start_time = SampleMgr::getRef().appStartTime();
-                start_time = Real32(Core::getCurTimeSec() - _app_start_time);
+                start_time = Real32(getCurTimeSec() - _app_start_time);
             }
         }
 
@@ -367,7 +367,7 @@ namespace Core
             if (--opened_num == 0)
             {
                 // 计算时间间隔
-                const Real64 _cur_time       = Core::getCurTimeSec();
+                const Real64 _cur_time       = getCurTimeSec();
                 const Real64 _app_start_time = SampleMgr::getRef().appStartTime();
                 const Real32 _end_time       = Real32(_cur_time - _app_start_time);
                 const Real32 _delta_time     = _end_time - start_time;

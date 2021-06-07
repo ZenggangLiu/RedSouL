@@ -95,8 +95,6 @@ TEST_CASE("Checking MatheFuncs", "[MatheFunc]")
         REQUIRE(Mathe::minimum(_minnr, _minpr) == _minnr);
         REQUIRE(Mathe::minimum(_maxnr, _maxpr) == _maxnr);
 
-
-
         std::printf("--- Checking MatheFunc: OK!\n");
     }
 } // TEST_CASE("Checking MatheFuncs", "[MatheFunc]")

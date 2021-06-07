@@ -15,14 +15,14 @@ using namespace Core;
 TEST_CASE("Checking DevThread", "[DevThread]")
 {
 
-    class Example : public Core::DevThread
+    class Example : public DevThread
     {
     public:
         UInt32 IntData;
     public:
         Example()
         :
-            Core::DevThread("Example"),
+            DevThread("Example"),
             IntData(0)
         {
 
