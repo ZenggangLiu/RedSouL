@@ -130,7 +130,7 @@ namespace Core
 
         // 定义pthread的回调函数类型
         typedef void *(*pthread_start_routine) (void *);
-        if (pthread_create((pthread_t*)&m_handle.os_handle,
+        if (pthread_create(&m_handle.os_handle,
                            &_thread_attr,
                            (pthread_start_routine)&DevThread::ThreadProc,
                            this /* 传入ThreadProc()的参数 */))
@@ -159,7 +159,7 @@ namespace Core
         m_state = DEV_THREAD_STATE_SUSPENDED;
 
         // 由于Pthread API没有提供Suspend函数，所以这里只能使用Mach API
-        const mach_port_t _mac_thread = pthread_mach_thread_np((pthread_t)m_handle.os_handle);
+        const mach_port_t _mac_thread = pthread_mach_thread_np(m_handle.os_handle);
         if (thread_suspend(_mac_thread) != KERN_SUCCESS)
         {
             m_state = DEV_THREAD_STATE_RUNNING;
@@ -176,7 +176,7 @@ namespace Core
         m_state = DEV_THREAD_STATE_RUNNING;
 
         // 由于Pthread API没有提供Resume函数，所以这里只能使用Mach API
-        const mach_port_t _mac_thread = pthread_mach_thread_np((pthread_t)m_handle.os_handle);
+        const mach_port_t _mac_thread = pthread_mach_thread_np(m_handle.os_handle);
         if (thread_resume(_mac_thread) != KERN_SUCCESS)
         {
             m_state = DEV_THREAD_STATE_SUSPENDED;
@@ -187,7 +187,7 @@ namespace Core
     void
     DevThread::join () const
     {
-        pthread_join((pthread_t)m_handle.os_handle, nullptr);
+        pthread_join(m_handle.os_handle, nullptr);
     }
 
 
@@ -199,7 +199,7 @@ namespace Core
         m_state = DEV_THREAD_STATE_TERMINATING;
         // 强行终止线程
         // cancel the thread: not use pthread_kill() which just sends SIG to the child thread
-        pthread_cancel((pthread_t)m_handle.os_handle);
+        pthread_cancel(m_handle.os_handle);
         //清理资源
         cleanup(exit_code);
     }
@@ -250,7 +250,7 @@ namespace Core
         RUNTIME_ASSERT(m_state == DEV_THREAD_STATE_TERMINATING,
                        "The Thread is NOT in the right state: TERMINATING");
         // 清除缓存的句柄
-        m_handle.os_handle = 0;
+        m_handle.os_handle = (pthread_t)-1;
         // 标记状态
         m_state = DEV_THREAD_STATE_TERMINATED;
         // 清理线程的资源如果此线程已经退出
