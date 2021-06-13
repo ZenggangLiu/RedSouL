@@ -82,7 +82,7 @@ namespace Core
         ,m_name(name)
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
     {
-        COMPILE_TIME_ASSERT_MSG(sizeof(pthread_t) == sizeof(m_handle), "Un-matching thread handle");
+
     }
 
 
