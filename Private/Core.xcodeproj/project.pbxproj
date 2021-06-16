@@ -18,7 +18,6 @@
 		E72E74DC2666352A00F4EC96 /* RS_DevThread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E72E74D92666352A00F4EC96 /* RS_DevThread_Appl.mm */; };
 		E72E74DE26677E3100F4EC96 /* RS_DevThreadDefs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E72E74DD26677E3100F4EC96 /* RS_DevThreadDefs.hpp */; };
 		E72E74E026677EE000F4EC96 /* RS_DevThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E72E74DF26677EE000F4EC96 /* RS_DevThread.hpp */; };
-		E72E74E22668D4C600F4EC96 /* RS_MainDevThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E72E74E12668D4C600F4EC96 /* RS_MainDevThread.hpp */; };
 		E72E74E42668D52600F4EC96 /* RS_MainDevThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */; };
 		E72E74E52668D52600F4EC96 /* RS_MainDevThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */; };
 		E72E74E62668D52600F4EC96 /* RS_MainDevThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */; };
@@ -88,6 +87,18 @@
 		E785D23525C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
 		E785D23625C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
 		E785D23725C940BD0042292E /* RS_RuntimeText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E785D23425C940BD0042292E /* RS_RuntimeText.cpp */; };
+		E7897F17267757B3001893D8 /* RS_DevThreadDataBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7897F13267757B3001893D8 /* RS_DevThreadDataBase.hpp */; };
+		E7897F18267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F14267757B3001893D8 /* RS_DevThreadDataBase.cpp */; };
+		E7897F19267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F14267757B3001893D8 /* RS_DevThreadDataBase.cpp */; };
+		E7897F1A267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F14267757B3001893D8 /* RS_DevThreadDataBase.cpp */; };
+		E7897F1B267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F15267757B3001893D8 /* RS_ThreadHelper.cpp */; };
+		E7897F1C267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F15267757B3001893D8 /* RS_ThreadHelper.cpp */; };
+		E7897F1D267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F15267757B3001893D8 /* RS_ThreadHelper.cpp */; };
+		E7897F1E267757B3001893D8 /* RS_MainDevThread.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7897F16267757B3001893D8 /* RS_MainDevThread.hpp */; };
+		E7897F2026775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F1F26775AA3001893D8 /* RS_MainDevThread_Appl.mm */; };
+		E7897F2126775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F1F26775AA3001893D8 /* RS_MainDevThread_Appl.mm */; };
+		E7897F2226775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F1F26775AA3001893D8 /* RS_MainDevThread_Appl.mm */; };
+		E7897F242679FB75001893D8 /* RS_ReaderWriterLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7897F232679FB75001893D8 /* RS_ReaderWriterLock.hpp */; };
 		E79544C725DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C825DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C925DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
@@ -194,12 +205,11 @@
 		E72E744E264928E900F4EC96 /* RS_StlAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_StlAllocator.hpp; path = ../Public/Core/Memory/RS_StlAllocator.hpp; sourceTree = "<group>"; };
 		E72E74CB26565A7700F4EC96 /* Xcode settings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Xcode settings.txt"; path = "Documents/Compiler/Xcode/Xcode settings.txt"; sourceTree = "<group>"; };
 		E72E74CC26565A7700F4EC96 /* Xcode_predefined_env_variables.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Xcode_predefined_env_variables.pdf; path = Documents/Compiler/Xcode/Xcode_predefined_env_variables.pdf; sourceTree = "<group>"; };
-		E72E74D3265E5BD400F4EC96 /* RS_Mutex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RS_Mutex.hpp; path = ../Public/Core/Thread/RS_Mutex.hpp; sourceTree = "<group>"; };
-		E72E74D92666352A00F4EC96 /* RS_DevThread_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_DevThread_Appl.mm; path = Core/Thread/Apple/RS_DevThread_Appl.mm; sourceTree = "<group>"; };
+		E72E74D3265E5BD400F4EC96 /* RS_Mutex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_Mutex.hpp; path = ../Public/Core/Thread/RS_Mutex.hpp; sourceTree = "<group>"; };
+		E72E74D92666352A00F4EC96 /* RS_DevThread_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_DevThread_Appl.mm; path = Core/Thread/Apple/RS_DevThread_Appl.mm; sourceTree = "<group>"; };
 		E72E74DD26677E3100F4EC96 /* RS_DevThreadDefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_DevThreadDefs.hpp; path = ../Public/Core/Thread/RS_DevThreadDefs.hpp; sourceTree = "<group>"; };
 		E72E74DF26677EE000F4EC96 /* RS_DevThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_DevThread.hpp; path = ../Public/Core/Thread/RS_DevThread.hpp; sourceTree = "<group>"; };
-		E72E74E12668D4C600F4EC96 /* RS_MainDevThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_MainDevThread.hpp; path = ../Public/Core/Thread/RS_MainDevThread.hpp; sourceTree = "<group>"; };
-		E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_MainDevThread.cpp; path = Core/Thread/RS_MainDevThread.cpp; sourceTree = "<group>"; };
+		E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_MainDevThread.cpp; path = Core/Thread/RS_MainDevThread.cpp; sourceTree = "<group>"; };
 		E72E74ED266CC50600F4EC96 /* ReadME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = ReadME.txt; path = Core/Thread/ReadME.txt; sourceTree = "<group>"; };
 		E785D15525BBDE470042292E /* RS_RuntimeHash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeHash.hpp; path = ../Public/Core/Hash/RS_RuntimeHash.hpp; sourceTree = "<group>"; };
 		E785D15925BC0DC20042292E /* RS_RuntimeHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_RuntimeHash.cpp; path = Core/Hash/RS_RuntimeHash.cpp; sourceTree = "<group>"; };
@@ -238,6 +248,12 @@
 		E785D22A25C654810042292E /* RS_NativeFileSystem_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFileSystem_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFileSystem_Appl.mm; sourceTree = "<group>"; };
 		E785D23125C93FAB0042292E /* RS_RuntimeText.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_RuntimeText.hpp; path = ../Public/Core/String/RS_RuntimeText.hpp; sourceTree = "<group>"; };
 		E785D23425C940BD0042292E /* RS_RuntimeText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RS_RuntimeText.cpp; path = Core/String/RS_RuntimeText.cpp; sourceTree = "<group>"; };
+		E7897F13267757B3001893D8 /* RS_DevThreadDataBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_DevThreadDataBase.hpp; path = Core/Thread/RS_DevThreadDataBase.hpp; sourceTree = "<group>"; };
+		E7897F14267757B3001893D8 /* RS_DevThreadDataBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_DevThreadDataBase.cpp; path = Core/Thread/RS_DevThreadDataBase.cpp; sourceTree = "<group>"; };
+		E7897F15267757B3001893D8 /* RS_ThreadHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_ThreadHelper.cpp; path = Core/Thread/RS_ThreadHelper.cpp; sourceTree = "<group>"; };
+		E7897F16267757B3001893D8 /* RS_MainDevThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_MainDevThread.hpp; path = Core/Thread/RS_MainDevThread.hpp; sourceTree = "<group>"; };
+		E7897F1F26775AA3001893D8 /* RS_MainDevThread_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_MainDevThread_Appl.mm; path = Core/Thread/Apple/RS_MainDevThread_Appl.mm; sourceTree = "<group>"; };
+		E7897F232679FB75001893D8 /* RS_ReaderWriterLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_ReaderWriterLock.hpp; path = ../Public/Core/Thread/RS_ReaderWriterLock.hpp; sourceTree = "<group>"; };
 		E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFile_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFile_Appl.mm; sourceTree = "<group>"; };
 		E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_NativeFile_Appl.hpp; path = Core/FileSystem/Apple/RS_NativeFile_Appl.hpp; sourceTree = "<group>"; };
 		E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStream.hpp; path = ../Public/Core/FileSystem/RS_FileStream.hpp; sourceTree = "<group>"; };
@@ -441,9 +457,9 @@
 		E785D19B25BEB9150042292E /* Thread */ = {
 			isa = PBXGroup;
 			children = (
+				E7897F232679FB75001893D8 /* RS_ReaderWriterLock.hpp */,
 				E72E74DF26677EE000F4EC96 /* RS_DevThread.hpp */,
 				E72E74DD26677E3100F4EC96 /* RS_DevThreadDefs.hpp */,
-				E72E74E12668D4C600F4EC96 /* RS_MainDevThread.hpp */,
 				E72E74D3265E5BD400F4EC96 /* RS_Mutex.hpp */,
 				E785D1A425BEB9630042292E /* RS_ThreadHelper.hpp */,
 			);
@@ -494,7 +510,12 @@
 			children = (
 				E72E74ED266CC50600F4EC96 /* ReadME.txt */,
 				E72E74D92666352A00F4EC96 /* RS_DevThread_Appl.mm */,
+				E7897F14267757B3001893D8 /* RS_DevThreadDataBase.cpp */,
+				E7897F13267757B3001893D8 /* RS_DevThreadDataBase.hpp */,
+				E7897F16267757B3001893D8 /* RS_MainDevThread.hpp */,
+				E7897F1F26775AA3001893D8 /* RS_MainDevThread_Appl.mm */,
 				E72E74E32668D52600F4EC96 /* RS_MainDevThread.cpp */,
+				E7897F15267757B3001893D8 /* RS_ThreadHelper.cpp */,
 				E785D1BB25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm */,
 			);
 			name = Thread;
@@ -718,6 +739,7 @@
 				E785D1D125BFA8540042292E /* RS_Profiling.hpp in Headers */,
 				E7A858F125B6DD1A0088515D /* RS_CommonDefs.hpp in Headers */,
 				E785D23225C93FAB0042292E /* RS_RuntimeText.hpp in Headers */,
+				E7897F1E267757B3001893D8 /* RS_MainDevThread.hpp in Headers */,
 				E7A858F325B6DD290088515D /* PrecompiledH.hpp in Headers */,
 				E7A858FF25B7CE250088515D /* TODO.txt in Headers */,
 				E79544E525E5ADF8005D3B41 /* RS_FileStreamHelper.hpp in Headers */,
@@ -728,7 +750,6 @@
 				E785D1FC25C258110042292E /* RS_LoggingMgr.hpp in Headers */,
 				E7A858EF25B6DD1A0088515D /* RS_CompilerDefs.hpp in Headers */,
 				E795450325F2EE12005D3B41 /* RS_BitOperationHelper.hpp in Headers */,
-				E72E74E22668D4C600F4EC96 /* RS_MainDevThread.hpp in Headers */,
 				E785D21725C4C2710042292E /* RS_DumbLogger.hpp in Headers */,
 				E785D20125C25E410042292E /* RS_Logger.hpp in Headers */,
 				E79545412601F0E3005D3B41 /* RS_MatheFuncs.hpp in Headers */,
@@ -745,6 +766,7 @@
 				E785D16C25BC0E930042292E /* murmurhash3.hpp in Headers */,
 				E7A858FD25B78A680088515D /* RS_DataTypeDefs.hpp in Headers */,
 				E785D1A525BEB9630042292E /* RS_ThreadHelper.hpp in Headers */,
+				E7897F17267757B3001893D8 /* RS_DevThreadDataBase.hpp in Headers */,
 				E79544DB25E4812F005D3B41 /* RS_FileStreamHelper_Appl.hpp in Headers */,
 				E785D1D025BFA8540042292E /* RS_StatsIterator.hpp in Headers */,
 				E785D1CB25BF95760042292E /* RS_Logging.hpp in Headers */,
@@ -757,6 +779,7 @@
 				E79544D725DFAE3B005D3B41 /* RS_FileReadStream.hpp in Headers */,
 				E72E74DE26677E3100F4EC96 /* RS_DevThreadDefs.hpp in Headers */,
 				E72E744F264928E900F4EC96 /* RS_StlAllocator.hpp in Headers */,
+				E7897F242679FB75001893D8 /* RS_ReaderWriterLock.hpp in Headers */,
 				E72E74D4265E5BD400F4EC96 /* RS_Mutex.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -864,11 +887,13 @@
 				E785D1BD25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E225E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E72E74DB2666352A00F4EC96 /* RS_DevThread_Appl.mm in Sources */,
+				E7897F2126775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */,
 				E785D1C125BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E79544DE25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
 				E7B32FBC262A5B1900B8583B /* RS_BitOperationHelper_Appl.mm in Sources */,
 				E785D23625C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15E25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E7897F19267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */,
 				E785D22725C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F525B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E79544F025EA428F005D3B41 /* RS_TextFileReader.cpp in Sources */,
@@ -879,6 +904,7 @@
 				E795454526040B64005D3B41 /* RS_MatheFuncs.cpp in Sources */,
 				E785D16A25BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D22C25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
+				E7897F1C267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */,
 				E785D16725BC0E930042292E /* xxhash.cpp in Sources */,
 				E72E744C2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */,
 				E79544FC25EE2BF6005D3B41 /* RS_UTF16Text.cpp in Sources */,
@@ -906,11 +932,13 @@
 				E785D1BC25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E125E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E72E74DA2666352A00F4EC96 /* RS_DevThread_Appl.mm in Sources */,
+				E7897F2026775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */,
 				E785D1C025BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E79544DD25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
 				E7B32FBB262A5B1900B8583B /* RS_BitOperationHelper_Appl.mm in Sources */,
 				E785D23525C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15D25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E7897F18267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */,
 				E785D22625C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F625B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E79544EF25EA428F005D3B41 /* RS_TextFileReader.cpp in Sources */,
@@ -921,6 +949,7 @@
 				E795454426040B64005D3B41 /* RS_MatheFuncs.cpp in Sources */,
 				E785D16925BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D22B25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
+				E7897F1B267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */,
 				E785D16625BC0E930042292E /* xxhash.cpp in Sources */,
 				E72E744B2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */,
 				E79544FB25EE2BF6005D3B41 /* RS_UTF16Text.cpp in Sources */,
@@ -948,11 +977,13 @@
 				E785D1BE25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E325E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
 				E72E74DC2666352A00F4EC96 /* RS_DevThread_Appl.mm in Sources */,
+				E7897F2226775AA3001893D8 /* RS_MainDevThread_Appl.mm in Sources */,
 				E785D1C225BEB9CA0042292E /* RS_Time_Appl.mm in Sources */,
 				E79544DF25E4F11E005D3B41 /* RS_FileReadStream_Appl.mm in Sources */,
 				E7B32FBD262A5B1900B8583B /* RS_BitOperationHelper_Appl.mm in Sources */,
 				E785D23725C940BD0042292E /* RS_RuntimeText.cpp in Sources */,
 				E785D15F25BC0DC20042292E /* RS_RuntimeHash.cpp in Sources */,
+				E7897F1A267757B3001893D8 /* RS_DevThreadDataBase.cpp in Sources */,
 				E785D22825C650D00042292E /* RS_NativeFileSystem.cpp in Sources */,
 				E7A858F725B6DD3D0088515D /* RS_RuntimeAssert_Appl.mm in Sources */,
 				E79544F125EA428F005D3B41 /* RS_TextFileReader.cpp in Sources */,
@@ -963,6 +994,7 @@
 				E795454626040B64005D3B41 /* RS_MatheFuncs.cpp in Sources */,
 				E785D16B25BC0E930042292E /* murmurhash3.cpp in Sources */,
 				E785D22D25C654810042292E /* RS_NativeFileSystem_Appl.mm in Sources */,
+				E7897F1D267757B3001893D8 /* RS_ThreadHelper.cpp in Sources */,
 				E785D16825BC0E930042292E /* xxhash.cpp in Sources */,
 				E72E744D2643E73600F4EC96 /* RS_MemoryHelper_Appl.mm in Sources */,
 				E79544FD25EE2BF6005D3B41 /* RS_UTF16Text.cpp in Sources */,
