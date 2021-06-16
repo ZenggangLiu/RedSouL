@@ -7,17 +7,18 @@
 // Self
 #include "Core/Thread/RS_MainDevThread.hpp"
 
+
 namespace Core
 {
 
-    // 定义MainThread的全局实例
-    const MainDevThread g_Main_Thread;
+    MainDevThread MainDevThread::ms_main_thread;
 
 
-    MainDevThread::MainDevThread ()
-    :
-        SUPER("Main")
-    {}
+    DevThread*
+    MainDevThread::mainThread ()
+    {
+        return &ms_main_thread;
+    }
 
 
     Bool

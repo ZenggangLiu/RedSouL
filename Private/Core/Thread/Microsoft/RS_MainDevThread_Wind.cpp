@@ -9,24 +9,24 @@
 #undef _WINSOCKAPI_
 // Lib headers
 // Self
-#include "Core/Thread/RS_ThreadHelper.hpp"
+#include "Core/Thread/RS_MainDevThread.hpp"
 
 
 namespace Core
 {
 
-    void
-    ThreadHelper::sleep ()
+    Bool
+    MainDevThread::isMainThread ()
     {
-        Sleep(-1);
+        return ms_main_thread.m_handle.os_handle == (UInt64)GetCurrentThreadId();
     }
 
 
-    void
-    ThreadHelper::sleep (
-        UInt32 milli_sec)
+    MainDevThread::MainDevThread ()
+    :
+        SUPER("Main")
     {
-        Sleep(milli_sec);
+        m_handle.os_handle = (UInt64)GetCurrentThreadId();
     }
 
 } // namespace Core

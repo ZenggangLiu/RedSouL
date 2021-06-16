@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include "Core/DataType/RS_DataTypeDefs.hpp"
+
+
 namespace Core
 {
 
@@ -56,6 +59,9 @@ namespace Core
         // - Win：   1M：可以通过使用GetCurrentThreadStackLimits()来获得
         DEV_THREAD_STACK_SIZE_DEFAULT           = -1
     };
+
+    // 线程ID
+    typedef UInt64 DevThreadIdT;
 
     // 线程的句柄
     struct DevThreadHandle
