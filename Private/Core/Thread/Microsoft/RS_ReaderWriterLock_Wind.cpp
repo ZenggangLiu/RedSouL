@@ -15,7 +15,7 @@ namespace Core
 {
 
     ReaderWriterLock::ReaderWriterLock (
-        const ASCII *const name /* = nullptr */)
+        const ASCII *const name)
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
     :
         m_writer_thread(nullptr),
@@ -38,16 +38,38 @@ namespace Core
     void
     ReaderWriterLock::enterRead ()
     {
+        // Windows支持Recusive进入(entryRead()/entryWrite())
+        // 每一个entryRead()必须有相应的exitRead()与之对应:如果不是entryWrite()将Blocking
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        m_reader_thread_lock.lock();
+        for (const auto _cur_thread : m_reader_threads)
+        {
+            RUNTIME_ASSERT(_cur_thread != DevThreadDataBase::threadFromId(GetCurrentThreadId()),
+                           "The calling thread ALREADY owns the lock in read mode");
+        }
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
+
         // 获得对RWLock的共享权
         AcquireSRWLockShared((SRWLOCK*)&m_handle);
+
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        m_reader_threads.push_back(DevThreadDataBase::threadFromId(GetCurrentThreadId()));
+        m_reader_thread_lock.unlock();
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
     }
 
 
     void
     ReaderWriterLock::enterWrite ()
     {
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        RUNTIME_ASSERT(m_writer_thread != DevThreadDataBase::threadFromId(GetCurrentThreadId()),
+                       "The calling thread ALREADY owns the lock in write mode");
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
+
         // 获得对RWLock的独占权
         AcquireSRWLockExclusive((SRWLOCK*)&m_handle);
+
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
         // 保存线程参考
         m_writer_thread = DevThreadDataBase::threadFromId(GetCurrentThreadId());
@@ -58,8 +80,25 @@ namespace Core
     Bool
     ReaderWriterLock::tryEnterRead ()
     {
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        m_reader_thread_lock.lock();
+        for (const auto _cur_thread : m_reader_threads)
+        {
+            RUNTIME_ASSERT(_cur_thread != DevThreadDataBase::threadFromId(GetCurrentThreadId()),
+                           "The calling thread ALREADY owns the lock in read mode");
+        }
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
+
         // TryAcquireSRWLockShared()返回非零，如果我们获得此RWLock的共享权
         const Bool _can_use_lock = TryAcquireSRWLockShared((SRWLOCK*)&m_handle);
+
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        if (_can_use_lock)
+        {
+            m_reader_threads.push_back(DevThreadDataBase::threadFromId(GetCurrentThreadId()));
+        }
+        m_reader_thread_lock.unlock();
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
         return _can_use_lock;
     }
 
@@ -67,8 +106,14 @@ namespace Core
     Bool
     ReaderWriterLock::tryEnterWrite ()
     {
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        RUNTIME_ASSERT(m_writer_thread != DevThreadDataBase::threadFromId(GetCurrentThreadId()),
+                       "The calling thread ALREADY owns the lock in write mode");
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
+
         // TryAcquireSRWLockShared()返回非零，如果我们获得此RWLock的独占权
         const Bool _can_use_lock = TryAcquireSRWLockExclusive((SRWLOCK*)&m_handle);
+
         if (_can_use_lock)
         {
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
@@ -83,6 +128,24 @@ namespace Core
     void
     ReaderWriterLock::exitRead ()
     {
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        Bool _own_lock = false;
+        m_reader_thread_lock.lock();
+        for (std::vector<DevThread*>::iterator _cur_thread = m_reader_threads.begin();
+            _cur_thread != m_reader_threads.end();
+            ++_cur_thread)
+        {
+            if (*_cur_thread == DevThreadDataBase::threadFromId(GetCurrentThreadId()))
+            {
+                _own_lock = true;
+                m_reader_threads.erase(_cur_thread);
+                break;
+            }
+        }
+        m_reader_thread_lock.unlock();
+        RUNTIME_ASSERT(_own_lock, "The calling thread does NOT own the lock in read mode");
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE
+
         ReleaseSRWLockShared((SRWLOCK*)&m_handle);
     }
 
@@ -90,7 +153,11 @@ namespace Core
     void
     ReaderWriterLock::exitWrite ()
     {
-        !! make sure the  calling thread is the same as m_writer_thread !!
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        RUNTIME_ASSERT(m_writer_thread == DevThreadDataBase::threadFromId(GetCurrentThreadId()),
+                       "The calling thread does NOT own the lock in write mode");
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
+
         ReleaseSRWLockExclusive((SRWLOCK*)&m_handle);
 
 #if (BUILD_MODE == DEBUG_BUILD_MODE)

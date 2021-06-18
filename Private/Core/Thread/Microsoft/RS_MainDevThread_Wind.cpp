@@ -24,7 +24,7 @@ namespace Core
 
     MainDevThread::MainDevThread ()
     :
-        SUPER("Main")
+        SUPER("Main Thread")
     {
         m_handle.os_handle = (UInt64)GetCurrentThreadId();
     }

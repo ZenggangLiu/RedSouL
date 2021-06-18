@@ -16,7 +16,7 @@ namespace Core
 {
 
     Mutex::Mutex (
-        const ASCII *const name /* = nullptr */)
+        const ASCII *const name)
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
     :
         m_owner_thread(nullptr),
@@ -30,7 +30,7 @@ namespace Core
     }
 
 
-    Mutex::~Mutex()
+    Mutex::~Mutex ()
     {
         close();
     }
@@ -40,6 +40,8 @@ namespace Core
     Mutex::lock ()
     {
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
+        RUNTIME_ASSERT(m_owner_thread != DevThreadDataBase::threadFromId((UInt64)GetCurrentThreadId()),
+                       "The same thread can NOT lock the same mutex more than once");
         // 等待线程计数加一
         ++m_wait_count;
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
@@ -51,7 +53,7 @@ namespace Core
         // 等待线程计数减一：因为我们获得到了使用权
         --m_wait_count;
         // 保存线程参考
-        m_owner_thread = DevThreadDataBase::threadFromId(GetCurrentThreadId());
+        m_owner_thread = DevThreadDataBase::threadFromId((UInt64)GetCurrentThreadId());
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
     }
 
@@ -65,7 +67,7 @@ namespace Core
         {
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
             // 保存线程参考
-            m_owner_thread = DevThreadDataBase::threadFromId(GetCurrentThreadId());
+            m_owner_thread = DevThreadDataBase::threadFromId((UInt64)GetCurrentThreadId());
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
         }
         return _can_use_lock;
