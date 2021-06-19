@@ -97,6 +97,7 @@ namespace Core
         if (m_handle.os_handle == 0)
         {
             RUNTIME_ASSERT(false, "Can not create OS thread");
+            m_state = DEV_THREAD_STATE_INVALID;
             return false;
         }
 
@@ -161,7 +162,7 @@ namespace Core
 
     void
     DevThread::kill (
-        UInt32 exit_code /* = (UInt32)-1 */)
+        const UInt32 exit_code /* = (UInt32)-1 */)
     {
         RUNTIME_ASSERT(m_state != DEV_THREAD_STATE_TERMINATED, "Can not kill a terminated thread");
         m_state = DEV_THREAD_STATE_TERMINATING;

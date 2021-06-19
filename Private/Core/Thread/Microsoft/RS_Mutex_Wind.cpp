@@ -61,6 +61,11 @@ namespace Core
     Bool
     Mutex::tryLock ()
     {
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        RUNTIME_ASSERT(m_owner_thread != DevThreadDataBase::threadFromId((UInt64)GetCurrentThreadId()),
+                       "The same thread can NOT lock the same mutex more than once");
+#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
+
         // TryEnterCriticalSection()返回非零，如果我们获得此Mutex的使用权
         const Bool _can_use_lock = TryEnterCriticalSection((CRITICAL_SECTION*)&m_handle);
         if (_can_use_lock)
