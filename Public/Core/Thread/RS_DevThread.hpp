@@ -5,11 +5,17 @@
 #include <atomic>
 // Lib headers
 #include "Core/Common/RS_CompilerDefs.hpp"
+#include "Core/Common/RS_OsDefs.hpp"
 #include "Core/DataType/RS_DataTypeDefs.hpp"
+#include "Core/Thread/RS_DevThreadDefs.hpp"
+#if (OS_TYPE == OS_TYPE_WIN)
+#include <Windows.h>
+#else
+#include <pthread.h>
+#endif // (OS_TYPE == OS_TYPE_WIN)
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
 #include "Core/String/RS_RuntimeText.hpp"
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
-#include "Core/Thread/RS_DevThreadDefs.hpp"
 
 
 namespace Core
@@ -69,7 +75,12 @@ namespace Core
 
     protected:
         // 线程的句柄
-        DevThreadHandle             m_handle;
+#if (OS_TYPE == OS_TYPE_WIN)
+        HANDLE    m_handle;
+#else
+        pthread_t m_handle;
+#endif // #if (OS_TYPE == OS_TYPE_WIN)
+
         // 线程的状态
         std::atomic<DevThreadState> m_state;
         // 线程优先级

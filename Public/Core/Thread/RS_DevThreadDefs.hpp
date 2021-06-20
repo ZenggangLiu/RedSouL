@@ -63,12 +63,5 @@ namespace Core
     // 线程ID
     typedef UInt64 DevThreadIdT;
 
-    // 线程的句柄
-    struct DevThreadHandle
-    {
-        // OS的线程句柄
-        UInt64 os_handle = (UInt64)-1;
-    };
-
 } // namespace Core
 

@@ -23,6 +23,7 @@ namespace Core
         DevThread*
         mainThread ();
 
+        // 构造器
         MainDevThread ();
 
         Bool

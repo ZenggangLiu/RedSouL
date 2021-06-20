@@ -17,15 +17,15 @@ namespace Core
     MainDevThread::isMainThread ()
     {
         // 返回非0，如果两个线程相同
-        return pthread_equal((pthread_t)ms_main_thread.m_handle.os_handle, pthread_self()) != 0;
+        return pthread_equal(ms_main_thread.m_handle, pthread_self()) != 0;
     }
 
 
     MainDevThread::MainDevThread ()
     :
-        SUPER("Main")
+        SUPER("Main Thread")
     {
-        m_handle.os_handle = (UInt64)pthread_self();
+        m_handle = pthread_self();
     }
 
 } // namespace Core

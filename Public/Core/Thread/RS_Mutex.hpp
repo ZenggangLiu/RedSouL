@@ -1,20 +1,18 @@
 #pragma once
 
 
-#include "Core/Common/RS_CompilerDefs.hpp"
 // System headers
-#if (BUILD_MODE == DEBUG_BUILD_MODE)
-#include <atomic>
-#endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
+// Lib headers
+#include "Core/Common/RS_CompilerDefs.hpp"
+#include "Core/Common/RS_OsDefs.hpp"
+#include "Core/DataType/RS_DataTypeDefs.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
 #include <Windows.h>
 #else
 #include <pthread.h>
 #endif // (OS_TYPE == OS_TYPE_WIN)
-// Lib headers
-#include "Core/Common/RS_OsDefs.hpp"
-#include "Core/DataType/RS_DataTypeDefs.hpp"
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
+#include <atomic>
 #include "Core/String/RS_RuntimeText.hpp"
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
 
@@ -69,13 +67,11 @@ namespace Core
 
     private:
         // Mutex句柄
-#if defined(__APPLE__)
-        pthread_mutex_t  m_handle;
-#elif (OS_TYPE == OS_TYPE_WIN)
+#if (OS_TYPE == OS_TYPE_WIN)
         CRITICAL_SECTION m_handle;
 #else
-#error NO Implementation
-#endif // #if defined(__APPLE__)
+        pthread_mutex_t  m_handle;
+#endif // #if (OS_TYPE == OS_TYPE_WIN)
 
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
         // 正在使用此Mutex的线程
