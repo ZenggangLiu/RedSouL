@@ -2,9 +2,6 @@
 #include "PrecompiledH.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
 // System headers
-#define _WINSOCKAPI_ // 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
-#include <Windows.h>
-#undef _WINSOCKAPI_
 // Lib headers
 #include "Core/Thread/RS_DevThreadDataBase.hpp"
 // Self
@@ -23,8 +20,7 @@ namespace Core
         m_name(name ? name : "Un-named AutoResetEvent")
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
     {
-        COMPILE_TIME_ASSERT_MSG(sizeof(HANDLE) == sizeof(m_handle), "Un-matching AutoResetEvent handle");
-        *(HANDLE*)&m_handle = CreateEventA(nullptr, FALSE, set_on_create ? TRUE : FALSE, name);
+        m_handle = CreateEventA(nullptr, FALSE, set_on_create ? TRUE : FALSE, name);
     }
 
 
@@ -34,18 +30,23 @@ namespace Core
     }
 
 
-    void
+    Bool
     AutoResetEvent::set ()
     {
         // SetEvent(): 成功放回非零
-        const Bool _success_set = SetEvent((HANDLE)m_handle);
+        const Bool _success_set = SetEvent(m_handle);
+        return _success_set;
     }
 
 
-    void
+    Bool
     AutoResetEvent::wait ()
     {
-        WaitForSingleObject((HANDLE)m_handle, INFINITE);
+        // WaitForSingleObject()：返回WAIT_OBJECT_0，如果AutoResetEvent在Signal状态
+        const Bool _success_wait = WaitForSingleObject(
+            m_handle, INFINITE) == WAIT_OBJECT_0;
+        return _success_wait;
+
     }
 
 
@@ -53,17 +54,18 @@ namespace Core
     AutoResetEvent::wait (
         const UInt32 wait_time)
     {
-        // WaitForSingleObject()：返回WAIT_OBJECT_0如果AutoResetEvent在Signal状态
-        DWORD _wait_result = WaitForSingleObject((HANDLE)m_handle, (DWORD)wait_time);
-        return _wait_result == WAIT_OBJECT_0;
+        // WaitForSingleObject()：返回WAIT_OBJECT_0，如果AutoResetEvent在Signal状态
+        const Bool _success_wait = WaitForSingleObject(
+            m_handle, (DWORD)wait_time) == WAIT_OBJECT_0;
+        return _success_wait;
     }
 
 
     void
     AutoResetEvent::close ()
     {
-        CloseHandle((HANDLE)m_handle);
-        m_handle = (UInt64)-1;
+        CloseHandle(m_handle);
+        m_handle = (HANDLE)-1;
     }
 
 }

@@ -6,6 +6,11 @@
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
 #include <atomic>
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
+#if (OS_TYPE == OS_TYPE_WIN)
+#include <Windows.h>
+#else
+#include <pthread.h>
+#endif // (OS_TYPE == OS_TYPE_WIN)
 // Lib headers
 #include "Core/Common/RS_OsDefs.hpp"
 #include "Core/DataType/RS_DataTypeDefs.hpp"
@@ -23,12 +28,13 @@ namespace Core
 
     // Mutex：对于共享资源的单一访问：只能有一个线程Read/Write使用这个共享资源
     // NOTE：我们禁止同一线程多次锁定同一个Mutex：NOT RECURSIVE/REENTRANT Mutex
+    //
     class Mutex
     {
     public:
         // 创建一个Mutex
         Mutex (
-            const ASCII *const name = nullptr);
+            const ASCII *const name);
 
         ~Mutex ();
 
@@ -64,20 +70,20 @@ namespace Core
     private:
         // Mutex句柄
 #if defined(__APPLE__)
-        pthread_mutex_t     m_handle;
+        pthread_mutex_t  m_handle;
 #elif (OS_TYPE == OS_TYPE_WIN)
-        UInt8   m_handle[40];
+        CRITICAL_SECTION m_handle;
 #else
 #error NO Implementation
 #endif // #if defined(__APPLE__)
 
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
         // 正在使用此Mutex的线程
-        DevThread *         m_owner_thread;
+        std::atomic<DevThread*> m_owner_thread;
         // Mutex的名称
-        RuntimeText         m_name;
+        RuntimeText             m_name;
         // 多少线程在等待此Mutex
-        std::atomic<UInt32> m_wait_count;
+        std::atomic<UInt32>     m_wait_count;
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
     };
 
