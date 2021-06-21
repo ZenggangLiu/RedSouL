@@ -24,55 +24,55 @@ namespace Core
 // TYPE: 位文件流的类型：例如FileReadStream
 #define DEFINE_COMMON_FILESTREAM_API(TYPE)                                                         \
 public:                                                                                            \
-    /* 创建一个无效文件流 */                                                                          \
+    /* 创建一个无效文件流 */                                                                        \
     TYPE ();                                                                                       \
                                                                                                    \
-    /* 关闭一个文件流 */                                                                              \
+    /* 关闭一个文件流 */                                                                            \
     ~TYPE ();                                                                                      \
                                                                                                    \
-    /* 检查文件流是否有效 */                                                                          \
+    /* 检查文件流是否有效 */                                                                        \
     Bool                                                                                           \
     isValid () const;                                                                              \
                                                                                                    \
-    /* 获得文件流的长度 */                                                                            \
+    /* 获得文件流的长度 */                                                                          \
     UInt32                                                                                         \
     getLength () const;                                                                            \
                                                                                                    \
-    /* 获得读写头的当前位置 */                                                                         \
+    /* 获得读写头的当前位置 */                                                                      \
     UInt32                                                                                         \
     getCursorPostion () const;                                                                     \
                                                                                                    \
     /* --- OS specific methods START --- */                                                        \
     /* Implementations are in RS_TYPE_Appl/Wind/Andr.??? */                                        \
                                                                                                    \
-    /* 设定读写头的当前位置 */                                                                         \
+    /* 设定读写头的当前位置 */                                                                      \
     /**/                                                                                           \
     /* @param[in] cursor_pos */                                                                    \
-    /*      相对于SeekMode的读写头位置的偏移 */                                                         \
+    /*      相对于SeekMode的读写头位置的偏移 */                                                      \
     /* @param[in] seek_mode */                                                                     \
-    /*      定义如何改变读写头的位置 */                                                                 \
+    /*      定义如何改变读写头的位置 */                                                              \
     /* @return */                                                                                  \
-    /*      > 0     如果移动成功，返回当前读写头的位置 */                                                \
-    /*      < 0     如果移动失败 */                                                                  \
+    /*      > 0     如果移动成功，返回当前读写头的位置 */                                            \
+    /*      < 0     如果移动失败 */                                                                 \
     SInt32                                                                                         \
     seek (                                                                                         \
         const SInt32                      cursor_pos,                                              \
         const NativeFileSystem::SeekModes seek_mode);                                              \
                                                                                                    \
-    /* 关闭此文件流 */                                                                               \
+    /* 关闭此文件流 */                                                                              \
     void                                                                                           \
     close ();                                                                                      \
     /* --- OS specific methods END --- */                                                          \
                                                                                                    \
                                                                                                    \
 protected:                                                                                         \
-    friend class NativeFileSystem;                                                                 \
+    friend struct NativeFileSystem;                                                                \
                                                                                                    \
     /* 获得一个Const Ref */                                                                         \
     const TYPE&                                                                                    \
     SELF () const;                                                                                 \
                                                                                                    \
-    /* 获得一个Mutable Ref */                                                                        \
+    /* 获得一个Mutable Ref */                                                                       \
     TYPE&                                                                                          \
     SELF ();                                                                                       \
                                                                                                    \
@@ -86,11 +86,11 @@ protected:                                                                      
 protected:                                                                                         \
     static const UInt8 NATIVE_FILE_INSTANCE_SIZE = 16;                                             \
                                                                                                    \
-    /* 文件流的长度 */                                                                               \
+    /* 文件流的长度 */                                                                              \
     UInt32 m_stream_length;                                                                        \
-    /* 读写头的当前位置 */                                                                            \
+    /* 读写头的当前位置 */                                                                          \
     UInt32 m_cursor_position;                                                                      \
-    /* NativeFile的实例 */                                                                          \
+    /* NativeFile的实例 */                                                                         \
     UInt8  m_file_instance[NATIVE_FILE_INSTANCE_SIZE];
 #endif  // #if !defined(DEFINE_COMMON_FILESTREAM_API)
 
@@ -99,11 +99,11 @@ protected:                                                                      
 #if !defined(DEFINE_READ_FILESTREAM_API)
 #define DEFINE_READ_FILESTREAM_API(TYPE)                                                           \
 public:                                                                                            \
-    /* 读入一个字节 */                                                                               \
+    /* 读入一个字节 */                                                                              \
     /**/                                                                                           \
     /* @return */                                                                                  \
-    /*      >= 0    如果读入成功。读入的字节Cast成为SInt32 */                                           \
-    /*      <  0    如果读入失败 */                                                                  \
+    /*      >= 0    如果读入成功。读入的字节Cast成为SInt32 */                                        \
+    /*      <  0    如果读入失败 */                                                                 \
     INLINE_FUNCTION                                                                                \
     SInt32                                                                                         \
     readByte ()                                                                                    \
@@ -113,19 +113,19 @@ public:                                                                         
         return (_read_count == 1) ? (SInt32)_byte : -1;                                            \
     }                                                                                              \
                                                                                                    \
-    /* 读入指定字节数，并返回真正读入的字节数目 */                                                         \
+    /* 读入指定字节数，并返回真正读入的字节数目 */                                                   \
     /**/                                                                                           \
     /* @param[in] buffer_size */                                                                   \
-    /*      缓存的大小 */                                                                            \
+    /*      缓存的大小 */                                                                           \
     /* @param[in] offset */                                                                        \
-    /*      缓存中的起始位置 */                                                                       \
+    /*      缓存中的起始位置 */                                                                     \
     /* @param[in] count */                                                                         \
-    /*      希望读入的字节数 */                                                                       \
+    /*      希望读入的字节数 */                                                                     \
     /* @param[out] buffer */                                                                       \
-    /*      数据存入的缓存 */                                                                         \
+    /*      数据存入的缓存 */                                                                       \
     /* @return */                                                                                  \
-    /*      > 0     如果读入成功，读入的字节数  */                                                      \
-    /*      < 0     如果读入失败 */                                                                  \
+    /*      > 0     如果读入成功，读入的字节数  */                                                   \
+    /*      < 0     如果读入失败 */                                                                 \
     SInt32                                                                                         \
     read (                                                                                         \
         const UInt32 buffer_size,                                                                  \
@@ -133,7 +133,7 @@ public:                                                                         
         const UInt32 count,                                                                        \
         UInt8 *const buffer);                                                                      \
                                                                                                    \
-    /* 读入操作符 */                                                                                 \
+    /* 读入操作符 */                                                                                \
     INLINE_FUNCTION                                                                                \
     TYPE&                                                                                          \
     operator >> (                                                                                  \
@@ -254,16 +254,16 @@ public:                                                                         
 public:                                                                                            \
     /* --- OS specific methods START --- */                                                        \
     /* Implementations are in RS_TYPE_Appl/Wind/Andr.??? */                                        \
-    /* 设置文件流的长度 */                                                                            \
+    /* 设置文件流的长度 */                                                                          \
     void                                                                                           \
     setLength (                                                                                    \
         const UInt32 length);                                                                      \
                                                                                                    \
-    /* 输出一个字节的数据 */                                                                          \
+    /* 输出一个字节的数据 */                                                                        \
     /**/                                                                                           \
     /* @return */                                                                                  \
-    /*      TRUE    如果输出成功 */                                                                  \
-    /*      FALSE   如果输出失败 */                                                                  \
+    /*      TRUE    如果输出成功 */                                                                 \
+    /*      FALSE   如果输出失败 */                                                                 \
     INLINE_FUNCTION                                                                                \
     Bool                                                                                           \
     writeByte (                                                                                    \
@@ -272,19 +272,19 @@ public:                                                                         
         return write(&data, 1, 0, 1) == 1;                                                         \
     }                                                                                              \
                                                                                                    \
-    /* 输出指定字节数 */                                                                              \
+    /* 输出指定字节数 */                                                                            \
     /**/                                                                                           \
     /* @param[in] buffer */                                                                        \
-    /*      数据的缓存 */                                                                            \
+    /*      数据的缓存 */                                                                           \
     /* @param[in] buffer_size */                                                                   \
-    /*      缓存的大小 */                                                                            \
+    /*      缓存的大小 */                                                                           \
     /* @param[in] offset */                                                                        \
-    /*      缓存中的起始位置 */                                                                       \
+    /*      缓存中的起始位置 */                                                                     \
     /* @param[in] count */                                                                         \
-    /*      希望输出的字节数 */                                                                       \
+    /*      希望输出的字节数 */                                                                     \
     /* @return */                                                                                  \
-    /*      > 0     如果输出成功，输出的字节数目 */                                                     \
-    /*      < 0     如果输出失败 */                                                                  \
+    /*      > 0     如果输出成功，输出的字节数目 */                                                  \
+    /*      < 0     如果输出失败 */                                                                 \
     SInt32                                                                                         \
     write (                                                                                        \
        const UInt8 *const buffer,                                                                  \
@@ -292,7 +292,7 @@ public:                                                                         
        const UInt32       offset,                                                                  \
        const UInt32       count);                                                                  \
                                                                                                    \
-    /* 输出操作符 */                                                                                 \
+    /* 输出操作符 */                                                                                \
     INLINE_FUNCTION                                                                                \
     TYPE&                                                                                          \
     operator << (                                                                                  \

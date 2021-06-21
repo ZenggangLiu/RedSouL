@@ -3,7 +3,7 @@
 
 // System headers
 // Lib headers
-#include "RS_DevThread.hpp"
+#include "Core/Thread/RS_DevThread.hpp"
 
 
 namespace Core

@@ -21,7 +21,7 @@ namespace Core
     constexpr UInt32
     murmur3_add (
         const UInt32 x,
-        const SInt32 add)
+        const UInt32 add)
     {
         return x + add;
     }
@@ -42,7 +42,7 @@ namespace Core
     constexpr UInt32
     murmur3_mult (
         const UInt32 x,
-        const SInt32 mult)
+        const UInt32 mult)
     {
         return x * mult;
     }

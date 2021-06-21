@@ -1,10 +1,12 @@
 // Precompiled header
 #include "PrecompiledH.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
+
+
 // System headers
 #include <assert.h>
 #include <stdio.h>
-// stops windows.h including winsock.h
+// 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
 #define _WINSOCKAPI_
 #include <Windows.h>
 #undef _WINSOCKAPI_

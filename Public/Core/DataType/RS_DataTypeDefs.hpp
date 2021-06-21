@@ -73,21 +73,3 @@ typedef double                          Real64;
 #if CXX_STANDARD_VER == 1998
     #define nullptr 0
 #endif // #if CXX_STANDARD_VER == 1998
-
-
-// BYTE
-#if !defined(BYTE)
-    #define BYTE UInt8
-#endif // #if !defined(BYTE)
-
-
-// WORD
-#if !defined(WORD)
-    #define WORD UInt32
-#endif // #if !defined(WORD)
-
-
-// DWORD
-#if !defined(DWORD)
-    #define DWORD UInt32
-#endif // #if !defined(DWORD)

@@ -1,6 +1,8 @@
 // Precompile header
 #include "PrecompiledH.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
+
+
 // System headers
 // Lib headers
 #include "Core/Thread/RS_DevThreadDataBase.hpp"
@@ -16,7 +18,7 @@ namespace Core
         const ASCII *const name)
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
     :
-        m_handle((UInt64)-1),
+        m_handle((HANDLE)-1),
         m_name(name ? name : "Un-named AutoResetEvent")
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
     {

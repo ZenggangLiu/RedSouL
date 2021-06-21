@@ -1,10 +1,10 @@
 // Precompiled header
-//#include "PrecompiledH.hpp"
+#include "PrecompiledH.hpp"
 // System headers
 // Lib headers
-#include "RS_MainDevThread.hpp"
+#include "Core/Thread/RS_MainDevThread.hpp"
 // Self
-#include "RS_ThreadHelper.hpp"
+#include "Core/Thread/RS_ThreadHelper.hpp"
 
 
 namespace Core

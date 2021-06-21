@@ -33,7 +33,9 @@
 //#include "Core/Memory/RS_StlMemAllocator.hpp"
 // Runtime text
 #include "Core/String/RS_RuntimeText.hpp"
+#include "Core/String/RS_TextHelper.hpp"
 #include "Core/String/RS_UTF16Text.hpp"
+
 /*
 // Core
 #include "Core/ZGEAssert.hpp"

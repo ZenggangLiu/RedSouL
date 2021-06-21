@@ -4,7 +4,8 @@
 
 
 // System headers
-#define _WINSOCKAPI_ // 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+// 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+#define _WINSOCKAPI_
 #include <Windows.h>
 #undef _WINSOCKAPI_
 // Lib headers

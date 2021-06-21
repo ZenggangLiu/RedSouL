@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Public\Core\Assert\RS_CompiletimeAssert.hpp" />
+    <ClInclude Include="..\Public\Core\Assert\RS_RuntimeAssert.hpp" />
+    <ClInclude Include="..\Public\Core\Common\RS_CommonDefs.hpp" />
+    <ClInclude Include="..\Public\Core\Common\RS_CompilerDefs.hpp" />
+    <ClInclude Include="..\Public\Core\Common\RS_OsDefs.hpp" />
+    <ClInclude Include="..\Public\Core\DataOperation\RS_BitOperationHelper.hpp" />
+    <ClInclude Include="..\Public\Core\DataOperation\RS_EndiannessHelper.hpp" />
+    <ClInclude Include="..\Public\Core\DataType\RS_DataTypeDefs.hpp" />
+    <ClInclude Include="..\Public\Core\Encoding\RS_Codec.hpp" />
+    <ClInclude Include="..\Public\Core\Encoding\RS_XXTEA.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileReadStream.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileStream.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileStreamHelper.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileWriteStream.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_NativeFileSystem.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_TextFileReader.hpp" />
+    <ClInclude Include="..\Public\Core\FileSystem\RS_TextFileWriter.hpp" />
+    <ClInclude Include="..\Public\Core\Hash\RS_CompiletimeHash.hpp" />
+    <ClInclude Include="..\Public\Core\Hash\RS_RuntimeHash.hpp" />
+    <ClInclude Include="..\Public\Core\Logging\RS_Logging.hpp" />
+    <ClInclude Include="..\Public\Core\Mathe\RS_FloatPointFuncs.hpp" />
+    <ClInclude Include="..\Public\Core\Mathe\RS_MatheDefs.hpp" />
+    <ClInclude Include="..\Public\Core\Mathe\RS_MatheFuncs.hpp" />
+    <ClInclude Include="..\Public\Core\Memory\RS_MemoryHelper.hpp" />
+    <ClInclude Include="..\Public\Core\Memory\RS_StlAllocator.hpp" />
+    <ClInclude Include="..\Public\Core\Profiling\RS_Profiling.hpp" />
+    <ClInclude Include="..\Public\Core\Profiling\RS_StatsIterator.hpp" />
+    <ClInclude Include="..\Public\Core\String\RS_RuntimeText.hpp" />
+    <ClInclude Include="..\Public\Core\String\RS_TextHelper.hpp" />
+    <ClInclude Include="..\Public\Core\String\RS_UTF16Text.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_AutoResetEvent.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_DevThread.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_DevThreadDefs.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_Mutex.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_ReaderWriterLock.hpp" />
+    <ClInclude Include="..\Public\Core\Thread\RS_ThreadHelper.hpp" />
+    <ClInclude Include="..\Public\Core\Time\RS_Time.hpp" />
+    <ClInclude Include="Core\Logging\RS_ConsoleLogger.hpp" />
+    <ClInclude Include="Core\Logging\RS_DumbLogger.hpp" />
+    <ClInclude Include="Core\Logging\RS_Logger.hpp" />
+    <ClInclude Include="Core\Logging\RS_LoggingMgr.hpp" />
+    <ClInclude Include="Core\PrecompiledHeader\PrecompiledH.hpp" />
+    <ClInclude Include="Core\Profiling\RS_SampleMgr.hpp" />
+    <ClInclude Include="Core\Profiling\RS_SampleNode.hpp" />
+    <ClInclude Include="Core\Profiling\RS_StatsNode.hpp" />
+    <ClInclude Include="Core\Thread\RS_DevThreadDataBase.hpp" />
+    <ClInclude Include="Core\Thread\RS_MainDevThread.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Public\Core\Logging\Logging.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Public\Core\Profiling\ReadME.txt" />
+    <Text Include="Core\Logging\ReadME.txt" />
+    <Text Include="Core\Thread\ReadME.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Assert\Microsoft\RS_RuntimeAssert_Wind.cpp" />
+    <ClCompile Include="Core\Encoding\RS_XXTEA.cpp" />
+    <ClCompile Include="Core\Hash\RS_RuntimeHash.cpp" />
+    <ClCompile Include="Core\Logging\RS_ConsoleLogger.cpp" />
+    <ClCompile Include="Core\Logging\RS_Logger.cpp" />
+    <ClCompile Include="Core\Logging\RS_Logging.cpp" />
+    <ClCompile Include="Core\Logging\RS_LoggingMgr.cpp" />
+    <ClCompile Include="Core\Mathe\RS_FloatPointFuncs.cpp" />
+    <ClCompile Include="Core\Mathe\RS_MatheFuncs.cpp" />
+    <ClCompile Include="Core\Memory\Microsoft\RS_MemoryHelper_Wind.cpp" />
+    <ClCompile Include="Core\PrecompiledHeader\PrecompiledH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Core\Profiling\RS_Profiling.cpp" />
+    <ClCompile Include="Core\Profiling\RS_SampleMgr.cpp" />
+    <ClCompile Include="Core\Profiling\RS_StatsIterator.cpp" />
+    <ClCompile Include="Core\String\RS_RuntimeText.cpp" />
+    <ClCompile Include="Core\String\RS_TextHelper.cpp" />
+    <ClCompile Include="Core\String\RS_UTF16Text.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_AutoResetEvent_Wind.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_DevThread_Wind.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_MainDevThread_Wind.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_Mutex_Wind.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_ReaderWriterLock_Wind.cpp" />
+    <ClCompile Include="Core\Thread\Microsoft\RS_ThreadHelper_Wind.cpp" />
+    <ClCompile Include="Core\Thread\RS_DevThreadDataBase.cpp" />
+    <ClCompile Include="Core\Thread\RS_MainDevThread.cpp" />
+    <ClCompile Include="Core\Thread\RS_ThreadHelper.cpp" />
+    <ClCompile Include="Core\Time\Microsoft\RS_Time_Wind.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{C4B0D851-2ECD-4458-8382-57B79F0081E7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Core</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\Library\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\TrashBin\$(ProjectName)\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\Library\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\TrashBin\$(ProjectName)\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;API_BUILD=1;LOGGING_MODE=1;PROFILING_MODE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>PrecompiledH.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../Public;../Private;../Private/Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;API_BUILD=1;LOGGING_MODE=1;PROFILING_MODE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>PrecompiledH.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../Public;../Private;../Private/Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

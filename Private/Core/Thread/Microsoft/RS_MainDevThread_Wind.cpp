@@ -4,7 +4,8 @@
 
 
 // System headers
-#define _WINSOCKAPI_ // 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+// 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+#define _WINSOCKAPI_
 #include <Windows.h>
 #undef _WINSOCKAPI_
 // Lib headers
@@ -18,7 +19,7 @@ namespace Core
     Bool
     MainDevThread::isMainThread ()
     {
-        return ms_main_thread.m_handle.os_handle == (UInt64)GetCurrentThreadId();
+        return ms_main_thread.m_handle == (HANDLE)((UInt64)GetCurrentThreadId());
     }
 
 
@@ -26,7 +27,7 @@ namespace Core
     :
         SUPER("Main Thread")
     {
-        m_handle.os_handle = (UInt64)GetCurrentThreadId();
+        m_handle = (HANDLE)((UInt64)GetCurrentThreadId());
     }
 
 } // namespace Core

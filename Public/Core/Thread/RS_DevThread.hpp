@@ -9,7 +9,10 @@
 #include "Core/DataType/RS_DataTypeDefs.hpp"
 #include "Core/Thread/RS_DevThreadDefs.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
+// 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+#define _WINSOCKAPI_
 #include <Windows.h>
+#undef _WINSOCKAPI_
 #else
 #include <pthread.h>
 #endif // (OS_TYPE == OS_TYPE_WIN)

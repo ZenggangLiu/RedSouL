@@ -133,17 +133,17 @@
 
 
 // 是否使用异常处理
-#if USE_EXCEPTION
+#if (USE_EXCEPTION == 0)
     #if defined(__APPLE__)
-        #error Please set "Enabled C++ Exceptions" to "No"
+        #error Please set "Enabled C++ Exceptions" to "Yes", because STL needs the exception
     #else
-        #error Please disable exceptions
+        #error Please enable exceptions, because STL needs the exception
     #endif // #if defined(__APPLE__)
 #endif // #if USE_EXCEPTION
 
 
 // 是否使用 RTTI
-#if USE_RTTI
+#if (USE_RTTI == 1)
     #if defined(__APPLE__)
         #error Please set "Enabled C++ Runtime Types" to "No"
     #else

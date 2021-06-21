@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Private">
+      <UniqueIdentifier>{9eb5f81e-35cc-4ab1-9335-b297e5f78e34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{b317e011-5487-425f-a239-c2c2d5b3623b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Assert">
+      <UniqueIdentifier>{de0f8f49-167a-474d-ba42-90a7aa167057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Common">
+      <UniqueIdentifier>{4efcebb6-76a7-48bb-880b-2b3a054f4cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\DataType">
+      <UniqueIdentifier>{3a21a06d-0630-453c-a670-61b7ef32c920}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\DataOperation">
+      <UniqueIdentifier>{5626c522-cd90-4e13-a547-812b7a793835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Encoding">
+      <UniqueIdentifier>{929c53a2-534f-4b51-af2c-ded803e51d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\FileSystem">
+      <UniqueIdentifier>{6bb9942d-8884-4629-9aa7-93e2ace8502c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Hash">
+      <UniqueIdentifier>{4a0b82d7-4210-4d3c-8c26-d59702a9a227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Logging">
+      <UniqueIdentifier>{60fcd6a4-702a-4202-a3ef-359908453fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Mathe">
+      <UniqueIdentifier>{93242e26-cc85-40cb-a44d-41e6f894904b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Memory">
+      <UniqueIdentifier>{ad2973e9-51bd-4547-b563-a0706ae1cbf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Profiling">
+      <UniqueIdentifier>{50187dee-1ce5-4c9d-9d37-f38f23cc7bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\String">
+      <UniqueIdentifier>{bec12e7a-b757-4572-a340-26b938073967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Thread">
+      <UniqueIdentifier>{47fdac0e-75b7-4e6f-b9fa-0333c1da085f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\Time">
+      <UniqueIdentifier>{c1fbf7c4-7835-40a8-ace3-c962250da6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Assert">
+      <UniqueIdentifier>{e92f5370-ae23-4ab7-ab2e-65ac74d3f96c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\DataType">
+      <UniqueIdentifier>{695fc014-b800-4383-9da8-ab10e4a33c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\DataOperation">
+      <UniqueIdentifier>{6d6ceefe-46e8-46f8-bee7-12f0482fae64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Encoding">
+      <UniqueIdentifier>{c9cf7fd0-ee9e-49a0-9177-b334acd06f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\External">
+      <UniqueIdentifier>{8353736f-ae85-4343-921d-b3f1cbf8855b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\FileSystem">
+      <UniqueIdentifier>{9aea52b9-e960-4730-a5af-057eca66913f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Hash">
+      <UniqueIdentifier>{304600d9-2f24-4770-9850-5b3b37f1f991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Logging">
+      <UniqueIdentifier>{84167a34-e88a-45e6-b21a-cff9c410f175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Mathe">
+      <UniqueIdentifier>{b1e52d40-6c69-4804-9ec8-ce505f8f42d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Memory">
+      <UniqueIdentifier>{504b3139-1a72-4d64-95b6-7824cafc5224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\PrecompiledHeader">
+      <UniqueIdentifier>{df3b7ec0-4edf-480f-b230-b03c180bfd67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Profiling">
+      <UniqueIdentifier>{6b8ac674-e6c4-42d6-b0a6-33f8c1e11de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\String">
+      <UniqueIdentifier>{53d7422f-4c12-4ee4-bb4f-8a0bb2d35376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Thread">
+      <UniqueIdentifier>{4b49a3c0-edb9-45c6-a984-2e08f9a2f54d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Time">
+      <UniqueIdentifier>{e9c8e749-a45b-439a-8da7-25b47b40868d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Public\Core\Assert\RS_CompiletimeAssert.hpp">
+      <Filter>Public\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Assert\RS_RuntimeAssert.hpp">
+      <Filter>Public\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Common\RS_CommonDefs.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Common\RS_CompilerDefs.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Common\RS_OsDefs.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\DataType\RS_DataTypeDefs.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\DataOperation\RS_BitOperationHelper.hpp">
+      <Filter>Public\DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\DataOperation\RS_EndiannessHelper.hpp">
+      <Filter>Public\DataOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Encoding\RS_Codec.hpp">
+      <Filter>Public\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Encoding\RS_XXTEA.hpp">
+      <Filter>Public\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileReadStream.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileStream.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileStreamHelper.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_FileWriteStream.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_NativeFileSystem.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_TextFileReader.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\FileSystem\RS_TextFileWriter.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Hash\RS_CompiletimeHash.hpp">
+      <Filter>Public\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Hash\RS_RuntimeHash.hpp">
+      <Filter>Public\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Logging\RS_Logging.hpp">
+      <Filter>Public\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Mathe\RS_FloatPointFuncs.hpp">
+      <Filter>Public\Mathe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Mathe\RS_MatheDefs.hpp">
+      <Filter>Public\Mathe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Mathe\RS_MatheFuncs.hpp">
+      <Filter>Public\Mathe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Memory\RS_MemoryHelper.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Memory\RS_StlAllocator.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Time\RS_Time.hpp">
+      <Filter>Public\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_AutoResetEvent.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_DevThread.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_DevThreadDefs.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_Mutex.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_ReaderWriterLock.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Thread\RS_ThreadHelper.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\String\RS_RuntimeText.hpp">
+      <Filter>Public\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\String\RS_TextHelper.hpp">
+      <Filter>Public\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\String\RS_UTF16Text.hpp">
+      <Filter>Public\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Profiling\RS_Profiling.hpp">
+      <Filter>Public\Profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Core\Profiling\RS_StatsIterator.hpp">
+      <Filter>Public\Profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\PrecompiledHeader\PrecompiledH.hpp">
+      <Filter>Private\PrecompiledHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Logging\RS_ConsoleLogger.hpp">
+      <Filter>Private\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Logging\RS_DumbLogger.hpp">
+      <Filter>Private\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Logging\RS_Logger.hpp">
+      <Filter>Private\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Logging\RS_LoggingMgr.hpp">
+      <Filter>Private\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Profiling\RS_SampleMgr.hpp">
+      <Filter>Private\Profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Profiling\RS_SampleNode.hpp">
+      <Filter>Private\Profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Profiling\RS_StatsNode.hpp">
+      <Filter>Private\Profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Thread\RS_DevThreadDataBase.hpp">
+      <Filter>Private\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Thread\RS_MainDevThread.hpp">
+      <Filter>Private\Thread</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Public\Core\Logging\Logging.cfg">
+      <Filter>Public\Logging</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Public\Core\Profiling\ReadME.txt">
+      <Filter>Public\Profiling</Filter>
+    </Text>
+    <Text Include="Core\Logging\ReadME.txt">
+      <Filter>Private\Logging</Filter>
+    </Text>
+    <Text Include="Core\Thread\ReadME.txt">
+      <Filter>Private\Thread</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Assert\Microsoft\RS_RuntimeAssert_Wind.cpp">
+      <Filter>Private\Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\PrecompiledHeader\PrecompiledH.cpp">
+      <Filter>Private\PrecompiledHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Encoding\RS_XXTEA.cpp">
+      <Filter>Private\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Hash\RS_RuntimeHash.cpp">
+      <Filter>Private\Hash</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Logging\RS_ConsoleLogger.cpp">
+      <Filter>Private\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Logging\RS_Logger.cpp">
+      <Filter>Private\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Logging\RS_Logging.cpp">
+      <Filter>Private\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Logging\RS_LoggingMgr.cpp">
+      <Filter>Private\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Mathe\RS_FloatPointFuncs.cpp">
+      <Filter>Private\Mathe</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Mathe\RS_MatheFuncs.cpp">
+      <Filter>Private\Mathe</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Profiling\RS_Profiling.cpp">
+      <Filter>Private\Profiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Profiling\RS_SampleMgr.cpp">
+      <Filter>Private\Profiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Profiling\RS_StatsIterator.cpp">
+      <Filter>Private\Profiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\String\RS_RuntimeText.cpp">
+      <Filter>Private\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\String\RS_TextHelper.cpp">
+      <Filter>Private\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\String\RS_UTF16Text.cpp">
+      <Filter>Private\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Time\Microsoft\RS_Time_Wind.cpp">
+      <Filter>Private\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\RS_DevThreadDataBase.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\RS_MainDevThread.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\RS_ThreadHelper.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_AutoResetEvent_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_DevThread_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_MainDevThread_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_Mutex_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_ReaderWriterLock_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Thread\Microsoft\RS_ThreadHelper_Wind.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Memory\Microsoft\RS_MemoryHelper_Wind.cpp">
+      <Filter>Private\Memory</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

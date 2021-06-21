@@ -6,7 +6,10 @@
 #include "Core/Common/RS_OsDefs.hpp"
 #include "Core/DataType/RS_DataTypeDefs.hpp"
 #if (OS_TYPE == OS_TYPE_WIN)
+// 禁止Windows.h包含winsock.h, 因为我们使用winsock2.h
+#define _WINSOCKAPI_
 #include <Windows.h>
+#undef _WINSOCKAPI_
 #else
 #include <pthread.h>
 #endif // (OS_TYPE == OS_TYPE_WIN)
@@ -24,7 +27,7 @@ namespace Core
 
     // AutoResetEvent：一个带有自动复位的事件
     // NOTE：OS将在呼醒一个等待线程后复位此事件：将其状态设置为NON-SIGNALED
-    //  如果多个线程等待，set后，是不是只是等待线程数减一 : 对头
+    //      如果多个线程等待同一个事件，set后，只呼醒一个等待线程
     class AutoResetEvent
     {
     public:
