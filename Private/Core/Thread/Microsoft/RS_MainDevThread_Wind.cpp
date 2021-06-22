@@ -19,7 +19,8 @@ namespace Core
     Bool
     MainDevThread::isMainThread ()
     {
-        return ms_main_thread.m_handle == (HANDLE)((UInt64)GetCurrentThreadId());
+        // 主线程使用ID进行比较：由于我们无法获得它的句柄
+        return ms_main_thread.m_id == GetCurrentThreadId();
     }
 
 
@@ -27,7 +28,8 @@ namespace Core
     :
         SUPER("Main Thread")
     {
-        m_handle = (HANDLE)((UInt64)GetCurrentThreadId());
+        // 保存主线程的ID
+        m_id = GetCurrentThreadId();
     }
 
 } // namespace Core
