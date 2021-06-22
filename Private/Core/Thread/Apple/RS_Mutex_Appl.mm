@@ -26,6 +26,12 @@ namespace Core
     }
 
 
+    Mutex::~Mutex ()
+    {
+        close();
+    }
+
+
     void
     Mutex::lock ()
     {
