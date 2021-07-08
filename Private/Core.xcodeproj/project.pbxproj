@@ -109,6 +109,10 @@
 		E7897F34267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F33267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm */; };
 		E7897F35267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F33267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm */; };
 		E7897F36267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7897F33267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm */; };
+		E7897F3A2695A7FD001893D8 /* RS_PPM_IO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7897F392695A7FD001893D8 /* RS_PPM_IO.hpp */; };
+		E7897F3E2695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
+		E7897F3F2695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
+		E7897F402695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
 		E79544C725DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C825DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C925DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
@@ -268,6 +272,8 @@
 		E7897F2B267CA494001893D8 /* RS_AutoResetEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_AutoResetEvent.hpp; path = ../Public/Core/Thread/RS_AutoResetEvent.hpp; sourceTree = "<group>"; };
 		E7897F2D267DEAF6001893D8 /* RS_AutoResetEvent_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_AutoResetEvent_Appl.mm; path = Core/Thread/Apple/RS_AutoResetEvent_Appl.mm; sourceTree = "<group>"; };
 		E7897F33267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_ReaderWriterLock_Appl.mm; path = Core/Thread/Apple/RS_ReaderWriterLock_Appl.mm; sourceTree = "<group>"; };
+		E7897F392695A7FD001893D8 /* RS_PPM_IO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_PPM_IO.hpp; path = ../Public/Core/IO/Image/RS_PPM_IO.hpp; sourceTree = "<group>"; };
+		E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RS_PPM_IO.cpp; path = Core/IO/Image/RS_PPM_IO.cpp; sourceTree = "<group>"; };
 		E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFile_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFile_Appl.mm; sourceTree = "<group>"; };
 		E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_NativeFile_Appl.hpp; path = Core/FileSystem/Apple/RS_NativeFile_Appl.hpp; sourceTree = "<group>"; };
 		E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStream.hpp; path = ../Public/Core/FileSystem/RS_FileStream.hpp; sourceTree = "<group>"; };
@@ -371,6 +377,7 @@
 				E785D16025BC0E800042292E /* External */,
 				E785D21E25C6116B0042292E /* FileSystem */,
 				E785D15725BC09A90042292E /* Hash */,
+				E7897F3B2695A81D001893D8 /* IO */,
 				E785D1F425C257FE0042292E /* Logging */,
 				E795454226040B45005D3B41 /* Mathe */,
 				E72E737F263AB4F400F4EC96 /* Memory */,
@@ -393,6 +400,7 @@
 				E795453026004082005D3B41 /* Encoding */,
 				E785D22025C611C50042292E /* FileSystem */,
 				E785D15425BBDE2F0042292E /* Hash */,
+				E7897F372695A7D9001893D8 /* IO */,
 				E785D1C925BF929F0042292E /* Logging */,
 				E795453F2601F0A8005D3B41 /* Mathe */,
 				E7954538260044FE005D3B41 /* Memory */,
@@ -616,6 +624,38 @@
 			name = String;
 			sourceTree = "<group>";
 		};
+		E7897F372695A7D9001893D8 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				E7897F382695A7E6001893D8 /* Image */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		E7897F382695A7E6001893D8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E7897F392695A7FD001893D8 /* RS_PPM_IO.hpp */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		E7897F3B2695A81D001893D8 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				E7897F3C2695A826001893D8 /* Image */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		E7897F3C2695A826001893D8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		E795450025F2ED72005D3B41 /* DataOperation */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +790,7 @@
 				E795450625F2EE32005D3B41 /* RS_EndiannessHelper.hpp in Headers */,
 				E79544D925DFAE5A005D3B41 /* RS_FileWriteStream.hpp in Headers */,
 				E795454826041184005D3B41 /* RS_MatheDefs.hpp in Headers */,
+				E7897F3A2695A7FD001893D8 /* RS_PPM_IO.hpp in Headers */,
 				E785D16D25BC0E930042292E /* xxhash.hpp in Headers */,
 				E785D1A325BEB94F0042292E /* RS_Time.hpp in Headers */,
 				E79544F325EB4657005D3B41 /* RS_TextHelper.hpp in Headers */,
@@ -902,6 +943,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F3F2695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20525C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BD25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E225E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
@@ -950,6 +992,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F3E2695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20425C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BC25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E125E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,
@@ -998,6 +1041,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F402695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20625C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BE25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
 				E79544E325E4F157005D3B41 /* RS_FileWriteStream_Appl.mm in Sources */,

@@ -84,7 +84,7 @@ namespace Core
             HANDLE  m_handle;
             // 线程ID：只有主线程使用
             DWORD   m_id;
-        }
+        };
 #else
         pthread_t   m_handle;
 #endif // #if (OS_TYPE == OS_TYPE_WIN)

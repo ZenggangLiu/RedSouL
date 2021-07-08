@@ -28,7 +28,8 @@ namespace Core
     class DevThread;
 #endif // #if (BUILD_MODE == DEBUG_BUILD_MODE)
 
-    // ReaderWriterLock(RWLock)：对于共享资源的多重读入操作和单一写入操作
+    // ReaderWriterLock(RWLock)：对于共享资源的提供多重读入操作和单一写入操作。
+    // 写入操作具有优先级：如果一个写入操作请求此Lock，它会压制所有随后的读入操作
     // NOTE：我们禁止同一线程多次申请读入/写入权限：NOT RECURSIVE/REENTRANT ReaderWriterLock
     //
     class ReaderWriterLock
