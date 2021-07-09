@@ -40,12 +40,12 @@ namespace Core
         const NativeFileSystem::SearchPaths search_dir,
         const Bool                          use_binary_ppm)
     {
-        // 每个Channel所占用的字节数
-        static const UInt8  COLOR_COMPONENT_BYTE_SIZE = 4;
+        // 每个Pixel的Channel数: Red, Green, Glue, Alpha Channels
+        static const UInt8  PIXEL_CHANNEL_COUNT      = 4;
         // 每个Channel所能表示的最大数值：(1 << 8) - 1: 255
-        static const UInt32 MAXIMAL_CHANNEL_VALUE     = (1 << 8) - 1;
+        static const UInt32 MAXIMAL_CHANNEL_VALUE    = (1 << 8) - 1;
         // 工作缓存大小
-        static const UInt32 WORKING_BUFFER_BYTE_SIZE  = 256;
+        static const UInt32 WORKING_BUFFER_BYTE_SIZE = 256;
 
         UTF8 _wrk_buffer[WORKING_BUFFER_BYTE_SIZE];
         // 添加.ppm文件扩展符
@@ -54,7 +54,7 @@ namespace Core
         // 创建WriteOnly文件流
         FileWriteStream _file_io;
         if (NativeFileSystem::openFileWrite(
-            rel_path, search_dir, NativeFileSystem::WRITE_MODES_OVERWRITE, _file_io))
+            _wrk_buffer, search_dir, NativeFileSystem::WRITE_MODES_OVERWRITE, _file_io))
         {
             // 输出Magic number
             if (use_binary_ppm)
@@ -113,9 +113,9 @@ namespace Core
             {
                 for (UInt32 _col = 0; _col < image_width; ++_col)
                 {
-                    const UInt32       _data_offset = (_row*image_width + _col) * COLOR_COMPONENT_BYTE_SIZE;
+                    const UInt32       _data_offset = (_row*image_width + _col)*PIXEL_CHANNEL_COUNT;
                     const UInt8* const _start_addr  = data_ptr + _data_offset;
-                    const Real32       _alpha       = (Real32)_start_addr[3] / MAXIMAL_CHANNEL_VALUE;
+                    const Real32       _alpha       = (Real32)_start_addr[3]/MAXIMAL_CHANNEL_VALUE;
                     UInt8 _red, _green, _blue;
                     if (is_rgba_memory_layout)
                     {
@@ -156,11 +156,11 @@ namespace Core
                     else
                     {
                         // 以字符形式输出
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _red);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-3d", _red);
                         _file_io << (const ASCII*)_wrk_buffer << " ";
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _green);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-3d", _green);
                         _file_io << (const ASCII*)_wrk_buffer << " ";
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _blue);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-3d", _blue);
                         _file_io << (const ASCII*)_wrk_buffer;
                         // 输出完一个Pixel，我们添加一些空格
                         if ((_col + 1) < image_width)
@@ -195,12 +195,12 @@ namespace Core
         const NativeFileSystem::SearchPaths search_dir,
         const Bool                          use_binary_ppm)
     {
-        // 每个Channel所占用的字节数
-        static const UInt8  COLOR_COMPONENT_BYTE_SIZE = 8;
+        // 每个Pixel的Channel数: Red, Green, Glue, Alpha Channels
+        static const UInt8  PIXEL_CHANNEL_COUNT      = 4;
         // 每个Channel所能表示的最大整数值: (1 << 16) - 1: 65535
-        static const UInt32 MAXIMAL_CHANNEL_VALUE     = (1 << 16) -1;
+        static const UInt32 MAXIMAL_CHANNEL_VALUE    = (1 << 16) -1;
         // 工作缓存大小
-        static const UInt32 WORKING_BUFFER_BYTE_SIZE  = 256;
+        static const UInt32 WORKING_BUFFER_BYTE_SIZE = 256;
 
         UTF8 _wrk_buffer[WORKING_BUFFER_BYTE_SIZE];
         // 添加.ppm文件扩展符
@@ -209,7 +209,7 @@ namespace Core
         // 创建WriteOnly文件流
         FileWriteStream _file_io;
         if (NativeFileSystem::openFileWrite(
-            rel_path, search_dir, NativeFileSystem::WRITE_MODES_OVERWRITE, _file_io))
+            _wrk_buffer, search_dir, NativeFileSystem::WRITE_MODES_OVERWRITE, _file_io))
         {
             // 输出Magic number
             if (use_binary_ppm)
@@ -268,9 +268,9 @@ namespace Core
             {
                 for (UInt32 _col = 0; _col < image_width; ++_col)
                 {
-                    const UInt32        _data_offset = (_row*image_width + _col) * COLOR_COMPONENT_BYTE_SIZE;
+                    const UInt32        _data_offset = (_row*image_width + _col)*PIXEL_CHANNEL_COUNT;
                     const UInt16* const _start_addr  = data_ptr + _data_offset;
-                    const Real32        _alpha       = (Real32)_start_addr[3] / MAXIMAL_CHANNEL_VALUE;
+                    const Real32        _alpha       = (Real32)_start_addr[3]/MAXIMAL_CHANNEL_VALUE;
                     UInt16 _red, _green, _blue;
                     if (is_rgba_memory_layout)
                     {
@@ -311,11 +311,11 @@ namespace Core
                     else
                     {
                         // 以字符形式输出
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _red);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-5d", _red);
                         _file_io << (const ASCII*)_wrk_buffer << " ";
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _green);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-5d", _green);
                         _file_io << (const ASCII*)_wrk_buffer << " ";
-                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%d", _blue);
+                        TextHelper::sprintfSafe(_wrk_buffer, sizeof(_wrk_buffer), "%-5d", _blue);
                         _file_io << (const ASCII*)_wrk_buffer;
                         // 输出完一个Pixel，我们添加一些空格
                         if ((_col + 1) < image_width)
