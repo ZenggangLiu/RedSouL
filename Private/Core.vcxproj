@@ -30,6 +30,7 @@
     <ClInclude Include="..\Public\Core\FileSystem\RS_TextFileWriter.hpp" />
     <ClInclude Include="..\Public\Core\Hash\RS_CompiletimeHash.hpp" />
     <ClInclude Include="..\Public\Core\Hash\RS_RuntimeHash.hpp" />
+    <ClInclude Include="..\Public\Core\IO\Image\RS_PPM_IO.hpp" />
     <ClInclude Include="..\Public\Core\Logging\RS_Logging.hpp" />
     <ClInclude Include="..\Public\Core\Mathe\RS_FloatPointFuncs.hpp" />
     <ClInclude Include="..\Public\Core\Mathe\RS_MatheDefs.hpp" />
@@ -64,13 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Public\Core\Profiling\ReadME.txt" />
+    <Text Include="Core\FileSystem\ReadME.txt" />
     <Text Include="Core\Logging\ReadME.txt" />
     <Text Include="Core\Thread\ReadME.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Assert\Microsoft\RS_RuntimeAssert_Wind.cpp" />
     <ClCompile Include="Core\Encoding\RS_XXTEA.cpp" />
+    <ClCompile Include="Core\FileSystem\RS_NativeFileSystem.cpp" />
+    <ClCompile Include="Core\FileSystem\RS_TextFileReader.cpp" />
+    <ClCompile Include="Core\FileSystem\RS_TextFileWriter.cpp" />
     <ClCompile Include="Core\Hash\RS_RuntimeHash.cpp" />
+    <ClCompile Include="Core\IO\Image\RS_PPM_IO.cpp" />
     <ClCompile Include="Core\Logging\RS_ConsoleLogger.cpp" />
     <ClCompile Include="Core\Logging\RS_Logger.cpp" />
     <ClCompile Include="Core\Logging\RS_Logging.cpp" />

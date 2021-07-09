@@ -94,6 +94,18 @@
     <Filter Include="Private\Time">
       <UniqueIdentifier>{e9c8e749-a45b-439a-8da7-25b47b40868d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public\IO">
+      <UniqueIdentifier>{9e082ee0-7509-428e-83a6-3aca683dd81c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\IO\Image">
+      <UniqueIdentifier>{7b17fa9e-0a38-47d3-a6ac-c133e2bcd029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\IO">
+      <UniqueIdentifier>{a060806f-b43e-4322-ae55-8947d2683f8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\IO\Image">
+      <UniqueIdentifier>{c1d87bf1-55ce-446b-948e-249d5fd90a8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Public\Core\Assert\RS_CompiletimeAssert.hpp">
@@ -237,6 +249,9 @@
     <ClInclude Include="Core\Thread\RS_MainDevThread.hpp">
       <Filter>Private\Thread</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\Core\IO\Image\RS_PPM_IO.hpp">
+      <Filter>Public\IO\Image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Public\Core\Logging\Logging.cfg">
@@ -252,6 +267,9 @@
     </Text>
     <Text Include="Core\Thread\ReadME.txt">
       <Filter>Private\Thread</Filter>
+    </Text>
+    <Text Include="Core\FileSystem\ReadME.txt">
+      <Filter>Private\FileSystem</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +353,18 @@
     </ClCompile>
     <ClCompile Include="Core\Memory\Microsoft\RS_MemoryHelper_Wind.cpp">
       <Filter>Private\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\IO\Image\RS_PPM_IO.cpp">
+      <Filter>Private\IO\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\FileSystem\RS_NativeFileSystem.cpp">
+      <Filter>Private\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\FileSystem\RS_TextFileReader.cpp">
+      <Filter>Private\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\FileSystem\RS_TextFileWriter.cpp">
+      <Filter>Private\FileSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
