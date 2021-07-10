@@ -19,6 +19,13 @@
 #define MATHE_FUNCS_CHECKING                1
 // 检查所以在RS_MemoryHelper文件中定义的函数
 #define MEMORY_HELPER_CHECKING              1
+// 检查PPM文件IO
+#define PPM_IO_CHECKING                     1
+// 检查PRN伪随机发生器
+#define PRN_GENERATOR_CHECKING              1
+#if (PRN_GENERATOR_CHECKING == 1)
+#define PRN_GENERATOR_DISTRIBUTION_CHECKING 0
+#endif // #if (PRN_GENERATOR_CHECKING == 1)
 // 检查Profiling
 #define PROFILING_CHECKING                  1
 // 检查StlAllocator
