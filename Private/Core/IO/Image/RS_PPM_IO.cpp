@@ -2,6 +2,7 @@
 #include "PrecompiledH.hpp"
 // System headers
 // Lib headers
+#include "Core/DataOperation/RS_EndiannessHelper.hpp"
 #include "Core/FileSystem/RS_TextFileWriter.hpp"
 #include "Core/FileSystem/RS_NativeFileSystem.hpp"
 #include "Core/String/RS_TextHelper.hpp"
@@ -304,9 +305,11 @@ namespace Core
 
                     if (use_binary_ppm)
                     {
-                        _file_io << _red;
-                        _file_io << _green;
-                        _file_io << _blue;
+                        // NOTE: 二进制RGB16模式，使用Big Endianess方式存储数据
+                        // GIMP也是期待Big Endianess
+                        _file_io << EndianHelper::swapEndian16(_red);
+                        _file_io << EndianHelper::swapEndian16(_green);
+                        _file_io << EndianHelper::swapEndian16(_blue);
                     }
                     else
                     {
