@@ -113,6 +113,10 @@
 		E7897F3E2695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
 		E7897F3F2695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
 		E7897F402695A925001893D8 /* RS_PPM_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */; };
+		E7897F4426990D90001893D8 /* RS_PRN_Generator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E7897F4326990D90001893D8 /* RS_PRN_Generator.hpp */; };
+		E7897F4626990E73001893D8 /* RS_PRN_Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F4526990E73001893D8 /* RS_PRN_Generator.cpp */; };
+		E7897F4726990E73001893D8 /* RS_PRN_Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F4526990E73001893D8 /* RS_PRN_Generator.cpp */; };
+		E7897F4826990E73001893D8 /* RS_PRN_Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7897F4526990E73001893D8 /* RS_PRN_Generator.cpp */; };
 		E79544C725DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C825DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
 		E79544C925DDCE53005D3B41 /* RS_NativeFile_Appl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */; };
@@ -274,6 +278,8 @@
 		E7897F33267F4073001893D8 /* RS_ReaderWriterLock_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RS_ReaderWriterLock_Appl.mm; path = Core/Thread/Apple/RS_ReaderWriterLock_Appl.mm; sourceTree = "<group>"; };
 		E7897F392695A7FD001893D8 /* RS_PPM_IO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_PPM_IO.hpp; path = ../Public/Core/IO/Image/RS_PPM_IO.hpp; sourceTree = "<group>"; };
 		E7897F3D2695A925001893D8 /* RS_PPM_IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_PPM_IO.cpp; path = Core/IO/Image/RS_PPM_IO.cpp; sourceTree = "<group>"; };
+		E7897F4326990D90001893D8 /* RS_PRN_Generator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_PRN_Generator.hpp; path = ../Public/Core/Mathe/RS_PRN_Generator.hpp; sourceTree = "<group>"; };
+		E7897F4526990E73001893D8 /* RS_PRN_Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RS_PRN_Generator.cpp; path = Core/Mathe/RS_PRN_Generator.cpp; sourceTree = "<group>"; };
 		E79544C625DDCE53005D3B41 /* RS_NativeFile_Appl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = RS_NativeFile_Appl.mm; path = Core/FileSystem/Apple/RS_NativeFile_Appl.mm; sourceTree = "<group>"; };
 		E79544CA25DDCF8C005D3B41 /* RS_NativeFile_Appl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_NativeFile_Appl.hpp; path = Core/FileSystem/Apple/RS_NativeFile_Appl.hpp; sourceTree = "<group>"; };
 		E79544CC25DF07C8005D3B41 /* RS_FileStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RS_FileStream.hpp; path = ../Public/Core/FileSystem/RS_FileStream.hpp; sourceTree = "<group>"; };
@@ -708,6 +714,7 @@
 				E795454D2606AAAB005D3B41 /* RS_FloatPointFuncs.hpp */,
 				E795454726041184005D3B41 /* RS_MatheDefs.hpp */,
 				E79545402601F0E3005D3B41 /* RS_MatheFuncs.hpp */,
+				E7897F4326990D90001893D8 /* RS_PRN_Generator.hpp */,
 			);
 			name = Mathe;
 			sourceTree = "<group>";
@@ -717,6 +724,7 @@
 			children = (
 				E79545492606AA97005D3B41 /* RS_FloatPointFuncs.cpp */,
 				E795454326040B64005D3B41 /* RS_MatheFuncs.cpp */,
+				E7897F4526990E73001893D8 /* RS_PRN_Generator.cpp */,
 			);
 			name = Mathe;
 			sourceTree = "<group>";
@@ -841,6 +849,7 @@
 				E72E744F264928E900F4EC96 /* RS_StlAllocator.hpp in Headers */,
 				E7897F242679FB75001893D8 /* RS_ReaderWriterLock.hpp in Headers */,
 				E72E74D4265E5BD400F4EC96 /* RS_Mutex.hpp in Headers */,
+				E7897F4426990D90001893D8 /* RS_PRN_Generator.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +952,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F4726990E73001893D8 /* RS_PRN_Generator.cpp in Sources */,
 				E7897F3F2695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20525C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BD25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
@@ -992,6 +1002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F4626990E73001893D8 /* RS_PRN_Generator.cpp in Sources */,
 				E7897F3E2695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20425C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BC25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
@@ -1041,6 +1052,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7897F4826990E73001893D8 /* RS_PRN_Generator.cpp in Sources */,
 				E7897F402695A925001893D8 /* RS_PPM_IO.cpp in Sources */,
 				E785D20625C25FDF0042292E /* RS_ConsoleLogger.cpp in Sources */,
 				E785D1BE25BEB9BD0042292E /* RS_ThreadHelper_Appl.mm in Sources */,
