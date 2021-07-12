@@ -9,6 +9,11 @@
 namespace Core
 {
 
+    // NOTE:
+    // Pnt3D定义为POD/Aggregate类型：
+    // - NOT constructor, NO copy constructor, NO operator=()
+    // - The default opeartor=() will use memcpy() to do byte by byte data copy
+    //
     struct alignas(16) Pnt3D
     {
         static constexpr UInt32 DIMENSION = 3;
@@ -25,17 +30,19 @@ namespace Core
             Real32 e[DIMENSION];
         };
 
-        // 创建原点
-        Pnt3D ();
+        // 获得给定索引的数值
+        Real32
+        operator[] (
+            const UInt32 idx) const;
 
-        Pnt3D (
-            const Real32 x,
-            const Real32 y,
-            const Real32 z);
+        // 获得给定索引的数值
+        Real32&
+        operator[] (
+            const UInt32 idx);
     };
 
 
     // 原点：< 0, 0, 0 >
-//    constexpr Pnt3D ORIGIN(0, 0, 0);
+    constexpr Pnt3D ORIGIN = Pnt3D{0, 0, 0};
 
 } // namespace Core
