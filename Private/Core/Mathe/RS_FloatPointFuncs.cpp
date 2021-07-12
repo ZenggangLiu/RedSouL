@@ -11,7 +11,7 @@
 namespace Core
 {
 
-    // 参见：Documents/TekDoc/FloatingPointNumber.txt
+    // 参见：Documents/TekDoc/Floating_Point_Number.txt
     //
     UInt16
     FloatPoint::toUInt16 (
