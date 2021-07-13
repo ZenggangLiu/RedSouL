@@ -18,7 +18,6 @@ namespace Core
     struct Mathe
     {
 
-        /* 此次的函数没有进行测试
         // 求给定数值的绝对值
         static
         UInt32
@@ -36,6 +35,37 @@ namespace Core
         absolute (
             const Real64 val);
 
+        // 求给定数值的倒数：1/v
+        static
+        Real32
+        reciprocal (
+           const Real32 val);
+
+        static
+        Real64
+        reciprocal (
+           const Real64 val);
+
+        // 求32位浮点数的方根
+        // 同std::sqrt()相同精度，但是快34%
+        static
+        Real32
+        squaredRoot (
+            const Real32 val);
+
+        // 求32位浮点数的方根：快速版
+        // 比std::sqrt()快71%: Quake 3 的方法
+        static
+        Real32
+        squaredRoot_fast (
+            const Real32 val);
+
+        static
+        Real64
+        squaredRoot (
+            const Real64 val);
+
+        /* 此函数没有进行测试
         // 求ArcCosine
         //
         // @param[in] cos_val
@@ -179,17 +209,6 @@ namespace Core
             const T a,
             const T b);
 
-        // 求给定数值的倒数：1/v
-        static
-        Real32
-        reciprocal (
-           const Real32 val);
-
-        static
-        Real64
-        reciprocal (
-           const Real64 val);
-
         // 求给定弧度的Sine值
         // 最大误差：0.00109060109
         // 平均误差：0.000505
@@ -205,25 +224,6 @@ namespace Core
         Real64
         sine (
             const Real64 angle_in_rads);
-
-        // 求32位浮点数的方根
-        // 同std::sqrt()相同精度，但是快34%
-        static
-        Real32
-        squaredRoot (
-            const Real32 val);
-
-        // 求32位浮点数的方根：快速版
-        // 比std::sqrt()快71%: Quake 3 的方法
-        static
-        Real32
-        squaredRoot_fast (
-            const Real32 val);
-
-        static
-        Real64
-        squaredRoot (
-            const Real64 val);
 
         // 交换A与B
         template < typename T >

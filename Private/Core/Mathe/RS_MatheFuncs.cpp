@@ -10,12 +10,11 @@
 namespace Core
 {
 
-    /* 此次的函数没有进行测试
     UInt32
     Mathe::absolute (
         const SInt32 val)
     {
-        return val > 0 ? val : -val;
+        return val < 0 ? -val : val;
     }
 
 
@@ -24,16 +23,7 @@ namespace Core
         const Real32 val)
     {
 #if 1
-        union FNNumber
-        {
-            Real32 fVal;
-            SInt32 iVal;
-        } _fni_val;
-
-        _fni_val.fVal  = val;
-        _fni_val.iVal &= 0x7FFFFFFF;
-
-        return _fni_val.fVal;
+        return FloatPoint::fromUInt32(FloatPoint::toUInt32(val) & 0x7FFFFFFF);
 #else
         return std::abs(val);
 #endif
@@ -45,22 +35,107 @@ namespace Core
         const Real64 val)
     {
 #if 1
-        union FNNumber
-        {
-            Real64 fVal;
-            SInt64 iVal;
-        } _fni_val;
-
-        _fni_val.fVal  = val;
-        _fni_val.iVal &= 0x7FFFFFFFFFFFFFFFUL;
-
-        return _fni_val.fVal;
+        return FloatPoint::fromUInt64(FloatPoint::toUInt64(val) & 0x7FFFFFFFFFFFFFFFUL);
 #else
         return std::abs(val);
 #endif
     }
 
 
+    Real32
+    Mathe::reciprocal (
+        const Real32 val)
+    {
+        return FloatPoint::equal(val, 0) ? 0 : 1/val;
+    }
+
+
+    Real64
+    Mathe::reciprocal (
+        const Real64 val)
+    {
+        return FloatPoint::equal(val, 0) ? 0 : 1/val;
+    }
+
+
+    Real32
+    Mathe::squaredRoot (
+        const Real32 val)
+    {
+        // 参考：
+        // Babylonian算法 + IEEE 32位浮点数的操控
+        // 同std::sqrt()相同精度，但是快34%
+        // http://www.codeproject.com/Articles/69941/Best-Square-Root-Method-Algorithm-Function-Precisi
+        //
+        union FNNumber
+        {
+            Real32 fval;
+            SInt32 ival;
+        } _fni_val;
+
+        _fni_val.fval = val;
+        _fni_val.ival = (1 << 29) + (_fni_val.ival >> 1) - (1 << 22);
+
+        // Two Babylonian Steps (simplified from:)
+        // u.x = 0.5f * (u.x + x/u.x);
+        // u.x = 0.5f * (u.x + x/u.x);
+        _fni_val.fval = _fni_val.fval + val / _fni_val.fval;
+        _fni_val.fval = 0.25f * _fni_val.fval + val / _fni_val.fval;
+
+        return _fni_val.fval;
+
+        //        Real64
+        //        squaredRoot (
+        //            const Real64 val)
+        //        {
+        //            __asm
+        //            {
+        //                fld val
+        //                fsqrt
+        //            }
+        //        }
+    }
+
+
+    Real32
+    Mathe::squaredRoot_fast (
+        const Real32 val)
+    {
+        const Real32 half_val = 0.5f * val;
+
+        union FNNumber
+        {
+            Real32 fval;
+            SInt32 ival;
+        } _fni_val;
+
+        _fni_val.fval = val;
+        // gives initial guess y0
+        _fni_val.ival = 0x5F3759DF - (_fni_val.ival >> 1);
+
+        // Newton step, repeating increases accuracy
+        return val * _fni_val.fval * (1.5f - half_val * _fni_val.fval * _fni_val.fval);
+
+        //         Real64
+        //         __declspec (naked) __fastcall
+        //         squaredRoot_fast (
+        //             Real64 val)
+        //         {
+        //             _asm fld qword ptr [esp+4]
+        //             _asm fsqrt
+        //             _asm ret 8
+        //         }
+    }
+
+
+    Real64
+    Mathe::squaredRoot (
+        const Real64 val)
+    {
+        return std::sqrt(val);
+    }
+    
+    /* 此函数没有进行测试
     Real32
     Mathe::arccosine (
         const Real32 cos_val)
@@ -196,23 +271,6 @@ namespace Core
     }
 
 
-
-    Real32
-    Mathe::reciprocal (
-        const Real32 val)
-    {
-        return FloatPoint::equals(val, 0) ? 0 : 1/val;
-    }
-
-
-    Real64
-    Mathe::reciprocal (
-        const Real64 val)
-    {
-        return FloatPoint::equals(val, 0) ? 0 : 1/val;
-    }
-
-
     Real32
     Mathe::sine (
         const Real32 angle_in_rads)
@@ -257,84 +315,6 @@ namespace Core
         const Real64 angle_in_rads)
     {
         return std::sin(angle_in_rads);
-    }
-
-
-    Real32
-    Mathe::squaredRoot (
-        const Real32 val)
-    {
-        // 参考：
-        // Babylonian算法 + IEEE 32位浮点数的操控
-        // 同std::sqrt()相同精度，但是快34%
-        // http://www.codeproject.com/Articles/69941/Best-Square-Root-Method-Algorithm-Function-Precisi
-        //
-        union FNNumber
-        {
-            Real32 fval;
-            SInt32 ival;
-        } _fni_val;
-
-        _fni_val.fval = val;
-        _fni_val.ival = (1 << 29) + (_fni_val.ival >> 1) - (1 << 22);
-
-        // Two Babylonian Steps (simplified from:)
-        // u.x = 0.5f * (u.x + x/u.x);
-        // u.x = 0.5f * (u.x + x/u.x);
-        _fni_val.fval = _fni_val.fval + val / _fni_val.fval;
-        _fni_val.fval = 0.25f * _fni_val.fval + val / _fni_val.fval;
-
-        return _fni_val.fval;
-
-//        Real64
-//        squaredRoot (
-//            const Real64 val)
-//        {
-//            __asm
-//            {
-//                fld val
-//                fsqrt
-//            }
-//        }
-    }
-
-
-    Real32
-    Mathe::squaredRoot_fast (
-        const Real32 val)
-    {
-        const Real32 half_val = 0.5f * val;
-
-        union FNNumber
-        {
-            Real32 fval;
-            SInt32 ival;
-        } _fni_val;
-
-        _fni_val.fval = val;
-        // gives initial guess y0
-        _fni_val.ival = 0x5F3759DF - (_fni_val.ival >> 1);
-
-        // Newton step, repeating increases accuracy
-        return val * _fni_val.fval * (1.5f - half_val * _fni_val.fval * _fni_val.fval);
-
-//         Real64
-//         __declspec (naked) __fastcall
-//         squaredRoot_fast (
-//             Real64 val)
-//         {
-//             _asm fld qword ptr [esp+4]
-//             _asm fsqrt
-//             _asm ret 8
-//         }
-    }
-
-
-    Real64
-    Mathe::squaredRoot (
-        const Real64 val)
-    {
-        return std::sqrt(val);
     }*/
 
 } // namespace Core

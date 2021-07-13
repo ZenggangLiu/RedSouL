@@ -167,6 +167,7 @@ namespace Core
             default:
             {
                 RUNTIME_ASSERT(false, "Unknown search path");
+                search_dir_name = nullptr;
                 break;
             }
         }

@@ -47,57 +47,46 @@ namespace Core
     }
 
 
-/* 此次的函数没有进行测试 */
-#if 0
     Bool
-    FloatPoint::equals (
+    FloatPoint::equal (
         const Real32 a,
         const Real32 b,
         const Real32 epsilon /* = (Real32)EPSILON */)
     {
         // 参考：
-        // Real Time Collision Detection书中的11.3.1：Tolerance Comparison for Floating-point Values
+        // Real Time Collision Detection
+        // 11.3.1：Tolerance Comparison for Floating-point Values
         //
-        // we can NOT directly compare two floating point numbers because of the accumulation of
-        // rounding and cancellation errors. So we have to use the following methods:
-        // - 绝对tolerance比较: abs(a - b) <= tolerence.
-        //   这种比较方式需要一定数目digit(a, b中)的匹配，才能够认为他们相等
-        //   但是当a与b越来越大的时候，这种比较几乎相当于比较所有的digits
-        // - 相对tolerance比较:  abs(a/b - 1) <= tolerence, where |a| <= |b|
-        //   这个比较关系可以写为: abs(a - b) <= tolerence * abs(b)
-        //   如果忽略|a| <= |b|的条件，
-        //   我们可以获得：abs(a - b) <= tolerence * max(abs(a), abs(b))
-        //   这个比较公式只在abs(a)以及abs(b)都大于1的情况下成立
-        // 所以:
-        // - 使用绝对比较如果数值小于1
-        // - 使用相对比较如果数值大于1
+        // 我们使用如下方式比较两个浮点数a, b:
+        // 1) 绝对tolerance比较: abs(a - b) <= tolerence
+        //    这种比较方式需要a与b中有一定的digit匹配，才能够认为他们相等。
+        //    但是当a与b越来越大的时候，这种比较几乎相当于比较所有a与b的digits是否相同
+        // 2) 相对tolerance比较:  abs(a/b - 1) <= tolerence, where |a| <= |b|
+        //    这个比较关系可以写为: abs(a - b) <= tolerence * abs(b)
+        //    如果忽略|a| <= |b|的条件：
+        //    + 我们可以获得：abs(a - b) <= tolerence * max(abs(a), abs(b))
+        //      这个比较公式只在abs(a)以及abs(b)都大于1的情况下成立
         //
-        // 最终我们使用:
-        // absolute(a - b) <= tolerence * max(absolute(a), absolute(b), 1)
-        // 如果max(a, b, c)函数不对于一个机器指令
-        // 或者
+        // 所以: absolute(a - b) <= tolerence * max[max(abs(a), abs(b)), 1]
+        // - 当数值小于1的时候，使用绝对比较: abs(a - b) <= tolerence * 1
+        // - 当数值大于1的时候，使用相对比较: abs(a - b) <= tolerence * max(abs(a), abs(b))
+        // NOTE:
+        // 使用如下近似无法实现1: 绝对tolerance比较
         // absolute(a - b) <= tolerence * (absolute(a) + absolute(b) + 1)
         //
-        const Real32 _abs_a_b = Mathe::absolute(a - b);
-        return _abs_a_b <= epsilon * (Mathe::absolute(a) + Mathe::absolute(b) + 1);
+        const Real32 _max_a_b = Mathe::maximum(Mathe::absolute(a), Mathe::absolute(b));
+        return Mathe::absolute(a - b) <= epsilon * Mathe::maximum(_max_a_b, (Real32)1);
     }
 
 
     Bool
-    FloatPoint::equals (
+    FloatPoint::equal (
         const Real64 a,
         const Real64 b,
         const Real64 epsilon /* = EPSILON */)
     {
-        // 参考：
-        // Real Time Collision Detection书中的11.3.1：Tolerance Comparison for Floating-point Values
-        //
-        // 我们使用:
-        // absolute(a - b) <= tolerence * (absolute(a) + absolute(b) + 1)
-        //
-        const Real64 _abs_a_b = Mathe::absolute(a - b);
-
-        return _abs_a_b <= epsilon * (Mathe::absolute(a) + Mathe::absolute(b) + 1);
+        const Real64 _max_a_b = Mathe::maximum(Mathe::absolute(a), Mathe::absolute(b));
+        return Mathe::absolute(a - b) <= epsilon * Mathe::maximum(_max_a_b, (Real64)1);
     }
 
 
@@ -107,7 +96,6 @@ namespace Core
     {
         return Real16{bit_pattern};
     }
-#endif // /* 此次的函数没有进行测试 */ #if 0
 
 
     Real32

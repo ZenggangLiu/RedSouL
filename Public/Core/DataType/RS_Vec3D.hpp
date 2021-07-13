@@ -40,6 +40,10 @@ namespace Core
         operator[] (
             const UInt32 idx);
 
+        // normalize此向量
+        void
+        normalize ();
+
         // 计算此向量的长度
         Real32
         length () const;

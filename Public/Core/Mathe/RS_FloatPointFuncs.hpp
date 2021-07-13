@@ -30,21 +30,20 @@ namespace Core
         toUInt64 (
             const Real64 data);
 
-        /* 此次的函数没有进行测试
         // 检测给定的两个浮点数A,B是否近似相等
         //
         // @param[in] epsilon
         //      容忍程度
         static
         Bool
-        equals (
+        equal (
             const Real32 a,
             const Real32 b,
             const Real32 epsilon = (Real32)EPSILON);
 
         static
         Bool
-        equals (
+        equal (
             const Real64 a,
             const Real64 b,
             const Real64 epsilon = EPSILON);
@@ -53,7 +52,7 @@ namespace Core
         static
         Real16
         fromUInt16 (
-            const UInt16 bit_pattern);*/
+            const UInt16 bit_pattern);
 
         // 使用32Bit Pattern创建一个浮点数
         static
