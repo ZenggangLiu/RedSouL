@@ -10,13 +10,13 @@ namespace Core
 {
 
     // NOTE:
-    // Vec3D定义为POD/Aggregate类型：
+    // Vec4D定义为POD/Aggregate类型：
     // - NOT constructor, NO copy constructor, NO operator=()
     // - The default opeartor=() will use memcpy() to do byte by byte data copy
     //
-    struct alignas(16) Vec3D
+    struct alignas(16) Vec4D
     {
-        static constexpr UInt32 DIMENSION = 3;
+        static constexpr UInt32 DIMENSION = 4;
 
         union
         {
@@ -25,6 +25,7 @@ namespace Core
                 Real32  x;
                 Real32  y;
                 Real32  z;
+                Real32  w;
             };
             Real32      e[DIMENSION];
         };
@@ -54,20 +55,8 @@ namespace Core
 
 
     // 零向量
-    constexpr Vec3D ZERO_3D         = Vec3D{ 0,  0,  0};
+    constexpr Vec4D ZERO_4D     = Vec4D{0,  0,  0, 0};
     // 一向量
-    constexpr Vec3D ONE_3D          = Vec3D{ 1,  1,  1};
-    // 左向量
-    constexpr Vec3D LEFT_3D         = Vec3D{-1,  0,  0};
-    // 右向量
-    constexpr Vec3D RIGHT_3D        = Vec3D{ 1,  0,  0};
-    // 上向量
-    constexpr Vec3D UP_3D           = Vec3D{ 0,  1,  0};
-    // 下向量
-    constexpr Vec3D DOWN_3D         = Vec3D{ 0, -1,  0};
-    // 前向量
-    constexpr Vec3D FORWARD_3D      = Vec3D{ 0,  0,  1};
-    // 后向量
-    constexpr Vec3D BACKWARD_3D     = Vec3D{ 0,  0, -1};
+    constexpr Vec4D ONE_4D      = Vec4D{1,  1,  1, 1};
 
 } // namespace Core

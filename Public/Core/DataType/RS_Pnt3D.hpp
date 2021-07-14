@@ -24,11 +24,11 @@ namespace Core
         {
             struct
             {
-                Real32 x;
-                Real32 y;
-                Real32 z;
+                Real32  x;
+                Real32  y;
+                Real32  z;
             };
-            Real32 e[DIMENSION];
+            Real32      e[DIMENSION];
         };
 
         // 获得给定索引的数值

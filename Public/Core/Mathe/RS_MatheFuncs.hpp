@@ -50,19 +50,19 @@ namespace Core
         // 同std::sqrt()相同精度，但是快34%
         static
         Real32
-        squaredRoot (
+        squared_root (
             const Real32 val);
 
         // 求32位浮点数的方根：快速版
         // 比std::sqrt()快71%: Quake 3 的方法
         static
         Real32
-        squaredRoot_fast (
+        squared_root_fast (
             const Real32 val);
 
         static
         Real64
-        squaredRoot (
+        squared_root (
             const Real64 val);
 
         /* 此函数没有进行测试

@@ -28,14 +28,14 @@ namespace Core
             const Pnt3D p1,
             const Pnt3D p2);
 
-        // 计算Dot product
+        // 计算v1 dot v2
         static
         Real32
         dot (
             const Vec3D v1,
             const Vec3D v2);
 
-        // 计算Cross product
+        // 计算v1 cross v2
         static
         Vec3D
         cross (
@@ -44,7 +44,7 @@ namespace Core
 
         static
         Vec3D
-        normalized(
+        normalized (
             const Vec3D v);
     };
 

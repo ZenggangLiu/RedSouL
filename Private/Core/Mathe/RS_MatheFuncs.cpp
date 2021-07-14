@@ -59,7 +59,7 @@ namespace Core
 
 
     Real32
-    Mathe::squaredRoot (
+    Mathe::squared_root (
         const Real32 val)
     {
         // 参考：
@@ -85,7 +85,7 @@ namespace Core
         return _fni_val.fval;
 
         //        Real64
-        //        squaredRoot (
+        //        squared_root (
         //            const Real64 val)
         //        {
         //            __asm
@@ -98,7 +98,7 @@ namespace Core
 
 
     Real32
-    Mathe::squaredRoot_fast (
+    Mathe::squared_root_fast (
         const Real32 val)
     {
         const Real32 half_val = 0.5f * val;
@@ -118,7 +118,7 @@ namespace Core
 
         //         Real64
         //         __declspec (naked) __fastcall
-        //         squaredRoot_fast (
+        //         squared_root_fast (
         //             Real64 val)
         //         {
         //             _asm fld qword ptr [esp+4]
@@ -129,7 +129,7 @@ namespace Core
 
 
     Real64
-    Mathe::squaredRoot (
+    Mathe::squared_root (
         const Real64 val)
     {
         return std::sqrt(val);
@@ -154,7 +154,7 @@ namespace Core
                res -= 0.2121144f;
                res *= _positive_val;
                res += 1.5707288f;
-               res *= squaredRoot(1 - _positive_val);
+               res *= squared_root(1 - _positive_val);
                res -= 2 * _neg_flag * res;
 
         return _neg_flag * (Real32)ONE_PI + res;
@@ -187,7 +187,7 @@ namespace Core
                res -= 0.2121144f;
                res *= _positive_val;
                res += 1.5707288f;
-               res = (Real32)HALF_PI - squaredRoot(1 - _positive_val) * res;
+               res = (Real32)HALF_PI - squared_root(1 - _positive_val) * res;
 
         return res - 2 * _neg_flag * res;
     }
